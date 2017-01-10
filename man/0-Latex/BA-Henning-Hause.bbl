@@ -1,0 +1,327 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{anyt/global/}
+    \entry{Draper98}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8a649ae68c1603dec27a397ccee1970b}{%
+           family={Draper},
+           familyi={D\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1b18ba500802986ffa0e7b2f90b2a78c}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{1660f4a4c10daad19689ff026f88f780}
+      \strng{fullhash}{1660f4a4c10daad19689ff026f88f780}
+      \strng{authornamehash}{1660f4a4c10daad19689ff026f88f780}
+      \strng{authorfullhash}{1660f4a4c10daad19689ff026f88f780}
+      \field{labelalpha}{DS98}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Applied Linear Regression, 3rd edition}
+      \field{year}{1998}
+    \endentry
+    \entry{Georgii09}{book}{}
+      \name{author}{1}{}{%
+        {{hash=65364ad41efba6572141efa44e27a689}{%
+           family={Georgii},
+           familyi={G\bibinitperiod},
+           given={Hans-Otto},
+           giveni={H\bibinithyphendelim O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {de Gruyter}%
+      }
+      \strng{namehash}{65364ad41efba6572141efa44e27a689}
+      \strng{fullhash}{65364ad41efba6572141efa44e27a689}
+      \strng{authornamehash}{65364ad41efba6572141efa44e27a689}
+      \strng{authorfullhash}{65364ad41efba6572141efa44e27a689}
+      \field{labelalpha}{Geo09}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Stochastik}
+      \field{year}{2009}
+    \endentry
+    \entry{Hansen15}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2ad445b2bb63471855a51794355644d9}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Bruce\bibnamedelima E.},
+           giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Wisconsin}%
+      }
+      \strng{namehash}{2ad445b2bb63471855a51794355644d9}
+      \strng{fullhash}{2ad445b2bb63471855a51794355644d9}
+      \strng{authornamehash}{2ad445b2bb63471855a51794355644d9}
+      \strng{authorfullhash}{2ad445b2bb63471855a51794355644d9}
+      \field{labelalpha}{Han15}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Econometrics}
+      \field{year}{16.1.2015}
+    \endentry
+    \entry{Hsu41}{book}{}
+      \name{author}{1}{}{%
+        {{hash=720efd416d7014598677963737dc4863}{%
+           family={Hsu},
+           familyi={H\bibinitperiod},
+           given={P.L.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annals of Eugenics}%
+      }
+      \strng{namehash}{720efd416d7014598677963737dc4863}
+      \strng{fullhash}{720efd416d7014598677963737dc4863}
+      \strng{authornamehash}{720efd416d7014598677963737dc4863}
+      \strng{authorfullhash}{720efd416d7014598677963737dc4863}
+      \field{labelalpha}{Hsu41}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Canonical reduction of the general regression problem}
+      \field{year}{1941}
+    \endentry
+    \entry{Kriv15}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=8d713106b3d1e20ec2a5c492fb922ee3}{%
+           family={Krivobokova},
+           familyi={K\bibinitperiod},
+           given={Tatyana},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d713106b3d1e20ec2a5c492fb922ee3}
+      \strng{fullhash}{8d713106b3d1e20ec2a5c492fb922ee3}
+      \strng{authornamehash}{8d713106b3d1e20ec2a5c492fb922ee3}
+      \strng{authorfullhash}{8d713106b3d1e20ec2a5c492fb922ee3}
+      \field{labelalpha}{Kri15}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Angewandte Statistik}
+      \field{type}{Skript}
+      \field{year}{SS 2015}
+    \endentry
+    \entry{Liu64}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Taylor}%
+        {Trancis Group, Boca Raton}%
+      }
+      \strng{namehash}{c0e0d23e2d09e45e6f51cc2bcea6d9f9}
+      \strng{fullhash}{c0e0d23e2d09e45e6f51cc2bcea6d9f9}
+      \strng{authornamehash}{c0e0d23e2d09e45e6f51cc2bcea6d9f9}
+      \strng{authorfullhash}{c0e0d23e2d09e45e6f51cc2bcea6d9f9}
+      \field{labelalpha}{Liu64}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simultaneous Inference in Regression}
+      \field{year}{1964}
+    \endentry
+    \entry{Liu08}{book}{}
+      \name{author}{3}{}{%
+        {{hash=3cb35c0c0a5778cada593535feadd516}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=81ff8063dbb0c5be3cdb7906122f78bc}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f261776268c719a6372131f3d4721a39}{%
+           family={Piegorsch},
+           familyi={P\bibinitperiod},
+           given={W.W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {International Statistical Review}%
+      }
+      \strng{namehash}{febed892e846b61e721e051ca0b33394}
+      \strng{fullhash}{febed892e846b61e721e051ca0b33394}
+      \strng{authornamehash}{febed892e846b61e721e051ca0b33394}
+      \strng{authorfullhash}{febed892e846b61e721e051ca0b33394}
+      \field{labelalpha}{LLP08}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Construction of exact simultaneous confidence bands for a simple linear regression model}
+      \field{year}{2008}
+    \endentry
+    \entry{Munk13}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=8616348c4f81fd164ec32a9520d9e3c7}{%
+           family={Munk},
+           familyi={M\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8616348c4f81fd164ec32a9520d9e3c7}
+      \strng{fullhash}{8616348c4f81fd164ec32a9520d9e3c7}
+      \strng{authornamehash}{8616348c4f81fd164ec32a9520d9e3c7}
+      \strng{authorfullhash}{8616348c4f81fd164ec32a9520d9e3c7}
+      \field{labelalpha}{Mun13}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{from a Practical Point of View}
+      \field{title}{Introduction to Mathematical Statistics}
+      \field{type}{Skript}
+      \field{year}{29.10.2013}
+    \endentry
+    \entry{Naiman87}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c444c6e699e0f90fedb6d2da788900c8}{%
+           family={Naiman},
+           familyi={N\bibinitperiod},
+           given={D.Q.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Journal of the American Statistical Association}%
+      }
+      \strng{namehash}{c444c6e699e0f90fedb6d2da788900c8}
+      \strng{fullhash}{c444c6e699e0f90fedb6d2da788900c8}
+      \strng{authornamehash}{c444c6e699e0f90fedb6d2da788900c8}
+      \strng{authorfullhash}{c444c6e699e0f90fedb6d2da788900c8}
+      \field{labelalpha}{Nai87}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simultaneous Confidence Bounds in Multiple Regression Using Predictor Variable Constraints}
+      \field{year}{1987}
+    \endentry
+    \entry{Pinheiro00}{book}{}
+      \name{author}{2}{}{%
+        {{hash=de81937a26bbbe0e0432946f617f3f9c}{%
+           family={Pinheiro},
+           familyi={P\bibinitperiod},
+           given={José\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=aba9984ed65d42d0471db1af971f8518}{%
+           family={Bates},
+           familyi={B\bibinitperiod},
+           given={Douglas\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annals of Eugenics}%
+      }
+      \strng{namehash}{714325fecb56620773ec5c1cc9f2bda7}
+      \strng{fullhash}{714325fecb56620773ec5c1cc9f2bda7}
+      \strng{authornamehash}{714325fecb56620773ec5c1cc9f2bda7}
+      \strng{authorfullhash}{714325fecb56620773ec5c1cc9f2bda7}
+      \field{labelalpha}{PB00}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mixed-Effects Models in S and S-PLUS}
+      \field{year}{2000}
+    \endentry
+    \entry{Wynn71}{book}{}
+      \name{author}{2}{}{%
+        {{hash=26770910f5eef4a60d1f65ca93fa8243}{%
+           family={Wynn},
+           familyi={W\bibinitperiod},
+           given={H.P.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e8f61e462386a68612e74641183c4bcb}{%
+           family={Bloomfield},
+           familyi={B\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Journal of the Royal Statistical Society}%
+      }
+      \strng{namehash}{cc52582abdd778b3499d6d5492d0fa2a}
+      \strng{fullhash}{cc52582abdd778b3499d6d5492d0fa2a}
+      \strng{authornamehash}{cc52582abdd778b3499d6d5492d0fa2a}
+      \strng{authorfullhash}{cc52582abdd778b3499d6d5492d0fa2a}
+      \field{labelalpha}{WB71}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simultaneous confidence bands in regression analysis}
+      \field{year}{1971}
+    \endentry
+    \entry{Rehfeldt10}{article}{}
+      \name{author}{2}{}{%
+        {{hash=31f4b3040e2a65e74022cc80663d58c7}{%
+           family={Zemel},
+           familyi={Z\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d0f15a6106a608ad6c699b5979910a31}{%
+           family={Rehfeldt},
+           familyi={R\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{f874cb069d3993c28785f5cecfdb8ab6}
+      \strng{fullhash}{f874cb069d3993c28785f5cecfdb8ab6}
+      \strng{authornamehash}{f874cb069d3993c28785f5cecfdb8ab6}
+      \strng{authorfullhash}{f874cb069d3993c28785f5cecfdb8ab6}
+      \field{labelalpha}{ZR10}
+      \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Physics}
+      \field{title}{Optimal matrix rigidity for stress-fibre polarization in stem cells}
+      \field{year}{2010}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
