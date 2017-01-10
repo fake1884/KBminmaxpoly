@@ -63,7 +63,6 @@
       <file>biblatex.cfg</file>
       <file>ngerman.lbx</file>
       <file>german.lbx</file>
-      <file>english.lbx</file>
     </requires>
   </internal>
   <external package="biblatex" priority="5" active="0">
@@ -85,7 +84,7 @@
       <file>BA-Henning-Hause.bcf</file>
     </requires>
     <requires type="editable">
-      <file>C:/Users/henning/Documents/R/Bachelorarbeit-Konfidenzbaender/0.0-Latex/literature.bib</file>
+      <file>/literature.bib</file>
     </requires>
   </external>
 </requests>

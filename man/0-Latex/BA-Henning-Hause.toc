@@ -44,8 +44,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{47}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{49}
+\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{53}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{51}

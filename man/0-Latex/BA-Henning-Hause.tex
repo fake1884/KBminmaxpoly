@@ -3,7 +3,7 @@
 % Sprache, Input, etc.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lm}
+\usepackage{lmodern}
 \usepackage{hyphsubst}
 \usepackage[english,ngerman]{babel}
 %\usepackage{eurosym}
@@ -30,12 +30,12 @@
 \usepackage[backend=biber,
 			style=ieee-alphabetic]{biblatex}
 \usepackage[babel,german=guillemets]{csquotes}
-\bibliography{C:/Users/henning/Documents/R/Bachelorarbeit-Konfidenzbaender/0.0-Latex/literature.bib} 
+\bibliography{/literature.bib} 
 
 % Graphiken
 %\usepackage{graphics}
 \usepackage{graphicx}
-\graphicspath{{C:/Users/henning/Documents/R/07-Bachelorarbeit-Konfidenzbaender/1-Simulationen/}{C:/Users/henning/Documents/R/07-Bachelorarbeit-Konfidenzbaender/2-Stammzellen/30kPa/}{C:/Users/henning/Documents/R/07-Bachelorarbeit-Konfidenzbaender/2-Stammzellen/10kPa/}{C:/Users/henning/Documents/R/07-Bachelorarbeit-Konfidenzbaender/2-Stammzellen/Vergleich/}{C:/Users/henning/Documents/R/07-Bachelorarbeit-Konfidenzbaender/5-Beispiele/}}
+\graphicspath{{graphics/Beispiel/}{graphics/Stammzellen-10kPa/}{graphics/Stammzellen-30kPa/}{graphics/Stammzellen-Vergleich/}}
 
 %folgende Pakete werden nur zur schöneren Ausgabe des LaTeX-Quellcodes unten geladen.
 \usepackage{listings}
@@ -2376,7 +2376,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-1
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{vergleich-10vs30-poly5}
+     \includegraphics[width=0.5\textwidth]{Vergleich-10vs30-poly5}
   \caption{Vergleich von Regressionsmodellen}
   \label{fig:9}
 \end{figure}
