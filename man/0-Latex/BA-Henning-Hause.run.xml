@@ -84,7 +84,7 @@
       <file>BA-Henning-Hause.bcf</file>
     </requires>
     <requires type="editable">
-      <file>/literature.bib</file>
+      <file>literature.bib</file>
     </requires>
   </external>
 </requests>

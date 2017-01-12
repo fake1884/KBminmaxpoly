@@ -1,0 +1,5 @@
+[1] Config.pm:318> INFO - This is Biber 1.8
+[2] Config.pm:321> INFO - Logfile is 'BA-Henning-Hause.tex.blg'
+[98] biber:275> INFO - === Di Jan 10, 2017, 13:50:44
+[223] Utils.pm:185> ERROR - Cannot find control file 'BA-Henning-Hause.tex.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[224] Biber.pm:109> INFO - ERRORS: 1
