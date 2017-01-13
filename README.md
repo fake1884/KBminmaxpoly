@@ -17,15 +17,15 @@ While the first and the last step are different for each calculation and therefo
 
 1. Thoug usually the R intern functions lm and gls are used, I wrote this function by hand to see how they work. There also is a fgls function. All this functions can be found in /R/estimation-functions.R.
 2. This functios can be found in /R/crit-par-functions.R There are the following subcases
-* KB.R which calculates the critical constant of a confidence band on the whole of R
-* KB.R.pruef which does the same as above in the case of assesing part of a regression model
-* KB.minmax calculates the critical constant on a rectangular region
-* KB.minmax.poly also calculates the critical constant on a rectangular region, but additionally it is assumed, that there is a polynomial model
-* KB.minmax.poly.fast does the same as above but instead of newton to calculate maxima gridsearch is used. This seemed to increase speed by a factor of five to ten, thoug there was no system.time trial done.
+  * KB.R which calculates the critical constant of a confidence band on the whole of R
+  * KB.R.pruef which does the same as above in the case of assesing part of a regression model
+  * KB.minmax calculates the critical constant on a rectangular region
+  * KB.minmax.poly also calculates the critical constant on a rectangular region, but additionally it is assumed, that there is a polynomial model
+  * KB.minmax.poly.fast does the same as above but instead of newton to calculate maxima gridsearch is used. This seemed to increase speed by a factor of five to ten, thoug there was no system.time trial done.
 3. Furthermore, there are three functions to calculate the confidence bands once the critical constant is calculated. This functios can be found in /R/plot-functions.R
-* plot.KB is the generic function to calculate confidence bands 
-* plot.KB.vergl is a special function if two regerssion models are to be compared (vergl for german vergleichen)
-* plot.KB.pruef is a special function if part of a regression model has to be assesed (pruef for german prüfen)
+  * plot.KB is the generic function to calculate confidence bands 
+  * plot.KB.vergl is a special function if two regerssion models are to be compared (vergl for german vergleichen)
+  * plot.KB.pruef is a special function if part of a regression model has to be assesed (pruef for german prüfen)
 
 The fitht step of giving out the result is usually done in a two step process first there is a function in /R which is one of 
 
