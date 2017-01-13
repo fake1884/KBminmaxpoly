@@ -1,4 +1,4 @@
-# plots all the four confidence bands into one graphic for given data
+# plots all the three confidence bands into one graphic for given data
 
 Plot.estimation.methods = function(data.set, degree, graphicspath){
 

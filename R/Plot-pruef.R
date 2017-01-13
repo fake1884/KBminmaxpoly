@@ -1,4 +1,4 @@
-# Erstellt die Plots für Stammzelldaten für Prüfprobleme
+# Erstellt die Plots für Stammzelldaten für Prüfprobleme (assesing part of a regression model)
 
 Plot.pruef = function(data.set, grad, k, graphicspath){
 

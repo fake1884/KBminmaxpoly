@@ -1,4 +1,3 @@
-
 ##############################
 # Konfidenzband berechnen
 

@@ -1,3 +1,5 @@
+# Diese Funktion erstellt die Plots für den Vergeich von Regressionsmodellen
+
 Plot.poly.KB = function(data.set, degree, graphicspath){
 
   # Parameter, beta und sigma, bestimmen

@@ -1,10 +1,10 @@
 ######################################
 # KB auf R Funktion
 # Diese Funtion bestimmt die kritische Konstante q wie in Kapitel 1.3 angegeben.
-# Dazu brauch sie die Daten data, um die Anzahl an Beobachtungen nobs bestimmen. Man muss ihr ansonsten
-# noch das Konfidenznivea alpha und den Grad des Polynoms grad ?bergeben. Da zur Bestimmung der Werte
-# lower und upper inv.X, beta und sigma gebraucht werden, ?bergebe ich diese auch.
-# R?ckgabewert sind points,lower,upper,factor. Dabei ist factor der kritische Wert
+# Dazu braucht sie die Daten data, um die Anzahl an Beobachtungen nobs zu bestimmen. Man muss ihr ansonsten
+# noch das Konfidenznivea alpha und den Grad des Polynoms grad übergeben. Da zur Bestimmung der Werte
+# lower und upper inv.X, beta und sigma gebraucht werden, übergebe ich diese auch.
+# Rückgabewert sind points,lower,upper,factor. Dabei ist factor der kritische Wert
 KB.R <- function(alpha, data, grad, inv.X){
 
   # bestimmt die Werte f?r die Berechnung von factor
