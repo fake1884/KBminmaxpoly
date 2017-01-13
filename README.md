@@ -31,12 +31,12 @@ The fitht step of giving out the result is usually done in a two step process fi
 
 1. coverage-prob.R
 2. coverage-prob-pruef.R
-3. Plot-degrees.R
-4. Plot-estimation-methods.R
-5. Plot-poly-KB
-6. Plot-pruef
+3. Plot-degrees.R plots polynomial regression models with different degree
+4. Plot-estimation-methods.R plots the three different confidence bands that are generated abvove for a given problem in the same graphic
+5. Plot-poly-KB creates the plots for the comparison of regeression models. In detail degree 4,5,6 are compared to each other resulting in the comparisons per data set
+6. Plot-pruef creates the plots for the assesing problems. For degree five the beta.5 == 0 is assesed and for degree six beta.6 ==0 and beta.6 == beta.5 == 0 are assesed. This again results in three plots per data set.
 
-The first two calculate the coverage probabilty for the different methods and models. The rest creates plots for the stem cell data. What each function exactly does is documented in the respective file.
+The first two calculate the coverage probabilty for the different methods and models. The rest creates plots for the stem cell data. 
 
 For the coverage probability functions there is an R script in /tests that calls the functions above with the right parameters. The same is true for the stem cell data with the difference, that the calling script is in /man.
 
