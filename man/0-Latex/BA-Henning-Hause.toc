@@ -2,15 +2,15 @@
 \defcounter {refsection}{0}\relax 
 \select@language {ngerman}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Regression und Konfidenzb\IeC {\"a}nder}{6}
+\contentsline {section}{\numberline {1}Regression und Konfidenzb\IeC {\"a}nder}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1}Regression}{6}
+\contentsline {subsection}{\numberline {1.1}Regression}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2}Konfidenzb\IeC {\"a}nder}{10}
+\contentsline {subsection}{\numberline {1.2}Konfidenzb\IeC {\"a}nder}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}Konfidenzb\IeC {\"a}nder auf $\mathbb {R}^{n}$ f\IeC {\"u}r ein multiples lineares Regressionsmodell}{11}
+\contentsline {subsection}{\numberline {1.3}Konfidenzb\IeC {\"a}nder auf $\mathbb {R}^{n}$ f\IeC {\"u}r ein multiples lineares Regressionsmodell}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4}Konfidenzb\IeC {\"a}nder auf einem Intervall f\IeC {\"u}r ein einfaches lineares Regressionsmodell}{16}
+\contentsline {subsection}{\numberline {1.4}Konfidenzb\IeC {\"a}nder auf einem Intervall f\IeC {\"u}r ein einfaches lineares Regressionsmodell}{15}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.5}Konfidenzb\IeC {\"a}nder auf einem Intervall f\IeC {\"u}r ein multiples lineares Regressionsmodell}{17}
 \defcounter {refsection}{0}\relax 

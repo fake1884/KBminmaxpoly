@@ -1,4 +1,7 @@
-# führt den Test für die coverage probability aus
+# Testet, ob das wahre Modell ganz im Konfidenzband enthalten ist.
+# Wiederlegt die Nullhypothese, falls die untere Grenze des KB über den wahren Daten oder die obere Grenze des
+# KB unter den wahren Daten liegt.
+# Auch diese Funktion unterscheidet die Modell R, AR-bekannt, AR und die Prüfvarianten
 
 Test.function <- function(ngrid, untere.Grenze, obere.Grenze, model.type){
 

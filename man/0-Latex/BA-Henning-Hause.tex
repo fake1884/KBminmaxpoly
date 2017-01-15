@@ -66,6 +66,9 @@
 \theoremstyle{definition}
 \newtheorem{Simulation}[Definition]{Simulation}
 
+\theoremstyle{definition}
+\newtheorem{Lemma}[Definition]{Lemma}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,7 +254,7 @@ Jun.-Prof. Dr. Andrea Krajina\\
 \emph{Studiengang:}\\
 B. Sc. Mathematik\\
 \emph{Abgabetermin:}\\
-???\\
+11.06.2017\\
 \end{flushleft}
 \end{minipage}
 \end{flushleft}
@@ -318,22 +321,7 @@ Das letzte Kapitel stellt die Daten der Stammzellen, die diese Ausarbeitung moti
 
 Am Ende jedes Abschnittes in den ersten Kapitel folgt auf die dort behandelte Theorie oder Methode ein Beispiel. Dieses Beispiel zieht sich durch die gesamten ersten Kapitel und wird jeweils ergänzt oder modifiziert.
 
-Die beiliegenden R-Codes sind wie folgt, der Ordnerstruktur folgend sortiert:
-
-\begin{itemize}
-\item \textit{1-Simulationen} enthält die Simulationen um die Überdeckungswahrscheinlichkeiten zu bestimmen. Für jede Methode habe ich eine neue Datei angelegt und die Simulationen nach dem Grundmodell R für das homoskedastische, multilineare und AR für das AR(1) Modell
-\item \textit{2-Stammzellen} hat drei Unterordner 10kPa, 30kPa und Vergleich. Die Berechnungen sind in dem jeweiligen Unterordner zu finden
-\item \textit{3-Zeitreihen} für Experimente mit Zeitreihen
-\item \textit{4-myfunctions} enthält die Funktionen, die bei den Berechnungen verwendet werden,  in der Datei \textit{4-myfunctions}. Diese kann man weiter unterteilen:
-\begin{itemize}
-\item Zuerst sind die Funktionen OLS, FGLS und AR(1), die die Parameter schätzen
-\item Danach kommen Hilfsfunktionen und eine F-Test Funktion
-\item Es folgen Funktionen, die den kritischen Parameter $c$ bestimmen
-\item Zum Schluss kommen Funktionen, die das Konfidenzband auf [0,1] bestimmen. Dabei braucht man die drei Werte $c, \hat{\sigma}$ und $(X'X)^{-1}$ beziehungsweise $V$.
-\end{itemize}
-\item \textit{5-Beispiele} enthält die Berechnungen für das Beispiel in der Datei \textit{beispiele.R}.
-\item \textit{6-old-programs} enthält Programme, die in der endgültigen Fassung keine Verwendung finden. 
-\end{itemize}
+Das beiliegenden R-Paket ist in der beiliegenden README Datei beschrieben.
 
 Genauere Beschreibungen zum Code sind in der Arbeit an der Stelle zu finden, an dem der Code verwendet beziehungsweise eingeführt wird. Ansonsten ist der Code durch kommentiert und dürfte gut zu lesen sein.
 
@@ -374,12 +362,14 @@ In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies K
 \label{Regression und Konfidenzbaender}
 Ziel des ersten Kapitels ist es, gleichmäßige Konfidenzbänder für Regressionsmodelle auf einem Intervall zu konstruieren, wobei die Regressionsmodelle Polynomgestalt haben. 
 
-Im ersten Abschnitt dieses Kapitels wird das Grundlegende Konzept der Regression eingeführt. Im darauf aufbauenden Abschnitt über Konfidenzbänder werden Konfidenzbänder definiert. 
+Ein Konfidenzband auf einer Menge $A$ zu bestimmen, meint, dass die unabhängige Variable $x$ aus dieser Menge kommt.
+
+Im ersten Abschnitt dieses Kapitels wird das grundlegende Konzept der Regression eingeführt. Im darauf aufbauenden Abschnitt über Konfidenzbänder werden Konfidenzbänder definiert. 
 
 In den folgenden drei Abschnitten werden konkrete Methoden zum Bestimmen von Konfidenzbändern angegeben. 
-Die einfachste Möglichkeit ist Konfidenzbänder auf $\mathbb{R}^n$ zu konstruieren. Deswegen betrachten wir diese Möglichkeit zuerst.
+Die einfachste Möglichkeit ist Konfidenzbänder auf $\mathbb{R}^p$ zu konstruieren. Deswegen betrachten wir diese Möglichkeit zuerst.
 
-Danach verallgemeinern wir diese Methode auf Konfidenzbänder auf einem Teilabschnitt \gls{A} = $\{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^n$ für $- \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p$. Dabei bezeichnet \gls{x-prime} die Transponierte von $x$ während die Ableitung von $x$ mit $\frac{d}{dx}x$ bezeichnet wird. 
+Danach verallgemeinern wir diese Methode auf Konfidenzbänder auf einem Teilabschnitt \gls{A} = $\{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^p$ für $- \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p$. Dabei bezeichnet \gls{x-prime} die Transponierte von $x$ während die Ableitung von $x$ mit $\frac{d}{dx}x$ bezeichnet wird. 
 
 Man beachte, dass in der Definition von $A$ bereits implizit davon ausgegangen wird, dass $x_0=1$. Deswegen stellt man an $x_0$ keine weiteren Anforderungen.
 
@@ -411,6 +401,8 @@ In dieser Ausarbeitung wird immer ein festes Design verwendet. Beim festen Desig
 
 Da dann $Y$ mittels $f$ von $X$ abhängt, nennt man $Y$ die abhängige Variable und $X$ die unabhängige Variable. 
 
+Andere übliche Bezeichnungen sind Zielvariable für $Y$ und Kovariable oder Einflussgröße für $X$
+
 Weiterhin wird in dieser Ausarbeitung immer ein multiples, lineares Regression benutzt. Das heißt, es liegt die Annahme zugrunde, dass $f(X) = X$ \gls{beta} ist. Dabei sind die $\beta = \beta_{0}, \ldots, \beta_{p}$ unbekannte Konstanten. 
 
 Ein besonderes Modell, dass im Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und dem letzten Kapitel über Datenbeschreibung und Resultate wichtig wird, ist das Polynom-Modell. Bei diesem Modell ist die $l$-te Zeile von $X$ gegeben durch $\tilde{x_l} = (1, x_{l}^1, x_{l}^2, \ldots, x_{l}^3)$.
@@ -434,6 +426,7 @@ Die Parameter $\beta$ und $\sigma^2$ charakterisieren das Modell und werden aus 
 Der folgende Satz gibt ein Möglichkeit Schätzer $\hat{\beta}$ und $\hat{e}$ beziehungsweise $\widehat{\sigma^2}$ konkret zu berechnen.
 
 \begin{Satz}
+\label{erster Satz}
 In einem homoskadistischem, multiple linearen Regressionsmodell sind der ordinary least squares Schätzer (OLS) und der maximum likelihood Schätzer (MLE) für $\hat{\beta}$, $\hat{e}$ und $\widehat{\sigma^2}$ identisch und wie im Folgenden gegeben:
 
 \begin{equation} \label{beta}
@@ -493,19 +486,19 @@ Für die Aussage, dass OLS und ML-Schätzer übereinstimmen siehe \cite[74]{Munk
 %Dabei ist natürlich \gls{beta-hat} ein Schätzer für $\beta$, \gls{e-hat} ein Schätzer für $e$ und \gls{sigma-hat} ein Schätzer für $\sigma^2$.
 
 \begin{Beispiel}
-In diesem einfachen Beispiel werde ich die Daten $Y$ auf die Zeit regressieren. Dabei benutze ich als Modell ein Polynom vom Grad Eins. Das heißt, ich gehe von dem homoskedastischen Modell
+In diesem einfachen Beispiel werden die Daten $Y$ auf die Zeit regressieren. Dabei wird als Modell ein Polynom vom Grad Eins benutzt. Das heißt, es wird von dem homoskedastischen Modell
 
 \begin{equation*}
 Y =  X  \betaone + e 
 \end{equation*}
 
-aus.
+ausgegangen.
 
-Bei diesem Beispiel sind die $Y$-Werte zufällige Zahlen, die ich am Anfang der Datei \textit{beispiele.R} erzeuge. Die Motivation für diese Daten ist einen Wachstumsprozess zu beschreiben.
+Bei diesem Beispiel sind die $Y$-Werte zufällige Zahlen, die am Anfang der Datei \textit{beispiele.R} erzeuge. Die Motivation für diese Daten ist einen Wachstumsprozess zu beschreiben.
 
-Um die Daten zu erzeugen, setze ich zuerst die seed auf \seedexample . Danach erzeuge ich auf dem Intervall [0,1] ein äuqidistantes Gitter $G$ mit \nobs  Punkten. Aus diesen erzeuge ich die Designmatrix auf Grundlage eines polynomiellen Regressionsmodells vom Grad Drei. Das heißt, die $l$-te Zeile von $X$ ist gegeben durch $\tilde{x_l} = (1, x_l, x_l^2, x_l^3)$ für $\tilde{x_l} \in G, l \in \{1, \ldots, \nobs\}$.
+Um die Daten zu erzeugen, setze wird zuerst die seed auf \seedexample gesetzt. Danach wird  auf dem Intervall [0,1] ein äuqidistantes Gitter $G$ mit \nobs  Punkten erzeugt. Aus diesen wird die Designmatrix auf Grundlage eines polynomiellen Regressionsmodells vom Grad Drei erzeugt. Das heißt, die $l$-te Zeile von $X$ ist gegeben durch $\tilde{x_l} = (1, x_l, x_l^2, x_l^3)$ für $\tilde{x_l} \in G, l \in \{1, \ldots, \nobs\}$.
 
-Als nächstes wähle ich $\beta = \betatrue$. Ich erzeuge weiterhin eine Kovarianzmatrix der Form 
+Als nächstes wird $\beta = \betatrue$ gewählt. Weiterhin wird eine Kovarianzmatrix der Form 
 
 \[
 \Upsilon = 
@@ -521,7 +514,7 @@ Als nächstes wähle ich $\beta = \betatrue$. Ich erzeuge weiterhin eine Kovaria
 \right]
 \]
 
-mit $\phi = \phitrue$. Mit dieser Kovarianzmatrix generiere ich $e \sim \mathscr{N}_n(0,\Upsilon)$ und berechne $Y$ nach dem Modell \eqref{Grundmodell_Regression}.
+mit $\phi = \phitrue$ erzeugt. Mit dieser Kovarianzmatrix wird $e \sim \mathscr{N}_n(0,\Upsilon)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
 
 In folgender Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
 
@@ -550,9 +543,9 @@ gelangt und dieses Modell immer noch multiple linear und homoskedastisch ist.
 
 Man kann ohne Einschränkung der Allgemeinheit davon ausgehen, dass die Elemente von $X$ Werte in $[0,1]$ annehmen. Sind die Werte nicht in $[0,1]$ kann man mit $\max(X)$ normieren.
 
-Insgesamt erhält man aus $\tilde{\beta}$ wieder $\beta$ indem man mit $\max(Y$ multipliziert.  
+Insgesamt erhält man aus $\tilde{\beta}$ wieder $\beta$ indem man mit $\max(Y)$ multipliziert.  
 
-Benutze ich die Formeln \eqref{beta} und \eqref{sigma} von oben erhalte ich $\hat{\beta}$=\betaoneest und $\widehat{\sigma^2}$=\sigmaoneest. In folgender Graphik \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
+Benutzt man die Formeln \eqref{beta} und \eqref{sigma} von oben erhält man  $\hat{\beta}$=\betaoneest und $\widehat{\sigma^2}$=\sigmaoneest. In folgender Graphik \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
 
 \begin{figure}[H] 
   \centering
@@ -567,28 +560,42 @@ Benutze ich die Formeln \eqref{beta} und \eqref{sigma} von oben erhalte ich $\ha
 
 \subsection{Konfidenzbänder}
 \label{Konfidenzbaender}
-In diesem Abschnitt definiere ich Konfidenzbänder und erkläre den Unterschied zwischen punktweisen und gleichmäßigen Konfidenzbändern. Die folgende Definition orientiert sich an \cite{Georgii09}.
+In diesem Abschnitt werden Konfidenzbänder definiert und der Unterschied zwischen punktweisen und gleichmäßigen Konfidenzbändern wird erklärt. Die folgende Definition orientiert sich an \cite[229]{Georgii09}.
 
 \begin{Definition}
-Sei $( \chi, \mathscr{F} , \mathbb{P}_\vartheta : \vartheta \in \phi $ ein stochastisches Modell, $\Sigma$ eine beliebige Menge, $\tau : \phi \rightarrow \Sigma $ eine zu ermittelnde Kenngröße für den Parameter, und $0 < \alpha < 1$. 
+Sei $( \chi, \mathscr{F} , \mathbb{P}_\vartheta : \vartheta \in \Theta) $ ein stochastisches Modell, $\Sigma$ eine beliebige Menge, $\tau : \Theta \rightarrow \Sigma $ eine zu ermittelnde Kenngröße für den Parameter, und $0 < \alpha < 1$. Dabei bezeichnet \gls{P(...)} ein Wahrscheinlichkeitsmaß.
 
 Eine Abbildung $C : \chi \rightarrow \mathscr{P}(\Sigma)$, die jedem möglichen Beobachtungsergebnis $x \in \chi$ eine Menge $C(x) \subset \Sigma$ zuordnet, heißt ein Konfidenz- oder Vertrauensbereich für $\tau$ zum Irrtumsniveau \gls{Wkeit} (beziehungsweise Sicherheitsniveau 1 - $\alpha$), wenn
 
 \begin{equation*}
-\inf_{\vartheta \in \phi} \mathbb{P}_{\vartheta}(x \in \chi : C(x) \ni \tau(\vartheta)) \geq 1 - \alpha.
+\inf_{\vartheta \in \Theta} \mathbb{P}_{\vartheta}(x \in \chi : C(x) \ni \tau(\vartheta)) \geq 1 - \alpha.
 \end{equation*}
 
 \end{Definition}
 
-In dieser Ausarbeitung gehe ich immer davon aus, dass $C(x)$ von der Form $C(x) = \{ y \in \mathbb{R}^n :  x'\hat{\beta} - c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \leq y \geq x'\hat{\beta} - c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \}$ ist. Dabei ist $c$ der sogenannte  \gls{kritischer-Wert}.
+In dieser Ausarbeitung wird immer davon ausgegangen, dass $C(x)$ von der Form $C(x) = \{ y \in \mathbb{R}^n :  x'\hat{\beta} - c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \leq y \leq x'\hat{\beta} + c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \}$ ist. Dabei ist $c$ der sogenannte  \gls{kritischer-Wert}.
  
-Abkürzend werde ich schreiben
+Für den Rest der Ausarbeitung wird dies durch
 
 \begin{equation*}
-\mathbb{P}(x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x}) = \alpha
+\mathbb{P}(x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x}) = 1 - \alpha
 \end{equation*} 
 
-Weiterhin unterscheidet man punktweise und gleichmäßige Konfidenzbänder. Für punktweise Konfidenzbänder gilt
+abgekürzt. Eine andere mögliche Schreibweise ist 
+
+\begin{equation*}
+\mathbb{P}(x'\beta \in M_n(x;Y,\alpha)) = x - \alpha
+\end{equation*}
+
+mit 
+
+\begin{equation*}
+M_n(x) = (x'\hat{\beta} -c, x'\hat{\beta} +c) 
+\end{equation*}
+
+und $c$ passend.
+
+Weiterhin unterscheidet man punktweise und gleichmäßige Konfidenzbänder. Für punktweise Konfidenzbänder gilt für alle $x=(x_{1}, \ldots x_{p}) \in \mathbb{R}^{p+1}$
 
 \begin{equation*}
 \mathbb{P}(x'\beta \in x' \hat{\beta} \pm c) = 1-\alpha
@@ -597,12 +604,12 @@ Weiterhin unterscheidet man punktweise und gleichmäßige Konfidenzbänder. Für
 während für gleichmäßige 
 
 \begin{equation*}
-\mathbb{P}(x'\beta \in x' \hat{\beta} \pm c ~ \text{ für alle } x) = 1-\alpha
+\mathbb{P}(x'\beta \in x' \hat{\beta} \pm c ~ \text{ für alle } x \in \mathbb{R}^{p+1}) = 1-\alpha
 \end{equation*}
 
-gilt. Dabei ist $x=(x_{1}, \ldots x_{n})$ der unabhängigen Parameter . Dabei ist $\beta=(\beta_{0}, \ldots, \beta_{p})$ der Koeffizientenvektor, der das Modell festlegt, $\hat{\beta}$ ein Schätzer für $\beta$ und \gls{P(...)} bezeichnet ein Wahrscheinlichkeitsmaß. 
+gilt. Dabei ist $\beta=(\beta_{0}, \ldots, \beta_{p})$ der Koeffizientenvektor, der das Modell festlegt, $\hat{\beta}$ ein Schätzer für $\beta$. 
 
-Ich werde in dieser Ausarbeitung nur gleichmäßige Konfidenzbänder betrachten.
+In dieser Ausarbeitung werden nur gleichmäßige Konfidenzbänder betrachten.
 
 
 
@@ -625,7 +632,7 @@ Ich werde in dieser Ausarbeitung nur gleichmäßige Konfidenzbänder betrachten.
 
 \subsection{Konfidenzbänder auf $\mathbb{R}^{n}$ für ein multiples lineares Regressionsmodell}
 \label{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell}
-In dem verbleibenden Teil dieses Kapitels werden Konfidenzbänder der Form
+Seien  $x,\beta, \hat{\beta}  \in \mathbb{R}^{p+1}$, $X \in \mathbb{R}^{n \times (p+1)}$. In dem verbleibenden Teil dieses Kapitels werden Konfidenzbänder der Form
 
 \begin{equation*} \label{KB_allgemein}
 x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x}
@@ -639,12 +646,12 @@ bestimmt. Dabei wird der kritische Parameter $c$ so gewählt, dass
 
 gilt. Dabei ist $A$ ein Bereich, dem aus bestimmten Gründen besonders interessiert gilt. Mehr zur Wahl von $A$ steht im nächsten Abschnitt. In diesem Abschnitt ist $A = \mathbb{R}^n$.
 
-Wegen des folgenden Resultates benutzten wir diese Form von Konfidenzbändern.
+Wegen des folgenden Resultates aus \cite[66]{Liu64} benutzten wir diese Form von Konfidenzbändern.
 
 \begin{Satz} \label{KB_Eigenschaft}
-Für beliebiges $\beta \in \mathbb{R}$ und $\sigma^2 > 0$ gilt 
+Für beliebiges $\beta \in \mathbb{R}^{p+1}$ und $\sigma > 0$ gilt 
 \begin{equation*}
-\mathbb{P}( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x \in \mathbb{R}^n) = 1 - \alpha
+\mathbb{P}( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x \in \mathbb{R}^p) = 1 - \alpha
 \end{equation*}
 \end{Satz} 
 
@@ -652,7 +659,7 @@ Dabei ist \gls{f} das $\alpha$-Quantil der F-Verteilung mit Parametern $p+1$ und
 
 Um den Satz \ref{KB_Eigenschaft} beweisen zu können, brauchen wir die folgenden Resultate:
 
-\begin{Satz} \label{Basiseigenschaft}
+\begin{Lemma} \label{Basiseigenschaft}
 Es ist
 \begin{eqnarray*}
 &&\mathbb{P}( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1} x} ~ \text{ für alle } x \in A ) \\
@@ -662,10 +669,10 @@ Es ist
 mit 
 
 \begin{equation*}
-\frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  =:  \gls{S}
+\sup_{a<x<b} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  =:  \gls{S}
 \end{equation*}
 
-\end{Satz}
+\end{Lemma}
 
 \begin{proof}
 \begin{eqnarray*}
@@ -680,7 +687,8 @@ mit
 Es geht in den folgenden Abschnitten immer darum, die Verteilung von $S$ zu bestimmen. Um diese Verteilung auf ganz $\mathbb{R}^n$ zu bestimmen, wird das folgende Ergebnis benutzt, welches sich an \cite[6]{Liu64} orientiert. 
 
 \begin{Satz} \label{Basiseigenschaften}
-Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt
+Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt nach Satz \ref{erster Satz} 
+
 \begin{enumerate}
 \item $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$. Dabei ist $\mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$ die ($p$+1)-dimensionale Normalverteilung mit Erwartungswert $\beta$ und Kovarianzmatrix $\sigma^2 (X'X)^{-1}$.
 \item $\hat{e} \sim \mathscr{N}_n(0,\sigma^2(I-H)) $ mit  \gls{H} $=X(X'X)^{-1}X' $
@@ -849,7 +857,7 @@ Dieser Abschnitt orientiert sich an \cite[17-23]{Liu64} und \cite{Liu08} und \ci
 Für den Fall, dass wir nur einen unabhängige Variable $x_1$ haben vereinfacht sich das Konfidenzband \ref{KB_allgemein} zu
 
 \begin{equation}\label{simple_KB}
-\mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)}  \text{ für alle } x \in (a,b) )
+\mathbb{P}(\beta_0 + \beta_1 x_1 \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x_1)}  \text{ für alle } x \in (a,b) )
 \end{equation}
 
 Dabei und für diesen Abschnitt gelten die folgenden Definitionen
@@ -867,22 +875,22 @@ A &=&(a,b)
 Aus \cite[19-20]{Liu64} hat man folgende Ergebnisse
 
 \begin{eqnarray*}
-\mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)  \text{ für alle } x \in (a,b) } \\
+\mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)}  \text{ für alle } x \in (a,b)  \\
 = \mathbb{P} (\sup_{x \in (a,b)} \vert (1,x) ( \hat{\beta} - \beta ) / \hat{\sigma} \vert / \sqrt{\nu(1,x)} < c) \\
-= \mathbb{P} (\sup_{x \in (a,b)} \vert (P(1,x)'T \vert / \Vert P (1,x)' \Vert < c) \\
+= \mathbb{P} (\sup_{x \in (a,b)} \vert (P \cdot (1,x)')' \cdot T \vert / \Vert P \cdot (1,x)' \Vert < c) \\
 = \mathbb{P} (T \in R_{h,2})
 \end{eqnarray*}
 
 dabei ist
 
 \begin{equation*}
-R_{h,2}(x) = ( T : \vert (P (1,x)' )' T \vert / \Vert P (1,x) \Vert < c)
+R_{h,2}(x) = ( T : \vert (P \cdot (1,x)' )' \cdot T \vert / \Vert P \cdot (1,x)' \Vert < c)
 \end{equation*}
 
-ein Region von der Form $(T : \vert v'T \vert / \Vert v \Vert < r) \subset \mathbb{R}^2$. Deswegen kann man den Winkel $\phi$ zwischen den Vektoren $P(1,a)'$ und $P(1,b)'$ mittels
+ein Region von der Form $(T : \vert v'T \vert / \Vert v \Vert < r) \subset \mathbb{R}^2$. Deswegen kann man den Winkel $\phi$ zwischen den Vektoren $P \cdot (1,a)'$ und $P \cdot (1,b)'$ mittels
 
 \begin{eqnarray*}
-\cos \phi &=& (P(1,a)')' (P(1,b)') / \Vert P(1,a)' \Vert \Vert P(1,b)' \Vert \\
+\cos \phi &=& (P \cdot (1,a)')' (P \cdot (1,b)') / \Vert P \cdot (1,a)' \Vert \Vert P \cdot (1,b)' \Vert \\
 &=& (1,a) (X'X)^{-1} (1,b)' / \sqrt{\nu(1,a) \nu(1,b)} 
 \end{eqnarray*}
 
@@ -901,13 +909,13 @@ berechnen. Jetzt folgt mit \cite{Wynn71}, dass gilt
 
 \begin{eqnarray*}
 \mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)} \text{ für alle } x \in (a,b) ) \\
-= 1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\phi + \phi/2)} \biggr)^{-v/2} \text{d} \phi
+= 1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\theta + \phi/2)} \biggr)^{-v/2} \text{d} \theta
 \end{eqnarray*}
 
 Man muss also 
 
 \begin{equation*}
-1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\phi + \phi/2)} \biggr)^{-v/2} \text{d} \phi = 1 - \alpha
+1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\theta + \phi/2)} \biggr)^{-v/2} \text{d} \theta = 1 - \alpha
 \end{equation*}
 
 nach $c$ lösen und kann dann das Konfidenzband \eqref{simple_KB} berechnen. Diese Berechnung wird hier nicht durchgeführt.
@@ -918,15 +926,15 @@ nach $c$ lösen und kann dann das Konfidenzband \eqref{simple_KB} berechnen. Die
 
 \subsection{Konfidenzbänder auf einem Intervall für ein multiples lineares Regressionsmodell}
 \label{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}
-Im Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} wurden Konfidenzbänder auf ganz $\mathbb{R}^n$ konstruiert. Allerdings kann es bei der Verwendung einiger unabhängigen Variablen nicht sinnvoll sein, das Konfidenzband auf ganz $\mathbb{R}^{n}$ zu konstruieren. Ist die unabhängige Variable zum Beispiel ein Gewicht, reicht es, ein Konfidenzband auf $\mathbb{R}_{+}^{n}$ zu konstruieren. Schließlich sind Gewichte immer positiv.
+Im Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} wurden Konfidenzbänder auf ganz $\mathbb{R}^p$ konstruiert. Allerdings kann es bei der Verwendung einiger unabhängigen Variablen nicht sinnvoll sein, das Konfidenzband auf ganz $\mathbb{R}^{p}$ zu konstruieren. Ist die unabhängige Variable zum Beispiel ein Gewicht, reicht es, ein Konfidenzband auf $\mathbb{R}_{+}^{p}$ zu konstruieren. Schließlich sind Gewichte immer positiv.
 
 Nachfolgend wird das uns interessierende Gebiet mit $A$ bezeichnet. Dabei ist 
 
 \begin{equation*}
-A = \{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^n \text{ für } - \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p
+A = \{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^p \text{ für } - \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p
 \end{equation*}
 
-Eine Möglichkeit, ein Konfidenzband auf $A$ zu bestimmen, ist, ein Konfidenzband auf ganz $\mathbb{R}^n$ zu konstruieren und dann den Teil auf $\mathbb{R}^{n} \setminus A$ zu vernachlässigen.
+Eine Möglichkeit, ein Konfidenzband auf $A$ zu bestimmen, ist, ein Konfidenzband auf ganz $\mathbb{R}^p$ zu konstruieren und dann den Teil auf $\mathbb{R}^{p} \setminus A$ zu vernachlässigen.
 
 Da dann die Bedingung $\mathbb{P}(x'\beta \in x' \hat{\beta} \pm c ~ \text{ für alle } x) = 1-\alpha$ für mehr $x$-Werte als nötig erfüllt sein muss, ist das Konfidenzband dann weiter, als es müsste.
 
@@ -954,11 +962,20 @@ Da $S$ nicht von $\beta$ und $\sigma^2$ abhängt, ist es in dieser Hinsicht ein 
 
 Allerdings hängt es immer noch in komplizierter Art und Weise von der Designmatrix $X$ und den Grenzen $a_i$ und $b_i$ von $A$ für $i=1, \ldots, p$ ab. Dies macht $S$ allgemein sehr schwer zu berechnen.
 
-Seien $P$ und $N$ definiert wie im Beweis zu Satz \ref{KB_Eigenschaft}. Das heißt, $P^2 = (X'X)^{-1}$ und $N=\frac{P^{-1}(\hat{\beta}-\beta)}{\sigma}$.
+Seien $P$ und $N$ definiert wie im Beweis zu Satz \ref{KB_Eigenschaft}. Das heißt, 
 
-Dann hat $T=N/(\hat{\sigma} /\sigma)=\frac{P^{-1}(\hat{\beta}-\beta)}{\hat{\sigma}}$ eine so genannte \gls{Tau} Verteilung. 
+\begin{eqnarray*}
+P^2 &=& (X'X)^{-1} \\
+N &=& \frac{P^{-1}(\hat{\beta}-\beta)}{\sigma}
+\end{eqnarray*}
 
-Damit kann man $S$ ausdrücken als
+Dann hat 
+
+\begin{equation*}
+T = \frac{N}{(\hat{\sigma} /\sigma)} = \frac{P^{-1}(\hat{\beta}-\beta)}{\hat{\sigma}}
+\end{equation*}
+
+eine so genannte \gls{Tau} Verteilung. Damit kann man $S$ ausdrücken als
 
 \begin{eqnarray*}
 S &=& \sup_{x \in A} \frac{\vert(Px)'(P^{-1} (\hat{\beta}-\beta)) / \hat{\sigma} \vert}{\sqrt{(Px)'(Px)}}\\
@@ -975,7 +992,7 @@ C(P,A) &=& \{ \lambda P x : \lambda \geq 0, x \in A \} \\
 
 wobei $P=(p_0, \ldots, p_p)$. 
 
-Allerdings ist es für ein allgemeines $p>1$ sehr schwierig, die Verteilung von $S$ explizit zu bestimmen. Deswegen wird eine Simulation benutzt.
+Allerdings ist es für ein allgemeines $p \leq 1$ sehr schwierig, eine genaue Formel für die Verteilung von $S$ explizit zu bestimmen, um die kritische Konstante $c$ zu bestimmen \cite[S.70, Z.18]{Liu64}. Deswegen wird eine Simulation benutzt.
 
 Man beachte, dass $C(P,A)$ der Kegel ist, der von den Vektoren $p_0+c_1 p_1 + \ldots + c_p p_p $ aufgespannt wird, wobei $c_i$ entweder $a_i$ oder $b_i$ für $i=1,\ldots,p$ ist. 
 
@@ -1089,7 +1106,7 @@ Betrachten wir nun wieder das Regressionsmodell
 Y=X\beta+e
 \end{equation*}
 
-mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times p$ Koeffizientenvektor und $e \sim \mathscr{N}_n (0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
+mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_n (0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
 
 Weiterhin lag in den bisherigen Abschnitten die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. Diese Annahme nennt man festes Design.
 
@@ -1107,14 +1124,20 @@ x' \beta \in x' \hat{\beta} \pm c \hat{\sigma} \sqrt{x'(X'X)^{-1}x} ~ \text{ fü
 
 aus den in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} genannten Gründen zu  finden. 
 
-Dabei ist die kritische Konstante $c$ wieder so zu bestimmen, dass $\mathbb{P}(x' \hat{\beta} \pm c \hat{\sigma} \sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x \in A) = 1 - \alpha$ gilt. 
+Dabei ist die kritische Konstante $c$ wieder so zu bestimmen, dass
+
+\begin{equation*}
+\mathbb{P}(x' \beta \in x' \hat{\beta} \pm c \hat{\sigma} \sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x \in A) = 1 - \alpha
+\end{equation*}
+
+gilt. 
 
 Es können allerdings nicht direkt die Ergebnisse aus dem letzten Abschnitt benutzen werden. Dies liegt daran, dass es  folgende ungünstige Eigenschaften, die \cite[180]{Liu64} entnommen sind, gibt: 
 
 \begin{enumerate}
-\item Angenommen, man versucht die Parameter des Modells $Y=X\beta+e$ zu schätzen, um Konfidenzbänder auf ganz $\mathbb{R}^n$ zu konstruieren. 
+\item Angenommen, man versucht die Parameter des Modells $Y=X\beta+e$ zu schätzen, um Konfidenzbänder auf ganz $\mathbb{R}^p$ zu konstruieren. 
 
-Dabei sei $e \sim \mathscr{N}_0,\sigma^2 I)$ mit bekanntem $\sigma$. Das heißt, es ist nur $\beta$ zu Schätzen.
+Dabei sei $e \sim \mathscr{N}_n(0,\sigma^2 I_n)$ mit bekanntem $\sigma^2$. Das heißt, es ist nur $\beta$ zu Schätzen.
 
 Die beiden Schätzer für $\beta$ seien $\hat{\beta_1}$ und $\hat{\beta_2}$. 
 
@@ -1129,7 +1152,13 @@ Zu erwarten ist, dass das erste Modell sinnvoll ist, wenn auch das zweite sinnvo
 
 Dies ist allerdings für die bisher betrachteten Konfidenzbänder nicht der Fall, da die bisher betrachteten Verfahren die spezielle polynomiale Struktur nicht berücksichtigen. 
 
-\item Die kritische Konstante $c$ kann kleiner als im letzten Abschnitt gewählt werden. Dies liegt daran, dass das Konfidenzband nur auf einer Teilmenge $\{ \tilde{x} \text{ mit } \tilde{x}=(1,x,\ldots,x^p) \text{ für ein } x \in \mathbb{R}\} \subset \mathbb{R}^{p+1}$ die Wahrscheinlichkeit $1-\alpha$ haben muss.
+\item Die kritische Konstante $c$ kann kleiner als im letzten Abschnitt gewählt werden. Dies liegt daran, dass das Konfidenzband nur auf einer Teilmenge 
+
+\begin{equation*}
+\{ \tilde{x} \text{ mit } \tilde{x}=(1,x,\ldots,x^p) \text{ für ein } x \in \mathbb{R}\} \subset \mathbb{R}^{p+1}
+\end{equation*}
+
+die Wahrscheinlichkeit $1-\alpha$ haben muss.
 \end{enumerate}
 
 Als Lösung wird in diesem Abschnitt eine Methode, die auf Simulation basiert. Das Vorgehen ist also ähnlich zu dem Vorgehen in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}. Diese Methode orientiert sich an \cite[183,184]{Liu64}.
