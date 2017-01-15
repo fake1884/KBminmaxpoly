@@ -20,32 +20,32 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}F-Test}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Vergleich von Regressionsmodellen mit Konfidenzb\IeC {\"a}ndern}{28}
+\contentsline {subsection}{\numberline {2.2}Vergleich von Regressionsmodellen mit Konfidenzb\IeC {\"a}ndern}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{31}
+\contentsline {section}{\numberline {3}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}F-Fest}{31}
+\contentsline {subsection}{\numberline {3.1}F-Fest}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Teil eines Regressionsmodells auf einem Intervall \IeC {\"u}berpr\IeC {\"u}fen}{32}
+\contentsline {subsection}{\numberline {3.2}Teil eines Regressionsmodells auf einem Intervall \IeC {\"u}berpr\IeC {\"u}fen}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen, wenn das Modell Polynomgestalt hat}{33}
+\contentsline {subsection}{\numberline {3.3}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen, wenn das Modell Polynomgestalt hat}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Regression und Konfidenzb\IeC {\"a}nder f\IeC {\"u}r abh\IeC {\"a}ngige Daten}{35}
+\contentsline {section}{\numberline {4}Regression und Konfidenzb\IeC {\"a}nder f\IeC {\"u}r abh\IeC {\"a}ngige Daten}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Regression f\IeC {\"u}r AR(1)}{35}
+\contentsline {subsection}{\numberline {4.1}Regression f\IeC {\"u}r AR(1)}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{38}
+\contentsline {subsection}{\numberline {4.2}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{41}
+\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{41}
+\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{43}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{44}
+\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{45}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{47}
+\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{51}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{52}

@@ -111,6 +111,9 @@
 % Parameter für den vergleich
 \newcommand{\TestWert}{14.0476}% Wert der Teststatistik
 \newcommand{\kritWert}{2.574035}%Quntil beim Test
+\newcommand{\EntscheidungHypothesen}{verwirft man}
+\newcommand{\Modellesind}{verschieden}
+
 \newcommand{\cVergl}{3.546543}
 
 %%%
@@ -1172,29 +1175,29 @@ S &=& \sup_{a<x<b} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma} \vert
 &=& K_{2h}(T,(X'X)^{-1},(a,b))
 \end{eqnarray*}
 
-Man beachte, dass in diesem Fall $A=[a,b]$ gilt. Dies liegt daran, dass $\tilde{x} = (1, x, x^2, \ldots, x^p)$ ist.
+Man beachte, dass in diesem Fall $A=[a,b]$ mit $a,b \in \mathbb{R}$ gilt. Dies liegt daran, dass $\tilde{x} = (1, x, x^2, \ldots, x^p)$ ist.
 
 In den obigen Umformungen wurden die Definitionen $ N=(\hat{\beta}-\beta)/\sigma \sim \mathscr{N}_{p+1
 } (0,(X'X)^{-1}) $ , \gls{T}=$N/(\hat{\sigma}/\sigma)\sim\tau_{p+1,v}(0,(X'X)^{-1}) $ und für \gls{K}
 
 \begin{equation*}
-K_{2h}(T,(X'X)^{-1},(a,b) = \sup_{a<x<b} \frac{|\tilde{x}'T/(\hat{\sigma}/\sigma)|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
+K_{2h}(T,(X'X)^{-1},(a,b) = \sup_{a<x<b} \frac{|\tilde{x}'T|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
 benutzt.
 
-Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $K_{2h}(T,(X'X)^{-1},(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T,(X'X)^{-1},(a,b))$ nur schwer zu bestimmen.
+Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $S = K_{2h}(T,(X'X)^{-1},(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T,(X'X)^{-1},(a,b))$ nur schwer explizit zu bestimmen.
 
 Um $c$ trotzdem zu ermitteln, kann man $r$ unabhängige Realisationen von $S$ berechnen und von diesen $S_1, \ldots, S_q$ das $1-\alpha$ Quantil benutzen.
 
 Um $S$ für vorgegebenes $N$ und $\hat{\sigma}/\sigma$ zu bestimmen, muss man $K_{2h}(T,(X'X)^{-1},(a,b))$ mit $T=N/(\hat{\sigma}/\sigma)$ berechnen. 
 
-Um  $K_{2h}(T,(X'X)^{-1},(a,b))$ zu berechnen kann man folgendes Verfahren aus \cite[Appendix E]{Liu64}  benutzen.
+Um  $K_{2h}(T,(X'X)^{-1},(a,b))$ zu berechnen, kann man folgendes Verfahren aus \cite[Appendix E]{Liu64}  benutzen.
 
-Wie gezeigt, ist $K_{2h}(T,(X'X)^{-1},(a,b))$ definiert durch
+Wie gesagt, ist $K_{2h}(T,(X'X)^{-1},(a,b))$ definiert durch
 
 \begin{equation*}
-K_{2h}(T,(X'X)^{-1},(a,b)) = \sup_{a<x<b} \frac{\vert \tilde{x}' t \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
+K_{2h}(t,(X'X)^{-1},(a,b)) = \sup_{a<x<b} \frac{\vert \tilde{x}' t \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
 wobei $t$ ein gegebener $(p+1)$-Vektor, $(X'X)^{-1}$ eine nicht-singuläre Matrix, $A$ ein gegebenes Intervall und \gls{X-Tilde} $= (1, x, \ldots, x^p)')$ ist. 
@@ -1292,15 +1295,22 @@ Poly 	& \UeberRMinmaxPoly & \UeberARMinmaxPoly \\
 \label{Vergleich von zwei Regressionsmodellen}
 Da das Ziel dieser Arbeit der Vergleich von Regressionsmodellen ist, wird in diesem Kapitel gezeigt, wie man Regressionsmodelle vergleicht. 
 
-Seien also zwei Regressionsmodelle $ Y_{i} = X_{i} \beta_{i} + e_{i} $ \label{Grundmodell_Hypothesentest} mit $i = 1,2$ gegeben. 
+Es seien also, ähnlich wie in \cite[113]{Liu64} und \cite[178]{Liu64}, zwei Regressionsmodelle 
+
+\begin{equation}
+\label{Grundmodell_Hypothesentest}
+Y_{i} = X_{i} \beta_{i} + e_{i}
+\end{equation}
+
+mit $i = 1,2$ gegeben. 
 
 Dabei ist $Y_{i} = (Y_{i,1}, \ldots, Y_{i,n_i})$ ein für $i=1,2$ ein Vektor aus zufälligen Beobachtungen der die abhängigen Daten darstellt.
 
-Weiterhin sei $X_i$ für $i=1,2$ eine $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei ist die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots \min(n_1,n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen das selbe, feste Design haben.
+Weiterhin sei $X_i$ für $i=1,2$ eine $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei ist die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots, \min(n_1, n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen für $j=1, \ldots, \min(n_1, n_2)$ das selbe, feste Design haben.
 
 Außerdem sind $\beta_i$ zwei $(p+1) \times 1$ Koeffizientenvektoren, die den funktionalen Zusammenhang zwischen $Y_i$ und $X_i$ darstellen.
 
-In diesem Kapitel ist $e_i \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Diese Annahme ist wichtig, da sich die Modelle somit nur in $\beta_i$ unterscheiden.
+In diesem Kapitel ist $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Diese Annahme ist wichtig, da sich die Modelle somit nur in $\beta_i$ unterscheiden.
 
 Die zugrunde liegenden Modelle sind also gleich, wenn $\beta_{1}=\beta_{2}$ 
 
@@ -1347,49 +1357,53 @@ In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Dat
 
 \subsection{F-Test}
 \label{Vergleich F-Test}
-Dieser Abschnitt beruht auf \cite[114-115]{Liu64} und \cite{Draper98}
+Dieser Abschnitt beruht auf \cite[9-15]{Liu64} ,\cite[114-115]{Liu64} und \cite{Draper98}.
 
-Ich betrachte erst einmal den Test
+Zuerst betrachten wir den Test, zu prüfen, ob der Regressionskoeffizient $\beta$ eine lineare Einschränkung $Z \beta = d$ erfüllt. Dabei ist $Z$ eine gegebene $r \times (p+1)$ Matrix mit vollem Zeilenrank $r$ mit $1 \leq r \leq p+1$ und $d$ ist ein vorgegebener Vektor in $\mathbb{R}^r$. Wir wollen testen, ob
 
 \begin{equation}
-H_{0} : A\beta = b  \textbf{ vs. }  H_{a} : A\beta \neq b \label{Einschränkung_Hypothese}
+H_{0} : Z \beta = d  \textbf{ vs. }  H_{a} : Z \beta \neq d \label{Einschränkung_Hypothese}
 \end{equation}
 
-Also ob der Parameter in einem gegebenen Regressionsmodell eine lineare Einschränkung erfüllt.
+Von Interesse ist, ob der Parameter in einem gegebenen Regressionsmodell eine lineare Einschränkung erfüllt.
 
-Dazu brauchen ich zuerst den OLS-Schätzer $\hat{\beta}_A$ unter der Bedingung, dass $A \beta = b$. Das heißt $\hat{\beta}_A$ minimiert
+Dazu wird zuerst der OLS-Schätzer $\hat{\beta}_Z$ unter der Bedingung, dass $Z \beta = d$ benötigt. Das heißt, $\hat{\beta}_Z$ minimiert
 
 \begin{align*}
 L(\beta) = (Y-X\beta)'(Y-X\beta) = \Vert Y - X \beta \Vert^2
 \end{align*}
 
-über alle $\beta \in \mathbb{R}^{p+1}$, die die Bedingung $A\beta = b$ erfüllen. Man kann $\hat{\beta}_A$ mittels Lagrange-Multiplikatoren finden. 
+über alle $\beta \in \mathbb{R}^{p+1}$, die die Bedingung $Z \beta = d$ erfüllen. Man kann $\hat{\beta}_Z$ mittels Lagrange-Multiplikatoren finden. 
 
-Betrachte dazu folgenden Satz.
+Betrachtet wird dazu dazu nachfolgender Satz.
 
 \begin{Satz}
-Unter den oben genannten Bedingungen ist der OLS-Schätzer $\hat{\beta}_A$ gegeben durch 
-\[
-\hat{\beta}_A=(X'X)^{-1}(X'Y+A'c)= \hat{\beta}+(X'X)^{-1}A'c
-\]
- mit $c=(A(X'X)^{-1}A')^{-1}(b-A\hat{\beta})$
+Unter den oben genannten Bedingungen ist der OLS-Schätzer $\hat{\beta}_Z$ gegeben durch 
+
+\begin{equation*}
+\hat{\beta}_Z=(X'X)^{-1}(X'Y+Z'f)= \hat{\beta}+(X'X)^{-1}Z'f
+\end{equation*}
+
+mit $f=(Z(X'X)^{-1}Z')^{-1}(d-Z\hat{\beta})$
 \end{Satz}
 
 \begin{proof}
 \cite[13]{Liu64}
 \end{proof}
 
-Bedeutung hat im weiteren der folgende Satz
+Bedeutung hat im Weiteren der folgende Satz:
 
 \begin{Satz}
 Unter den oben genannten Bedingungen gilt
 \begin{enumerate}
-\item $\Vert X \hat{\beta} - X\hat{\beta}_A \Vert^2  \sim \sigma^2 \chi_r^2(\delta)$ mit nicht zentralem Parameter 
+\item $\Vert X \hat{\beta} - X\hat{\beta}_Z \Vert^2  \sim \sigma^2 \chi_r^2(\delta)$ mit nicht zentralem Parameter 
 
-$\delta = \Vert X \beta - X E(\hat{\beta}_A \Vert^2 / \sigma^2 = (\beta - E(\hat{\beta}_A))' X'X (\beta - E(\hat{\beta}_A)) / \sigma^2$
-\item $\Vert Y - X \hat{\beta}_A \Vert^2  \sim \sigma^2 \chi_{n-(p+1)+r}^2(\delta)$ mit $\delta$ wie in 1.
-\item $\Vert X \hat{\beta} - X\hat{\beta}_A \Vert^2$ und $\Vert Y - X \hat{\beta}_A \Vert^2$ sind unabhängig
-\item $ \frac{\Vert X \hat{\beta}_A - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} \sim f_{p+1,n-p-1}$
+$\delta = \Vert X \beta - X E(\hat{\beta}_Z) \Vert^2 / \sigma^2 = (\beta - E(\hat{\beta}_Z))' X'X (\beta - E(\hat{\beta}_Z)) / \sigma^2$
+\item $\Vert Y - X \hat{\beta}_Z \Vert^2  \sim \sigma^2 \chi_{n-(p+1)+r}^2(\delta)$ mit $\delta$ wie in 1.
+\item $\Vert X \hat{\beta} - X\hat{\beta}_Z \Vert^2$ und $\Vert Y - X \hat{\beta}_Z \Vert^2$ sind unabhängig.
+\item \begin{equation*}
+\frac{\Vert X \hat{\beta}_Z - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} \sim f_{p+1,n-p-1}
+\end{equation*}
 \end{enumerate}
 \end{Satz}
 
@@ -1397,61 +1411,63 @@ $\delta = \Vert X \beta - X E(\hat{\beta}_A \Vert^2 / \sigma^2 = (\beta - E(\hat
 \cite[11]{Liu64}
 \end{proof}
 
-Damit kann ich einen Test zum Niveau $1-\alpha$ konstruieren:
+Damit kann ein Test zum Niveau $1-\alpha$ konstruiert werden:
 
 \begin{equation}
-\textnormal{Lehne }  H_0 \textnormal{ genau dann ab, wenn } \frac{\Vert X \hat{\beta}_A - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} > f_{p+1,n-p-1}^{\alpha} \label{Einschränkung_Test}
+\textnormal{Es ist }  H_0 \textnormal{ genau dann abzulehnen, wenn } \frac{\Vert X \hat{\beta}_Z - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} > f_{p+1,n-p-1}^{\alpha} \label{Einschränkung_Test}
 \end{equation}
 
-Ich werde gleich noch folgenden Satz aus \cite[13]{Liu64} benötigen:
+Gleich wird noch folgender Satz aus \cite[13]{Liu64} benötigt:
 
 \begin{Satz}
 Es gilt 
-\[
-\Vert X \hat{\beta} - X \hat{\beta}_A \Vert^2 = (A\hat{\beta}-b)'(A(X'X)^{-1}A')^{-1}(A\hat{\beta}-b)
-\]
+
+\begin{equation*}
+\Vert X \hat{\beta} - X \hat{\beta}_Z \Vert^2 = (Z \hat{\beta}-d)'(Z (X'X)^{-1} Z')^{-1} (Z \hat{\beta} - d)
+\end{equation*}
 \end{Satz}
 
 \begin{proof}
 \cite[13]{Liu64}
 \end{proof}
 
+Jetzt wird dieses Resultat auf den Vergleich von Regressionsmodellen anwendet. Dabei wird sich an \cite[114]{Liu64} orientiert. 
 
-Jetzt werde ich dieses Resultat auf den Vergleich von Regressionsmodellen anwenden. Dabei orientiere ich mich an \cite[114]{Liu64}. Dazu betrachte ich wieder den Test \eqref{Hypothese} :
+Betrachten wir wieder das Modell \ref{Grundmodell_Hypothesentest} aus der Einleitung. Außerdem wird wieder der Test \eqref{Hypothese} betrachtet:
 
 \begin{equation*}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2}
 \end{equation*}
 
-Um einen solchen Test durchzuführen benötigen ich eine Dummyvariable $z$:
+Um einen solchen Test durchzuführen, benötigt man eine Dummyvariable $z$:
 
-\[
+\begin{equation*}
 z=\begin{cases}
-1 & \text{falls Y aus dem Modell 1 ist}\\
-0 & \text{falls Y aus dem Modell 2 ist} 
+1 & \text{falls Y aus dem Modell 1 ist.}\\
+0 & \text{falls Y aus dem Modell 2 ist.} 
 \end{cases}
-\]
+\end{equation*}
 
-Mit $z$ kann ich die beiden Modelle zu einem vereinen, indem ich
+Mit $z$ können die beiden Modelle zu einem vereint werden, indem
 
 \begin{equation}
 Y = x' c_1 + z x' c_2 + e \label{Grundmodell_umformuliert}
 \end{equation}
 %= (x',z x') ???(c_1, c_2)??? + e
 
-mit $x=(1,x_1,\ldots,x_p)'$, $c_1=\beta_2$ und $c_2=\beta_1-\beta_2$ setze. Dass dieses Modell mit den beiden Modellen aus \eqref{Grundmodell_Hypothesentest} übereinstimmt, sieht man daran, dass
+mit $x=(1,x_1,\ldots,x_p)'$, $c_1=\beta_2$ und $c_2=\beta_1-\beta_2$ gesetzt wird. Dass dieses Modell mit den beiden Modellen aus \eqref{Grundmodell_Hypothesentest} übereinstimmt, sieht man daran, dass
 
 \begin{equation*}
 Y = x'(c_1+c_2)+e = x'\beta_1+e
 \end{equation*}
 
-wenn $Y$ aus Modell 1 und 
+wenn $Y$ aus dem ersten Modell und 
 
 \begin{equation*}
 Y = x'c_1+e = x'\beta_2+e
 \end{equation*}
 
-wenn $Y$ aus Modell 2 stammt. Damit kann man den Hypothesentest \eqref{Hypothese} umformulieren zu
+wenn $Y$ aus dem zweiten Modell stammt. Damit kann man den Hypothesentest \eqref{Hypothese} umformulieren zu
 
 \begin{equation*}
 H_{0} : c_2 = \beta_1-\beta_2 = 0  \textbf{ vs. }  H_{1} : c_2 \neq 0 
@@ -1463,16 +1479,16 @@ Unter $H_{0}$ reduziert sich also das Gesamtmodell \eqref{Grundmodell_umformulie
 Y = x' c_1 + e
 \end{equation*}
 
-Jetzt kann ich \eqref{Einschränkung_Test} benutzen und erhalten als Teststatistik : 
+Jetzt kann \eqref{Einschränkung_Test} benutzt werden und man erhält als Teststatistik : 
 
 \begin{equation}
-\textnormal{Verwerfe } H_0 \textnormal{ genau dann, wenn } 
+\textnormal{Es ist } H_0 \textnormal{ genau dann zu verwerfen, wenn } 
 \frac{(\hat{\beta_1}-\hat{\beta_2})'D (\hat{\beta_1}-\hat{\beta_2})/(p+1)}{\widehat{\sigma^2}} > f^{\alpha}_{p+1,n-p-1}\label{Teststat_final}
 \end{equation}
 
 Dabei ist $\hat{\sigma}^2$ die mittlere Varianz des Modells \eqref{Grundmodell_umformuliert}, $\hat{\beta_i} = (X_i'X_i)^{-1}X_iY$ und \gls{D}=$(X_1'X_1)^{-1}+(X_2'X_2)^{-1}$. 
 
-Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_Test} hergeleitet werden kann, betrachten ich die folgende Rechnung nach \cite[115]{Liu64}. Ich betrachte allerdings nur die Berechnung für den Nenner.
+Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_Test} hergeleitet werden kann, ist folgende Rechnung nach \cite[115]{Liu64} zu betrachten. Dabei erfolgt in der Betrachtung allerdings ausschließlich die Berechnung für den Nenner.
 
 %Für den Zähler betrachte:
 %
@@ -1489,7 +1505,7 @@ Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_
 %(A\hat{c}-b)'(A(X'X)^{-1}A')^{-1}(A\hat{c}-b)/r = (\hat{\beta}_1 - \hat{\beta}_2)' D (\hat{\beta}_1-\hat{\beta}_2)/(p+1)
 %\]
 
-Für den Nenner betrachte
+Für den Nenner betrachtet man
 
 \begin{align*}
 \widehat{\sigma^2}  &= \frac{\Vert Y-X \hat{c} \Vert}{n_1 + n_2 - 2(p+1)} \\
@@ -1498,21 +1514,21 @@ Für den Nenner betrachte
 				&= \frac{n_1-p-1}{n_1+n_2-2(p+1)} \hat{\sigma_{1}^2}+ \frac{n_2-p-1}{n_1+n_2-2(p+1)} \hat{\sigma_{2}^2}
 \end{align*}
 
-Ich führe nun das Beispiel aus der Einleitung zu diesem Kapitel fort
+Es wird nun das Beispiel aus der Einleitung zu diesem Kapitel fortgeführt
 
 \begin{Beispiel}
-Berechnet man die Teststatistik \eqref{Teststat_final} erhält man als Teststatistik den Wert ... und als kritischen Wert ... . Also ... man die Hypothese. Die Modelle sind also ... .
+Berechnet man die Teststatistik \eqref{Teststat_final} erhält man als Teststatistik den Wert \TestWert und als kritischen Wert \kritWert . Also \EntscheidungHypothesen man die Hypothese. Die Modelle sind also \Modellesind .
 \end{Beispiel}
 
-Allerdings macht solch ein Test keinerlei Aussage über die Größe des Unterschiedes zwischen den Modellen. Deshalb nutze ich im nächsten Abschnitt die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender}.
+Allerdings macht solch ein Test keinerlei Aussage über die Größe des Unterschiedes zwischen den Modellen. Deshalb werden im nächsten Abschnitt die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} benutzt.
 
 
 \subsection{Vergleich von Regressionsmodellen mit Konfidenzbändern}
 \label{Konfidenzbaender vergleich}
 Dieser Abschnitt basiert auf \cite[119-121]{Liu64}
-Die grundlegende Idee ist, die Modelle voneinander abzuziehen und dann zu sehen, ob die Nullfunktion in einem Konfidezband um die Differenz der beiden Modelle liegt.
+Die grundlegende Idee ist, die Modelle voneinander abzuziehen und dann zu sehen, ob die Nullfunktion in einem Konfidenzband um die Differenz der beiden Modelle liegt.
 
-Ich formalisiere dies nach \cite[122]{Liu64}: 
+Es wird dies nach \cite[122]{Liu64} formalisiert: 
 
 Ein zweiseitiges, hyperbolisches, gleichmäßiges Konfidenzband für $x'\beta_2 - x'\beta_1$ über der Region $A$ hat die Form
 
@@ -1522,7 +1538,7 @@ x'\beta_2-x'\beta_1 \in x' \hat{\beta}_1 - x' \hat{\beta}_2 \pm c ~ \hat{\sigma}
 
 wobei $c$ eine kritische Konstante ist, sodass das Konfidenzniveau des Konfidenzbandes $1-\alpha$ beträgt. Dabei ist $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$
 
-Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ wie im ersten Kapitel und definiere $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$ welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Kapitel 1.4, dass das Simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
+Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ wie im ersten Kapitel und definiere $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$, welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Kapitel 1.4, dass das simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
 
 \begin{eqnarray*}
 S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\hat{\sigma}\sqrt{x' D x}}\\
@@ -1532,33 +1548,44 @@ S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\ha
 
 Also kann die kritische Konstante $c$ genauso wie in Kapitel 1.4 beziehungsweise wie in Kapitel 1.5 gefunden werden.
 
-Der folgende Satz zeigt, dass es keinen Unterschied macht, ob ich einen F-Test durchführe oder ein Konfidenzband auf ganz $\mathbb{R}$ benutze.
+Der folgende Satz zeigt, dass es keinen Unterschied macht, ob ein F-Test durchgeführt oder ein Konfidenzband auf ganz $\mathbb{R}$ benutzt wird. Satz und Beweis orientieren sich an \cite[67]{Liu64}.
 
 \begin{Satz}
-F-Test und Konfidenzbandmethode auf ganz $\mathbb{R}$ liefern immer das selbe Ergebnis, das heißt sie widerlegen beziehungsweise bejahen einen Test genau dann wenn der andere ihn auch widerlegt beziehungsweise bejaht.
+F-Test und Konfidenzbandmethode auf ganz $\mathbb{R}$ liefern immer das selbe Ergebnis, das heißt, sie widerlegen beziehungsweise bejahen einen Test genau dann, wenn der andere ihn auch widerlegt beziehungsweise bejaht.
 \end{Satz}
 
 \begin{proof}
-\cite[67]{Liu64}
+Benutzt man die Definition von $N$ wie bisher, außer das man $\beta$ mit $\beta_0$ ersetzt, erhält man
+
+\begin{eqnarray*}
+\sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} &<& \sup_{x_{(0)} \in \mathbb{R}^p} \frac{|x'(\hat{\beta}-\beta_0) |}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \\
+&=& \sup_{x_{(0)} \in \mathbb{R}^p} \frac{| (Px)' N |}{(\hat{\sigma}/\sigma) \sqrt{(Px)'(Px)}} \\
+&=& \frac{\Vert N \Vert}{(\hat{\sigma}/\sigma)} \Big( \sup_{x_{(0)} \in \mathbb{R}^p} \frac{| (Px)' N |}{\Vert P x \Vert \Vert N \Vert} \Big) \\
+&=& \frac{\Vert N \Vert}{(\hat{\sigma}/\sigma)} \\
+&=& \sqrt{ \frac{(\hat{\beta}-\beta_0)' P^{-1} P^{-1} (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}} } \\
+&=& \sqrt{\frac{(\hat{\beta}-\beta_0)' (X'X) (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}}}
+\end{eqnarray*}
+
+Man sieht also, dass die beiden Test äquivalent sind
 \end{proof}
 
-Das heißt, dass es von einem Interferenzstandpunkt her immer besser ist, ein Konfidenzband zum Vergleich von zwei Modellen zu verwenden.
+Dies bedeutet, dass es von einem Interferenzstandpunkt her immer besser ist, ein Konfidenzband auf einem  zum Vergleich von zwei Modellen zu verwenden.
 
-Weiterhin hatte ich bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall eine bessere Inferenz zulassen, als Konfidenzbänder auf ganz $\mathbb{R}$. Also ist es immer von Vorteil Konfidenzbänder auf Intervallen zu verwenden.
+Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall eine bessere Inferenz zulassen als Konfidenzbänder auf ganz $\mathbb{R}$. Also ist es immer von Vorteil, Konfidenzbänder auf Intervallen zu verwenden.
 
 %Was passiert, wenn eines der Modelle weniger Dimensionen (im Sinne der Designmatrix) als das andere hat ?
 
 \begin{Beispiel}
-Ich führe jetzt das Beispiel aus den vorherigen Abschnitten fort, indem ich die Differenz der Regressionsmodelle plotte und Konfidenzbänder auf [min(X),max(X)] für Polynome einfüge
+Es wird jetzt das Beispiel aus den vorherigen Abschnitten fortgeführt, indem die Differenz der Regressionsmodelle geplottet wird und ein Konfidenzbänder auf $A$ für Polynome einfügt wird:
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-poly-hetero}
-  \caption{Differenz des Beispiels mit Konfidenzbandauf [min(X),max(X)] für Polynome in AR(1)}
+  \caption{Differenz des Beispiels mit Konfidenzband auf A für Polynome}
   \label{KB-poly-hetero-BSP}
 \end{figure}
 
-Man sieht, dass ...
+Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten ist. Also wird auch in diesem Fall der Test 
 
 \end{Beispiel}
 
@@ -1767,6 +1794,8 @@ Poly prüfen	& \UeberRMinmaxPolypruefen & \UeberARMinmaxPolypruefen \\
 %Dieser Abschnitt orientiert sich an \cite[110-112]{Liu64}.
 
 
+
+
 \newpage
 \section{Regression und Konfidenzbänder für abhängige Daten}
 \label{Regression und Konfidenzbänder für abhaengige Daten}
@@ -1937,40 +1966,42 @@ Man sieht, dass ...
 
 \subsection{Konfidenzbänder für AR(1)}
 \label{Konfidenzbaender für AR(1)}
-Im letzten Abschnitt habe ich gezeigt, dass ich einen Schätzer für $\beta$ und $\sigma^2$ bei korrelierten Daten erhalten kann, indem man beide Seiten mit der Kovarianzmatrix $\Upsilon$ multipliziert. 
+Im letzten Abschnitt wurde gezeigt, dass man einen Schätzer für $\beta$ und $\sigma^2$ bei korrelierten Daten erhalten kann, indem man beide Seiten mit der Kovarianzmatrix $\Upsilon$ multipliziert. 
 
-Wie ich gezeigt habe ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, ich kann die Ergebnisse aus Kapitel 1 anwenden und ein Konfidenzband $K^{*}$ bestimmen, sodass
+Wie schon gezeigt, ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, es können die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} angewandt werden und ein Konfidenzband $K^{*}$ bestimmt werden, sodass
 
 \begin{align*}
 \mathbb{P}(x^{*'} \beta \in K^{*}) = 1 - \alpha
 \end{align*}
 
-Da allerdings nicht $x^{*'} \beta$ interessiert, sondern $x' \beta$ muss ich noch beide Seiten der logischen Gleichheit in $\mathbb{P}()$ mit $\Upsilon^{1/2}$ multiplizieren. Auf diese Art erhalte ich dann ein Konfidenzband für unser ursprüngliches Modell \eqref{AR Modell}.
+Da allerdings nicht $x^{*'} \beta$ interessiert, sondern $x' \beta$, müssen noch beide Seiten der logischen Gleichheit in $\mathbb{P}()$ mit $\Upsilon^{1/2}$ multipliziert werden. Auf diese Art erhält man dann ein Konfidenzband für das ursprüngliches Modell \eqref{AR Modell}.
 
-Betrachten ich nun, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} beeinflusst. ich verwende die folgende Simulation, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
+Nun betrachten wir, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} beeinflusst. Es ändert sich nur die Simulation von $N$.
+
+Konkret verwende ich die folgende Simulation, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
 
 \begin{enumerate}
-\item Simuliere $N \sim \mathscr{N}_0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$
-\item Berechnung von $K_{2h}(T,(X^{*'}X^{*})^{-1},(a,b))$
+\item Simuliere $N \sim \mathscr{N}_0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
+\item Berechnung von $K_{2h}(T,(X^{*'}X^{*})^{-1},(a,b))$.
 \end{enumerate}
 
-Die Berechnung von $K_{2h}(T,\cdot,(a,b))$ läuft analog zum Kapitel 1.5, da sich die Funktion $K_{2h}(T,\cdot,(a,b))$ nicht ändert.
+Die Berechnung von $K_{2h}(T,\cdot,(a,b))$ läuft analog zum Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}, da sich die Funktion $K_{2h}(T,\cdot,(a,b))$ nicht ändert.
 
 \begin{Beispiel}
-Jetzt führe ich das Beispiel aus dem ersten Kapitel fort, indem ich zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}$, dem auf [min(X),max(X)] und dem auf [min(X),max(X)] für Polynome noch ein Konfidenzband auf [min(X),max(X)] für Polynome unter Berücksichtigung der AR(1)-Struktur bestimme.
+Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}$, dem auf $A$ und dem auf $A$ für Polynome noch ein Konfidenzband auf $A$ für Polynome unter Berücksichtigung der AR(1)-Struktur bestimmt wird.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-poly-AR}
-  \caption{Weiterführung des Beispiels durch Konfidenzband auf minamx unter Berücksichtigung von Polynomstruktur und AR(1)-Struktur}
+  \caption{Weiterführung des Beispiels durch Konfidenzband auf $A$ unter Berücksichtigung von Polynomstruktur und AR(1)-Struktur}
   \label{Bsp-KB-poly-AR}
 \end{figure}
 
-Ich erhalte als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}$ \cR , für das Konfidenzband auf (min,max) \cA, für das Konfidenzband auf (min,max) für Polynome \cAP und für das Konfidenzband auf (min,max) für Polynome das die AR(1)-Struktur berücksichtigt \cAPAR . 
+Man erhält als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}$ \cR , für das Konfidenzband auf $A$ \cA, für das Konfidenzband auf $A$ für Polynome \cAP und für das Konfidenzband auf $A$ für Polynome das die AR(1)-Struktur berücksichtigt \cAPAR . 
 
-Da es sich um eine Simulation handelt und ich Reproduktivität gewährleisten will benutze ich die seed \seedsimulation . 
+Da es sich um eine Simulation handelt und Reproduktivität gewährleistet werden soll, wird die seed \seedsimulation benutzt. 
 
-Vergleiche ich wieder die Regression mit Grad Eins und mit Grad drei erhalte ich die folgende Graphik:
+Vergleicht man wieder die Regression mit Grad Eins und mit Grad drei erhält man die folgende Graphik:
 
 \begin{figure}[H] 
   \centering
