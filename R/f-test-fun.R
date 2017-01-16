@@ -39,7 +39,7 @@ f.test <- function(alpha, grad.1, grad.2, data.1, data.2){
   # deltas auf die richtige Länge bringen
   delta = Delta(inv.X.1, inv.X.2)
   inv.X.1 = delta[[1]]
-  inv.X.2 = delta [[2]]
+  inv.X.2 = delta[[1]]
 
   # Berechnet die Teststatistik
   zaehler <- t(beta.1-beta.2) %*% (inv.X.1+inv.X.2) %*% (beta.1-beta.2) / (p+1)

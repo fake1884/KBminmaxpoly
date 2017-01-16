@@ -20,7 +20,7 @@ beta=c(10,5,-4,7)
 sigma=1
 phi=0.75
 
-Upsilon = Upsilon_fun(phi, length(x.raw))
+Upsilon = Upsilon_fun(phi, length(x.raw))[[1]]
 
 Upsilon=Upsilon*sigma
 
@@ -32,7 +32,7 @@ y.raw=X %*% beta + t(e)
 pdf("man/0-Latex/graphics/Beispiel/data-raw.pdf",
     width=10,height=8)
 
-plot(x.raw,y.raw, xlab="Zeit", ylab="Wachstum", pch=1)
+plot(x.raw,y.raw, xlab="Zeit", ylab="Wachstum", pch=1, cex=2, lwd=3, cex.axis=2)
 
 dev.off()
 
@@ -57,8 +57,8 @@ sigma.1=fit.1[[3]]
 pdf("man/0-Latex/graphics/Beispiel/regression-gerade.pdf",
     width=10,height=8)
 
-plot(x,y,xlab="relative Zeit", ylab="relatives Wachstum")
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, lwd=2)
+plot(x,y,xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
 
 dev.off()
 
@@ -87,16 +87,16 @@ pdf("man/0-Latex/graphics/Beispiel/punkt-vs-gleich.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
-     ylab="relatives Wachstum")
-points(x,y)
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, lwd=2)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, lwd=2)
-lines(plot.KB.punkt[[1]], plot.KB.punkt[[2]], lty=2, lwd=2)
-lines(plot.KB.punkt[[1]], plot.KB.punkt[[3]], lty=2, lwd=2)
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+points(x,y, cex=2, lwd=3)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
+lines(plot.KB.punkt[[1]], plot.KB.punkt[[2]], lty=2, cex=2, lwd=3)
+lines(plot.KB.punkt[[1]], plot.KB.punkt[[3]], lty=2, cex=2, lwd=3)
 
-legend(x="topleft", legend=c("gleichm??ig","punktweise"),
-       col=c("black","black"),cex=0.7, lty=c(1,2))
+legend(x="topleft", legend=c("gleichmäßig","punktweise"),
+       col=c("black","black"),cex=2, lty=c(1,2))
 
 dev.off()
 
@@ -119,14 +119,14 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-R.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
-     ylab="relatives Wachstum")
-points(x,y)
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, lwd=2)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, lwd=2)
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+points(x,y, cex=2, lwd=3)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
 
 legend(x="topleft", legend=c("R"),
-       col=c("black"),cex=0.7, lty=c("solid"))
+       col=c("black"),cex=2, lty=c("solid"))
 
 dev.off()
 
@@ -138,7 +138,7 @@ dev.off()
 
 # Simulation beginnt
 set.seed(4)
-niter=50
+niter=100
 
 # kritischen Wert bestimmen
 par.bsp.minmax=KB.minmax(alpha, y, 1, niter, inv.X.1)
@@ -151,16 +151,16 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-minmax.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
-     ylab="relatives Wachstum")
-points(x,y)
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, lwd=2)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, lwd=2)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, lwd=2)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, lwd=2)
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+points(x,y, cex=2, lwd=3)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, cex=2, lwd=3)
 
 legend(x="topleft", legend=c("R", "[0,1]"),
-       col=c("black", "black"),cex=0.7, lty=c("solid", "dotted"))
+       col=c("black", "black"),cex=2, lty=c("solid", "dotted"))
 
 dev.off()
 
@@ -171,7 +171,7 @@ dev.off()
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-par.bsp.poly=KB.poly.fast(alpha, length(y), 1, niter, inv.X.1, a=0, b=1, ngridpoly = 10)
+par.bsp.poly=KB.poly.fast(alpha, length(y), 1, niter, inv.X.1, a=0, b=1, ngridpoly = 50)
 
 # Konfidenzband berechnen
 plot.KB.poly=plot.KB(length(y), 1, inv.X.1, beta.1, sigma.1, par.bsp.poly[[1]], ngrid = length(y))
@@ -181,17 +181,17 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
-     ylab="relatives Wachstum")
-points(x,y)
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, lwd=2)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, lwd=2)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, lwd=2)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, lwd=2)
-lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty=3, lwd=2)
-lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty=3, lwd=2)
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+points(x,y, cex=2, lwd=3)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty=3, cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty=3, cex=2, lwd=3)
 legend(x="topleft", legend=c("R", "[0,1]", "Polynom"),
-       col=c("black", "black", "black"),cex=0.7, lty=c("solid", "dotted", "dashed"))
+       col=c("black", "black", "black"),cex=2, lty=c("solid", "dotted", "dashed"))
 
 dev.off()
 
@@ -216,13 +216,13 @@ sigma.3=fit.3[[3]]
 pdf("man/0-Latex/graphics/Beispiel/Bsp-beide-in-einem-plot.pdf",
     width=10,height=8)
 
-plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum")
-abline(a=fit.1[[2]][1],b=fit.1[[2]][2],lwd=2)
+plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+abline(a=fit.1[[2]][1],b=fit.1[[2]][2], cex=2, lwd=3)
 curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3,
-      add=T, lwd=2, lty="dotted")
+      add=T, lty="dotted", cex=2, lwd=3)
 
 legend(x="topleft", legend=c("Grad 1", "Grad 3"),
-       col=c("black", "black"),cex=0.7, lty=c("solid", "dotted"))
+       col=c("black", "black"),cex=2, lty=c("solid", "dotted"))
 
 dev.off()
 
@@ -267,12 +267,12 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl[[2]]),max(plot.bsp.vergl[[3]])), xlab="relative Zeit",
-     ylab="relatives Wachstum")
-lines(c(1,0),c(0,0))
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+lines(c(1,0),c(0,0), cex=2, lwd=3)
 curve(fit.1[[2]][1]-fit.3[[2]][1]+(fit.1[[2]][2]-fit.3[[2]][2])*x-fit.3[[2]][3]*x^2-fit.3[[2]][4]*x^3
-      , add=T)
-lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[2]], lty=1, lwd=2)
-lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[3]], lty=1, lwd=2)
+      , add=T, cex=2, lwd=3)
+lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[2]], lty=1, cex=2, lwd=3)
+lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[3]], lty=1, cex=2, lwd=3)
 
 dev.off()
 
@@ -297,14 +297,14 @@ y.trafo=fit.hetero.1[[4]]
 pdf("man/0-Latex/graphics/Beispiel/Bsp-Reg-AR.pdf",
     width=10,height=8)
 
-plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum")
-curve(fit.hetero.1[[2]][1]+fit.hetero.1[[2]][2]*x,add=T, lwd=2, lty="dashed")
-abline(a=fit.1[[2]][1],b=fit.1[[2]][2],lwd=2)
-curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3, add=T, lwd=2,
+plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+curve(fit.hetero.1[[2]][1]+fit.hetero.1[[2]][2]*x,add=T,lty="dashed", cex=2, lwd=3)
+abline(a=fit.1[[2]][1],b=fit.1[[2]][2], cex=2, lwd=3)
+curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3, add=T, cex=2, lwd=3,
       lty="dotted")
 
 legend(x="topleft", legend=c("Grad 1", "Grad 3", "AR Grad 1"),
-       col=c("black", "black", "black"),cex=0.7, lty=c("solid", "dotted", "dashed"))
+       col=c("black", "black", "black"),cex=2, lty=c("solid", "dotted", "dashed"))
 
 dev.off()
 
@@ -335,20 +335,20 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-AR.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.poly.hetero[[2]]),max(plot.KB.poly.hetero[[3]])),
-     xlab="relative Zeit", ylab="relatives Wachstum")
-points(x,y)
-curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T)
-curve(fit.hetero.1[[2]][1]+fit.hetero.1[[2]][2]*x,lty="dashed" ,add=T)
-lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty="solid")
-lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty="solid")
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty="dotted")
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty="dotted")
-lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty="dashed")
-lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty="dashed")
-lines(plot.KB.poly.hetero[[1]], plot.KB.poly.hetero[[2]], lty=4)
-lines(plot.KB.poly.hetero[[1]], plot.KB.poly.hetero[[3]], lty=4)
+     xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+points(x,y, cex=2, lwd=3)
+curve(fit.1[[2]][1]+fit.1[[2]][2]*x, add=T, cex=2, lwd=3)
+curve(fit.hetero.1[[2]][1]+fit.hetero.1[[2]][2]*x,lty="dashed" ,add=T, cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty="dotted", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty="dotted", cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.poly.hetero[[1]], plot.KB.poly.hetero[[2]], lty=4, cex=2, lwd=3)
+lines(plot.KB.poly.hetero[[1]], plot.KB.poly.hetero[[3]], lty=4, cex=2, lwd=3)
 
-legend(x="topleft", legend=c("R", "[0,1]", "Polynom", "AR"), cex=0.7, lty=1:4)
+legend(x="topleft", legend=c("R", "[0,1]", "Polynom", "Polynom AR"), cex=2, lty=1:4)
 
 dev.off()
 
@@ -392,12 +392,12 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero-AR.pdf",
     width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.hetero[[2]]),max(plot.bsp.vergl.hetero[[3]])),
-     xlab="relative Zeit", ylab="relatives Wachstum")
-lines(c(1,0),c(0,0))
+     xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2)
+lines(c(1,0),c(0,0), cex=2, lwd=3)
 curve(fit.hetero.1[[2]][1]-fit.hetero.3[[2]][1]+(fit.hetero.1[[2]][2]-fit.hetero.3[[2]][2])*x-fit.hetero.3[[2]][3]*x^2-fit.hetero.3[[2]][4]*x^3,
-      col="red", add=T)
-lines(plot.bsp.vergl.hetero[[1]], plot.bsp.vergl.hetero[[2]], col="black")
-lines(plot.bsp.vergl.hetero[[1]], plot.bsp.vergl.hetero[[3]], col="black")
+      col="black", add=T, cex=2, lwd=3)
+lines(plot.bsp.vergl.hetero[[1]], plot.bsp.vergl.hetero[[2]], col="black", cex=2, lwd=3)
+lines(plot.bsp.vergl.hetero[[1]], plot.bsp.vergl.hetero[[3]], col="black", cex=2, lwd=3)
 
 dev.off()
 
