@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  16 JAN 2017 09:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  17 JAN 2017 09:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1310,12 +1310,12 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 308.
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [2] [3]
 No file BA-Henning-Hause.gls.
-[4] [5] [6] [7] <graphics/Beispiel/data-raw.pdf, id=46, 722.7pt x 578.16pt>
-File: graphics/Beispiel/data-raw.pdf Graphic file (type pdf)
+[4] [5] [6] [7] <graphics/Beispiel/data-raw-R.pdf, id=46, 722.7pt x 578.16pt>
+File: graphics/Beispiel/data-raw-R.pdf Graphic file (type pdf)
 
-<use graphics/Beispiel/data-raw.pdf>
-Package pdftex.def Info: graphics/Beispiel/data-raw.pdf used on input line 526.
-
+<use graphics/Beispiel/data-raw-R.pdf>
+Package pdftex.def Info: graphics/Beispiel/data-raw-R.pdf used on input line 52
+6.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
 
 <graphics/Beispiel/regression-gerade.pdf, id=47, 722.7pt x 578.16pt>
@@ -1325,7 +1325,7 @@ File: graphics/Beispiel/regression-gerade.pdf Graphic file (type pdf)
 Package pdftex.def Info: graphics/Beispiel/regression-gerade.pdf used on input 
 line 555.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [8 <./graphics/Beispiel/data-raw.pdf>]
+ [8 <./graphics/Beispiel/data-raw-R.pdf>]
 Overfull \hbox (1.69044pt too wide) in paragraph at lines 566--567
 \T1/lmr/m/n/12 In die-sem Ab-schnitt wer-den Kon-fi-denz-bän-der de-fi-niert un
 d der Un-ter-schied zwi-schen punkt-
@@ -1405,31 +1405,31 @@ put line 2008.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
  [40 <./graphics/Beispiel/Bsp-KB-poly-AR.pdf>] [41 <./graphics/Beispiel/Bsp-KB-
 poly-hetero-AR.pdf>]
-<graphics/Stammzellen-10kPa/10kPa-data.pdf, id=228, 505.89pt x 505.89pt>
+<graphics/Stammzellen-10kPa/10kPa-data.pdf, id=228, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-10kPa/10kPa-data.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-10kPa/10kPa-data.pdf>
 Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-data.pdf used on inpu
 t line 2041.
-(pdftex.def)             Requested size: 230.36061pt x 230.36555pt.
+(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
  [42]
-<graphics/Stammzellen-30kPa/30kPa-data.pdf, id=232, 505.89pt x 505.89pt>
+<graphics/Stammzellen-30kPa/30kPa-data.pdf, id=232, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-data.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-data.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-data.pdf used on inpu
 t line 2052.
-(pdftex.def)             Requested size: 230.36061pt x 230.36555pt.
- [43 <./graphics/Stammzellen-10kPa/10kPa-data.pdf> <./graphics/Stammzellen-30kP
-a/30kPa-data.pdf>]
-<graphics/Stammzellen-30kPa/30kPa-method.pdf, id=248, 722.7pt x 578.16pt>
+(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
+
+<graphics/Stammzellen-30kPa/30kPa-method.pdf, id=233, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-method.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-method.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-method.pdf used on in
 put line 2069.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
+ [43 <./graphics/Stammzellen-10kPa/10kPa-data.pdf> <./graphics/Stammzellen-30kP
+a/30kPa-data.pdf>]
 <graphics/Stammzellen-10kPa/10kPa-method.pdf, id=249, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-10kPa/10kPa-method.pdf Graphic file (type pdf)
 
@@ -1437,16 +1437,16 @@ File: graphics/Stammzellen-10kPa/10kPa-method.pdf Graphic file (type pdf)
 Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-method.pdf used on in
 put line 2082.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [44 <./graphics/Stammzellen-30kPa/30kPa-method.pdf> <./graphics/Stammzellen-10
-kPa/10kPa-method.pdf>]
-<graphics/Stammzellen-30kPa/30kPa-poly.pdf, id=263, 722.7pt x 578.16pt>
+
+<graphics/Stammzellen-30kPa/30kPa-poly.pdf, id=250, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-poly.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-poly.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-poly.pdf used on inpu
 t line 2141.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
+ [44 <./graphics/Stammzellen-30kPa/30kPa-method.pdf> <./graphics/Stammzellen-10
+kPa/10kPa-method.pdf>]
 <graphics/Stammzellen-30kPa/30kPa-poly-KB.pdf, id=264, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-poly-KB.pdf Graphic file (type pdf)
 
@@ -1566,7 +1566,7 @@ Package logreq Info: Writing requests to 'BA-Henning-Hause.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  16736 strings out of 493304
- 264385 string characters out of 6139872
+ 264395 string characters out of 6139872
  728026 words of memory out of 5000000
  19756 multiletter control sequences out of 15000+600000
  86261 words of font info for 72 fonts, out of 8000000 for 9000
@@ -1588,7 +1588,7 @@ fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
 type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs
 /rsfs10.pfb>
-Output written on BA-Henning-Hause.pdf (54 pages, 515776 bytes).
+Output written on BA-Henning-Hause.pdf (54 pages, 515609 bytes).
 PDF statistics:
  436 PDF objects out of 1000 (max. 8388607)
  307 compressed objects within 4 object streams

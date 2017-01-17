@@ -125,8 +125,10 @@ ar.1 <- function(grad,data, phi){
 
   # Designmatrix erzeugen und transformieren
   time=1:length(data)/length(data)
-  X=numeric()
-  for(i in 1:(grad+1)){X=matrix(c(X,time^(i-1)),ncol=i)}
+  X=matrix(data=NA,nrow=nobs,ncol=(grad+1))
+  for(j in 1:nobs){
+    for(i in 1:(grad+1)){X[j,i]=x[j]^(i-1)}
+  }
   X.mat=t(X) %*% X
   inv.X=solve(X.mat)
 

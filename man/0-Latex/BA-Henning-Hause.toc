@@ -40,9 +40,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{44}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{45}
+\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{44}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{46}
 \defcounter {refsection}{0}\relax 

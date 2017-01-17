@@ -257,7 +257,7 @@ Jun.-Prof. Dr. Andrea Krajina\\
 \emph{Studiengang:}\\
 B. Sc. Mathematik\\
 \emph{Abgabetermin:}\\
-11.06.2017\\
+11.07.2017\\
 \end{flushleft}
 \end{minipage}
 \end{flushleft}
@@ -1876,7 +1876,7 @@ Für ein solches Modell ist bisher nicht klar, wie man einen ML-Schätzer bestim
 (\Upsilon^{-1/2})Y = Y^{*} = X^{*} \beta + e^{*} = (\Upsilon^{-1/2})X + (\Upsilon^{-1/2})e
 \end{align}
 
-mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_(0,\Upsilon) = \mathscr{N}_0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. Ich gehe hier nicht weiter darauf ein, sondern verwende einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
+mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_n(0,\Upsilon) = \mathscr{N}_n(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_n(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. Ich gehe hier nicht weiter darauf ein, sondern verwende einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
 
 Konkret berechne ich 
 

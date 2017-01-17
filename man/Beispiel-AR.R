@@ -62,8 +62,7 @@ fit.hetero.1=ar.1(grad.1,y,phi.1)
 # Werte bestimmen
 beta.hetero.1=fit.hetero.1[[2]]
 sigma.hetero.1=fit.hetero.1[[3]]
-X.mat.hetero.1=fit.hetero.1[[1]]
-inv.X.hetero.1 <- solve(t(X.mat.hetero.1) %*% X.mat.hetero.1)
+inv.X.hetero.1=fit.hetero.1[[1]]
 alpha=0.05
 
 # Phi f?r das Polynom vom Grad eins bestimmen
@@ -77,8 +76,7 @@ fit.hetero.3=ar.1(3,y,phi.3)
 # Parameter vom Grad 3 bestimmen
 beta.hetero.3=fit.hetero.3[[2]]
 sigma.hetero.3=fit.hetero.3[[3]]
-X.mat.hetero.3=fit.hetero.3[[1]]
-inv.X.hetero.3 <- solve(t(X.mat.hetero.3) %*% X.mat.hetero.3)
+inv.X.hetero.3=fit.hetero.3[[1]]
 alpha=0.05
 
 # Ergebnisse zeichnen dabei werden die transformierten y-Werte benutzt
@@ -112,7 +110,7 @@ par.bsp.poly.hetero=KB.poly.fast(alpha, length(y), 1, niter, inv.X.hetero.1, a=0
 plot.KB.poly.hetero=plot.KB(length(y), 1, inv.X.hetero.1, beta.1, sigma.1, par.bsp.poly.hetero[[1]],
                             ngrid = length(y))
 
-# Ergebnisse zeichnen ich verwende y anstatt y.trafo
+# Ergebnisse zeichnen
 pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-AR.pdf",
     width=10,height=8)
 
@@ -140,11 +138,11 @@ delta.mat.hetero=Delta(inv.X.hetero.1, inv.X.hetero.3)
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-par.bsp.vergl.hetero=KB.poly.fast(alpha, length(y.trafo), 3, niter, delta.mat.hetero[[1]], a=0, b=1,
+par.bsp.vergl.hetero=KB.poly.fast(alpha, length(y), 3, niter, delta.mat.hetero[[1]], a=0, b=1,
                                   ngridpoly = length(y))
 
 # Konfidenzband berechnen
-plot.bsp.vergl.hetero=plot.KB.vergl(y.trafo, y.trafo, 3, delta.mat.hetero[[1]], beta.hetero.1,
+plot.bsp.vergl.hetero=plot.KB.vergl(y, y, 3, delta.mat.hetero[[1]], beta.hetero.1,
                                     beta.hetero.3, sigma.hetero.1, sigma.hetero.3,
                                     par.bsp.vergl.hetero[[1]], ngrid = length(y))
 
@@ -164,8 +162,8 @@ dev.off()
 
 ########################################################################################
 # nur zum auslesen von Werten
-par=c(par.bsp.R[[1]], par.bsp.minmax[[1]], par.bsp.poly[[1]], par.bsp.poly.hetero[[1]])
-par.vergl=c(par.bsp.vergl[[1]], par.bsp.vergl.hetero[[1]])
+par=c( par.bsp.poly.hetero[[1]])
+par.vergl=c( par.bsp.vergl.hetero[[1]])
 
 # Werte f?r das Beispiel
 kapitel.4=c(beta.hetero.1, sigma.hetero.1, phi.1, par.bsp.poly.hetero, beta.hetero.3, sigma.hetero.3, phi.3,
