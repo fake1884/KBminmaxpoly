@@ -1,11 +1,19 @@
 # Erzeugt die nackten Plots der Daten für die Arbeit
 
-pdf("man/0-Latex/graphics/Stammzellen-10kPa/10kPa-data.pdf")
-plot(time, Y.10, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum")
+nobs.10=length(Y.10)
+time.10=c(0:(nobs.10-1))
+
+pdf("man/0-Latex/graphics/Stammzellen-10kPa/10kPa-data.pdf", width = 10, height = 8)
+plot(time.10, Y.10, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
+     cex=2, lwd=3, cex.axis=2, cex.lab=2)
 dev.off()
 
-pdf("man/0-Latex/graphics/Stammzellen-30kPa/30kPa-data.pdf")
-plot(time, Y.30, type="l", main="30 kPa", xlab="relative Zeit", ylab="relatives Wachstum")
+nobs.30=length(Y.30)
+time.30=c(0:(nobs.30-1))
+
+pdf("man/0-Latex/graphics/Stammzellen-30kPa/30kPa-data.pdf",  width = 10, height = 8)
+plot(time.30, Y.30, type="l", main="30 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
+     cex=2, lwd=3, cex.axis=2, cex.lab=2)
 dev.off()
 
 

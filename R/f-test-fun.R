@@ -49,7 +49,7 @@ f.test <- function(alpha, grad.1, grad.2, data.1, data.2){
   # Berechnet den kritischen Wert
   # qf(p, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)
   # q <- qf(alpha,p+1,n.1+n.2-2*(p+1))
-  q <- qf(alpha,p+1,(n.1+n.2)/2-p-1)
+  q <- qf(1-alpha,p+1,(n.1+n.2)/2-p-1)
 
   # Bestimmt, ob die Teststatistik oder der kritische Wert gr??er ist
   # TRUE -> reject a.1 == 0 -> a.1 \neq 0

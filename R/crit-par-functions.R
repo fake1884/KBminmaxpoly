@@ -11,7 +11,7 @@ KB.R <- function(alpha, data, grad, inv.X){
 
   # kritischen Wert bestimmen
   nobs=length(data)
-  q <-qf(1-alpha,grad+1,nobs-grad-1)
+  q <-qf(1-alpha,grad+1, nobs-grad-1)
   factor <- sqrt((grad+1)*q)
 
 
