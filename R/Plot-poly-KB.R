@@ -47,7 +47,7 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
 
   # allgemeine Werte
   alpha=0.05
-  niter=50
+  niter=250
 
   # Designmatritzen anpassen
   Delta.mat.4.5=Delta(inv.X.4, inv.X.5)
@@ -89,39 +89,45 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
 
   ################################
   # Graphiken erzeugen
-  pdf(graphicspath, width = 10, height = 8)
-  par(mfrow=c(3, 1))
+  gp=paste(graphicspath,"-4-5.pdf",sep="")
+  pdf(file=gp, width = 10, height = 8)
   # Grad 4 vs Grad 5
-  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.5[[2]])-0.1,max(plot.bsp.vergl.4.5[[3]])+0.1),
-       xlab="relative Zeit", ylab="relativer Unterschied")
-  lines(c(1,0),c(0,0))
+  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.5[[2]])-0.01,max(plot.bsp.vergl.4.5[[3]])+0.01),
+       xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  lines(c(1,0),c(0,0), lwd=3)
   curve(beta.4.5.4[1]-beta.4.5.5[1] + (beta.4.5.4[2]-beta.4.5.5[2])*x+
           (beta.4.5.4[3]-beta.4.5.5[3])*x^2+(beta.4.5.4[4]-beta.4.5.5[4])*x^3+
-          (beta.4.5.4[5]-beta.4.5.5[5])*x^4+(beta.4.5.4[6]-beta.4.5.5[6])*x^5,col="red", add=T)
-  lines(plot.bsp.vergl.4.5[[1]], plot.bsp.vergl.4.5[[2]], col="green")
-  lines(plot.bsp.vergl.4.5[[1]], plot.bsp.vergl.4.5[[3]], col="green")
+          (beta.4.5.4[5]-beta.4.5.5[5])*x^4+(beta.4.5.4[6]-beta.4.5.5[6])*x^5,col="black", add=T, lwd=3)
+  lines(plot.bsp.vergl.4.5[[1]], plot.bsp.vergl.4.5[[2]], col="black", lwd=3)
+  lines(plot.bsp.vergl.4.5[[1]], plot.bsp.vergl.4.5[[3]], col="black", lwd=3)
+  dev.off()
 
+  gp=paste(graphicspath,"-4-6.pdf",sep="")
+  pdf(file=gp, width = 10, height = 8)
   # Grad 4 vs Grad 6
-  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.6[[2]])-0.1,max(plot.bsp.vergl.4.6[[3]])+0.1),
-       xlab="relative Zeit", ylab="relativer Unterschied")
-  lines(c(1,0),c(0,0))
+  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.6[[2]])-0.01,max(plot.bsp.vergl.4.6[[3]])+0.01),
+       xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  lines(c(1,0),c(0,0), lwd=3)
   curve(beta.4.6.4[1]-beta.4.6.6[1] + (beta.4.6.4[2]-beta.4.6.6[2])*x+
           (beta.4.6.4[3]-beta.4.6.6[3])*x^2+(beta.4.6.4[4]-beta.4.6.6[4])*x^3+
           (beta.4.6.4[5]-beta.4.6.6[5])*x^4+(beta.4.6.4[6]-beta.4.6.6[6])*x^5+
-          (beta.4.6.4[7]-beta.4.6.6[7])*x^6,col="red", add=T)
-  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[2]], col="green")
-  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[3]], col="green")
+          (beta.4.6.4[7]-beta.4.6.6[7])*x^6,col="black", add=T, lwd=3)
+  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[2]], col="black", lwd=3)
+  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[3]], col="black", lwd=3)
+  dev.off()
 
+  gp=paste(graphicspath,"-5-6.pdf",sep="")
+  pdf(file=gp, width = 10, height = 8)
   # Grad 5 vs Grad 6
-  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.5.6[[2]])-0.05,max(plot.bsp.vergl.5.6[[3]])+0.05),
-       xlab="relative Zeit", ylab="relativer Unterschied")
-  lines(c(1,0),c(0,0))
+  plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.5.6[[2]])-0.01,max(plot.bsp.vergl.5.6[[3]])+0.01),
+       xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  lines(c(1,0),c(0,0), lwd=3)
   curve(beta.5.6.5[1]-beta.5.6.6[1] + (beta.5.6.5[2]-beta.5.6.6[2])*x+
           (beta.5.6.5[3]-beta.5.6.6[3])*x^2+(beta.5.6.5[4]-beta.5.6.6[4])*x^3+
           (beta.5.6.5[5]-beta.5.6.6[5])*x^4+(beta.5.6.5[6]-beta.5.6.6[6])*x^5+
-          (beta.5.6.5[7]-beta.5.6.6[7])*x^6,col="red", add=T)
-  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[2]], col="green")
-  lines(plot.bsp.vergl.4.6[[1]], plot.bsp.vergl.4.6[[3]], col="green")
+          (beta.5.6.5[7]-beta.5.6.6[7])*x^6,col="black", add=T, lwd=3)
+  lines(plot.bsp.vergl.5.6[[1]], plot.bsp.vergl.5.6[[2]], col="black", lwd=3)
+  lines(plot.bsp.vergl.5.6[[1]], plot.bsp.vergl.5.6[[3]], col="black", lwd=3)
   dev.off()
 
 }

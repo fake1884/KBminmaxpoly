@@ -151,10 +151,10 @@ plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="rela
      ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 points(x,y, cex=2, lwd=3)
 curve(fit.1[[2]][1]+fit.1[[2]][2]*x+fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, cex=2, lwd=3)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, cex=2, lwd=3)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty="dotted", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty="dotted", cex=2, lwd=3)
 
 legend(x="topleft", legend=c("R", "[0,1]"),
        col=c("black", "black"),cex=2, lty=c("solid", "dotted"), lwd = 3)
@@ -212,10 +212,10 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-beide-in-einem-plot.pdf",
 plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 curve(fit.1[[2]][1]+fit.1[[2]][2]*x+fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, cex=2, lwd=3)
 curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3+fit.3[[2]][5]*x^4,
-      add=T, lty="dotted", cex=2, lwd=3)
+      add=T, lty="dashed", cex=2, lwd=3)
 
 legend(x="topleft", legend=c("Grad 1", "Grad 3"),
-       col=c("black", "black"),cex=2, lwd=3, lty=c("solid", "dotted"))
+       col=c("black", "black"),cex=2, lwd=3, lty=c("solid", "dashed"))
 
 dev.off()
 

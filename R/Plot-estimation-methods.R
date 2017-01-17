@@ -27,7 +27,7 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
 
   # initialize fixed values
   alpha=0.05
-  niter=50
+  niter=250
 
   # kritische Werte bestimmen
   # alpha, data, grad, inv.X
@@ -52,15 +52,16 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
   pdf(graphicspath, width = 10, height = 8)
   time=1:144/144
   plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
-     ylab="relativer Unterschied")
-  lines(time,data.set)
-  curve(beta[1]+beta[2]*x+beta[3]*x^2+beta[4]*x^3+beta[5]*x^4+beta[6]*x^5, add=T)
-  lines(plot.KB.R[[1]], plot.KB.R[[2]], col="green", lty="solid")
-  lines(plot.KB.R[[1]], plot.KB.R[[3]], col="green", lty="solid")
-  lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], col="blue", lty="dotted")
-  lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], col="blue", lty="dotted")
-  lines(plot.KB.minmax[[1]], plot.KB.poly[[2]], col="chocolate", lty="dashed")
-  lines(plot.KB.minmax[[1]], plot.KB.poly[[3]], col="chocolate", lty="dashed")
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  lines(time,data.set, lwd=3)
+  curve(beta[1]+beta[2]*x+beta[3]*x^2+beta[4]*x^3+beta[5]*x^4+beta[6]*x^5, add=T, lwd=3)
+  lines(plot.KB.R[[1]], plot.KB.R[[2]], lty="solid", lwd=3)
+  lines(plot.KB.R[[1]], plot.KB.R[[3]], lty="solid", lwd=3)
+  lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty="dotted", lwd=3)
+  lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty="dotted", lwd=3)
+  lines(plot.KB.minmax[[1]], plot.KB.poly[[2]], lty="dashed", lwd=3)
+  lines(plot.KB.minmax[[1]], plot.KB.poly[[3]], lty="dashed", lwd=3)
   legend(x="topleft", legend=c("KB R", "KB minmax", "KB minmax poly"),
-         col=c("green", "blue", "chocolate"),cex=0.5, lty=c("solid", "dotted", "dashed"))
+         col=c("black", "black", "black"),cex=2, lwd=3, lty=c("solid", "dotted", "dashed"))
+  dev.off()
 }

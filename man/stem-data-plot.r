@@ -41,7 +41,7 @@ Plot.degrees(Y.30, 5, "man/0-Latex/graphics/Stammzellen-30kPa/30kPa-poly.pdf")
 #
 
 # zuerst Y.10
-Plot.poly.KB(Y.10, c(4,5,6), "man/0-Latex/graphics/Stammzellen-10kPa/10kPa-poly-KB.pdf")
+Plot.poly.KB(Y.10, c(4,5,6), "man/0-Latex/graphics/Stammzellen-10kPa/10kPa-poly-KB")
 
 # dann Y.30
-Plot.poly.KB(Y.30, c(4,5,6), "man/0-Latex/graphics/Stammzellen-30kPa/30kPa-poly-KB.pdf")
+Plot.poly.KB(Y.30, c(4,5,6), "man/0-Latex/graphics/Stammzellen-30kPa/30kPa-poly-KB")

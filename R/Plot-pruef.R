@@ -55,8 +55,9 @@ Plot.pruef = function(data.set, grad, k, graphicspath){
 
   # Graphik erzeugen
   pdf(graphicspath, width=10,height=8)
-  plot(x, x.2 %*% beta.2, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum")
-  lines(x, plot.KB.R[[2]], lty="dotted")
-  lines(x, plot.KB.R[[3]], lty="dotted")
+  plot(x, x.2 %*% beta.2, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
+       cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  lines(x, plot.KB.R[[2]], lty="solid", lwd=3)
+  lines(x, plot.KB.R[[3]], lty="solid", lwd=3)
   dev.off()
 }

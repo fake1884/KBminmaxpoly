@@ -32,7 +32,7 @@ Plot.degrees = function(data.set, degree, graphicspath){
           Y.gls.6$coefficients[7]*x^6, add=T,
           cex=2, lwd=3, lty="dashed")
   legend(x="topleft", legend=c("Grad 4", "Grad 5", "Grad 6"),
-         col=c("red", "green", "blue"),cex=2, lty=c("solid", "dotted", "dashed"))
+         col=c("black", "black", "black"),cex=2, lty=c("solid", "dotted", "dashed"), lwd = 3)
   dev.off()
 }
 
