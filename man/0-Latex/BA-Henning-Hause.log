@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  17 JAN 2017 11:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  17 JAN 2017 13:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1594,9 +1594,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 2299--2304
  []
 
 [54] (./BA-Henning-Hause.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'BA-Henning-Hause.run.xml'.
 \openout1 = `BA-Henning-Hause.run.xml'.
 
@@ -1625,7 +1622,7 @@ fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
 type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs
 /rsfs10.pfb>
-Output written on BA-Henning-Hause.pdf (56 pages, 532102 bytes).
+Output written on BA-Henning-Hause.pdf (56 pages, 532617 bytes).
 PDF statistics:
  471 PDF objects out of 1000 (max. 8388607)
  332 compressed objects within 4 object streams

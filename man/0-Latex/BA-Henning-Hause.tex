@@ -517,7 +517,7 @@ Als nächstes wird $\beta = \betatrue$ gewählt. Weiterhin wird eine Kovarianzma
 \right]
 \]
 
-mit $\phi = \phitrue$ erzeugt. Mit dieser Kovarianzmatrix wird $e \sim \mathscr{N}_n(0,\Upsilon)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
+mit $\phi = \phitrue$ erzeugt. Mit dieser Kovarianzmatrix wird $e \sim \mathscr{N}_{n}(0,\Upsilon)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
 
 In folgender Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
 
@@ -694,7 +694,7 @@ Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt nach Sa
 
 \begin{enumerate}
 \item $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$. Dabei ist $\mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$ die ($p$+1)-dimensionale Normalverteilung mit Erwartungswert $\beta$ und Kovarianzmatrix $\sigma^2 (X'X)^{-1}$.
-\item $\hat{e} \sim \mathscr{N}_n(0,\sigma^2(I-H)) $ mit  \gls{H} $=X(X'X)^{-1}X' $
+\item $\hat{e} \sim \mathscr{N}_{n}(0,\sigma^2(I-H)) $ mit  \gls{H} $=X(X'X)^{-1}X' $
 \item $\hat{\sigma}^2 \sim \frac{\sigma^2}{n-p-1}\chi_{n-p-1}^2 = \frac{\sigma^2}{v}\chi^2_{n-p-1}$. Dabei ist $n-p-1 :=$ \gls{v}, was ich auch in Zukunft so beibehalten werde. Weiterhin ist \gls{chi-square} die Chi-Quadrat-Verteilung.
 \item $\hat{\beta}$ und $\widehat{\sigma^2}$ sind unabhängig.
 \end{enumerate}
@@ -702,7 +702,7 @@ Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt nach Sa
 
 \begin{proof}
 1. 
-Benutzt man Modell \eqref{Grundmodell_Regression} und die Voraussetzung $ e \sim \mathscr{N}_0,\sigma^2)$ so ist $Y=X \beta + e \sim \mathscr{N}_{n}(X\beta,\sigma^2 I)$. Da aus \eqref{beta} folgt, dass $\hat{\beta} = (X'X)^{-1} X' Y$ gilt, ist $\hat{\beta}$ eine Linearkombination von $Y$. Daraus folgt, dass auch $\hat{\beta}$ normalverteilt ist. Es reicht den Erwartungswert und die Kovarianz zu bestimmen. 
+Benutzt man Modell \eqref{Grundmodell_Regression} und die Voraussetzung $ e \sim \mathscr{N}_{n}(0,\sigma^2)$ so ist $Y=X \beta + e \sim \mathscr{N}_{n}(X\beta,\sigma^2 I)$. Da aus \eqref{beta} folgt, dass $\hat{\beta} = (X'X)^{-1} X' Y$ gilt, ist $\hat{\beta}$ eine Linearkombination von $Y$. Daraus folgt, dass auch $\hat{\beta}$ normalverteilt ist. Es reicht den Erwartungswert und die Kovarianz zu bestimmen. 
 
 \begin{align*}
 E(\hat{\beta}) = E((X'X)^{-1}X'Y) = (X'X)^{-1} X' E(Y) = (X'X)^{-1} X'X \beta = \beta
@@ -754,7 +754,7 @@ Dabei benutzt man $\text{Spur}(AB) = \text{Spur}(BA)$ .
 
 Also kann man $Q$ ausdrücken als $ Q = T' L T$. Dabei ist $T$ eine orthogonale Matrix und $L$ eine passende Diagonalmatrix mit den ersten $n-(p+1)$ Diagonalelementen Eins und den verbleibenden Diagonalelementen gleich Null.
 
-Es ist $e=Y-X\beta \sim \mathscr{N}_n(0,\sigma^2I)$. Sei $z=Te$ mit $z\sim \mathscr{N}_n(0,\sigma^2I)$. Solch ein $T$ existiert, da $T$ orthogonal ist. 
+Es ist $e=Y-X\beta \sim \mathscr{N}_{n}(0,\sigma^2I)$. Sei $z=Te$ mit $z\sim \mathscr{N}_{n}(0,\sigma^2I)$. Solch ein $T$ existiert, da $T$ orthogonal ist. 
 
 Weiterhin ist 
 
@@ -867,7 +867,7 @@ Dabei und für diesen Abschnitt gelten die folgenden Definitionen
 
 \begin{eqnarray*}
 P^2 &=& (X'X)^{-1} \\
-N &=& P^{-1} (\hat{\beta} - \beta)/\sigma) \sim \mathscr{N}_2(0,I_2) \\
+N &=& P^{-1} (\hat{\beta} - \beta)/\sigma) \sim \mathscr{N}_{2}(0,I_2) \\
 T &=& N / (\hat{\sigma} / \sigma) = P^{-1} (\hat{\beta}-\beta) / \hat{\sigma} \\
 v &=& n-2 \\
 x_1 &=& x \\
@@ -1109,7 +1109,7 @@ Betrachten wir nun wieder das Regressionsmodell
 Y=X\beta+e
 \end{equation*}
 
-mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_n (0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
+mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_{n}(0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
 
 Weiterhin lag in den bisherigen Abschnitten die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. Diese Annahme nennt man festes Design.
 
@@ -1140,7 +1140,7 @@ Es können allerdings nicht direkt die Ergebnisse aus dem letzten Abschnitt benu
 \begin{enumerate}
 \item Angenommen, man versucht die Parameter des Modells $Y=X\beta+e$ zu schätzen, um Konfidenzbänder auf ganz $\mathbb{R}^p$ zu konstruieren. 
 
-Dabei sei $e \sim \mathscr{N}_n(0,\sigma^2 I_n)$ mit bekanntem $\sigma^2$. Das heißt, es ist nur $\beta$ zu Schätzen.
+Dabei sei $e \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$ mit bekanntem $\sigma^2$. Das heißt, es ist nur $\beta$ zu Schätzen.
 
 Die beiden Schätzer für $\beta$ seien $\hat{\beta_1}$ und $\hat{\beta_2}$. 
 
@@ -1684,7 +1684,7 @@ x_2'\beta_2 \in x_2'\hat{\beta_2} \pm c \hat{\sigma}\sqrt{x_2'Vx_2} \text{ für 
 
 dabei muss man die kritische Konstante $c$ so bestimmen, dass das gleichmäßige Konfidenzniveau $1 - \alpha$ ist.
 
-Sei $W$ die Wurzel aus $V$, also sei $V=W^2$. Bezeichne $N_2=W^{-1}(\hat{\beta_2}-\beta_2)/\sigma \sim \mathscr{N}_k(0,I)$ und $T_2 = N_2/(\hat{\sigma}/\sigma \sim \tau_{k,v}$. Dann ist das Konfidenzlevel von \eqref{KB_pruefen} gegeben durch $\mathbb{P}(S<c)$ wobei
+Sei $W$ die Wurzel aus $V$, also sei $V=W^2$. Bezeichne $N_2=W^{-1}(\hat{\beta_2}-\beta_2)/\sigma \sim \mathscr{N}_{k}(0,I)$ und $T_2 = N_2/(\hat{\sigma}/\sigma \sim \tau_{k,v}$. Dann ist das Konfidenzlevel von \eqref{KB_pruefen} gegeben durch $\mathbb{P}(S<c)$ wobei
 
 \begin{eqnarray*}
 S &=& \sup_{x_2 \in A_2} \frac{\vert x_2' (\hat{\beta_2} - \beta_2) \vert }{\hat{\sigma} \sqrt{x_2' V  x_2}} \\
@@ -1699,7 +1699,7 @@ Die Verteilung von $S$ hängt nicht von $\beta$ und $\sigma$ ab. Allerdings hän
 Für die beiden Spezialfälle $k=1$ und $0 \in C(W,A_2)$ ergeben sich Vereinfachungen. Im allgemeinen Fall kann man $c$ ähnlich wie in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} finden. Dazu berechnet man $R$ mal $S_i$ auf die folgende Art:
 
 \begin{enumerate}
-\item Simuliere $N_2 \sim \mathscr{N}_k(0,I)$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$
+\item Simuliere $N_2 \sim \mathscr{N}_{k}(0,I)$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$
 \item Bestimme $\Vert \pi^{*}(T_2,W,A_2) \Vert$ und $\Vert \pi^{*}(-T_2,W,A_2) \Vert$
 \item Dann ist $S= \max(\Vert \pi^{*}(T_2,W,A_2) \Vert, \Vert \pi^{*}(-T_2,W,A_2) \Vert )$
 \end{enumerate}
@@ -1805,7 +1805,7 @@ Alle bisherigen Ergebnisse beruhen auf dem homoskedastischem, multiplen linearen
 Y = X \beta + e
 \end{align}
 
-ausgegangen, wobei $e \sim \mathscr{N}_0,I_n \sigma^2)$ war.  Es wurden für dieses Modell Konfidenzbänder mit verschiedenen Designmatritzen $X$ sowohl auf $\mathbb{R}^{n}$ als auch auf einem Intervall $A$ bestimmt.
+ausgegangen, wobei $e \sim \mathscr{N}_{n}(0,I_n \sigma^2)$ war.  Es wurden für dieses Modell Konfidenzbänder mit verschiedenen Designmatritzen $X$ sowohl auf $\mathbb{R}^{n}$ als auch auf einem Intervall $A$ bestimmt.
 
 In diesem Kapitel wird der Fall betrachtet, dass die Fehler untereinander korreliert sind. 
 
@@ -1868,7 +1868,7 @@ Das heißt, das Modell ist gegeben durch
 Y = X \beta + e
 \end{align}
 
-mit $e \sim \mathscr{N}_(0,\Upsilon)$.
+mit $e \sim \mathscr{N}_{n}(0,\Upsilon)$.
 
 Für ein solches Modell ist bisher nicht klar, wie man einen ML-Schätzer bestimmt. Allerdings kann man folgenden Trick anwenden, um die Ergebnisse aus dem ersten Kapitel doch anwenden zu können: Man multipliziert beide Seiten der Gleichung mit $\Upsilon^{-1/2}$. Dann wird aus dem Modell \eqref{AR Modell} wieder das Modell \eqref{Grundmodell_AR}, wenn auch mit anderen Werten. Konkret erhält man
 
@@ -1876,7 +1876,7 @@ Für ein solches Modell ist bisher nicht klar, wie man einen ML-Schätzer bestim
 (\Upsilon^{-1/2})Y = Y^{*} = X^{*} \beta + e^{*} = (\Upsilon^{-1/2})X + (\Upsilon^{-1/2})e
 \end{align}
 
-mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_n(0,\Upsilon) = \mathscr{N}_n(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_n(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. Ich gehe hier nicht weiter darauf ein, sondern verwende einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
+mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_{n}(0,\Upsilon) = \mathscr{N}_{n}(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_{n}(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. Ich gehe hier nicht weiter darauf ein, sondern verwende einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
 
 Konkret berechne ich 
 
@@ -1968,7 +1968,7 @@ Man sieht, dass ...
 \label{Konfidenzbaender für AR(1)}
 Im letzten Abschnitt wurde gezeigt, dass man einen Schätzer für $\beta$ und $\sigma^2$ bei korrelierten Daten erhalten kann, indem man beide Seiten mit der Kovarianzmatrix $\Upsilon$ multipliziert. 
 
-Wie schon gezeigt, ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, es können die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} angewandt werden und ein Konfidenzband $K^{*}$ bestimmt werden, sodass
+Wie schon gezeigt, ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_{n}(0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, es können die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} angewandt werden und ein Konfidenzband $K^{*}$ bestimmt werden, sodass
 
 \begin{align*}
 \mathbb{P}(x^{*'} \beta \in K^{*}) = 1 - \alpha
@@ -1981,7 +1981,7 @@ Nun betrachten wir, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaendera
 Konkret verwende ich die folgende Simulation, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
 
 \begin{enumerate}
-\item Simuliere $N \sim \mathscr{N}_0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
+\item Simuliere $N \sim \mathscr{N}_{n}(0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
 \item Berechnung von $K_{2h}(T,(X^{*'}X^{*})^{-1},(a,b))$.
 \end{enumerate}
 
