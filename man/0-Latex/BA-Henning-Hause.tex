@@ -618,7 +618,7 @@ In dieser Ausarbeitung werden nur gleichmäßige Konfidenzbänder betrachten.
 
 %\begin{Beispiel}
 %
-%In der folgenden Graphik habe ich das Beispiel aus dem vorherigen Absatz um punktweise wie auch simultane Konfidenzbänder erweitert. Das punktweise Konfidenzband habe ich mit \cite[15]{Liu64} bestimmt. Für das gleichmäßige Konfidenzband habe ich die Methode aus dem nächsten Abschnitt verwendet.
+%In der folgenden Graphik wird das Beispiel aus dem vorherigen Absatz um punktweise wie auch simultane Konfidenzbänder erweitert. Das punktweise Konfidenzband wurde mit \cite[15]{Liu64} bestimmt. Für das gleichmäßige Konfidenzband wurde die Methode aus dem nächsten Abschnitt verwendet.
 %
 %\begin{figure}[H] 
 %  \centering
@@ -695,7 +695,7 @@ Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt nach Sa
 \begin{enumerate}
 \item $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$. Dabei ist $\mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$ die ($p$+1)-dimensionale Normalverteilung mit Erwartungswert $\beta$ und Kovarianzmatrix $\sigma^2 (X'X)^{-1}$.
 \item $\hat{e} \sim \mathscr{N}_{n}(0,\sigma^2(I-H)) $ mit  \gls{H} $=X(X'X)^{-1}X' $
-\item $\hat{\sigma}^2 \sim \frac{\sigma^2}{n-p-1}\chi_{n-p-1}^2 = \frac{\sigma^2}{v}\chi^2_{n-p-1}$. Dabei ist $n-p-1 :=$ \gls{v}, was ich auch in Zukunft so beibehalten werde. Weiterhin ist \gls{chi-square} die Chi-Quadrat-Verteilung.
+\item $\hat{\sigma}^2 \sim \frac{\sigma^2}{n-p-1}\chi_{n-p-1}^2 = \frac{\sigma^2}{v}\chi^2_{n-p-1}$. Dabei ist $n-p-1 :=$ \gls{v}, was auch in Zukunft so beibehalten wird. Weiterhin ist \gls{chi-square} die Chi-Quadrat-Verteilung.
 \item $\hat{\beta}$ und $\widehat{\sigma^2}$ sind unabhängig.
 \end{enumerate}
 \end{Satz}
@@ -831,9 +831,9 @@ Diesmal wird dazu noch ein Konfidenzband auf ganz $\mathbb{R}$ eingezeichnet. Di
 \begin{Simulation}
 Als nächstes wird eine Simulation durchgeführt, um die Überdeckungswahrscheinlichkeit der Methoden zu überprüfen.
 
-Dazu werden Daten auf zwei verschiedene Arten erzeugt. Zum einen habe lege ich als Grundmodell ein multiples lineares, homoskedastisches Regressionsmodell zugrunde, zum anderen lege ich ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde. 
+Dazu werden Daten auf zwei verschiedene Arten erzeugt. Zum einen wird als Grundmodell ein multiples lineares, homoskedastisches Regressionsmodell zugrunde gelegt, zum anderen wird ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde gelegt. 
 
-Bei der Simulation erzeuge ich zuerst \ntest mal Daten mit den oben genannten Grundmodellen. Danach erzeuge ich Konfidenzbänder um ein OLS beziehungsweise mit einem AR(1) transformierten OLS-Schätzer. Dann wird gezählt, wie oft das wahre Modell in dem Konfidenzband liegt. 
+Bei der Simulation wird zuerst \ntest mal Daten mit den oben genannten Grundmodellen erzeugt. Danach werden Konfidenzbänder um ein OLS beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wird gezählt, wie oft das wahre Modell in dem Konfidenzband liegt. 
 
 Die Ergebnisse sind in der folgenden Tabelle zusammengestellt. Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell. 
 
@@ -1059,7 +1059,7 @@ A =
 \end{bmatrix}
 \]
 
-ist. Für Minimierungsprobleme dieser Art gibt es ein R-Paket namens \textit{Quadprog} , das ich zur Lösung dieser Minimierungsaufgabe benutzt habe.
+ist. Für Minimierungsprobleme dieser Art gibt es ein R-Paket namens \textit{Quadprog} , das zur Lösung dieser Minimierungsaufgabe benutzt wird.
 
 \begin{Beispiel}
 Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} fortgeführt, indem zu der Regression mit Grad Eins und dem Konfidenzband auf ganz $\mathbb{R}^{2}$ noch ein Konfidenzband auf $A$ eingezeichnet wird. Dabei benutzt man $A = \{x \in \mathbb{R}^2 : x_i \in [0,1] \text{ für alle } i=1, 2 \} $. 
@@ -1072,7 +1072,7 @@ Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein m
   \label{KB-minmax-BSP}
 \end{figure}
 
-Der kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^2$, den ich bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet hatte war \cR . Für das Konfidenzband auf $A$ ergibt sich \cA . Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
+Der kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^2$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde war \cR . Für das Konfidenzband auf $A$ ergibt sich \cA . Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
 
 Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf ganz $\mathbb{R}^2$. Der Unterschied wirkt allerdings nicht besonders groß.
 
@@ -1252,7 +1252,7 @@ Als nächstes wiederholt man diese Schritte $q$ mal, um $K= \{S_1, \ldots, S_q\}
 
 
 \begin{Beispiel}
-Jetzt führe ich das Beispiel aus dem dritten Abschnitt fort, indem ich zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Graphik \ref{KB-poly-BSP} einzeichne.
+Jetzt wird das Beispiel aus dem dritten Abschnitt fortgeführt, indem zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Graphik \ref{KB-poly-BSP} einzeichnet wird.
 
 \begin{figure}[H] 
   \centering
@@ -1261,14 +1261,14 @@ Jetzt führe ich das Beispiel aus dem dritten Abschnitt fort, indem ich zu der R
   \label{KB-poly-BSP}
 \end{figure}
 
-Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}$ und für das Konfidenzband auf [0,1] habe ich in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR und \cA . Berechne ich den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhalte ich den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
+Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}$ und für das Konfidenzband auf [0,1] wurde in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
 
-Als seed benutze ich, wie gesagt, weiterhin \seedsimulation .
+Als seed wurde weiterhin \seedsimulation benutzt.
 
 \end{Beispiel}
 
 \begin{Simulation}
-Ich beende die Simulationstabelle aus den letzten beiden Abschnitt durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf einem Intervall $A$, in diesem Fall ist wieder $A = \{ (x_1, \ldots, x_p)' : 0 \leq x_i \leq 1, i=1, \ldots, p \}$ aufgrund der Struktur des Modells. Außerdem gehe ich davon aus, dass die Designmatrix Polynomgestalt hat.
+Die Simulationstabelle aus den letzten beiden Abschnitt wird durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf einem Intervall $A$, in diesem Fall ist wieder $A = \{ (x_1, \ldots, x_p)' : 0 \leq x_i \leq 1, i=1, \ldots, p \}$ aufgrund der Struktur des Modells, beendet. Außerdem wird davon ausgegangen, dass die Designmatrix Polynomgestalt hat.
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1329,9 +1329,9 @@ Es ist mit der in diesem Kapitel eingeführten Methode auch möglich zwei Modell
 Ein Beispiel für solch ein vorgehen ist der Vergleich des Blutdrucks von Männern und Frauen. Konkret kann man mit dieser Methode die Frage beantworten, ob sowohl für Männer, als auch für Frauen, der Zusammenhang zwischen zum Beispiel Alter und Blutdruck gleich ist.
 
 \begin{Beispiel}
-Es wird das Beispiel aus Kapitel 1 fortgeführt, indem ich eine zweite Designmatrix $X_2$ einführe. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad 3 dar. 
+Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem eine zweite Designmatrix $X_2$ einführt wird. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad 3 dar. 
 
-Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die ich bereits im ersten Kapitel vorgestellt habe, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Eins zugrunde zu legen. 
+Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits im Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Eins zugrunde zu legen. 
 
 In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
 
@@ -1342,7 +1342,7 @@ In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Dat
   \label{Vergleich-Bsp}
 \end{figure}
 
-%Im Folgenden gebe ich die beiden Modelle in Matrixschreibweise an:
+%Im Folgenden sind die beiden Modelle in Matrixschreibweise angegeben:
 %
 %\[
 %Y = \Ydat = \Xonedat \times \betaonedat + \edat = X_{1} \beta_{1} + e_{1}
@@ -1708,10 +1708,10 @@ Dann ist die kritische Konstante $c$ das $1-\alpha$ Quantil von $S_1, \ldots, S_
 
 Die Berechnung von $\Vert \pi^{*}(T_2,W,A_2) \Vert$ findet man in \cite[Appendix B]{Liu64}.
 
-Ich habe diese Methode nicht weiter verfolgt, da das Ziel dieser Arbeit ist Konfidenzbänder zu vergleichen. Außerdem werden im letzten Kapitel Datenbeschreibung und Resultate vor allem Polynommodelle betrachtet. Wie man in diesem Fall Konfidenzbänder konstruiert ist Thema des nächsten Abschnitts.
+Diese Methode wurde nicht weiter verfolgt, da das Ziel dieser Arbeit ist Konfidenzbänder zu vergleichen. Außerdem werden im letzten Kapitel Datenbeschreibung und Resultate vor allem Polynommodelle betrachtet. Wie man in diesem Fall Konfidenzbänder konstruiert ist Thema des nächsten Abschnitts.
 
 \begin{Simulation}
-Ich habe für das Konfidenzband auf ganz $\mathbb{R}^n$ wieder eine Simulation für die Überdeckungswahrscheinlichkeit für Daten aus einer gewöhnlichen multilinearen Regression und einer Regression mit AR(1)-Kovarianzmatrix durchgeführt:
+Es werden für das Konfidenzband auf ganz $\mathbb{R}^n$ wieder eine Simulation für die Überdeckungswahrscheinlichkeit für Daten aus einer gewöhnlichen multilinearen Regression und einer Regression mit AR(1)-Kovarianzmatrix durchgeführt:
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1767,7 +1767,7 @@ mit $\tilde{x_2}= x^{p-k+1}(1, x, \ldots, x^{k-1})$.
 Also ist die kritische Konstante $c$ genau so wie in Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} berechenbar, außer dass man $p=k-1$ und $(X'X)^{-1}$ mit $V$ ersetzen muss. Die Simulation ändert sich allerdings nicht.
 
 \begin{Simulation}
-Auch für die Methode aus diesem Abschnitt habe ich Simulationen durchgeführt:
+Auch für die Methode aus diesem Abschnitt wurden Simulationen durchgeführt:
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1805,7 +1805,7 @@ Alle bisherigen Ergebnisse beruhen auf dem homoskedastischem, multiplen linearen
 Y = X \beta + e
 \end{align}
 
-ausgegangen, wobei $e \sim \mathscr{N}_{n}(0,I_n \sigma^2)$ war.  Es wurden für dieses Modell Konfidenzbänder mit verschiedenen Designmatritzen $X$ sowohl auf $\mathbb{R}^{n}$ als auch auf einem Intervall $A$ bestimmt.
+ausgegangen, wobei $e \sim \mathscr{N}_{n}(0, \sigma^2 I_n)$ war.  Es wurden für dieses Modell Konfidenzbänder mit verschiedenen Designmatritzen $X$ sowohl auf $\mathbb{R}^{n}$ als auch auf einem Intervall $A$ bestimmt.
 
 In diesem Kapitel wird der Fall betrachtet, dass die Fehler untereinander korreliert sind. 
 
@@ -1830,7 +1830,7 @@ y_t = \phi y_{t-1} + e_t
 
 interessieren. Dabei ist \gls{phi} ein unbekannter Parameter und $\mathbb{E}(e_t)=0$, $\mathbb{E}(e_t^2)=\sigma^2 < \infty$.
 
-Bei solchen Zeitreihen hängt der Wert zur Zeit $t$ offenbar vom Wert der Zeitreihe zur Zeit $t-1$ ab. Somit ist hier $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$ und die Ergebnisse aus Kapitel 1 können nicht angewendet werden. 
+Bei solchen Zeitreihen hängt der Wert zur Zeit $t$ offenbar vom Wert der Zeitreihe zur Zeit $t-1$ ab. Somit ist hier $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$ und die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} können nicht angewendet werden. 
 
 Eine Zeitreihe dieser Form nennt man einen autoregressiven Prozess erster Art (AR(1)).
 
@@ -1846,7 +1846,7 @@ Beispielsweise erhält man für $i=1$ den Zusammenhang $Y_1 = \phi^j Y_j$ und so
 &=& \phi^j \sigma^2
 \end{eqnarray*}
 
-Damit hat die Kovarianzmatrix \gls{Xi} von $e$ in diesem Fall die Form:
+Damit hat die Korrelationsmatrix \gls{Xi} von $e$ in diesem Fall die Form:
 
 \[
 \Upsilon = 
@@ -1876,16 +1876,16 @@ Für ein solches Modell ist bisher nicht klar, wie man einen ML-Schätzer bestim
 (\Upsilon^{-1/2})Y = Y^{*} = X^{*} \beta + e^{*} = (\Upsilon^{-1/2})X + (\Upsilon^{-1/2})e
 \end{align}
 
-mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_{n}(0,\Upsilon) = \mathscr{N}_{n}(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_{n}(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. Ich gehe hier nicht weiter darauf ein, sondern verwende einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
+mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_{n}(0,\Upsilon) = \mathscr{N}_{n}(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_{n}(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. An dieser Stelle wird nicht weiter darauf eingegangen, sondern einfach die Funkion \textbf{gls} aus dem \textit{nlme} Paket verwendet. Bei der Benutzung von \textit{gls} um $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
 
-Konkret berechne ich 
+Konkret wird folgender Algorithmus verwendet:
 
 \begin{enumerate}
-\item Ich benutze gls um $\phi$ zu bestimmen.
-\item Ich bestimme $\Upsilon$ und mittels der R-Funktion \textit{solve} $\Upsilon^{-1}$ 
-\item Ich führe eine Eigenwertzerlegung von $\Upsilon^{-1}$ durch um die Matrix zu diagonalisieren und nehme dann von der Hauptdiagonalenmatrix elementenweise die Wurzel, um $\Upsilon^{-1/2}$ zu bestimmen.
-\item Ich transformiere $Y$ nach $Y^{*}$ und $X$ nach $X^{*}$ mittels Linksmultiplikation mit $\Upsilon^{-1/2}$
-\item Ich benutze eine normale OLS um $D=(X^{'*}X^{*})^{-1}$, $\beta$ und $\sigma^2$ zu berechnen. Dabei müsste $\sigma^2 = 1 $ wegen der Transformation sein.
+\item Benutze gls um $\phi$ zu bestimmen.
+\item Bestimme $\Upsilon$ und mittels der R-Funktion \textit{solve} $\Upsilon^{-1}$ 
+\item Führe eine Eigenwertzerlegung von $\Upsilon^{-1}$ durch um die Matrix zu diagonalisieren und nehme dann von der Hauptdiagonalenmatrix elementenweise die Wurzel, um $\Upsilon^{-1/2}$ zu bestimmen.
+\item Transformiere $Y$ nach $Y^{*}$ und $X$ nach $X^{*}$ mittels Linksmultiplikation mit $\Upsilon^{-1/2}$
+\item Benutze eine normale OLS um $D=(X^{'*}X^{*})^{-1}$, $\beta$ und $\sigma^2$ zu berechnen.
 \end{enumerate}
 
 Führt man diese Schritte durch, das heißt man transformiert die Daten und berechnet dann den OLS Schätzer 
@@ -1929,7 +1929,7 @@ Als Schätzung für die Parameter erhält man \betaARone und \sigmaARone , währ
 %\Xidat
 %\]
 %
-%Als nächstes transformiere ich $Y$ nach $Y^{*}$ mittels Linksmultiplikation mit $Xi$
+%Als nächstes wird $Y$ nach $Y^{*}$ mittels Linksmultiplikation mit $Xi$ transformiert
 %
 %\begin{align*}
 %\Upsilon^{-1/2} \times Y &=& \\
@@ -1940,15 +1940,15 @@ Als Schätzung für die Parameter erhält man \betaARone und \sigmaARone , währ
 %\end{align*}
 %
 %
-%und ich transformiere $X$ nach $X^{*}$
+%und $X$ nach $X^{*}$ transformiert
 %
 %\[
 %\Upsilon^{-1/2} \times X = ... = ... = X^{*}
 %\]
 %
-%als nächstes führe ich die OLS-Regression durch und erhalte die Werte $\beta=(...,...)$ und $\sigma=...$.
+%als nächstes wird die OLS-Regression durchgeführt und man erhält die Werte $\beta=(...,...)$ und $\sigma=...$.
 
-Zeichne ich dann dieses Regressionspolynom mit den Daten in eine Graphik erhält man
+Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Graphik erhält man
 
 \begin{figure}[H] 
   \centering
@@ -1978,7 +1978,7 @@ Da allerdings nicht $x^{*'} \beta$ interessiert, sondern $x' \beta$, müssen noc
 
 Nun betrachten wir, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} beeinflusst. Es ändert sich nur die Simulation von $N$.
 
-Konkret verwende ich die folgende Simulation, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
+Konkret wird die folgende Simulation verwendet, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
 
 \begin{enumerate}
 \item Simuliere $N \sim \mathscr{N}_{n}(0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
@@ -2020,10 +2020,10 @@ Man sieht, dass das Konfidenzband weit von den Daten entfernt ist. Vermutlich li
 
 \newpage
 \section{Datenbeschreibung und Resultate}
-In diesem Kapitel beschreibe ich zuerst die Daten, die als Motivation für die bisher erklärten Methoden dienen. Danach wende ich die Methoden auf die Daten an. Zuerst vergleiche ich die Verschiedenen Methoden Konfidenzbänder zu bestimmen. Danach vergleiche ich Polynome von verschiedenem Grad. Im letzten Abschnitt vergleiche ich 10 Kilopascal (kPa) und 30 kPa Daten. Die Daten entstammen der Arbeit von \cite{Rehfeldt10}.
+In diesem Kapitel werden zuerst die Daten beschrieben, die als Motivation für die bisher erklärten Methoden dienten. Danach werden die Methoden auf die Daten angewendet. Zuerst werden die Verschiedenen Methoden Konfidenzbänder zu bestimmen verglichen. Danach werden Polynommodelle von verschiedenem Grad miteinander verglichen. Im letzten Abschnitt werden 10 Kilopascal (kPa) und 30 kPa Daten verglichen. Die Daten entstammen der Arbeit von \cite{Rehfeldt10}.
 
 \subsection{Datenbeschreibung}
-Die Motivation dieser Arbeit ist, wie eine Stammzelle entscheidet, zu welcher Art Gewebe sie wird. Es wird vermutet, dass Stammzellen diese Entscheidung treffen, wenn sie gerade nicht wachsen. Deshalb wurden Stammzellen auf verschiedene Untergründe gesetzt und zu jeweils bestimmten äquidistanten Zeitpunkten unter einem Mikroskop fotografiert. Danach wurde ihre Fläche bestimmt. Mit Hilfe dieser Daten habe ich eine Regression mit der Zeit als unabhängige Variable durchgeführt. Ich verwende Polynomregression, da die Ableitungen von Polynomen gut zu berechnen sind und ich so die kritischen Punkte des Regressionsgraphen einfach bestimmen kann.
+Die Motivation dieser Arbeit ist, wie eine Stammzelle entscheidet, zu welcher Art Gewebe sie wird. Es wird vermutet, dass Stammzellen diese Entscheidung treffen, wenn sie gerade nicht wachsen. Deshalb wurden Stammzellen auf verschiedene Untergründe gesetzt und zu jeweils bestimmten äquidistanten Zeitpunkten unter einem Mikroskop fotografiert. Danach wurde ihre Fläche bestimmt. Mit Hilfe dieser Daten wird eine Regression mit der Zeit als unabhängige Variable durchgeführt. Es wird eine Polynomregression verwendet, da die Ableitungen von Polynomen gut zu berechnen sind und man so die kritischen Punkte des Regressionsgraphen einfach bestimmen kann.
 
 Es geht darum, das beste Polynom-Modell für die Daten zu wählen. Ein Polynom-Modell ist durch den Grad des Polynoms eindeutig definiert. Das Problem ist also den besten Polynomgrad zu finden.
 
@@ -2031,10 +2031,10 @@ Um dieses Problem zu lösen, betrachtet man, ob sich die Polynome statistisch si
 
 Die konkrete Fragestellung meiner Bachelorarbeit ist, ob die Polynome, die man durch die Daten legt, sich signifikant unterscheiden.
 
-Ich hatte Daten von Stammzellen, die auf ein Oberfläche mit einer Härte von 10 kPa oder 30 kPa gesetzt wurden. 
+Es gibt zwei verschieden Datensätze. Einmal von Stammzellen die auf ein Oberfläche mit einer Härte von 10 kPa und einmal auf eine Oberfläche von 30 kPa gesetzt wurden. 
 
-Es handelt sich um Daten von 53 Stammzellen bei den 30 kPa Daten und um 51 Stammzellen bei den 10 kPa Daten. Da die Stammzellen sehr verschiedene Wachstumsraten aufweisen, bilde ich den Mittelwert. 
-Plotte ich nun das Mittel der relative Wachstüme gegen die Zeit entstehen folgende Graphiken. Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-data.R}
+Es handelt sich um Daten von 53 Stammzellen bei den 30 kPa Daten und um 51 Stammzellen bei den 10 kPa Daten. Da die Stammzellen sehr verschiedene Wachstumsraten aufweisen, werden die Mittelwerte gebildet. 
+Plottet man nun das Mittel der relative Wachstüme gegen die Zeit entstehen folgende Graphiken. Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-data.R}
 
 \begin{figure}[H] 
   \centering
@@ -2060,7 +2060,7 @@ Da es zwischen den Daten eine Autokorrelationsbeziehung der Art AR(1) gibt, muss
 
 
 \subsection{Vergleich verschiedener Konfidenzbänder}
-Hier vergleiche ich drei Konfidenzbänder für 30kPa Daten. Das Regressionsmodell ist ein Polynom vom Grad vier mit OLS. Das Konfidenzband auf ganz $R$ ist ..., das Konfidenzband auf $(min,max)$ ist ... und das die Polynomstruktur berücksichtigt ist ... . 
+Hier werden drei Konfidenzbänder für 30kPa Daten verglichen. Das Regressionsmodell ist ein Polynom vom Grad vier mit OLS. Das Konfidenzband auf ganz $R$ ist ..., das Konfidenzband auf $A$ ist ... und das die Polynomstruktur berücksichtigt ist ... . 
 
 Die Berechnung für diese Graphik befindet sich in der Datei \textit{30kPa-method.R}
 
@@ -2087,7 +2087,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-metho
 
 
 %\subsection{Welches Modell ist das richtige ?}
-%In diesem Abschnitt schaue ich, ob die verschiedenen Modelle um Regression durchzuführen sich signifikant unterscheiden.
+%In diesem Abschnitt wird gescht, ob die verschiedenen Modelle um Regression durchzuführen sich signifikant unterscheiden.
 %
 %Graphik ols, fgls, ar1 für 10 kPa :
 %
@@ -2130,7 +2130,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-metho
 
 
 \subsection{Vergleich von Polynomen mit verschiedenem Grad}
-In diesem Abschnitt vergleiche ich Polynomregression mit verschiedenen Polynomgraden.
+In diesem Abschnitt werden Polynomregressionen mit verschiedenen Polynomgraden durchgeführt.
 
 Graphik Polynome vom Grad 4,5,6 für 30 kPa Daten :
 
@@ -2206,7 +2206,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-poly-
 
 
 \subsection{Vergleich von 10 kPa und 30 kPa Daten}
-In meinem nächsten Plot vergleiche ich 10 kPa mit 30 kPa OLS. Dazu plotte ich zuerst die beiden Daten mit AR(1) Regressionsmodellen in eine Graphik.
+Im nächsten Plot werden 10 kPa mit 30 kPa OLS Daten verglichen. Dazu werden zuerst die beiden Daten mit AR(1) Regressionsmodellen in eine Graphik geplottet.
 
 Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-10vs30-poly5.R}
 
@@ -2218,7 +2218,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-1
 \end{figure}
 
 
-Als nächstes plotte ich die Differenz mit Konfidenzband in einer Graphik
+Als nächstes wird die Differenz mit Konfidenzband in einer Graphik geplottet.
 
 Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-10vs30-poly5-KB.R}
 
@@ -2235,7 +2235,7 @@ Man sieht, dass die Nullfunktion nicht komplett im Konfidenzband enthalten ist. 
 \subsection{Teil eines Regressionsmodells überprüfen}
 Die Berechnungen für diesen Abschnitt befinden sich in der Datei \textit{05-xxkPa-pruefen}. Dabei ist \textit{xx} entweder 10 oder 30 und die Datei ist im jeweiligen Unterordner zu finden.
 
-In diesem Abschnitt wird getestet, ob bei einem Regressionsmodell vom Grad 5 die erste Komponente nicht signifikant, beziehungsweise ob bei einem Regressionsmodell vom Grad 6 die erste oder sogar die ersten beiden Komponenten gleich Null sind. Dazu verwende ich die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}.
+In diesem Abschnitt wird getestet, ob bei einem Regressionsmodell vom Grad 5 die erste Komponente nicht signifikant, beziehungsweise ob bei einem Regressionsmodell vom Grad 6 die erste oder sogar die ersten beiden Komponenten gleich Null sind. Dazu verwendet man die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}.
 
 Zuerst der Grad 5:
 
