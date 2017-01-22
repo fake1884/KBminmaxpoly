@@ -1809,12 +1809,14 @@ ausgegangen, wobei $e \sim \mathscr{N}_{n}(0, \sigma^2 I_n)$ war.  Es wurden fü
 
 In diesem Kapitel wird der Fall betrachtet, dass die Fehler untereinander korreliert sind. 
 
-Zuerst betrachten wir, wie man in diesem Fall die Parameter des Modells schätzten kann. Danach konstruieren wir für das Modell Konfidenzbänder. 
+Zuerst werden autoregressive Modelle und im besonderen Zeitreihen, die einem AR(1) Prozess folgen, eingeführt. Dieser erste Abschnitt orientiert sich an \cite{Hansen15} und \cite{Brockwell91}.
 
-Dieses Kapitel orientiert sich an \cite{Hansen15} und  \cite{Pinheiro00}.
+Danach betrachten wir die Berechnung von Schätzern für die Parameter von Zeitreihen. Dazu sollen Funktionen aus dem R Paket \textit{nlme}, dies steht für nonlinear mixed-effects models, verwendet werden. Dazu betrachten wir das konkrete Vorgehen dieser Funktionen anhand des Buches \cite{Pinheiro00},
+
+Im letzten Abschnitt dieses Kapitels betrachten wir, wie wir für abhängige Daten Konfidenzbänder konstruieren können. Das heißt, wir betrachten wie die beiden vorhergehenden Abschnitte die Überlegungen aus den Abschnitten \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat} ändert.
 
 
-\subsection{Regression für AR(1)}
+\subsection{Autoregressive Modell und AR(1)}
 \label{Regression für AR(1)}
 In diesem Abschnitt wird das Modell \eqref{Grundmodell_AR} auf den Fall von abhängigen Daten verallgemeinert. Daten sind abhängig, wenn $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$.
 
@@ -1870,7 +1872,16 @@ Y = X \beta + e
 
 mit $e \sim \mathscr{N}_{n}(0,\Upsilon)$.
 
-Für ein solches Modell ist bisher nicht klar, wie man einen ML-Schätzer bestimmt. Allerdings kann man folgenden Trick anwenden, um die Ergebnisse aus dem ersten Kapitel doch anwenden zu können: Man multipliziert beide Seiten der Gleichung mit $\Upsilon^{-1/2}$. Dann wird aus dem Modell \eqref{AR Modell} wieder das Modell \eqref{Grundmodell_AR}, wenn auch mit anderen Werten. Konkret erhält man
+
+
+\subsection{AR(1) und das \textit{nlme} Paket}
+\label{AR(1) und das nlme Paket}
+
+Dieser Abschnitt orientiert sich an \cite[58-59]{Pinheiro00}, \cite[62-66]{Pinheiro00}, \cite[229]{Pinheiro00}, \cite[235]{Pinheiro00} und \cite[202,203]{Pinheiro00}. 
+
+Zuerst wird das linear mixed effects (LME) Modell eingeführt. Dann wird besprochen, wie man für das LME Modell einen ML-Schätzer finden kann. Danach wird beschrieben wie das \textit{nlme} Modell mit Zeitreihen und insbesondere mit AR(1) Prozessen umgeht und zum Schluss wird noch eine Möglichkeit angegeben in solch einem Modell einen ML-Schätzer zu bestimmen.
+
+Für ein solches Zeitreihenmodell ist bisher nicht klar, wie man einen ML-Schätzer bestimmt. Allerdings kann man folgenden Trick anwenden, um die Ergebnisse aus dem ersten Kapitel doch anwenden zu können: Man multipliziert beide Seiten der Gleichung mit $\Upsilon^{-1/2}$. Dann wird aus dem Modell \eqref{AR Modell} wieder das Modell \eqref{Grundmodell_AR}, wenn auch mit anderen Werten. Konkret erhält man
 
 \begin{align} \label{AR rück}
 (\Upsilon^{-1/2})Y = Y^{*} = X^{*} \beta + e^{*} = (\Upsilon^{-1/2})X + (\Upsilon^{-1/2})e
@@ -2130,7 +2141,7 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-metho
 
 
 \subsection{Vergleich von Polynomen mit verschiedenem Grad}
-In diesem Abschnitt werden Polynomregressionen mit verschiedenen Polynomgraden durchgeführt.
+In diesem Abschnitt werden Polynomregressionen mit verschiedenen Graden durchgeführt.
 
 Graphik Polynome vom Grad 4,5,6 für 30 kPa Daten :
 
@@ -2298,7 +2309,7 @@ Zum Schluss der Grad 6 für 10kPa:
 \addcontentsline{toc}{section}{Selbstständigkeitserklärung}
 Hiermit bestätige ich, dass ich die vorliegende Arbeit selbstständig, nur mit Hilfe meiner Betreuer und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt habe. Die aus fremden Quellen (einschließlich elektronischer Quellen) direkt oder indirekt übernommenen Gedanken sind ausnahmslos als solche kenntlich gemacht. Die Arbeit ist in gleicher oder ähnlicher Form oder auszugsweise im Rahmen einer anderen Prüfung noch nicht vorgelegt worden.
 \\ \\ \\ \\
-\parbox{5cm}{\centering Göttingen, ... }
+\parbox{5cm}{\centering Göttingen, }
 %\hrule \strut \centering\footnotesize Ort, Datum} 
 \hfill\parbox{4cm}{\hrule \strut \centering  \footnotesize Henning Hause}
 \end{document}

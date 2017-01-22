@@ -19,6 +19,26 @@
 
 \refsection{0}
   \sortlist{entry}{anyt}
+    \entry{Brockwell91}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=07a734a8921f5702d49420addf0043ae}{Brockwell}{B\bibinitperiod}{Peter\bibnamedelima J.}{P\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=56c5e9a92c8745466eb7b5a988e198a4}{Davis}{D\bibinitperiod}{Richard\bibnamedelima A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=07a734a8921f5702d49420addf0043ae}{Brockwell}{B\bibinitperiod}{Peter\bibnamedelima J.}{P\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=56c5e9a92c8745466eb7b5a988e198a4}{Davis}{D\bibinitperiod}{Richard\bibnamedelima A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{6bdd0e9427b8012e068b7b9a7f9c729c}
+      \strng{fullhash}{6bdd0e9427b8012e068b7b9a7f9c729c}
+      \field{labelalpha}{BD91}
+      \field{sortinit}{B}
+      \field{labeltitle}{Time Series: Theory and Methods}
+      \field{title}{Time Series: Theory and Methods}
+      \field{year}{1991}
+    \endentry
     \entry{Draper98}{book}{}
       \name{labelname}{2}{}{%
         {{hash=8a649ae68c1603dec27a397ccee1970b}{Draper}{D\bibinitperiod}{N.}{N\bibinitperiod}{}{}{}{}}%
