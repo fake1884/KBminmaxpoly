@@ -32,9 +32,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Regression und Konfidenzb\IeC {\"a}nder f\IeC {\"u}r abh\IeC {\"a}ngige Daten}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Regression f\IeC {\"u}r AR(1)}{36}
+\contentsline {subsection}{\numberline {4.1}Autoregressive Modelle und AR(1)}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{39}
+\contentsline {subsection}{\numberline {4.2}AR(1) und das \textit {nlme} Paket}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{39}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{42}
 \defcounter {refsection}{0}\relax 
