@@ -34,20 +34,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1}Autoregressive Modelle und AR(1)}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}AR(1) und das \textit {nlme} Paket}{37}
+\contentsline {subsection}{\numberline {4.2}AR(1) und das \textit {nlme} Paket}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{39}
+\contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{42}
+\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{42}
+\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{43}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{44}
+\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{48}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{50}
+\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{54}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{55}

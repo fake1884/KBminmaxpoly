@@ -1820,35 +1820,83 @@ Im letzten Abschnitt dieses Kapitels betrachten wir, wie wir für abhängige Dat
 \label{Regression für AR(1)}
 In diesem Abschnitt wird das Modell \eqref{Grundmodell_AR} auf den Fall von abhängigen Daten verallgemeinert. Daten sind abhängig, wenn $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$.
 
-Beginnen wir mit ein paar Definitionen
+Beginnen wir mit ein paar Definitionen. Die erste orientiert sich an \cite[1]{Brockwell91}.
 
 \begin{Definition}
 Zeitreihe
 
-Insbesondere werden Zeitreihen betrachtet. Eine Zeitreihe ist eine Reihe von Messungen an Zeitpunkten $ t=1, \ldots, T $. Im Folgenden bedeutet der Index $t$, dass es sich um eine Messung handelt und $T$ ist die Anzahl an Messungen. 
+Eine Zeitreihe ist eine Menge von Messungen $z_t$, an einem bestimmten Zeitpunkten $t$. 
 
-Da die Messungen nacheinander getätigt werden, steht zu vermuten, dass $y_t$ und $y_{t+1}$ auf irgendeine Art und Weise nahe beieinander sind. Ist dies der Fall, sind $y_t$ und $y_{t+1}$ nicht unabhängig. Unabhängigkeit war allerdings eine der zentrale Annahmen im ersten Kapitel. Deshalb muss man Schätzer für die Parameter des Modells auf eine andere Art bestimmen.
+Bei einer diskreten Zeitreihe ist $ t=1, \ldots, T $ mit $T \in \mathbb{N}$ fest. 
+
 \end{Definition}
 
-Eine besondere Zeitreihe ist ein so genannter autoregressive-moving average (ARMA) Prozess. Die folgende Definition orientiert sich an \cite[78]{Brockwell91}
+Eine besondere Zeitreihe ist ein so genannter autoregressive-moving average (ARMA) Prozess. Die folgende Definition orientiert sich an \cite[78]{Brockwell91}.
 
 \begin{Definition}
-ARMA
+ARMA(p,q) Prozess
+
+Den Prozess $(X_t)$ nennt man einen ARMA(p,q) Prozess, wenn $(X_t)$ stationär ist und für jedes $t$ gilt
+
+\begin{equation}\label{ARMA}
+X_t - \phi_1 X_{t-1} - \ldots - \phi_p X_{t-p} = Z_t + \theta_1 Z_{t-1} + \ldots + \theta_q Z_{t-q}
+\end{equation}
+
+mit $(Z_t) \sim \text{WN}(0, \sigma^2)$.  Dabei sagt man, dass der Prozess $(Z_t) \sim \text{WN}(0, \sigma^2)$ ist, wenn $(Z_t)$ Erwartungswert Null und eine Kovarianzfunktion der Form
+
+\begin{equation*}
+\gamma(h) = \begin{cases} \sigma^2 &, \text{ falls } h=0 \\ 0 &, \text{ falls } h \neq 0 \end{cases}
+\end{equation*}
+
 \end{Definition}
 
-Es gibt verschiedene Arten von ARMA Prozessen. Uns werden im folgenden nur so genannte AR(1) Prozesse, ein Spezialfall von allgemeinen ARMA Prozessen, interessieren.
+Die Gleichung \eqref{ARMA} kann man kompakter als
+
+\begin{equation*}
+\phi(B) X_t = \theta(B) Z_t, t \in 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+
+schreiben. Dabei sind $\zeta$ und $\theta$ die Polynome
+
+\begin{equation*}
+\phi(z) = 1 - \phi_1 z - \ldots - \phi_p z^p
+\end{equation*}
+
+und 
+
+\begin{equation*}
+\theta(z) = 1 + \theta_1 z + \ldots + \theta_q z^q
+\end{equation*}
+
+und $B$ ist der Rückwärtsshift-Operator definiert durch
+
+\begin{equation*}
+B^j X_t = X_{t-j}, j = 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+
+Es gibt verschiedene Arten von ARMA Prozessen. Uns werden im folgenden nur so genannte autoregressive Prozesse erster Ordnung (AR(1)), ein Spezialfall von allgemeinen ARMA Prozessen, interessieren.
 
 \begin{Definition}
-AR(1)
+AR(p)
+
+Ist in der obigen Definition $\theta(x) \equiv 1$, so ist 
+
+\begin{equation*}
+\phi(B) X_t = Z_t
+\end{equation*}
+
+und man nennt den Prozess einen autoregressiven Prozess von Ordnung $p$( oder AR(p))
+\end{Definition}
+
+Ein Spezialfall von AR(p) Prozessen ist der AR(1) Prozess, bei dem gilt
 
 \begin{align}
 y_t = \phi y_{t-1} + e_t
 \end{align}
 
-Dabei ist \gls{phi} ein unbekannter Parameter und $\mathbb{E}(e_t)=0$, $\mathbb{E}(e_t^2)=\sigma^2 < \infty$.
+Dabei ist \gls{phi} ein unbekannter Parameter und $\mathbb{E}(e_t)=0$, $\mathbb{E}(e_t^2)=\sigma^2 < \infty$. Für den Fall das $\phi \in (-1,1)$ ist, nennt man die Zeitreihe streng stationär und ergodisch. 
 
-Eine Zeitreihe dieser Form nennt man einen autoregressiven Prozess erster Ordnung (AR(1)).
-\end{Definition}
+Da die Messungen nacheinander getätigt werden, steht zu vermuten, dass $y_t$ und $y_{t+1}$ auf irgendeine Art und Weise nahe beieinander sind. Ist dies der Fall, sind $y_t$ und $y_{t+1}$ nicht unabhängig. Unabhängigkeit war allerdings eine der zentrale Annahmen im ersten Kapitel. Deshalb muss man Schätzer für die Parameter des Modells auf eine andere Art bestimmen.
 
 Bei AR(1)-Prozessen hängt der Wert zur Zeit $t$ offenbar vom Wert der Zeitreihe zur Zeit $t-1$ ab. Somit ist hier $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$ und die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} können nicht angewendet werden. 
 
