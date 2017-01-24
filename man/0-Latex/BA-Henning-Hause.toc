@@ -8,7 +8,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2}Konfidenzb\IeC {\"a}nder}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}Konfidenzb\IeC {\"a}nder auf $\mathbb {R}^{n}$ f\IeC {\"u}r ein multiples lineares Regressionsmodell}{10}
+\contentsline {subsection}{\numberline {1.3}Konfidenzb\IeC {\"a}nder auf $\mathbb {R}^{p}$ f\IeC {\"u}r ein multiples lineares Regressionsmodell}{10}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4}Konfidenzb\IeC {\"a}nder auf einem Intervall f\IeC {\"u}r ein einfaches lineares Regressionsmodell}{15}
 \defcounter {refsection}{0}\relax 
@@ -42,12 +42,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{44}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{45}
+\contentsline {subsection}{\numberline {5.3}Vergleich von Polynomen mit verschiedenem Grad}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{49}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{51}
+\contentsline {subsection}{\numberline {5.5}Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{55}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{57}

@@ -17,6 +17,8 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
   beta=Y.gls$coefficients
   sigma=Y.gls$sigma
 
+
+
   # do the model generation
   X=matrix(data=NA,nrow=nobs,ncol=(degree+1))
   for(j in 1:nobs){
