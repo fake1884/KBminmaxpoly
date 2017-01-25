@@ -6,38 +6,53 @@
 
 grad.5=5
 time=1:length(Y.10)/length(Y.10)
-
+nobs=length(Y.10)
 
 # 10 kPa
-Y.gls.10 <- gls(Y.10~time+I(time^2)+I(time^3)+I(time^4)+I(time^5),correlation=corAR1())
+time.2=time^2
+time.3=time^3
+time.4=time^4
+time.5=time^5
+Y.gls.10 <- gls(Y.10~time+time.2+time.3+time.4+time.5,correlation=corAR1())
 
-phi.10=0.8
+beta.10=Y.gls.10$coeff
+sigma.10=Y.gls.10$sigma
 
-par.ar.1.10=ar.1(grad.5,Y.10,phi.10)
-inv.X.10=par.ar.1.10[[1]]
-beta.10=par.ar.1.10[[2]]
-sigma.10=par.ar.1.10[[3]]
+# do the model generation
+X.10=matrix(data=NA,nrow=nobs,ncol=(grad.5+1))
+for(j in 1:nobs){
+  for(i in 1:(grad.5+1)){X.10[j,i]=time[j]^(i-1)}
+}
+X.mat.10=t(X.10) %*% X.10
+inv.X.10=solve(X.mat.10)
 
 
 # 30 kPa
-Y.gls.30 <- gls(Y.30~time+I(time^2)+I(time^3)+I(time^4)+I(time^5),correlation=corAR1())
+Y.gls.30 <- gls(Y.30~time+time.2+time.3+time.4+time.5,correlation=corAR1())
 
-phi.30=0.9
+beta.30=Y.gls.30$coeff
+sigma.30=Y.gls.30$sigma
 
-par.ar.1.30=ar.1(grad.5,Y.30,phi.30)
-inv.X.30=par.ar.1.30[[1]]
-beta.30=par.ar.1.30[[2]]
-sigma.30=par.ar.1.30[[3]]
+# do the model generation
+X.30=matrix(data=NA,nrow=nobs,ncol=(grad.5+1))
+for(j in 1:nobs){
+  for(i in 1:(grad.5+1)){X.30[j,i]=time[j]^(i-1)}
+}
+X.mat.30=t(X.30) %*% X.30
+inv.X.30=solve(X.mat.30)
+
 
 #################################
 # plottet die beiden Modelle mit gesch?tzten Parametern in einer Graphik
-pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf")
-plot(time,Y.10,type="l",xlab="Zeit", ylab="Stammzellen")
-lines(time,Y.30)
-curve(beta.10[1,1]+beta.10[2,1]*x+beta.10[3,1]*x^2+beta.10[4,1]*x^3+
-      beta.10[5,1]*x^4+beta.10[6,1]*x^5,col="red", add=T, lwd=2, lty=1)
-curve(beta.30[1,1]+beta.30[2,1]*x+beta.30[3,1]*x^2+beta.30[4,1]*x^3+
-        beta.30[5,1]*x^4+beta.30[6,1]*x^5,col="green", add=T, lwd=2, lty=1)
+pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf", width = 10, height = 8)
+plot(time,Y.10,type="l",xlab="Zeit", ylab="Stammzellen", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+lines(time,Y.30, lwd=3)
+curve(beta.10[1]+beta.10[2]*x+beta.10[3]*x^2+beta.10[4]*x^3+
+      beta.10[5]*x^4+beta.10[6]*x^5,col="black", add=T, lwd=2, lty="solid")
+curve(beta.30[1]+beta.30[2]*x+beta.30[3]*x^2+beta.30[4]*x^3+
+        beta.30[5]*x^4+beta.30[6]*x^5,col="black", add=T, lwd=2, lty="dashed")
+legend(x="topleft", legend=c("10kPa", "30kPa"),
+       col=c("black", "black"),cex=2, lwd=3, lty=c("solid", "dashed"))
 dev.off()
 
 
@@ -61,12 +76,12 @@ beta.30=beta.diff[[2]]
 
 # feste Werte
 alpha=0.05
-niter=50
+niter=250
 grad=5
 
 # kritischen Wert bestimmen
 # der data Vektor wird nur f?r die L?nge ben?tigt, also nehme ich den l?ngeren
-par.10vs30=KB.poly.fast(alpha, length(Y.30), grad, niter, delta.mat[[1]], a=0, b=1, ngridpoly = 50)
+par.10vs30=KB.poly.fast(alpha, length(Y.30), grad, niter, delta.mat[[1]], a=0, b=1, ngridpoly = 100)
 
 # Konfidenzband berechnen
 plot.bsp.10vs30=plot.KB.vergl(Y.10, Y.30, grad, delta.mat[[1]], beta.10, beta.30, sigma.10, sigma.30,
@@ -75,13 +90,13 @@ plot.bsp.10vs30=plot.KB.vergl(Y.10, Y.30, grad, delta.mat[[1]], beta.10, beta.30
 
 ############################################
 # Graphik erzeugen
-pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf")
+pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf", width = 10, height = 8)
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.10vs30[[2]]),max(plot.bsp.10vs30[[3]])),
-     xlab="relative Zeit", ylab="relatives gr??e des Unterschieds")
-lines(c(1,0),c(0,0))
-curve(beta.10[1,1]-beta.30[1,1] + (beta.10[2,1]-beta.30[2,1])*x+
-        (beta.10[3,1]-beta.30[3,1])*x^2+(beta.10[4,1]-beta.30[4,1])*x^3+
-        (beta.10[5,1]-beta.30[5,1])*x^4+(beta.10[6,1]-beta.30[6,1])*x^5,col="red", add=T)
-lines(plot.bsp.10vs30[[1]], plot.bsp.10vs30[[2]], col="green")
-lines(plot.bsp.10vs30[[1]], plot.bsp.10vs30[[3]], col="green")
+     xlab="relative Zeit", ylab="relatives gr??e des Unterschieds", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+lines(c(1,0),c(0,0), lwd=3)
+curve(beta.10[1]-beta.30[1] + (beta.10[2]-beta.30[2])*x+
+        (beta.10[3]-beta.30[3])*x^2+(beta.10[4]-beta.30[4])*x^3+
+        (beta.10[5]-beta.30[5])*x^4+(beta.10[6]-beta.30[6])*x^5,col="black", add=T, lwd=3)
+lines(plot.bsp.10vs30[[1]], plot.bsp.10vs30[[2]], col="black", lwd=3)
+lines(plot.bsp.10vs30[[1]], plot.bsp.10vs30[[3]], col="black", lwd=3)
 dev.off()

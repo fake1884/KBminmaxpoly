@@ -1,10 +1,13 @@
 # Erstellt die Plots für Stammzelldaten für Prüfprobleme (assesing part of a regression model)
 
-Plot.pruef = function(data.set, grad, k, graphicspath){
+Plot.pruef = function(data, grad, k, graphicspath){
+
+  # load correct data.set
+  if(data=="Y.10"){data.set=Y.10}else if(data=="Y.30"){data.set=Y.30}
 
   alpha=0.05
-  niter=100
-  nobs=length(Y.10)
+  niter=250
+  nobs=length(data.set)
   ngridpoly=nobs
   ngrid=nobs
   a=0 # diese Werte definieren A
@@ -54,9 +57,11 @@ Plot.pruef = function(data.set, grad, k, graphicspath){
   plot.KB.R=plot.KB.pruef( nobs , grad, X.mat.inv , beta, sigma, factor = par.bsp.R[[1]], k, ngrid )
 
   # Graphik erzeugen
+  if(data=="Y.10"){main.text="10 kPa"}else if(data=="Y.30"){main.text="30 kPa"}
+
   pdf(graphicspath, width=10,height=8)
-  plot(x, x.2 %*% beta.2, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
-       cex=2, lwd=3, cex.axis=2, cex.lab=2)
+  plot(x, x.2 %*% beta.2, type="l", main=main.text, xlab="relative Zeit", ylab="relatives Wachstum",
+       cex=2, lwd=3, cex.axis=2, cex.lab=2, lty="dashed")
   lines(x, plot.KB.R[[2]], lty="solid", lwd=3)
   lines(x, plot.KB.R[[3]], lty="solid", lwd=3)
   dev.off()

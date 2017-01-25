@@ -5,11 +5,11 @@
 
 Coverage.prob.pruef.fun("R-pruef", "R")
 
-Coverage.prob.pruef.fun("R-pruef", "minmax", 50)
+Coverage.prob.pruef.fun("R-pruef", "minmax", niter = 100)
 
-Coverage.prob.pruef.fun("R-pruef", "minmax-poly", 10)
+Coverage.prob.pruef.fun("R-pruef", "minmax-poly", niter = 100)
 
-Coverage.prob.pruef.fun("R-pruef", "minmax-poly-fast", 50, 10)
+Coverage.prob.pruef.fun("R-pruef", "minmax-poly-fast", niter = 100, ngridpoly = 100)
 
 
 ##########################################
@@ -17,11 +17,11 @@ Coverage.prob.pruef.fun("R-pruef", "minmax-poly-fast", 50, 10)
 
 Coverage.prob.pruef.fun("AR-bekannt-pruef", "R")
 
-Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax", 50)
+Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax", niter = 100)
 
-Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax-poly", 10)
+Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax-poly", niter = 100)
 
-Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax-poly-fast", 50, 10)
+Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax-poly-fast", niter = 100, ngridpoly = 100)
 
 
 ##########################################
@@ -29,11 +29,11 @@ Coverage.prob.pruef.fun("AR-bekannt-pruef", "minmax-poly-fast", 50, 10)
 
 Coverage.prob.pruef.fun("AR-pruef", "R")
 
-Coverage.prob.pruef.fun("AR-pruef", "minmax", 50)
+Coverage.prob.pruef.fun("AR-pruef", "minmax", niter = 100)
 
-Coverage.prob.pruef.fun("AR-pruef", "minmax-poly", 10)
+Coverage.prob.pruef.fun("AR-pruef", "minmax-poly", niter = 100)
 
-Coverage.prob.pruef.fun("AR-pruef", "minmax-poly-fast", 50, 10)
+Coverage.prob.pruef.fun("AR-pruef", "minmax-poly-fast", niter = 100, ngridpoly = 100)
 
 
 

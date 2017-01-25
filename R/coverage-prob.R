@@ -259,7 +259,7 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         {
           # kritischen Wert berechnen
           par.bsp.R=KB.poly(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                            niter,support_data_AR$X.mat.inv, support_data_AR$a,
+                            niter, support_data_AR$X.mat.inv, support_data_AR$a,
                             support_data_AR$b)
 
           # Konfidenzband bestimmen

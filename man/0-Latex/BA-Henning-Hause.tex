@@ -132,26 +132,26 @@
 
 
 % Matrixmultiplikationen im Beispiel darstellen
-\newcommand{\Ydat}{...}
-\newcommand{\Ydattext}{...}
-\newcommand{\Ytrafo}{...}
+%\newcommand{\Ydat}{...}
+%\newcommand{\Ydattext}{...}
+%\newcommand{\Ytrafo}{...}
 
-\newcommand{\edat}{...}
+%\newcommand{\edat}{...}
 
-\newcommand{\Xidat}{...}
-\newcommand{\Xitrafo}{...}
+%\newcommand{\Xidat}{...}
+%\newcommand{\Xitrafo}{...}
 
-\newcommand{\Xtrafo}{...}
-\newcommand{\Xtwodat}[0]{...}
-\newcommand{\Xonedat}[0]{...}
+%\newcommand{\Xtrafo}{...}
+%\newcommand{\Xtwodat}[0]{...}
+%\newcommand{\Xonedat}[0]{...}
 
 \newcommand{\betatwodat}[0]{\left[ \begin{array}{c} \beta_{0,2} \\ \beta_{1,2} \\ \beta_{1,3} \\ \beta_{1,4} \end{array} \right]}
 \newcommand{\betaone}[0]{\left[ \begin{array}{c} \beta_{0} \\ \beta_{1} \end{array} \right]}
 \newcommand{\betaonedat}[0]{\left[ \begin{array}{c} \beta_{0,1} \\ \beta_{1,1} \end{array} \right]}
 
 % Ungenutzt
-\newcommand{\betatrafoest}{...}
-\newcommand{\sigmatrafoest}{...}
+%\newcommand{\betatrafoest}{...}
+%\newcommand{\sigmatrafoest}{...}
 
 
 % Parameter für die Simulation
@@ -160,34 +160,34 @@
 % Die normalen
 % ueberdeckung, R als Grundmodell
 \newcommand{\UeberRR}{1.00}
-\newcommand{\UeberRMinmax}{1.00}
-\newcommand{\UeberRMinmaxPoly}{0.82}
+\newcommand{\UeberRMinmax}{.99}
+\newcommand{\UeberRMinmaxPoly}{0.83}
 \newcommand{\UeberRMinmaxPolyfast}{0.93}
 
 % ueberdeckung, AR bekannt als Grundmodell
 \newcommand{\UeberARbekanntR}{0.94}
 \newcommand{\UeberARbekanntMinmax}{0.93}
 \newcommand{\UeberARbekanntMinmaxPoly}{0.67}
-\newcommand{\UeberARbekanntMinmaxPolyfast}{0.84}
+\newcommand{\UeberARbekanntMinmaxPolyfast}{0.86}
 
 % ueberdeckung, AR als Grundmodell
 \newcommand{\UeberARR}{1.00}
 \newcommand{\UeberARMinmax}{1.00}
-\newcommand{\UeberARMinmaxPoly}{0.06}
+\newcommand{\UeberARMinmaxPoly}{0.03}
 \newcommand{\UeberARMinmaxPolyfast}{0.99}
 
 % Die Prüfdingen
 % ueberdeckung, R als Grundmodelll pruefen
-\newcommand{\UeberRRpruefen}{0.84}
-\newcommand{\UeberRMinmaxPolypruefen}{0.9}
+\newcommand{\UeberRRpruefen}{0.99}
+\newcommand{\UeberRMinmaxPolyfastpruefen}{0.97}
 
 % ueberdeckung, AR bekannt als Grundmodell prufen
-\newcommand{\UeberARbekanntRpruefen}{...}
-\newcommand{\UeberARbekanntMinmaxPolypruefen}{...}
+\newcommand{\UeberARbekanntRpruefen}{1.00}
+\newcommand{\UeberARbekanntMinmaxPolyfastpruefen}{1.00}
 
 % ueberdeckung, AR als Grundmodell pruefen
-\newcommand{\UeberARRpruefen}{...}
-\newcommand{\UeberARMinmaxPolypruefen}{...}
+\newcommand{\UeberARRpruefen}{1.00}
+\newcommand{\UeberARMinmaxPolyfastpruefen}{1.00}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % glossary
@@ -348,7 +348,7 @@ Poly  & \UeberRMinmaxPoly & \UeberARbekanntMinmaxPoly & \UeberARMinmaxPoly \\
 \hline 
 R prüfen    & \UeberRRpruefen & \UeberARbekanntRpruefen & \UeberARRpruefen \\ 
 \hline 
-Poly prüfen	& \UeberRMinmaxPolypruefen & \UeberARbekanntMinmaxPolypruefen & \UeberARMinmaxPolypruefen \\ 
+Poly prüfen	& \UeberRMinmaxPolyfastpruefen & \UeberARbekanntMinmaxPolyfastpruefen & \UeberARMinmaxPolyfastpruefen \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -1788,7 +1788,7 @@ Poly 	& \UeberRMinmaxPoly & \UeberARMinmaxPoly \\
 \hline 
 R prüfen	& \UeberRRpruefen & \UeberARRpruefen \\ 
 \hline 
-Poly prüfen	& \UeberRMinmaxPolypruefen & \UeberARMinmaxPolypruefen \\ 
+Poly prüfen	& \UeberRMinmaxPolyfastpruefen & \UeberARMinmaxPolyfastpruefen \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -2030,9 +2030,9 @@ Die Daten werden wie im ersten Abschnitt dieser Arbeit erzeugt. Das heißt es we
 
 mit $\phi = \phitrue$ ein fester Wert.
 
-Man erhält als Schätzer für den AR(1) Parameter $\hat{\phi}$ = \phiestone , während der wahre Wert \phitrue ist. Dieser Wert ist ... von dem wahren Wert entfernt. Der Schätzer für $\phi$ ist also ... .
+Man erhält als Schätzer für den AR(1) Parameter $\hat{\phi}$ = \phiestone , während der wahre Wert \phitrue ist.
 
-Als Schätzung für die Parameter erhält man \betaARone und \sigmaARone , während die wahren Werte \betatrue und \sigmatrue sind . Diese Schätzer sind ... .
+Als Schätzung für die Parameter erhält man \betaARone und \sigmaARone , während die wahren Werte \betatrue und \sigmatrue sind. 
 
 Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Graphik erhält man
 
@@ -2117,6 +2117,8 @@ Die zur Berechnung der Parameter, namentlich $\beta, \sigma$ und der kritischen 
 eingesehen werden. Eine Übersicht über die verwendeten Skripte befindet sich in der \textit{README.md} Datei in oben genanntem Verzeichnis.
 
 Dabei bezeichnet $c$ immer einen kritischen Wert für die Konstruktion von Konfidenzbändern und der Index bestimmt, um welchen kritischen Wert es sich handelt. Dabei steht $\mathbb{R}$ für ein Konfidenzband auf ganz $\mathbb{R}^{p}$, $A$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ und $AP$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ für ein polynomielles Regressionsmodell.
+
+Es stellt sich in diesem Kapitel häufig die Frage, ob die Nullfunktion in einem bestimmten Konfidenzband enthalten ist. Diese Frage wurde immer durch hinschauen entschieden, da die Unterschiede recht groß sind. Sollte eine genauere Auswertung nötig sein, kann die Funktion \textit{Test.function} verwendet werden, die bei den Simulationen geprüft hat, wie oft das wahre Modell im Konfidenzband liegt.
 
 \subsection{Datenbeschreibung}
 Die Motivation dieser Arbeit ist, wie eine Stammzelle entscheidet, zu welcher Art Gewebe sie wird. Es wird vermutet, dass Stammzellen diese Entscheidung treffen, wenn sie gerade nicht wachsen. Deshalb wurden Stammzellen auf verschiedene Untergründe gesetzt und zu jeweils bestimmten äquidistanten Zeitpunkten unter einem Mikroskop fotografiert. Danach wurde ihre Fläche bestimmt. Mit Hilfe dieser Daten wird eine Regression mit der Zeit als unabhängige Variable durchgeführt. Es wird eine Polynomregression verwendet, da die Ableitungen von Polynomen gut zu berechnen sind und man so die kritischen Punkte des Regressionsgraphen einfach bestimmen kann.
@@ -2245,97 +2247,177 @@ Man sieht, dass  das Konfidenzband auf $A = [0,1] \subset \mathbb{R}^{p}$, das d
 
 
 \subsection{Vergleich von Polynomen mit verschiedenem Grad}
-In diesem Abschnitt werden Polynomregressionen mit verschiedenen Graden durchgeführt.
+Ziel dieses Abschnittes ist es, zu testen, ob Polynomregressionen von verschiedenem Grad für die beiden Stammzelldatensätze sich statistisch signifikant unterscheiden.
 
-Graphik Polynome vom Grad 4,5,6 für 30 kPa Daten :
+Dazu wird zuerst die Regression durchgeführt, bevor die Testhypothese formalisiert wird. Als Regressionsmodell wird das aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} Regressionsmodell 
 
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{30kPa-poly.R}
+\begin{equation*}
+Y = X \beta + e
+\end{equation*}
+
+mit $e \sim \mathscr{N}_n(0, \sigma^2 \Upsilon)$ verwendet. Dabei ist $\Upsilon$ die bekannte von einem AR(1) Prozess erzeugte Korrelationsmatrix, die nur von dem unbekannten Parameter $\phi$ abhängt.
+
+Führen wir für die Regressionen durch erhalten wir für die 10kPa Daten die Werte:
+
+\begin{eqnarray*}
+\hat{\beta_{4}} &=& (0.7314 ; 0.8401 ; -1.5883 ; 1.8877 ; -0.9029) \\
+\hat{\sigma_{4}} &=& 0.4943004 \\
+\hat{\phi_{4}} &=& 0.9999575 \\
+\cline{2-3}
+\hat{\beta_{5}} &=& (0.7372 ; 0.4219 ; 1.8730 ; -7.6992 ; 9.7893 ; -4.1542) \\
+\hat{\sigma_{5}} &=& 0.007545373 \\
+\hat{\phi_{5}} &=& 0.8225374 \\
+\cline{2-3}
+\hat{\beta_{6}} &=& (0.7352 ; 0.6265 ; -0.6151 ; 3.0831 ; -11.1962 ; 14.6223 ; -6.2906)  \\
+\hat{\sigma_{6}} &=& 0.007205863 \\
+\hat{\phi_{6}} &=& 0.8065796
+\end{eqnarray*}
+
+und für die 30kPa Daten die Werte:
+
+\begin{eqnarray*}
+\hat{\beta_{4}} &=&  0.7311  0.5245 -0.3546  0.0390  0.0546  \\
+\hat{\sigma_{4}} &=& 0.009576459 \\
+\hat{\phi_{4}} &=& 0.9090669 \\
+\cline{2-3}
+\hat{\beta_{5}} &=&   0.7288   0.7345  -2.1594   5.2097  -5.9029   2.3864 \\
+\hat{\sigma_{5}} &=& 0.009266163 \\
+\hat{\phi_{5}} &=& 0.9039573 \\
+\cline{2-3}
+\hat{\beta_{6}} &=&   0.7273   0.9495  -4.7664  16.2343 -26.7566  20.5211  -5.9124  \\
+\hat{\sigma_{6}} &=& 0.01673707 \\
+\hat{\phi_{6}} &=&  0.9701881
+\end{eqnarray*}
+
+Plottet man die drei Regressionsmodelle in je eine Graphik für die beiden Datensätze entstehen die beiden Graphiken \eqref{10kPa-Polynomregressionen} und \eqref{30kPa-Polynomregressionen}:
+
+\begin{figure}[H] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{10kPa-poly.pdf}
+  \caption{10kPa Verschiedene Polynomgrade}
+  \label{10kPa-Polynomregressionen}
+\end{figure}
+
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly.pdf}
-  \caption{Vergleich von Regressionsmodellen}
-  \label{fig:11}
+  \caption{30kPa Verschiedene Polynomgrade}
+  \label{30kPa-Polynomregressionen}
 \end{figure}
 
-3er Graphik Vergleich von Modellen poly 4,5,6 30 kPa
+Man sieht, dass sich die Regressionsmodelle für die 10kPa Daten relativ stark unterscheiden, während die Regressionsmodelle bei den 30kPa Daten fast gleich sind.
 
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{30kPa-poly-KB.R}
+Als nächstes testen wir, ob sich die Polynomregressionen von Grad Vier und Grad Fünf unter statistischer Unsicherheit gleich sind. Das heißt, wir testen die Hypothese
+
+\begin{equation*}
+H_0 : \beta_{4} = \beta_{5} \textbf{ vs. } \beta_4 \neq \beta_{5}
+\end{equation*}
+
+Dazu benutzen wir die Konfidenzbandmethode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen} beziehungsweise ihre Abwandlung in Abschnitt \ref{Konfidenzbaender für AR(1)}.
+
+Zeichnen wir die Differenz der von $\hat{\beta_4}$ und $\hat{\beta_5}$ mit dem zugehörigen Konfidenzband in je eine Graphik für die beiden Datensätze erhalten wir die beiden folgenden Graphiken \eqref{10kPa-Regmod-4-5} und \eqref{30kPa-Regmod-4-5}.
+
+\begin{figure}[H] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-5.pdf}
+  \caption{10kPa Vergleich von Regressionsmodellen 4-5}
+  \label{10kPa-Regmod-4-5}
+\end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-5.pdf}
-  \caption{Vergleich von Regressionsmodellen}
-  \label{fig:12}
+  \caption{30kPa Vergleich von Regressionsmodellen 4-5}
+  \label{30kPa-Regmod-4-5}
+\end{figure}
+
+Wie man sieht, ist in im Fall der 10kPa Daten die Nullfunktion eindeutig vollständig im Konfidenzband enthalten und wir können die Nullhypothese nicht ablehnen.
+
+Bei den 30kPa Daten ist die Nullhypothese auch knapp ganz im Konfidenzband enthalten und wir können die Nullhypothese wieder nicht ablehnen.
+
+In den folgenden Vier Graphiken testen wir die analogen Hypothesen
+
+\begin{eqnarray*}
+& H_0 : \beta_4 = \beta_6 & \textbf{ vs. } H_1 : \beta_4 \neq \beta_6 \\
+& H_0 : \beta_5 = \beta_6 & \textbf{ vs. } H_1 \beta_5 \neq \beta_6
+\end{eqnarray*} 
+
+für die 10kPa beziehungsweise 30kPa Daten. Für die erste Hypothese erhält man die Graphiken \eqref{10kPa-Regmod-4-6} und \eqref{30kPa-Regmod-4-6}
+
+\begin{figure}[H] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-6.pdf}
+  \caption{10kPa Vergleich von Regressionsmodellen 4-6}
+  \label{10kPa-Regmod-4-6}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-6.pdf}
-  \caption{Vergleich von Regressionsmodellen}
-  \label{fig:12.1}
+  \caption{30kPa Vergleich von Regressionsmodellen 4-6}
+  \label{30kPa-Regmod-4-6}
 \end{figure}
+
+Man sieht, dass sich der Trend aus den beiden vorherigen Graphiken wiederholt. Bei den 10kPa Daten gibt es keinen Zweifel, dass die Nullhypothese nicht abgelehnt werden kann. Bei den 30kPa Daten kann die Nullhypothese auch eindeutig nicht abgelehnt werden.
+
+Für die zweite Hypothese erhält man die beiden Graphiken \eqref{10kPa-Regmod-5-6} und \eqref{30kPa-Regmod-5-6}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-5-6.pdf}
-  \caption{Vergleich von Regressionsmodellen}
-  \label{fig:12.2}
-\end{figure}
-
-Graphik Polynome vom Grad 4,5,6 für 10 kPa Daten
-
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-poly.R}
-
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly.pdf}
-  \caption{Vergleich von Regressionsmodellen}
-  \label{fig:13}
-\end{figure}
-
-3er Graphik Vergleich von Modellen poly 4,5,6 30 kPa
-
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{10kPa-poly-KB.R}
-
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-5.pdf}
-  \caption{Vergleich von Regressionsmodellen 4-5}
-  \label{fig:14}
-\end{figure}
-
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-6.pdf}
-  \caption{Vergleich von Regressionsmodellen 4-6}
-  \label{fig:14.1}
+  \caption{10kPa Vergleich von Regressionsmodellen 5-6}
+  \label{10kPa-Regmod-5-6}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-5-6.pdf}
-  \caption{Vergleich von Regressionsmodellen 5-6}
-  \label{fig:14.2}
+  \caption{30kPa Vergleich von Regressionsmodellen 5-6}
+  \label{30kPa-Regmod-5-6}
 \end{figure}
+
+Man sieht, dass wieder in beiden Fällen die Nullhypothese nicht abgelehnt werden kann.
 
 
 \subsection{Vergleich von 10 kPa und 30 kPa Daten}
-Im nächsten Plot werden 10 kPa mit 30 kPa OLS Daten verglichen. Dazu werden zuerst die beiden Daten mit AR(1) Regressionsmodellen in eine Graphik geplottet.
+Ziel dieses Abschnittes ist es die folgende Hypothese zu testen:
 
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-10vs30-poly5.R}
+\begin{equation*}
+H_0 : \beta_{10kPa} = \beta_{30kPa} \textbf{ vs. } H_1 : \beta_{10kPa} \neq \beta_{30kPa}
+\end{equation*}
+
+Dabei ist $\beta_{10kPa}$ der Koeffizientenvektor einer Polynomregression vom Grad Fünf und $\beta_{30kPa}$ der Koffizientenvektor einer Polynomregression vom gleichen Grad. 
+
+Weiterhin gehen wir davon aus, dass dem Regressionsmodell vom Grad Fünf ein AR(1) Prozess zugrunde liegt. Außerdem verwenden wir die Methode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen}, dass heißt wir gehen davon aus, dass beide Prozesse das gleiche $\phi$ und $\sigma$ besitzen.
+
+Ersteinmal plotten wir die beiden Datensätze mit den Regressionspolynomen in die selbe Graphik, um einen Überblick über ihre Ähnlichkeit zu bekommen. Dabei entsteht die folgende Graphik \eqref{Vergleich-10-30}.
+
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Vergleich-10vs30-poly5}
   \caption{Vergleich von Regressionsmodellen}
-  \label{fig:9}
+  \label{Vergleich-10-30}
 \end{figure}
 
+Als Parameter bei der Regression erhält man für die 10kPa Daten:
 
-Als nächstes wird die Differenz mit Konfidenzband in einer Graphik geplottet.
+\begin{eqnarray*}
+\hat{\beta} &=& (0.7343828 ;  0.3972789 ; 2.0659657 ; -8.1435038 ; 10.2153513 ; -4.3014467)  \\
+\hat{\sigma} &=& 0.007545373 \\
+\hat{\phi} &=& 0.8225374
+\end{eqnarray*}
 
-Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-10vs30-poly5-KB.R}
+und für die 30kPa Daten:
+
+\begin{eqnarray*}
+\hat{\beta} &=& (0.7235374 ; 0.7708670 ; -2.3022522 ; 5.4896056 ; -6.1555617 ; 2.4709908) \\
+\hat{\sigma} &=& 0.009266164 \\
+\hat{\phi} &=& 0.9039573
+\end{eqnarray*}
+
+Als nächstes wird die Differenz mit Konfidenzband in einer Graphik geplottet. Dabei wird zur Erzeugung des kritischen Parameters die Methode für Konfidenzbänder auf einem Intervall, falls das Modell Polynomgestalt hat angewendet.
 
 \begin{figure}[H] 
   \centering
@@ -2344,15 +2426,55 @@ Die Berechnung für diese Graphik befindet sich in der Datei \textit{Vergleich-1
   \label{fig:10}
 \end{figure}
 
-Man sieht, dass die Nullfunktion nicht komplett im Konfidenzband enthalten ist. Dies bedeutet, dass ...
+Man sieht, dass die Nullfunktion nicht komplett im Konfidenzband enthalten ist. Man kann die Nullhypothese also verwerfen. Es gibt einen statistisch signifikanten Unterschied zwischen den beiden Regressionsmodellen.
 
 
 \subsection{Teil eines Regressionsmodells überprüfen}
-Die Berechnungen für diesen Abschnitt befinden sich in der Datei \textit{05-xxkPa-pruefen}. Dabei ist \textit{xx} entweder 10 oder 30 und die Datei ist im jeweiligen Unterordner zu finden.
+Ziel dieses Abschnittes ist es, zu prüfen, ob bei den Stammzelldaten die ersten Koeffizienten des Koeffizientenvektors signifikant von Null verschieden sind.
 
-In diesem Abschnitt wird getestet, ob bei einem Regressionsmodell vom Grad 5 die erste Komponente nicht signifikant, beziehungsweise ob bei einem Regressionsmodell vom Grad 6 die erste oder sogar die ersten beiden Komponenten gleich Null sind. Dazu verwendet man die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}.
+Dazu führen wir für sowohl für die 10kPa als auch für die 30kPa Stammzelldaten je zwei Polynomregressionen durch. Wir legen dabei wieder eine Zeitreihe von der AR(1) Art zugrunde.
 
-Zuerst der Grad 5:
+Dabei erhalten wir für die 10kPa Daten die Werte:
+
+\begin{eqnarray*}
+\hat{\beta_{5}} &=&  (0.7373 ; 0.4219 ; 1.8730 ; -7.6992 ; 9.7893 ; -4.1542)  \\
+\hat{\sigma_{5}} &=& 0.007545373 \\
+\hat{\phi_{5}} &=& 0.8225374 \\
+\hat{\beta_{6}} &=& (0.7352 ; 0.6265 ; -0.6151 ; 3.0831 ; -11.1962 ; 14.6223 ; -6.2906)  \\
+\hat{\sigma_{6}} &=& 0.007205863 \\
+\hat{\phi_{6}} &=& 0.8065796
+\end{eqnarray*}
+
+und für die 30 kPa Daten die Werte:
+
+\begin{eqnarray*}
+\hat{\beta_{5}} &=& (0.7288 ; 0.7345 ; -2.1594 ; 5.2097 ; -5.9029 ; 2.3864)  \\
+\hat{\sigma_{5}} &=& 0.009266163 \\
+\hat{\phi_{5}} &=& 0.9039573 \\
+\hat{\beta_{6}} &=& (0.7273 ; 0.9495 ; -4.7664 ; 16.2343 ; -26.7566 ; 20.5211 ; -5.9124)  \\
+\hat{\sigma_{6}} &=& 0.01673707 \\
+\hat{\phi_{6}} &=& 0.9701881
+\end{eqnarray*}
+
+Um die Hypothese angeben zu können definiere 
+
+\begin{equation*}
+\beta_{i} = (\beta_{i,1}, \beta_{i,2}, \ldots, \beta_{i,i}) \text{ für i=5,6 }
+\end{equation*}
+
+Dann wollen wir die folgenden Test durchführen:
+
+\begin{eqnarray*}
+&H_0 : \beta_{5,5} = 0 &\textbf{ vs. } H_1 : \beta_{5,5} \neq 0 \\
+&H_0 : \beta_{6,6} = 0 &\textbf{ vs. } H_1 : \beta_{6,6} \neq 0 \\
+&H_0 : (\beta_{6,5}, \beta_{6,6}) = (0,0) &\textbf{ vs. } H_1 : (\beta_{6,5}, \beta_{6,6}) \neq (0,0)
+\end{eqnarray*}
+
+Dazu verwendet man die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}. Wir verwerfen also die Nullhypothese, wenn die Konfidenzbänder $x_2' * 0$ nicht vollkommen enthalten. 
+
+Dabei ist in unserem Fall $x_2' \in \{0, 1/145, 2/145, \ldots, 144/145, 1$ 
+
+In den folgenden Graphiken \eqref{10kPa Grad 5} und \eqref{30kPa Grad 5} ist $x_2' \beta_{5,5}$ mit zugehörigem Konfidenzband eingezeichnet:
 
 \begin{figure}[H] 
   \centering
@@ -2368,23 +2490,9 @@ Zuerst der Grad 5:
   \label{30kPa Grad 5}
 \end{figure}
 
-Dann der Grad 6 für 30kPa:
+Man sieht deutlich, dass in beiden Fällen die Nullfunktion nicht vollständig im Konfidenzband enthalten ist. Wir können die Nullhypothese $H_0$ also nicht verwerfen und haben keinen Anhaltspunkt, davon auszugehen, dass $\beta_{5,5}$ in einem der beiden Fälle Null ist.
 
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-1-KB}
-  \caption{30kPa Grad 6.1}
-  \label{30kPa Grad 6.1}
-\end{figure}
-
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-2-KB}
-  \caption{30kPa Grad 6.2}
-  \label{30kPa Grad 6.2}
-\end{figure}
-
-Zum Schluss der Grad 6 für 10kPa:
+Die nächsten beiden Graphiken \eqref{10kPa Grad 6.1} und \eqref{30kPa Grad 6.1} geben  die Überprüfung von $\beta_{6,6}$ für die beiden Sätze an Stammzelldaten wieder.
 
 \begin{figure}[H] 
   \centering
@@ -2395,11 +2503,34 @@ Zum Schluss der Grad 6 für 10kPa:
 
 \begin{figure}[H] 
   \centering
+     \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-1-KB}
+  \caption{30kPa Grad 6.1}
+  \label{30kPa Grad 6.1}
+\end{figure}
+
+Man sieht, dass für die 10kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
+
+Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
+
+Betrachten wir zum Schluss den Test, ob $(\beta_{6,5}, \beta_{6,6}) = (0,0)$. Man 
+
+\begin{figure}[H] 
+  \centering
      \includegraphics[width=0.5\textwidth]{10kPa-Grad-6-2-KB}
   \caption{10kPa Grad 6.2}
   \label{10kPa Grad 6.2}
 \end{figure}
 
+\begin{figure}[H] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-2-KB}
+  \caption{30kPa Grad 6.2}
+  \label{30kPa Grad 6.2}
+\end{figure}
+
+Auch hier sieht man, dass für die 10kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
+
+Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
 
 
 \nocite{Hsu41}
@@ -2409,7 +2540,7 @@ Zum Schluss der Grad 6 für 10kPa:
 
 
 \newpage
-\subsection*{Selbstständigkeitserklärung}
+\section*{Selbstständigkeitserklärung}
 \addcontentsline{toc}{section}{Selbstständigkeitserklärung}
 Hiermit bestätige ich, dass ich die vorliegende Arbeit selbstständig, nur mit Hilfe meiner Betreuer und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt habe. Die aus fremden Quellen (einschließlich elektronischer Quellen) direkt oder indirekt übernommenen Gedanken sind ausnahmslos als solche kenntlich gemacht. Die Arbeit ist in gleicher oder ähnlicher Form oder auszugsweise im Rahmen einer anderen Prüfung noch nicht vorgelegt worden.
 \\ \\ \\ \\

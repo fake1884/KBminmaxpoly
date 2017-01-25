@@ -112,7 +112,7 @@ plot.KB.pruef <- function(nobs, grad, inv.X, beta, sigma, factor, k, ngrid){
   for(i in 1:ngrid)
   {
     x=matrix(data=NA, ncol=1, nrow=k)
-    for(j in 1:k){x[j,]=points[i]^(grad-k)}
+    for(j in 1:k){x[j,]=points[i]^(grad+1-k)}
 
     lower[i] <- (t(x) %*% beta.2 - factor * sigma * sqrt(t(x) %*% V %*% x))
     upper[i] <- (t(x) %*% beta.2 + factor * sigma * sqrt(t(x) %*% V %*% x))
