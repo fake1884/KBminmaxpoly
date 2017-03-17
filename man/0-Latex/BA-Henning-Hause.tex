@@ -158,6 +158,7 @@
 
 % Parameter für die Simulation
 \newcommand{\ntest}{100}
+\newcommand{\simgrad}{5}
 
 % Die normalen
 % ueberdeckung, R als Grundmodell
@@ -664,13 +665,13 @@ Um den Satz \ref{KB_Eigenschaft} beweisen zu können, brauchen wir die folgenden
 Es ist
 \begin{eqnarray*}
 &&\mathbb{P}( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1} x} ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( \sup_{a<x<b} \bigg \vert \frac{x'(\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \bigg \vert \leq c) \\
+&=& \mathbb{P}( \sup_{ x_{0} \in A} \bigg \vert \frac{x'(\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \bigg \vert \leq c) \\
 &=& \mathbb{P}( S \leq c)
 \end{eqnarray*}
 mit 
 
 \begin{equation*}
-\sup_{a<x<b} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  =:  \gls{S}
+\sup_{x_{0} \in A} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  =:  \gls{S}
 \end{equation*}
 
 \end{Lemma}
@@ -681,7 +682,7 @@ mit
 &=& \mathbb{P}( x' \hat{\beta} - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x'\beta \leq x' \hat{\beta} + c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) \\
 &=& \mathbb{P}( - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x' (\beta - \hat{\beta}) \leq  c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) \\
 &=& \mathbb{P}( - c  \leq \frac{x' (\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x' (X'X)^{-1}x}}  \leq  c ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( \sup_{a<x<b}  \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  \leq c)
+&=& \mathbb{P}( \sup_{x_{0} \in A}  \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  \leq c)
 \end{eqnarray*}
 \end{proof}
 
@@ -831,13 +832,19 @@ Außerdem wurde eine Simulation durchgeführt, um die Überdeckungswahrscheinlic
 
 Dazu wurden Daten auf zwei verschiedene Arten erzeugt. Zum einen wurde als Grundmodell ein multiples lineares, homoskedastisches Regressionsmodell zugrunde gelegt. Zum anderen wurde ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde gelegt. 
 
-Bei der Simulation wurden zuerst \ntest mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband liegt. 
+Der Grad des wahren Modelles ist \simgrad ~und es wird auch eine Regression mit \simgrad ~durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt.
+
+Bei der Simulation wurden zuerst \ntest ~mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband liegt. 
+
+Auf Grund von Laufzeitproblemen werden die Daten von den Funktionen \textit{make-test-data-R} beziehungsweise \textit{make-test-data-AR} erzeugt und gespeichert. Auch die jeweils berechneten Regressionsmodelle, Designmatrizten und weiter Werte werden abgespeichert. Diese Daten sind in \textit{/data} zu finden.
+
+Bei der Berechnung der Überdeckungswahrscheinlichkeit müssen dann nur noch die Konfidenzbänder, die von der Anzahl an Simulationen abhängen, berechnet werden. Für eine Erklärung warum Simulationen benötigt werden, siehe die Kapitel \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
+
+Die Laufzeit für die Berechnung der Überdeckungswahrscheinlichkeiten von Konfidenzbänder bei denen Simulationen durchgeführt werden müssen beträgt ungefähr 15 Minuten bei den empfohlenen 5.000 Wiederholungen.
 
 Wie genau bei einem AR(1) Modell OLS-Schätzer bestimmt werden können wird in dem Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} erläutert.
 
-Die Ergebnisse sind in der folgenden Tabelle zusammengestellt. Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell. 
-
-Diese Tabelle wird um weiter Zeilen mit den anderen Methoden Konfidenzbänder zu erzeugen erweitert, nachdem die neuen Methoden eingeführt sind. Dabei wird die bereits eingeführte Methode Konfidenzbänder auf ganz $\mathbb{R}^{p}$ zu erzeugen, mit R bezeichnet.
+Die Ergebnisse sind in der folgenden Tabelle zusammengestellt:
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -849,10 +856,18 @@ R & \UeberRR & \UeberARR \\
 \end{tabular}
 \end{center}
 
+Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell. 
+
+Man sieht, dass bei dieser Methode die Überdeckungswahrscheinlichkeit über der geforderten Wahrscheinlichkeit von 0.95 liegt. Dies liegt daran, dass das Konfidenzniveau auf ganz $\mathbb{R}^{4}$ eingehalten wird und nicht nur auf dem Intervall [0,1]. Für nähere Informationen dazu siehe Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
+
+Diese Tabelle wird um weiter Zeilen mit den anderen Methoden Konfidenzbänder zu erzeugen erweitert, nachdem die neuen Methoden eingeführt sind. Dabei wird die bereits eingeführte Methode Konfidenzbänder auf ganz $\mathbb{R}^{p}$ zu erzeugen, mit R bezeichnet.
+
+
+
 \end{Simulation}
 
 
-\newpage
+
 \subsection{Konfidenzbänder auf einem Intervall für ein einfaches lineares Regressionsmodell}
 \label{Konfidenzbänder auf einem Intervall für ein einfaches lineares Regressionsmodell}
 Dieser Abschnitt orientiert sich an \cite[17-23]{Liu64} und \cite{Liu08} und \cite{Wynn71}.
@@ -968,10 +983,12 @@ Es ist aus Satz \ref{Basiseigenschaft} aus dem vorherigen Abschnitt bekannt, das
 Dabei ist $S$ gegeben durch 
 
 \begin{equation*}
-S = \sup_{a<x<b} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}
+S = \sup_{x_{0} \in A} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}
 \end{equation*}
 
 Da die Verteilung von $S$ nicht von $\beta$ und $\sigma^2$ abhängt, ist es in dieser Hinsicht ein Pivotelement. Dabei ist $\beta$ wieder der Koeffizientenvektor und $\sigma^2$ die Varianz der Fehler. 
+
+Dies folgt aus Satz \ref{Basiseigenschaften}. Dort wurde gezeigt, dass $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta, \sigma^2 (X'X)^{-1})$ und $\hat{\sigma} \sim \sigma^2/(n-p-1) \cdot \chi^2_{n-p-1}$. Fügt man nun $1=\sigma / \sigma$ ein, folgt die Behauptung.
 
 Allerdings hängt die Verteilung von $S$ immer noch in komplizierter Art und Weise von der Designmatrix $X$ und den Grenzen $a_i$ und $b_i$ von $A$ für $i=1, \ldots, p$ ab.
 
@@ -991,8 +1008,8 @@ T = \frac{N}{(\hat{\sigma} /\sigma)} = \frac{P^{-1}(\hat{\beta}-\beta)}{\hat{\si
 eine so genannte \gls{Tau} Verteilung. Damit kann man $S$ ausdrücken als
 
 \begin{eqnarray*}
-S &=& \sup_{x \in A} \frac{\vert(Px)'(P^{-1} (\hat{\beta}-\beta)) / \hat{\sigma} \vert}{\sqrt{(Px)'(Px)}}\\
-&=& \sup_{x \in A} \frac{\vert (Px)' T \vert}{\Vert Px \Vert} \\
+S &=& \sup_{x_{0} \in A} \frac{\vert(Px)'(P^{-1} (\hat{\beta}-\beta)) / \hat{\sigma} \vert}{\sqrt{(Px)'(Px)}}\\
+&=& \sup_{x_{0} \in A} \frac{\vert (Px)' T \vert}{\Vert Px \Vert} \\
 &=& \sup_{v \in C(P,A)} \frac{\vert v'T \vert}{\Vert v \Vert}
 \end{eqnarray*}
 
@@ -1005,11 +1022,11 @@ C(P,A) &=& \{ \lambda P x : \lambda \geq 0, x \in A \} \\
 
 wobei $P=(p_0, \ldots, p_p)$. 
 
-Allerdings ist es für ein allgemeines $p \leq 1$ sehr schwierig, eine genaue Formel für die Verteilung von $S$ explizit zu bestimmen, um die kritische Konstante $c$ zu bestimmen \cite[S.70, Z.18]{Liu64}. Deswegen wird eine Simulation benutzt.
+Allerdings ist es für ein allgemeines $p \geq 1$ sehr schwierig, eine genaue Formel für die Verteilung von $S$ explizit zu bestimmen, um die kritische Konstante $c$ zu bestimmen \cite[S.70, Z.18]{Liu64}. Deswegen wird eine Simulation benutzt.
 
 Man beachte, dass $C(P,A)$ der Kegel ist, der von den Vektoren $p_0+c_1 p_1 + \ldots + c_p p_p $ aufgespannt wird, wobei $c_i$ entweder $a_i$ oder $b_i$ für $i=1,\ldots,p$ ist. 
 
-Sei \gls{Pi} die Projektion von $t \in \mathbb{R}^{p+1}$ auf den Kegel $C(P,A)$, d.h. $\pi(t,P,A)$ löst $ min_{v \in C(P,A)} \Vert v-t \Vert$. Jetzt folgt mit \cite{Naiman87} Theorem 2.1, dass $S$ die Gleichung
+Sei \gls{Pi} die Projektion von $t \in \mathbb{R}^{p+1}$ auf den Kegel $C(P,A)$, d.h. $\pi(t,P,A)$ löst $ \min_{v \in C(P,A)} \Vert v-t \Vert$. Jetzt folgt mit \cite{Naiman87} Theorem 2.1, dass $S$ die Gleichung
 
 \begin{equation*}
 S=\max(\Vert \pi(t,P,A) \Vert, \Vert \pi(-t,P,A) \Vert)
@@ -1031,7 +1048,7 @@ Um $\pi(t,P,A)$ und $\pi(-t,P,A)$ zu bestimmen, wird folgendes Verfahren verwend
 
 Es soll das $v$ in $\mathbb{R}^{p+1}$, das $\Vert v-t \Vert^2$ minimiert, gefunden werden. Dabei soll $v \in C(P,A_{r})$ sein, mit $C(P,A_{r})$ wie oben definiert. 
 
-Da betrachten wir
+Dazu betrachten wir
 
 \begin{equation*}
 \Vert v-t \Vert^2 = v'v-2t'v+t't 
@@ -1072,7 +1089,7 @@ A =
 ist. Für Minimierungsprobleme dieser Art gibt es ein R-Paket namens \textit{Quadprog} , das zur Lösung dieser Minimierungsaufgabe benutzt wird.
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} fortgeführt, indem zu der Regression mit Grad Eins und dem Konfidenzband auf ganz $\mathbb{R}^{2}$ noch ein Konfidenzband auf $A$ eingezeichnet wird. Dabei benutzt man $A = \{x \in \mathbb{R}^2 : x_i \in [0,1] \text{ für alle } i=1, 2 \} $. 
+Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} fortgeführt, indem zu der Regression mit Grad Drei und dem Konfidenzband auf ganz $\mathbb{R}^{3}$ noch ein Konfidenzband auf $A$ eingezeichnet wird. Dabei benutzt man $A = \{x_{0} \in \mathbb{R}^3 : x_i \in [0,1] \text{ für alle } i=1, 2, 3 \} $. 
 
 
 \begin{figure}[H] 
@@ -1082,18 +1099,20 @@ Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein m
   \label{KB-minmax-BSP}
 \end{figure}
 
-Der kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^2$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde war \cR . Für das Konfidenzband auf $A$ ergibt sich \cA . Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
+Der kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^3$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde war \cR . Für das Konfidenzband auf $A$ ergibt sich \cA . Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
 
-Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf ganz $\mathbb{R}^2$. Der Unterschied wirkt allerdings nicht besonders groß.
+Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf ganz $\mathbb{R}^3$. 
 
-Da bei der Berechnung des kritischen Wertes für das Konfidenzband auf $A$ ein Simulation verwendet wird und Reproduktivität gewährleisten sein soll, wird an dieser Stelle die Seed \seedsimulation gesetzt. 
+Da bei der Berechnung des kritischen Wertes für das Konfidenzband auf $A$ ein Simulation verwendet wird und Reproduktivität gewährleisten sein soll, wird an dieser Stelle die Seed \seedsimulation ~gesetzt. 
 
 \end{Beispiel}
 
 \begin{Simulation}
 Jetzt wird die Simulationstabelle aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf $A$ fortgesetzt. 
 
-In diesem Fall ist $A = \{x \in \mathbb{R}^2 : x_i \in [0,1] \text{ für alle } i=1, 2 \}$. Dies liegt daran, dass wir die Matrix x so wählen, dass die unabhängigen Variablen im Intervall $[0,1]$ liegen.
+In diesem Fall ist $A = \{x \in \mathbb{R}^4 : x_i \in [0,1] \text{ für alle } i=1, 2, 3, 4 \}$. Dies liegt daran, dass wir die Matrix $X$ so wählen, dass die unabhängigen Variablen im Intervall $[0,1]$ liegen.
+
+Die neuen Überdeckungswahrscheinlichkeiten für Konfidenzbänder auf Intervallen wird mit Minmax bezeichnet. Auch diese Überdeckungswahrscheinlichkeiten liegen über den geforderten 0.95.
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1113,7 +1132,7 @@ Minmax 	& \UeberRMinmax & \UeberARMinmax \\
 
 \subsection{Konfidenzbänder auf auf einem Intervall für ein Regressionsmodell mit Polynomgestalt}
 \label{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}
-Betrachten wir nun wieder das Regressionsmodell 
+In diesem Abschnitt betrachten wir wieder das Regressionsmodell 
 
 \begin{equation*}
 Y=X\beta+e
@@ -1121,21 +1140,21 @@ Y=X\beta+e
 
 mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_{n}(0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
 
-Weiterhin lag in den bisherigen Abschnitten die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. Diese Annahme nennt man festes Design.
+In den ersten Abschnitten lag die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. In dem letzten Abschnitt sind wir zusätzlich implizit davon ausgegangen, dass die erste Spalte von $X$ nur mit Einsen besetzt ist.
 
 In diesem Abschnitt betrachten wir den Fall, dass die Spalten von $X$ einen funktionalen Zusammenhang erfüllen. Konkret gehen wir davon aus, dass die $i$-te Zeile von $X$ von der Form $\tilde{x}_i = (1, x, x^{2}, \ldots, x^{p}) \in \mathbb{R}^{p+1}, i = 1, \ldots, n$ hat. 
 
 Unsere Designmatrix ist also zeilenweise von Polynomgestalt. 
 
-Dies ist genau der Fall, den wir in dem Beispiel, das am Ende der Abschnitte steht, betrachtet haben. 
+Dies ist genau der Fall, den wir in dem Beispiel und den Simulationen, das am Ende der Abschnitte steht, betrachtet haben. 
 
-Das Ziel ist es, wieder Konfidenzbänder der Form 
+Das Ziel ist wieder Konfidenzbänder der Form 
 
 \begin{equation}
 \tilde{x}' \beta \in \tilde{x}' \hat{\beta} \pm c \hat{\sigma} \sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}} ~ \text{ für alle } x \in A=(a,b)
 \end{equation}
 
-aus den in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} genannten Gründen zu  finden. 
+zu bestimmen. Dann können wir sie direkt mit den Konfidenzbändern aus den Abschnitten \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} vergleichen, indem wir die kritischen Konstanten $c$ vergleichen. 
 
 Dabei ist die kritische Konstante $c$ wieder so zu bestimmen, dass
 
@@ -1168,14 +1187,14 @@ Dies ist allerdings für die bisher betrachteten Konfidenzbänder nicht der Fall
 die Wahrscheinlichkeit $1-\alpha$ haben muss.
 \end{enumerate}
 
-Als Lösung wird in diesem Abschnitt eine Methode, die auf Simulation basiert. Das Vorgehen ist also ähnlich zu dem Vorgehen in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}. Diese Methode orientiert sich an \cite[183,184]{Liu64}.
+Als Lösung wird in diesem Abschnitt eine Methode, die auf Simulation basiert, vorgestellt. Das Vorgehen ist also ähnlich zu dem Vorgehen in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}. Diese Methode orientiert sich an \cite[183,184]{Liu64}.
 
 Im Satz \ref{Basiseigenschaft}, hatten wir das Konfidenzniveau von dem Modell $Y=X\beta+e$, mit $Y,X,\beta,e$ wie üblich, als $\mathbb{P}(S \leq c)$ bestimmt. Dabei ist
 
 \begin{eqnarray*}
-S &=& \sup_{a<x<b} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma} \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
-&=& \sup_{a<x<b} \frac{|\tilde{x}'N/(\hat{\sigma}/\sigma)|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
-&=& \sup_{a<x<b} \frac{| \tilde{x}'T |}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
+S &=& \sup_{x_{0} \in A} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma} \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
+&=& \sup_{x_{0} \in A} \frac{|\tilde{x}'N/(\hat{\sigma}/\sigma)|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
+&=& \sup_{x_{0} \in A} \frac{| \tilde{x}'T |}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
 &=& K_{2h}(T,(X'X)^{-1},(a,b))
 \end{eqnarray*}
 
@@ -1185,7 +1204,7 @@ In den obigen Umformungen wurden die Definitionen $ N=(\hat{\beta}-\beta)/\sigma
 } (0,(X'X)^{-1}) $ , \gls{T}=$N/(\hat{\sigma}/\sigma)\sim\tau_{p+1,v}(0,(X'X)^{-1}) $ und für \gls{K}
 
 \begin{equation*}
-K_{2h}(T,(X'X)^{-1},(a,b) = \sup_{a<x<b} \frac{|\tilde{x}'T|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
+K_{2h}(T,(X'X)^{-1},(a,b) = \sup_{x_{0} \in A} \frac{|\tilde{x}'T|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
 benutzt.
@@ -1201,7 +1220,7 @@ Um  $K_{2h}(T,(X'X)^{-1},(a,b))$ zu berechnen, kann man folgendes Verfahren aus 
 Wie gesagt, ist $K_{2h}(T,(X'X)^{-1},(a,b))$ definiert durch
 
 \begin{equation*}
-K_{2h}(t,(X'X)^{-1},(a,b)) = \sup_{a<x<b} \frac{\vert \tilde{x}' t \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
+K_{2h}(t,(X'X)^{-1},(a,b)) = \sup_{x_{0} \in A} \frac{\vert \tilde{x}' t \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
 wobei $t$ ein gegebener $(p+1)$-Vektor, $(X'X)^{-1}$ eine nicht-singuläre Matrix, $A$ ein gegebenes Intervall und \gls{X-Tilde} $= (1, x, \ldots, x^p)')$ ist. 
