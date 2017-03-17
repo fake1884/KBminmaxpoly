@@ -57,6 +57,8 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
       #########################################################
       nerfolg=100
+
+
       for(i in 1:support_data_R$ntest)
       {
         # kritischen Wert berechnen
@@ -74,6 +76,7 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
           nerfolg=nerfolg-1
         }
       }
+
       return(nerfolg)
 
     }

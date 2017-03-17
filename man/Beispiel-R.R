@@ -51,6 +51,9 @@ inv.X.1=fit.1[[1]]
 beta.1=fit.1[[2]]
 sigma.1=fit.1[[3]]
 
+beta.traf=beta.1 * max(y.raw)
+sigma.traf=sigma.1 * max(y.raw)
+
 pdf("man/0-Latex/graphics/Beispiel/regression-gerade.pdf",
     width=10,height=8)
 

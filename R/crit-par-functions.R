@@ -119,6 +119,8 @@ KB.minmax <- function(alpha, y, grad, niter, inv.X, a, b){
 ##############################
 # KB auf Rechteck f?r Polynome im homoskladistischen Fall
 
+#' @useDynLib KBminmaxpoly
+#' @importFrom Rcpp sourceCpp
 
 # Berechnet den kritischen Wert des Konfidenzbandes im homoskladistischen Fall. Eingabewerte sind wie oben,
 # aber dismal ist niter der grad des Polynoms und nicht nur die Anzahl an unabh?ngigen Parametern.
@@ -128,33 +130,18 @@ KB.minmax <- function(alpha, y, grad, niter, inv.X, a, b){
 
 KB.poly <- function(alpha, nobs, grad, niter, inv.X, a, b){
 
-
   # Diese Funktionen braucht man sp?ter in der Berechnung, um das Maximum zu bestimmen
   # x.fun berechnet den Wert an x und x.fun.prime an der Ableitung, die f?r Polynome leicht zu
   # bestimmen ist
   # grad+1, da wir grad des polynoms + konstante brauchen
 
-  x_fun <- function(x, grad) {
-    vec=rep(NA, grad+1)
-    for(i in 1:(grad+1)){vec[i]=x^(i-1)}
-    return(vec)
-  }
 
-  x_fun_prime <- function(x, grad) {
-    vec=rep(NA, grad+1)
-    vec[1]=0
-    for(i in 1:grad){vec[i+1]=i*x^(i-1)}
-    return(vec)
-  }
-
-  g.fun.prime <- function (x, T.vec, grad) {(t(x_fun_prime(x, grad)) %*% t(T.vec)) * (t(x_fun(x, grad)) %*% inv.X %*% x_fun(x, grad)) - t(x_fun(x, grad))%*%t(T.vec) * t(x_fun_prime(x, grad))%*%inv.X%*%x_fun(x, grad)}
-
-  g.fun <- function (x, T.vec, grad) {(t(x_fun(x, grad))%*%t(T.vec))/(sqrt(t(x_fun(x, grad))%*%inv.X%*%x_fun(x, grad)))}
+  g.fun.prime <- function (x, T.vec, grad) {(t(x_fun_prime_cpp(x, grad)) %*% t(T.vec)) * (t(x_fun_cpp(x, grad)) %*% inv.X %*% x_fun_cpp(x, grad)) - t(x_fun_cpp(x, grad))%*%t(T.vec) * t(x_fun_prime_cpp(x, grad))%*%inv.X%*%x_fun_cpp(x, grad)}
 
   S.fun = function(v, ngridpoly, xseq, mod, ss){
 
     # Wert simulieren
-    T.vec <- mvtnorm::rmvnorm(n=1,mean=rep(0,grad+1),sigma=inv.X) / sqrt(rchisq(n=1,df=v)/v)
+    T.vec <- mvrnormArma(1, rep(0, grad+1), inv.X) / sqrt(rchisq(n=1,df=v)/v)
 
     # Berechnug der Maxima
     # orientiert sich an der funktion uniroot.all aus dem rootSolve Package
@@ -191,10 +178,10 @@ KB.poly <- function(alpha, nobs, grad, niter, inv.X, a, b){
       all.g <- rep(NA, length(all.roots))
       temp=c(1:length(all.roots))
 
-      g.fun.apply=function(x){g.fun(x, T.vec, grad)}
+      g.fun.apply=function(x){g_fun_cpp(x, grad, T.vec, inv.X)}
       all.g=sapply(temp, g.fun.apply)
 
-      erg=max(abs(g.fun(a, T.vec, grad)),abs(g.fun(b, T.vec, grad)),abs(all.g))
+      erg=max(abs(g_fun_cpp(a, grad, T.vec, inv.X)),abs(g_fun_cpp(b, grad, T.vec, inv.X)),abs(all.g))
     }
 
     erg
@@ -232,30 +219,16 @@ KB.poly.fast <- function(alpha, nobs, grad, niter, inv.X, a, b, ngridpoly){
 
   # von dieser Funktion m?chte man das Maximum bestimmen
 
-  x_fun <- function(x, grad) {
-    vec=rep(NA, grad+1)
-    for(i in 1:(grad+1)){vec[i]=x^(i-1)}
-    return(vec)
-  }
-
-  x_fun_prime <- function(x, grad) {
-    vec=rep(NA, grad+1)
-    vec[1]=0
-    for(i in 1:grad){vec[i+1]=i*x^(i-1)}
-    return(vec)
-  }
-
-  g.fun <- function (x, T.vec, grad) {(t(x_fun(x, grad))%*%t(T.vec))/(sqrt(t(x_fun(x, grad))%*%inv.X%*%x_fun(x, grad)))}
-
   S.fun = function(v, values, xseq){
 
     # Wert simulieren
-    T.vec <- mvtnorm::rmvnorm(n=1,mean=rep(0,grad+1),sigma=inv.X) / sqrt(rchisq(n=1,df=v)/v)
+    sigma.hat = sqrt(rchisq(n=1,df=v)/v)
 
     # Berechnug der Maxima
     # Bestimmt einfach den Wert von g.fun auf einem Grid auf [0,1] mit Feinheit ngridpoly
 
-    g.lapply=function(x){g.fun(x, T.vec, grad)}
+    g.lapply=function(x){S_fun_cpp(x, grad, sigma.hat, inv.X)}
+    values=rep(NA, length(xseq))
     values=sapply(xseq, g.lapply)
 
     erg=max(abs(values))

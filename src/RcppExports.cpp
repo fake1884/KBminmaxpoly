@@ -6,8 +6,21 @@
 
 using namespace Rcpp;
 
+// mvrnormArma
+arma::mat mvrnormArma(int n, arma::vec mu, arma::mat sigma);
+RcppExport SEXP KBminmaxpoly_mvrnormArma(SEXP nSEXP, SEXP muSEXP, SEXP sigmaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type sigma(sigmaSEXP);
+    rcpp_result_gen = Rcpp::wrap(mvrnormArma(n, mu, sigma));
+    return rcpp_result_gen;
+END_RCPP
+}
 // x_fun_cpp
-NumericVector x_fun_cpp(double x, int grad);
+arma::mat x_fun_cpp(double x, int grad);
 RcppExport SEXP KBminmaxpoly_x_fun_cpp(SEXP xSEXP, SEXP gradSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -15,6 +28,58 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
     rcpp_result_gen = Rcpp::wrap(x_fun_cpp(x, grad));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rep_fun
+arma::mat rep_fun(int x, int anzahl);
+RcppExport SEXP KBminmaxpoly_rep_fun(SEXP xSEXP, SEXP anzahlSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type anzahl(anzahlSEXP);
+    rcpp_result_gen = Rcpp::wrap(rep_fun(x, anzahl));
+    return rcpp_result_gen;
+END_RCPP
+}
+// chi_square_fun
+arma::vec chi_square_fun(int n, arma::mat sigma);
+RcppExport SEXP KBminmaxpoly_chi_square_fun(SEXP nSEXP, SEXP sigmaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type sigma(sigmaSEXP);
+    rcpp_result_gen = Rcpp::wrap(chi_square_fun(n, sigma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// S_fun_cpp
+arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat Xinv);
+RcppExport SEXP KBminmaxpoly_S_fun_cpp(SEXP xSEXP, SEXP gradSEXP, SEXP sigmahatSEXP, SEXP XinvSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
+    Rcpp::traits::input_parameter< double >::type sigmahat(sigmahatSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Xinv(XinvSEXP);
+    rcpp_result_gen = Rcpp::wrap(S_fun_cpp(x, grad, sigmahat, Xinv));
+    return rcpp_result_gen;
+END_RCPP
+}
+// g_fun_cpp
+arma::mat g_fun_cpp(double x, int grad, arma::mat T, arma::mat Xinv);
+RcppExport SEXP KBminmaxpoly_g_fun_cpp(SEXP xSEXP, SEXP gradSEXP, SEXP TSEXP, SEXP XinvSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type T(TSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Xinv(XinvSEXP);
+    rcpp_result_gen = Rcpp::wrap(g_fun_cpp(x, grad, T, Xinv));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -27,21 +92,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
     rcpp_result_gen = Rcpp::wrap(x_fun_prime_cpp(x, grad));
-    return rcpp_result_gen;
-END_RCPP
-}
-// g_fun_cpp
-int g_fun_cpp(double x, NumericVector T_vec, int grad, NumericMatrix inv_X, Function x_fun);
-RcppExport SEXP KBminmaxpoly_g_fun_cpp(SEXP xSEXP, SEXP T_vecSEXP, SEXP gradSEXP, SEXP inv_XSEXP, SEXP x_funSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type T_vec(T_vecSEXP);
-    Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type inv_X(inv_XSEXP);
-    Rcpp::traits::input_parameter< Function >::type x_fun(x_funSEXP);
-    rcpp_result_gen = Rcpp::wrap(g_fun_cpp(x, T_vec, grad, inv_X, x_fun));
     return rcpp_result_gen;
 END_RCPP
 }

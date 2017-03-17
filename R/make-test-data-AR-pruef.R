@@ -12,8 +12,8 @@ Make.data.AR.pruef = function(){
   grad=5
   nobs=50
   beta.true=c(10,5,-4,7,3,-4)
-  sigma.true=1
-  phi.true=0.1
+  sigma.true=0.007545373
+  phi.true=0.8225374  # bestimmt die korrelation
   x.raw=c(0:(nobs-1))
   x=x.raw/max(x.raw)
 
