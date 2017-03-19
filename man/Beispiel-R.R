@@ -217,7 +217,7 @@ curve(fit.1[[2]][1]+fit.1[[2]][2]*x+fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, 
 curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3+fit.3[[2]][5]*x^4,
       add=T, lty="dashed", cex=2, lwd=3)
 
-legend(x="topleft", legend=c("Grad 1", "Grad 3"),
+legend(x="topleft", legend=c("Grad 3", "Grad 4"),
        col=c("black", "black"),cex=2, lwd=3, lty=c("solid", "dashed"))
 
 dev.off()

@@ -1321,7 +1321,7 @@ mit $i = 1,2$ gegeben.
 
 Dabei ist $Y_{i} = (Y_{i,1}, \ldots, Y_{i,n_i})$ ein für $i=1,2$ ein Vektor aus zufälligen Beobachtungen der die abhängigen Daten darstellt.
 
-Weiterhin sei $X_i$ für $i=1,2$ eine $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei ist die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots, \min(n_1, n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen für $j=1, \ldots, \min(n_1, n_2)$ das selbe, feste Design haben.
+Weiterhin sei $X_i$ für $i=1,2$ eine $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei ist die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots, \min(n_1, n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen für $j=1, \ldots, \min(n_1, n_2)$ dasselbe, feste Design haben.
 
 Außerdem sind $\beta_i$ zwei $(p+1) \times 1$ Koeffizientenvektoren, die den funktionalen Zusammenhang zwischen $Y_i$ und $X_i$ darstellen.
 
@@ -1329,7 +1329,7 @@ In diesem Kapitel ist $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Diese An
 
 Die zugrunde liegenden Modelle sind also gleich, wenn $\beta_{1}=\beta_{2}$ 
 
-Da die Werte von $\beta_{i}$ unbekannt ist und nur geschätzt werden kann, muss man testen, ob 
+Da die Werte von $\beta_{i}$ unbekannt sind und nur geschätzt werden können, testet man, ob 
 
 \begin{equation}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2} \label{Hypothese}
@@ -1344,16 +1344,16 @@ Es ist mit der in diesem Kapitel eingeführten Methode auch möglich zwei Modell
 Ein Beispiel für solch ein vorgehen ist der Vergleich des Blutdrucks von Männern und Frauen. Konkret kann man mit dieser Methode die Frage beantworten, ob sowohl für Männer, als auch für Frauen, der Zusammenhang zwischen zum Beispiel Alter und Blutdruck gleich ist.
 
 \begin{Beispiel}
-Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem eine zweite Designmatrix $X_2$ einführt wird. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad 3 dar. 
+Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem eine zweite Designmatrix $X_2$ einführt wird. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad Vier dar. 
 
-Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits im Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Eins zugrunde zu legen. 
+Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits im Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Vier zugrunde zu legen. 
 
 In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-beide-in-einem-plot}
-  \caption{Regression von Grad Eins und Grad Drei im Vergleich}
+  \caption{Regression von Grad Drei und Grad Vier im Vergleich}
   \label{Vergleich-Bsp}
 \end{figure}
 
@@ -1448,7 +1448,7 @@ Es gilt
 
 Jetzt wird dieses Resultat auf den Vergleich von Regressionsmodellen anwendet. Dabei wird sich an \cite[114]{Liu64} orientiert. 
 
-Betrachten wir wieder das Modell \ref{Grundmodell_Hypothesentest} aus der Einleitung. Außerdem wird wieder der Test \eqref{Hypothese} betrachtet:
+Betrachten wir wieder das Modell \ref{Grundmodell_Hypothesentest} aus der Einleitung. Außerdem wird wieder das Testproblem \eqref{Hypothese} betrachtet:
 
 \begin{equation*}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2}
@@ -1501,7 +1501,7 @@ Jetzt kann \eqref{Einschränkung_Test} benutzt werden und man erhält als Testst
 \frac{(\hat{\beta_1}-\hat{\beta_2})'D (\hat{\beta_1}-\hat{\beta_2})/(p+1)}{\widehat{\sigma^2}} > f^{\alpha}_{p+1,n-p-1}\label{Teststat_final}
 \end{equation}
 
-Dabei ist $\hat{\sigma}^2$ die mittlere Varianz des Modells \eqref{Grundmodell_umformuliert}, $\hat{\beta_i} = (X_i'X_i)^{-1}X_iY$ und \gls{D}=$(X_1'X_1)^{-1}+(X_2'X_2)^{-1}$. 
+Dabei ist $\widehat{\sigma^2}$ die mittlere Varianz des Modells \eqref{Grundmodell_umformuliert}, $\hat{\beta_i} = (X_i'X_i)^{-1}X_iY$ und \gls{D}=$(X_1'X_1)^{-1}+(X_2'X_2)^{-1}$. 
 
 Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_Test} hergeleitet werden kann, ist folgende Rechnung nach \cite[115]{Liu64} zu betrachten. Dabei erfolgt in der Betrachtung allerdings ausschließlich die Berechnung für den Nenner.
 
@@ -1526,13 +1526,13 @@ Für den Nenner betrachtet man
 \widehat{\sigma^2}  &= \frac{\Vert Y-X \hat{c} \Vert}{n_1 + n_2 - 2(p+1)} \\
 				&= \frac{\Vert Y_1 - X_1 \hat{\beta_1} \Vert^2 + \Vert Y_2 - X_2 \hat{\beta_2} \Vert^2}{n_1+n_2-2(p+1)} \\
 				&= \frac{n_1-p-1}{n_1+n_2-2(p+1)} \frac{\Vert Y_1 - X_1 \hat{\beta_1} \Vert^2}{n_1-p-1}+ \frac{n_2-p-1}{n_1+n_2-2(p+1)} \frac{\Vert Y_2 - X_2 \hat{\beta_2} \Vert^2}{n_2-p-1} \\
-				&= \frac{n_1-p-1}{n_1+n_2-2(p+1)} \hat{\sigma_{1}^2}+ \frac{n_2-p-1}{n_1+n_2-2(p+1)} \hat{\sigma_{2}^2}
+				&= \frac{n_1-p-1}{n_1+n_2-2(p+1)} \widehat{\sigma_{1}^2}+ \frac{n_2-p-1}{n_1+n_2-2(p+1)} \widehat{\sigma_{2}^2}
 \end{align*}
 
 Es wird nun das Beispiel aus der Einleitung zu diesem Kapitel fortgeführt
 
 \begin{Beispiel}
-Berechnet man die Teststatistik \eqref{Teststat_final} erhält man als Teststatistik den Wert \TestWert und als kritischen Wert \kritWert . Also \EntscheidungHypothesen man die Hypothese. Die Modelle sind also \Modellesind .
+Berechnet man die Teststatistik \eqref{Teststat_final} erhält man als Teststatistik den Wert \TestWert ~und als kritischen Wert \kritWert . Also \EntscheidungHypothesen ~man die Hypothese. Die Modelle sind also \Modellesind .
 \end{Beispiel}
 
 Allerdings macht solch ein Test keinerlei Aussage über die Größe des Unterschiedes zwischen den Modellen. Deshalb werden im nächsten Abschnitt die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} benutzt.
@@ -1553,7 +1553,7 @@ x'\beta_2-x'\beta_1 \in x' \hat{\beta}_1 - x' \hat{\beta}_2 \pm c ~ \hat{\sigma}
 
 wobei $c$ eine kritische Konstante ist, sodass das Konfidenzniveau des Konfidenzbandes $1-\alpha$ beträgt. Dabei ist $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$
 
-Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ wie im ersten Kapitel und definiere $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$, welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Kapitel 1.4, dass das simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
+Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ wie im ersten Kapitel und definiere $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$, welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Lemma \ref{Basiseigenschaft} , dass das simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
 
 \begin{eqnarray*}
 S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\hat{\sigma}\sqrt{x' D x}}\\
@@ -1561,7 +1561,7 @@ S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\ha
 &=& \sup_{x \in A} \frac{\vert (Px)' T \vert}{\Vert Px \Vert}
 \end{eqnarray*}
 
-Also kann die kritische Konstante $c$ genauso wie in Kapitel 1.4 beziehungsweise wie in Kapitel 1.5 gefunden werden.
+Also kann die kritische Konstante $c$ genauso wie in Kapitel \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} beziehungsweise wie in Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} gefunden werden.
 
 Zum Schluss dieses Abschnittes zeigen wir noch ein Resultat, dass zeigt, dass es keinen Unterschied macht, ob ein Test durchgeführt oder ein Konfidenzband auf ganz $\mathbb{R}^{p}$ benutzt wird. 
 
@@ -1593,15 +1593,15 @@ Benutzt man die Definition von $N$ wie bisher, außer das man $\beta$ mit $\beta
 &=& \frac{\Vert N \Vert}{(\hat{\sigma}/\sigma)} \Big( \sup_{x_{(0)} \in \mathbb{R}^p} \frac{| (Px)' N |}{\Vert P x \Vert \Vert N \Vert} \Big) \\
 &=& \frac{\Vert N \Vert}{(\hat{\sigma}/\sigma)} \\
 &=& \sqrt{ \frac{(\hat{\beta}-\beta_0)' P^{-1} P^{-1} (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}} } \\
-&=& \sqrt{\frac{(\hat{\beta}-\beta_0)' (X'X) (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}}}
+&=& \sqrt{\frac{(\hat{\beta}-\beta_0)' (X'X)^{-1} (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}}}
 \end{eqnarray*}
 
 Dies entspricht der Teststatistik \eqref{Test-Satz}, also sind die beiden Test äquivalent.
 \end{proof}
 
-Dies bedeutet, dass es von einem Interferenzstandpunkt her immer besser ist, ein Konfidenzband auf einem  zum Vergleich von zwei Modellen zu verwenden.
+Dies bedeutet, dass es von einem Interferenzstandpunkt her immer besser ist, ein Konfidenzband auf einem Intervall zum Vergleich von zwei Modellen zu verwenden.
 
-Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall eine bessere Inferenz zulassen als Konfidenzbänder auf ganz $\mathbb{R}^{p}$. Also ist es immer von Vorteil, Konfidenzbänder auf Intervallen zu verwenden.
+Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall eine bessere Inferenz zulassen als Konfidenzbänder auf ganz $\mathbb{R}^{p}$. Also ist es auch in dieser Hinsicht von Vorteil, Konfidenzbänder auf Intervallen zu verwenden.
 
 %Was passiert, wenn eines der Modelle weniger Dimensionen (im Sinne der Designmatrix) als das andere hat ?
 
@@ -1615,7 +1615,7 @@ Es wird jetzt das Beispiel aus den vorherigen Abschnitten fortgeführt, indem di
   \label{KB-poly-hetero-BSP}
 \end{figure}
 
-Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten ist. Also wird auch in diesem Fall der Test 
+Man sieht, dass die konstante Nullfunktion ganz im Konfidenzband enthalten ist. Also wird in diesem Fall die Nullhypothese nicht verworfen. Dies kann daran liegen, dass in diesem Test nur auf dem Intervall [0,1] getestet wird. Außerdem respektiert dieser Test die besondere Polynomstruktur des zugrunde liegenden Modells.
 
 \end{Beispiel}
 
@@ -1633,13 +1633,13 @@ Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten
 \newpage
 \section{Teil eines Regressionsmodells überprüfen}
 \label{Teil eines Regressionsmodells überprüfen}
-In diesem Abschnitt wird der Spezialfall zu prüfen, ob ein Teil des Regressionsmodells signifikant von Null verschieden ist oder nicht.  Das heißt, wir gehen von dem Modell
+In diesem Abschnitt geht es um den Spezialfall zu prüfen, ob ein Teil des Regressionsmodells signifikant von Null verschieden ist oder nicht.  Das heißt, wir gehen von dem Modell
 
 \begin{equation} \label{RegprüfModell}
 Y=X \beta + e
 \end{equation}
 
-und wollen prüfen, ob einige der Koeffizienten $\beta_i$ gleich Null sind oder nicht. Ist $\beta_i$ gleich Null haben die zugehörigen unabhängigen Variablen $x_i$s keinen Einfluss auf die abhängige Variable $Y$.  
+und wollen prüfen, ob einige der Koeffizienten $\beta_i$ gleich Null sind oder nicht. Ist $\beta_i$ gleich Null haben die zugehörigen unabhängigen Variablen $x_i$ keinen Einfluss auf die abhängige Variable $Y$.  
 
 Zu diesem Zweck unterteilen wir den Vektor $\beta=(\beta_1,\beta_2)$ mit $\beta_1=(\beta_0, \ldots, \beta_{p-k})$ und $\beta_2=(\beta_{p-1+1}, \ldots, \beta_{p})$ für $1 \leq k \leq p$ eine gegebene natürliche Zahl. 
 
@@ -1657,7 +1657,7 @@ vereinfachen. Dabei ist $X_1$ die Matrix die von den ersten $p-k+1$ Spalten von 
 \label{F-Test-Teil}
 In diesem Abschnitt wird der F-Test als Methode, um zu prüfen, ob $\beta_2=0$ ist, vorgestellt. Dieser Abschnitt orientiert sich an \cite[100-102]{Liu64}.
 
-Ein Ansatz zu prüfen ob $\beta_2=0$ ist, ist der Test 
+Ein Ansatz zu prüfen, ob $\beta_2=0$ ist, ist der Test 
 
 \begin{equation} \label{Test_prüfen}
 H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
@@ -2237,7 +2237,7 @@ Führt man diese Regression durch, erhält man die Schätzer
 \end{eqnarray*}
 Als kritische Parameter erhält man $c_{\mathbb{R}} = 3.604075, c_{A} = 3.505922, c_{AP} = 2.902647 $. 
 
-Setzt man das selbe Modell wie oben für die 30kPa Daten für die 10kPa Daten, nur mit an, erhält man die Werte 
+Setzt man dasselbe Modell wie oben für die 30kPa Daten für die 10kPa Daten, nur mit an, erhält man die Werte 
 
 \begin{eqnarray*}
 \hat{\beta} &=& (0.7372386;   0.4218583 ;  1.8729639 ; -7.6991653 ;  9.7892837 ; -4.1541509) \\
