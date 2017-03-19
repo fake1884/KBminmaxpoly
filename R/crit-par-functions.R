@@ -223,14 +223,16 @@ KB.poly.fast <- function(alpha, nobs, grad, niter, inv.X, a, b, ngridpoly){
 
     # Wert simulieren
     sigma.hat = sqrt(rchisq(n=1,df=v)/v)
+    N = matrix(mvtnorm::rmvnorm(1,mean=rep(0,grad+1),inv.X), ncol=grad+1)
 
     # Berechnug der Maxima
     # Bestimmt einfach den Wert von g.fun auf einem Grid auf [0,1] mit Feinheit ngridpoly
 
-    g.lapply=function(x){S_fun_cpp(x, grad, sigma.hat, inv.X)}
+    g.lapply=function(x){S_fun_cpp(x, grad, sigma.hat, N, inv.X)}
     values=rep(NA, length(xseq))
     values=sapply(xseq, g.lapply)
 
+    # Maximum der Funktion g in dieser Simulation
     erg=max(abs(values))
 
     erg

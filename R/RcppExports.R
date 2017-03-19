@@ -17,8 +17,8 @@ chi_square_fun <- function(n, sigma) {
     .Call('KBminmaxpoly_chi_square_fun', PACKAGE = 'KBminmaxpoly', n, sigma)
 }
 
-S_fun_cpp <- function(x, grad, sigmahat, Xinv) {
-    .Call('KBminmaxpoly_S_fun_cpp', PACKAGE = 'KBminmaxpoly', x, grad, sigmahat, Xinv)
+S_fun_cpp <- function(x, grad, sigmahat, N, Xinv) {
+    .Call('KBminmaxpoly_S_fun_cpp', PACKAGE = 'KBminmaxpoly', x, grad, sigmahat, N, Xinv)
 }
 
 g_fun_cpp <- function(x, grad, T, Xinv) {

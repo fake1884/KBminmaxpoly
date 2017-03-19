@@ -1142,7 +1142,7 @@ mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizient
 
 In den ersten Abschnitten lag die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. In dem letzten Abschnitt sind wir zusätzlich implizit davon ausgegangen, dass die erste Spalte von $X$ nur mit Einsen besetzt ist.
 
-In diesem Abschnitt betrachten wir den Fall, dass die Spalten von $X$ einen funktionalen Zusammenhang erfüllen. Konkret gehen wir davon aus, dass die $i$-te Zeile von $X$ von der Form $\tilde{x}_i = (1, x, x^{2}, \ldots, x^{p}) \in \mathbb{R}^{p+1}, i = 1, \ldots, n$ hat. 
+In diesem Abschnitt betrachten wir den Fall, dass die Spalten von $X$ einen funktionalen Zusammenhang erfüllen. Konkret gehen wir davon aus, dass die $i$-te Zeile von $X$ von der Form $\tilde{x}_i = (1, x, x^{2}, \ldots, x^{p}) \in \mathbb{R}^{p+1}, i = 1, \ldots, n$ ist. 
 
 Unsere Designmatrix ist also zeilenweise von Polynomgestalt. 
 
@@ -1198,7 +1198,7 @@ S &=& \sup_{x_{0} \in A} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma}
 &=& K_{2h}(T,(X'X)^{-1},(a,b))
 \end{eqnarray*}
 
-Man beachte, dass in diesem Fall $A=[a,b]$ mit $a,b \in \mathbb{R}$ gilt. Dies liegt daran, dass $\tilde{x} = (1, x, x^2, \ldots, x^p)$ ist.
+Man beachte, dass in diesem Fall $A=[a,b]$ mit $a,b \in \mathbb{R}$ gilt. Dies liegt daran, dass \gls{X-Tilde}$ = (1, x, x^2, \ldots, x^p)$ ist.
 
 In den obigen Umformungen wurden die Definitionen $ N=(\hat{\beta}-\beta)/\sigma \sim \mathscr{N}_{p+1
 } (0,(X'X)^{-1}) $ , \gls{T}=$N/(\hat{\sigma}/\sigma)\sim\tau_{p+1,v}(0,(X'X)^{-1}) $ und für \gls{K}
@@ -1211,21 +1211,13 @@ benutzt.
 
 Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $S = K_{2h}(T,(X'X)^{-1},(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T,(X'X)^{-1},(a,b))$ nur schwer explizit zu bestimmen.
 
-Um $c$ trotzdem zu ermitteln, kann man $r$ unabhängige Realisationen von $S$ berechnen und von diesen $S_1, \ldots, S_q$ das $1-\alpha$ Quantil benutzen.
+Um $c$ trotzdem zu ermitteln, kann man $r$ unabhängige Realisationen von $S$ berechnen und von diesen $S_1, \ldots, S_r$ das $1-\alpha$ Quantil benutzen.
 
 Um $S$ für vorgegebenes $N$ und $\hat{\sigma}/\sigma$ zu bestimmen, muss man $K_{2h}(T,(X'X)^{-1},(a,b))$ mit $T=N/(\hat{\sigma}/\sigma)$ berechnen. 
 
 Um  $K_{2h}(T,(X'X)^{-1},(a,b))$ zu berechnen, kann man folgendes Verfahren aus \cite[Appendix E]{Liu64}  benutzen.
 
-Wie gesagt, ist $K_{2h}(T,(X'X)^{-1},(a,b))$ definiert durch
-
-\begin{equation*}
-K_{2h}(t,(X'X)^{-1},(a,b)) = \sup_{x_{0} \in A} \frac{\vert \tilde{x}' t \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
-\end{equation*}
-
-wobei $t$ ein gegebener $(p+1)$-Vektor, $(X'X)^{-1}$ eine nicht-singuläre Matrix, $A$ ein gegebenes Intervall und \gls{X-Tilde} $= (1, x, \ldots, x^p)')$ ist. 
-
-Das Supremum von $K_{2h}(T,(X'X)^{-1},(a,b))$ kann entweder an $a$ oder an $b$ oder den stationären Punkten der Funktion
+Betrachtet man die Definition von $K_{2h}(T,(X'X)^{-1},(a,b))$, ist klar, dass wir ein Supremum suchen. Das Supremum  kann entweder an $a$ oder an $b$ oder den stationären Punkten der Funktion
 
 \begin{equation*}
 g_h(x) = \frac{\tilde{x}'t}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
@@ -1275,7 +1267,7 @@ Als nächstes wiederholt man diese Schritte $q$ mal, um $K= \{S_1, \ldots, S_q\}
 
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem dritten Abschnitt fortgeführt, indem zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Graphik \ref{KB-poly-BSP} einzeichnet wird.
+Jetzt wird das Beispiel aus dem dritten Abschnitt fortgeführt, indem zu der Regression mit Grad Drei, dem Konfidenzband auf ganz $\mathbb{R}$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Graphik \ref{KB-poly-BSP} einzeichnet wird.
 
 \begin{figure}[H] 
   \centering
@@ -1284,9 +1276,9 @@ Jetzt wird das Beispiel aus dem dritten Abschnitt fortgeführt, indem zu der Reg
   \label{KB-poly-BSP}
 \end{figure}
 
-Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}$ und für das Konfidenzband auf [0,1] wurde in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
+Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}^{3}$ und für das Konfidenzband auf [0,1] wurde in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR ~und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
 
-Als seed wurde weiterhin \seedsimulation benutzt.
+Als seed wurde weiterhin \seedsimulation ~benutzt.
 
 \end{Beispiel}
 

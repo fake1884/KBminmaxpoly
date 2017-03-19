@@ -11,6 +11,7 @@ using namespace arma;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Support-Funktionen
 
+// Diese Funktion ist sehr schnell, aber bringt zum Teil seltsame Ergebnisse
 // Multivariate Normalverteilung in Rcpparmadillo
 // [[Rcpp::export]]
 arma::mat mvrnormArma(int n, arma::vec mu, arma::mat sigma) {
@@ -45,6 +46,7 @@ arma::mat rep_fun(int x, int anzahl){
   return(ergfin);
 }
 
+// Wird zur Zeit nicht benutzt
 // Simulation einer chi-squre verteilten ZV
 // [[Rcpp::export]]
 arma::vec chi_square_fun(int n, arma::mat sigma){
@@ -65,13 +67,13 @@ arma::vec chi_square_fun(int n, arma::mat sigma){
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hauptfunktion dieser Datei
 // [[Rcpp::export]]
-arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat Xinv){
+arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat N, arma::mat Xinv){
   // Berechnung von tilde{x}
   arma::mat z = x_fun_cpp(x, grad);
 
   // Simulation von T
-  arma::mat mu = rep_fun(0, grad+1);
-  arma::mat N = mvrnormArma(1, mu, Xinv);
+  // arma::mat mu = rep_fun(0, grad+1);
+  // arma::mat N = mvrnormArma(1, mu, Xinv);
 
   arma::mat T = N / sigmahat;
 

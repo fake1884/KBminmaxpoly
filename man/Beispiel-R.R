@@ -138,7 +138,7 @@ dev.off()
 
 # Simulation beginnt
 set.seed(4)
-niter=500
+niter=5000
 
 # kritischen Wert bestimmen
 par.bsp.minmax=KB.minmax(alpha, y, grad.1, niter, inv.X.1, a=0, b=1)
@@ -167,7 +167,7 @@ dev.off()
 
 
 ############################
-# Konfidenzband auf min,max f?r polynome
+# Konfidenzband auf min,max für polynome
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
@@ -184,12 +184,12 @@ plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="rela
      ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 points(x,y, cex=2, lwd=3)
 curve(fit.1[[2]][1]+fit.1[[2]][2]*x+fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, cex=2, lwd=3)
-lines(plot.KB.R[[1]], plot.KB.R[[2]], lty=1, cex=2, lwd=3)
-lines(plot.KB.R[[1]], plot.KB.R[[3]], lty=1, cex=2, lwd=3)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty=2, cex=2, lwd=3)
-lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty=2, cex=2, lwd=3)
-lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty=3, cex=2, lwd=3)
-lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty=3, cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[2]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.R[[1]], plot.KB.R[[3]], lty="solid", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[2]], lty="dotted", cex=2, lwd=3)
+lines(plot.KB.minmax[[1]], plot.KB.minmax[[3]], lty="dotted", cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[2]], lty="dashed", cex=2, lwd=3)
+lines(plot.KB.poly[[1]], plot.KB.poly[[3]], lty="dashed", cex=2, lwd=3)
 
 legend(x="topleft", legend=c("R", "[0,1]", "Polynom"),
        col=c("black", "black", "black"),cex=2, lwd=3, lty=c("solid", "dotted", "dashed"))
@@ -199,7 +199,7 @@ dev.off()
 
 
 #############################
-# Unterschied zwischen Regression von Grad 1 und 3
+# Unterschied zwischen Regression von Grad 3 und 4
 
 # Regression vom Grad 3
 grad.3=4

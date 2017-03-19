@@ -8,17 +8,42 @@ seed.1=100
 set.seed(seed.1)
 
 # wahre Werte erzeugen
+
+# feste Werte initialisieren
 grad=3
+grad.1=3
+grad.3=4
 nobs=50
-x.raw=c(1:nobs)
+beta.true=c(10,5,-4,7)
+sigma.true=1 #0.007545373
+phi.true=0.001 #0.8225374  # bestimmt die korrelation
+x.raw=c(0:(nobs-1))
 x=x.raw/max(x.raw)
 
-X=numeric()
-for(i in 1:(grad+1)){X=matrix(c(X,x^(i-1)),ncol=i)}
+X=matrix(data=NA,nrow=nobs,ncol=(grad+1))
+for(j in 1:nobs){
+  for(i in 1:(grad+1)){X[j,i]=x[j]^(i-1)}
+}
 
-beta=c(10,5,-4,7)
-sigma=1
-phi=0.75
+X.3=matrix(data=NA,nrow=nobs,ncol=(grad.3+1))
+for(j in 1:nobs){
+  for(i in 1:(grad+1)){X.3[j,i]=x[j]^(i-1)}
+}
+
+# Werte des Konfidenzbandes initialisieren
+alpha=0.05
+niter=100
+ngrid=nobs
+a=0 # diese Werte definieren A
+b=1
+time=0:(nobs-1)/(nobs-1)
+time.2=time^2
+time.3=time^3
+time.4=time^4
+alpha=0.05
+ngrid=nobs
+X.mat=t(X) %*% X
+X.mat.inv.1=solve(X.mat)
 
 Upsilon = Upsilon_fun(phi, length(x.raw))[[1]]
 
@@ -48,44 +73,26 @@ y=y.raw/max(y.raw)
 #######################
 # Regression falls AR(1) als Modell zugrunde gelegt wird
 
-# Phi f?r das Polynom vom Grad eins bestimmen
-grad.1=1
-time=1:length(y)/length(y)
-Y.gls.1 <- gls(y~time,correlation=corAR1())
+# Phi f?r das Polynom vom Grad drei bestimmen
+grad.1=3
+Y.gls.1 <- gls(y~time+time.2+time.3,correlation=corAR1())
 beta.1=Y.gls.1$coefficients
 sigma.1=Y.gls.1$sigma
-phi.1=0.7378075
 
-# Regression durchf?hren um die Inverse Designmatrix des transformierten Modells zu bestimmen
-fit.hetero.1=ar.1(grad.1,y,phi.1)
 
-# Werte bestimmen
-beta.hetero.1=fit.hetero.1[[2]]
-sigma.hetero.1=fit.hetero.1[[3]]
-inv.X.hetero.1=fit.hetero.1[[1]]
-alpha=0.05
-
-# Phi f?r das Polynom vom Grad eins bestimmen
-time=1:length(y)/length(y)
+# Phi f?r das Polynom vom Grad vier bestimmen
+grad.3=4
 Y.gls.3 <- gls(y~time+I(time^2)+I(time^3),correlation=corAR1())
-phi.3=-0.9715946
+beta.3=Y.gls.3$coefficients
+sigma.3=Y.gls.3$sigma
 
-# Regression durchf?hren um die Inverse Designmatrix des transformierten Modells zu bestimmen
-fit.hetero.3=ar.1(3,y,phi.3)
-
-# Parameter vom Grad 3 bestimmen
-beta.hetero.3=fit.hetero.3[[2]]
-sigma.hetero.3=fit.hetero.3[[3]]
-inv.X.hetero.3=fit.hetero.3[[1]]
-alpha=0.05
-
-# Ergebnisse zeichnen dabei werden die transformierten y-Werte benutzt
+# Beide Regressionsmodelle mit den Daten in einer Graphik einzeichnen
 pdf("man/0-Latex/graphics/Beispiel/Bsp-Reg-AR.pdf",
     width=10,height=8)
 
 plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
-curve(fit.hetero.1[[2]][1]+fit.hetero.1[[2]][2]*x,add=T, cex=2, lwd=3)
-curve(fit.hetero.3[[2]][1]+fit.hetero.3[[2]][2]*x+fit.hetero.3[[2]][3]*x^2+fit.hetero.3[[2]][4]*x^3, add=T,
+curve(beta.1[1]+beta.1[2]*x+beta.1[3]*x^2+beta.1[4]*x^3,add=T, cex=2, lwd=3)
+curve(beta.3[1]+beta.3[2]*x+beta.3[3]*x^2+beta.3[4]*x^3+beta.3[4]*x^3, add=T,
       cex=2, lwd=3, lty="dashed")
 
 legend(x="topleft", legend=c("Grad 1", "Grad 3"),
@@ -100,7 +107,7 @@ dev.off()
 ##############################
 # Konfidenzbaender f?r AR(1) auf min,max f?r polynom
 
-niter=500
+niter=5000
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly

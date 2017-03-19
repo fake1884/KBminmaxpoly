@@ -56,16 +56,17 @@ BEGIN_RCPP
 END_RCPP
 }
 // S_fun_cpp
-arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat Xinv);
-RcppExport SEXP KBminmaxpoly_S_fun_cpp(SEXP xSEXP, SEXP gradSEXP, SEXP sigmahatSEXP, SEXP XinvSEXP) {
+arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat N, arma::mat Xinv);
+RcppExport SEXP KBminmaxpoly_S_fun_cpp(SEXP xSEXP, SEXP gradSEXP, SEXP sigmahatSEXP, SEXP NSEXP, SEXP XinvSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type grad(gradSEXP);
     Rcpp::traits::input_parameter< double >::type sigmahat(sigmahatSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type N(NSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type Xinv(XinvSEXP);
-    rcpp_result_gen = Rcpp::wrap(S_fun_cpp(x, grad, sigmahat, Xinv));
+    rcpp_result_gen = Rcpp::wrap(S_fun_cpp(x, grad, sigmahat, N, Xinv));
     return rcpp_result_gen;
 END_RCPP
 }
