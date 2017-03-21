@@ -8,6 +8,7 @@ cov.poly.R=NA
 system.time({cov.poly.R=Coverage.prob.fun("R", "minmax-poly", niter = 100)})
 
 # last run niter=5000, ngridpoly=100, col.poly.fast.AR= 93, system.time= 1104.185
+# 95
 cov.poly.fast.R=NA
 system.time({cov.poly.fast.R=Coverage.prob.fun("R", "minmax-poly-fast", niter = 5000, ngridpoly = 100)})
 

@@ -343,26 +343,22 @@ Bei den Simulationen erhält man folgende Ergebnisse:
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR bekannt & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-Minmax	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
+Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
 \hline 
-Poly  & \UeberRMinmaxPoly & \UeberARbekanntMinmaxPoly & \UeberARMinmaxPoly \\ 
-\hline 
-Poly.fast  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
-\hline 
-R prüfen    & \UeberRRpruefen & \UeberARbekanntRpruefen & \UeberARRpruefen \\ 
-\hline 
-Poly.fast prüfen	& \UeberRMinmaxPolyfastpruefen & \UeberARbekanntMinmaxPolyfastpruefen & \UeberARMinmaxPolyfastpruefen \\ 
+Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
 \hline 
 \end{tabular} 
 \end{center}
 
-In den Spalten stehen die verschiedenen zugrunde liegenden Modelle. Dabei steht R für ein multilineares, homoskedastisches Modell und AR für ein Modell dem ein AR(1)-Prozess zugrunde liegt.
+In den Spalten stehen die verschiedenen zugrunde liegenden Modelle. Dabei steht \textit{unabhängig} für ein  multilineares, homoskedastisches Modell mit unabhängigen Fehlern. \textit{AR bekannt} steht für ein Modell dem ein AR(1)-Prozess zugrunde liegt, bei dem der Korrelationsparameter bekannt ist. Bei dem \textit{AR} Modell ist der Korrelationsparameter unbekannt und muss zusätzlich geschätzt werden.
 
-In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies Konfidenzbänder auf ganz $\mathbb{R}^p$, Konfidenzbänder auf einem Rechteck $A$, Konfidenzbänder auf einem Rechteck $A$, wenn das Modell Polynomgestalt hat. In den letzten beiden Zeilen sind die Überdeckungswahrscheinlichkeiten für den Fall, dass man überprüft, ob ein Teil des Regressionsmodells Null ist angegeben. Dabei steht R wieder für die Methode ein Konfidenzband auf ganz $\mathbb{R}^p$ zu benutzen. Poly steht dafür ein Konfidenzband auf $A$ für den Fall, dass das Modell Polynomgestalt hat, zu benutzen.
+In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies Konfidenzbänder auf ganz $\mathbb{R}^p$, Konfidenzbänder auf einem Polyeder $A \subset \mathbb{R}^{p}$, Konfidenzbänder auf einem Polyeder $A$, wenn das Modell Polynomgestalt hat. 
+
+%In den letzten beiden Zeilen sind die Überdeckungswahrscheinlichkeiten für den Fall, dass man überprüft, ob ein Teil des Regressionsmodells Null ist, angegeben. Dabei steht R wieder für die Methode ein Konfidenzband auf ganz $\mathbb{R}^p$ zu benutzen. Poly steht dafür ein Konfidenzband auf $A$ für den Fall, dass das Modell Polynomgestalt hat, zu benutzen.
 
 % Mindestanforderung GdS
 
@@ -847,16 +843,16 @@ Wie genau bei einem AR(1) Modell OLS-Schätzer bestimmt werden können wird in d
 Die Ergebnisse sind in der folgenden Tabelle zusammengestellt:
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R & \UeberRR & \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-\end{tabular}
+\end{tabular} 
 \end{center}
 
-Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell. 
+Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell mit bekanntem Korrelationsparameter. Bei der dritten Spalte ist dieser Parameter unbekannt und muss zusätzlich geschätzt werden. 
 
 Man sieht, dass bei dieser Methode die Überdeckungswahrscheinlichkeit über der geforderten Wahrscheinlichkeit von 0.95 liegt. Dies liegt daran, dass das Konfidenzniveau auf ganz $\mathbb{R}^{4}$ eingehalten wird und nicht nur auf dem Intervall [0,1]. Für nähere Informationen dazu siehe Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
 
@@ -1115,15 +1111,15 @@ In diesem Fall ist $A = \{x \in \mathbb{R}^4 : x_i \in [0,1] \text{ für alle } 
 Die neuen Überdeckungswahrscheinlichkeiten für Konfidenzbänder auf Intervallen wird mit Minmax bezeichnet. Auch diese Überdeckungswahrscheinlichkeiten liegen über den geforderten 0.95.
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R 		& \UeberRR & \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-Minmax 	& \UeberRMinmax & \UeberARMinmax \\ 
+Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
 \hline 
-\end{tabular}
+\end{tabular} 
 \end{center}
 
 \end{Simulation}
@@ -1286,15 +1282,15 @@ Als seed wurde weiterhin \seedsimulation ~benutzt.
 Die Simulationstabelle aus den letzten beiden Abschnitt wird durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf einem Intervall $A$, in diesem Fall ist wieder $A = \{ (x_1, \ldots, x_p)' : 0 \leq x_i \leq 1, i=1, \ldots, p \}$ aufgrund der Struktur des Modells, beendet. Außerdem wird davon ausgegangen, dass die Designmatrix Polynomgestalt hat.
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R		& \UeberRR			& \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-Minmax	& \UeberRMinmax	 	& \UeberARMinmax \\ 
+Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
 \hline 
-Poly 	& \UeberRMinmaxPoly & \UeberARMinmaxPoly \\ 
+Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -1743,18 +1739,19 @@ Diese Methode wurde nicht weiter verfolgt, da das Ziel dieser Arbeit ist Konfide
 \begin{Simulation}
 Es werden für das Konfidenzband auf ganz $\mathbb{R}^{p}$ wieder eine Simulation für die Überdeckungswahrscheinlichkeit für Daten aus einer gewöhnlichen multilinearen Regression und einer Regression mit AR(1)-Kovarianzmatrix durchgeführt:
 
+
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R		& \UeberRR			& \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-Minmax	& \UeberRMinmax	 	& \UeberARMinmax \\ 
+Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
 \hline 
-Poly 	& \UeberRMinmaxPoly & \UeberARMinmaxPoly \\ 
+Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
 \hline 
-R prüfen	& \UeberRRpruefen & \UeberARRpruefen \\ 
+ Teil des Modells auf $\mathbb{R}^{p}$ überprüfen 	& \UeberRRpruefen & - & \UeberARRpruefen \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -1800,19 +1797,19 @@ Also ist die kritische Konstante $c$ genau so wie in Abschnitt \ref{Konfidenzbae
 Auch für die Methode aus diesem Abschnitt wurden Simulationen durchgeführt:
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & R & AR \\ 
+$\times$ & unabhängig & AR bekannt & AR \\ 
 \hline 
-R		& \UeberRR			& \UeberARR \\ 
+Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
-Minmax	& \UeberRMinmax	 	& \UeberARMinmax \\ 
+Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \UeberARMinmax \\ 
 \hline 
-Poly 	& \UeberRMinmaxPoly & \UeberARMinmaxPoly \\ 
+Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
 \hline 
-R prüfen	& \UeberRRpruefen & \UeberARRpruefen \\ 
+Teil des Modells auf $\mathbb{R}^{p}$ überprüfen 	& \UeberRRpruefen & - & \UeberARRpruefen \\ 
 \hline 
-Poly prüfen	& \UeberRMinmaxPolyfastpruefen & \UeberARMinmaxPolyfastpruefen \\ 
+Teil des Modells auf A für Polynome überprüfen	& \UeberRMinmaxPolyfastpruefen & - & \UeberARMinmaxPolyfastpruefen \\ 
 \hline 
 \end{tabular} 
 \end{center}
