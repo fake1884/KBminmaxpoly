@@ -1,16 +1,21 @@
 ##########################################
 # erster Satz an Coverage.prob.fun functions
-Coverage.prob.fun("R", "R")
+# last run col.R.R= 953, system.time= 13.479
+cov.R.R=NA
+system.time({cov.R.R=Coverage.prob.fun("R", "R")})
 
-Coverage.prob.fun("R", "minmax", niter = 100)
+# last run niter = 1000 col.R.minmax= 956, system.time= 707.471
+cov.R.minmax=NA
+system.time({cov.R.minmax=Coverage.prob.fun("R", "minmax", niter = 1000)})
 
-cov.poly.R=NA
-system.time({cov.poly.R=Coverage.prob.fun("R", "minmax-poly", niter = 100)})
+# diese Funktion scheint mittlerweile nicht mehr zu funktionieren
+# last run niter = 1000 poly.R= , system.time=
+cov.R.poly=NA
+system.time({cov.R.poly=Coverage.prob.fun("R", "minmax-poly", niter = 1000)})
 
-# last run niter=5000, ngridpoly=100, col.poly.fast.AR= 93, system.time= 1104.185
-# 95
-cov.poly.fast.R=NA
-system.time({cov.poly.fast.R=Coverage.prob.fun("R", "minmax-poly-fast", niter = 5000, ngridpoly = 100)})
+# last run niter=1000, ngridpoly=100, col.poly.fast.R= 951, system.time= 26303.91
+cov.R.poly.fast=NA
+system.time({cov.R.poly.fast=Coverage.prob.fun("R", "minmax-poly-fast", niter = 1000, ngridpoly = 100)})
 
 
 ##########################################

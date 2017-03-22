@@ -4,13 +4,15 @@
 
 Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
   # zum schätzen der Parameter
+  nerfolg=1000
   if(model.type=="R"){
+
 
     if(est.method=="R"){
       #####################################################
       # Konfidenzband auf ganz R
 
-      nerfolg=100
+
       for(i in 1:support_data_R$ntest)
       {
          # kritischen Wert berechnen
@@ -32,7 +34,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
       #################################################################
       #Schätz mit minmax
 
-      nerfolg=100
       for(i in 1:support_data_R$ntest)
       {
         # kritischen Wert berechnen
@@ -56,8 +57,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
       #Schätz mit minmax-poly
 
       #########################################################
-      nerfolg=100
-
 
       for(i in 1:support_data_R$ntest)
       {
@@ -84,7 +83,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
       #schätz mit minmax-poly-fast
 
       ########################################################
-      nerfolg=100
       for(i in 1:support_data_R$ntest)
       {
         # kritischen Wert berechnen
@@ -112,7 +110,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit R
 
         ######################################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -135,7 +132,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit minmax
 
         ###############################################################ü
-        nerfolg=100
         for(i in 1:support_data_R$ntest)
         {
           # kritischen Wert berechnen
@@ -158,7 +154,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit minmax-poly
 
         ##########################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -182,7 +177,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #schätz mit minmax-poly-fast
 
         ##########################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -210,7 +204,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit R
 
         ######################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -234,7 +227,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit minmax
 
         ##########################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -257,7 +249,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #Schätz mit minmax-poly
 
         ##############################################################
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen
@@ -282,7 +273,6 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
         #schätz mit minmax-poly-fast
 
         ################################################################ü
-        nerfolg=100
         for(i in 1:support_data_AR$ntest)
         {
           # kritischen Wert berechnen

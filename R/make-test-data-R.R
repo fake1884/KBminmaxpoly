@@ -10,7 +10,8 @@ Make.data.R = function()
 
     # feste Werte initialisieren
     # besser 1000
-    ntest=100
+    #ntest=100
+    ntest=1000
     grad=1
     #grad=5
     # höherer Stichprobenumfang -> 200
@@ -27,7 +28,8 @@ Make.data.R = function()
     }
 
     mu=X%*%beta
-    sigma.true=sqrt(var(mu))/2  ##choose SNR 1 (low) or 3 (medium)
+    sigma.true=0.5
+    #sigma.true=sqrt(var(mu))/2  ##choose SNR 1 (low) or 3 (medium)
     I=matrix(diag(nobs),nrow=nobs,ncol=nobs)
 
     # Wir kennen den wahren Wert schon

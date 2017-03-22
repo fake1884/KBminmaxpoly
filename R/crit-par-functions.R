@@ -141,13 +141,15 @@ KB.poly <- function(alpha, nobs, grad, niter, inv.X, a, b){
   S.fun = function(v, ngridpoly, xseq, mod, ss){
 
     # Wert simulieren
-    T.vec <- mvrnormArma(1, rep(0, grad+1), inv.X) / sqrt(rchisq(n=1,df=v)/v)
+    N <- mvrnormArma(1, rep(0, grad+1), inv.X)
+    sigma.hat <-  sqrt(rchisq(n=1,df=v)/v)
 
     # Berechnug der Maxima
     # orientiert sich an der funktion uniroot.all aus dem rootSolve Package
     # uniroot.all does that by first subdividing the interval into small sections and, for all sections
     # where the function value changes sign, invoking uniroot to locate the root.
 
+    #S_fun_cpp(x, grad, sigma.hat, N, inv.X)
     g.lapply=function(x){g.fun.prime(x, T.vec, grad)}
     mod=sapply(xseq, g.lapply)
 
@@ -219,7 +221,7 @@ KB.poly.fast <- function(alpha, nobs, grad, niter, inv.X, a, b, ngridpoly){
 
   # von dieser Funktion m?chte man das Maximum bestimmen
 
-  S.fun = function(v, values, xseq){
+  S.fun = function(v, values, xseq, i){
 
     # Wert simulieren
     sigma.hat = sqrt(rchisq(n=1,df=v)/v)
@@ -231,6 +233,11 @@ KB.poly.fast <- function(alpha, nobs, grad, niter, inv.X, a, b, ngridpoly){
     g.lapply=function(x){S_fun_cpp(x, grad, sigma.hat, N, inv.X)}
     values=rep(NA, length(xseq))
     values=sapply(xseq, g.lapply)
+
+    # Erzeugt plots der S_fun_cpp Funktion. In der Ausarbeitung wird diese Funktion mit h bezeichnet
+    #pdf(file = paste("tests/Funktion_h/test_",i,".pdf", sep=""))
+    #plot(xseq,values)
+    #dev.off()
 
     # Maximum der Funktion g in dieser Simulation
     erg=max(abs(values))
@@ -247,7 +254,7 @@ KB.poly.fast <- function(alpha, nobs, grad, niter, inv.X, a, b, ngridpoly){
 
   # Simulation durchf?heren
   for(i in 1:niter){
-    S[i]=S.fun(v,values, xseq)
+    S[i]=S.fun(v,values, xseq, i)
   }
 
   # kritischen Wert bestimmen
