@@ -248,8 +248,9 @@ Prof. Dr. Tatyana Krivobokova\\
 
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
-\emph{Matrikelnummer:}\\
-21340619\\
+\emph{Abgabetermin:}\\
+11.07.2017\\
+
 \end{flushleft}
 \end{minipage}
 \hfill
@@ -264,8 +265,6 @@ Jun.-Prof. Dr. Andrea Krajina\\
 \begin{flushleft} \large
 \emph{Studiengang:}\\
 B. Sc. Mathematik\\
-\emph{Abgabetermin:}\\
-11.07.2017\\
 \end{flushleft}
 \end{minipage}
 \end{flushleft}
@@ -290,21 +289,21 @@ B. Sc. Mathematik\\
 
 
 \section*{Einleitung}
-Diese Ausarbeitung behandelt Methoden, um Regressionsmodelle zu vergleichen. Seien zwei Regressionsmodelle 
+Diese Bachelorarbeit behandelt Methoden, um Regressionsmodelle zu vergleichen. Seien zwei Regressionsmodelle 
 
 \begin{equation*}
-Y_i = X_i \beta_i + e_i , i \in \{1,2\}
+Y_i = X_i \beta_i + e_i ,~ i \in \{1,2\}
 \end{equation*}
 
-gegeben. Dabei seien $Y_i=(Y_{i,1}, \ldots, Y_{i,n_i})'$ zwei Vektoren mit Beobachtungen.
+gegeben. Dabei seien $Y_i=(Y_{i,1}, \ldots, Y_{i,n_i})'$ zwei Vektoren mit abhängigen Variablen.
  
-Weiterhin sei $X_i$ eine $n_i \times (p+1)$ Designmatrix mit festem Design, dass heißt, für $i \in \{ 1, \ldots, \min(n_1, n_2)\}$ ist die $l$-te Zeile von $X_1$ gleich der $l$-ten Zeile von $X_2$.
+Weiterhin seien $X_i$ zwei $n_i \times (p+1)$ Designmatrix mit festem Design. Das bedeutet, für $l \in \{ 1, \ldots, \min(n_1, n_2)\}$ ist die $l$-te Zeile von $X_1$ gleich der $l$-ten Zeile von $X_2$.
 
-Weiterhin ist $\beta_i = (\beta_{i,0}, \ldots, \beta_{i,p})'$ ein Koeffizientenvektor und  $e_i = (e_{i,1}, \ldots, e_{i,n_i})'$ ein Vektor mit Zufallsfehlern. Also sind $Y_1$ und $Y_2$ zwei Gruppen von Beobachtungen, die von den selben Kovariaten abhängen. 
+Weiterhin seien $\beta_i = (\beta_{i,0}, \ldots, \beta_{i,p})'$ zwei Koeffizientenvektor und  $e_i = (e_{i,1}, \ldots, e_{i,n_i})'$ zwei Vektoren mit Zufallsfehlern. Also sind $Y_1$ und $Y_2$ zwei Gruppen von Beobachtungen, die von den selben unabhängigen Variablen abhängen. 
 
-Ein Beispiel, entnommen \cite[116]{Liu64}, ist zu Vergleichen, wie das Alter den Blutdruck von Männern und Frauen beeinflusst. Man hat zwei verschiedene Beobachtungen $Y_i$, den Blutdruck der Männer und den Blutdruck der Frauen, und versucht diese Beobachtungen mit dem selben Modell $X_i$ zu erklären. Da man eventuell verschieden viele Beobachtungen hat, haben die $Y_i$ dann verschiedene Dimensionen.
+Ein Beispiel, entnommen \cite[116]{Liu64}, ist zu vergleichen, wie das Alter den Blutdruck von Männern und Frauen beeinflusst. Man hat zwei verschiedene Beobachtungen $Y_1$ und $Y_2$, den Blutdruck der Männer und den Blutdruck der Frauen, und versucht diese Beobachtungen mit dem selben Modell $X_i$ zu erklären. Da man eventuell verschieden viele Beobachtungen hat, haben die $Y_i$ dann verschiedene Dimensionen.
 
-Im Modell der gewöhnlichen linearen Regression ist $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Es stellt sich die Frage zu testen, ob
+Im Modell der gewöhnlichen linearen Regression ist $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Das Testproblem für den Vergleich von Regressionsmodellen ist
 
 \begin{equation*}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2}
@@ -315,35 +314,31 @@ Dabei gleicht man die Dimensionen der $\beta_i$ an, indem man Nullen einfügt.
 Dieser Test wird normalerweise mit einem F-Test durchgeführt. In dieser Ausarbeitung werden alternative, auf Konfidenzbändern basierende Methoden nach \cite{Liu64} betrachtet. Insbesondere die folgenden Spezialfälle sind von Interesse:
 
 \begin{itemize}
-\item Das Modell hat Polynomgestalt, dass heißt die $l$-te ($1 \leq l \leq n_i $) Zeile der Designmatrix $X$ ist von der Form $(1, x_{i,l}, x_{i,l}^2, \ldots, x_{i,l}^p)$.
+\item Das Modell hat Polynomgestalt, das heißt die $l$-te ($1 \leq l \leq n_i $) Zeile der Designmatrix $X$ ist von der Form $(1, x_{i,l}, x_{i,l}^2, \ldots, x_{i,l}^p)$.
 \item Den Fehlern liegt ein AR(1)-Prozess zugrunde, dass heißt $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 \Upsilon)$ mit $\Upsilon \neq I_{n_i}$.
-\item Man vergleicht die Regressionsmodelle nicht direkt sondern prüft, ob ein Teil des Regressionsmodells nicht signifikant ist. Das heißt man unterteilt $\beta_1 = (\beta_{1,1}, \beta_{1,2})$ und prüft, ob $\beta_{1,2}$ signifikant Null ist. 
+\item Man vergleicht die Regressionsmodelle nicht direkt sondern prüft, ob ein Teil des Regressionsmodells nicht signifikant ist. Das heißt man unterteilt $\beta_1 = (\beta_{1,1}, \beta_{1,2})$ und prüft, ob $\beta_{1,2}$ signifikant gleich Null ist. 
 \end{itemize} 
 
-Motivation für diese Betrachtungen sind der Vergleich von verschiedenen Regressionsmodellen für Stammzellen.
+Die Motivation für diese Betrachtungen ist der Vergleich von verschiedenen Regressionsmodellen für Stammzellen.
 
-Das Kapitel \ref{Regression und Konfidenzbaender} stellt die Konzepte der Regression und der Konfidenzbänder vor. Außerdem werden Methoden angeben, wie für diese Regressionsgraphen Konfidenzbänder konkret zu berechnen sind. 
+Das Kapitel \ref{Regression und Konfidenzbaender} stellt die Konzepte der Regression und der Konfidenzbänder vor. Außerdem werden Methoden angegeben, wie für diese Regressionsgraphen Konfidenzbänder konkret zu berechnen sind. 
 
 Das Kapitel \ref{Vergleich von zwei Regressionsmodellen} führt aus, wie man Regressionsmodelle mittels des F-Tests vergleicht. Danach werden, mit Hilfe der Methoden aus dem ersten Kapitel, bessere Möglichkeiten zum Vergleich von Regressionsmodellen angegeben.
 
-Das Kapitel \ref{Teil eines Regressionsmodells überprüfen} erläutert, wie man überprüfen kann, ob ein Teil des Regressionsmodells keinen Einfluss auf die Daten hat. Dazu wird zuerst die Methode des F-Test angegeben und dann mithilfe der Methoden aus dem Kapitel \ref{Regression und Konfidenzbaender} bessere Möglichkeiten einen Teil des Konfidenzbandes zu überprüfen, angegeben.
+Das Kapitel \ref{Teil eines Regressionsmodells überprüfen} erläutert, wie man überprüfen kann, ob ein Teil des Regressionsmodells keinen Einfluss auf die Daten hat. Dazu wird zuerst die Methode des F-Tests angegeben. Dann wird mit Hilfe der Methoden aus Kapitel \ref{Regression und Konfidenzbaender} bessere Möglichkeiten beschrieben, einen Teil des Konfidenzbandes zu überprüfen.
 
-Das Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} beschäftigt sich mit der Fragestellung, wie Regression und Konfidenzbänder bei abhängigen Daten durchzuführen ist. Konkret wird der Fall betrachtet, dass dem Regressionsmodell ein AR(1)-Prozess zugrunde liegt.
+Das Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} beschäftigt sich mit der Fragestellung, wie Schätzer für die Koeffizientenvektoren und für die Varianz der Fehler und Konfidenzbänder bei abhängigen Daten berechnet werden können. Konkret wird der Fall betrachtet, dass dem Regressionsmodell ein AR(1)-Prozess zugrunde liegt.
 
 Das letzte Kapitel stellt die Daten der Stammzellen, die diese Ausarbeitung motivierten, vor. Außerdem werden die Resultate, die man erhält, wenn man die Methoden aus den ersten drei Kapiteln auf die Stammzelldaten anwendet, vorgestellt.
 
-Am Ende jedes Abschnittes in den ersten Kapiteln folgt auf die dort behandelte Theorie oder Methode ein Beispiel. Dieses Beispiel zieht sich durch die gesamten ersten Kapitel und wird jeweils ergänzt oder modifiziert.
+Am Ende jedes Abschnittes in dem ersten Kapitel folgt auf die dort behandelte Theorie oder Methode ein Beispiel. Dieses Beispiel zieht sich durch die ersten Vier Kapitel und wird jeweils ergänzt oder modifiziert.
 
-Das beiliegenden R-Paket ist in der beiliegenden README Datei beschrieben.
-
-Genauere Beschreibungen zum Code sind in der Arbeit an der Stelle zu finden, an dem der Code verwendet, beziehungsweise eingeführt wird. Ansonsten ist der Code durch kommentiert und dürfte gut zu lesen sein.
-
-Bei den Simulationen erhält man folgende Ergebnisse:
+Außerdem wird, nachdem eine Methode eingeführt wurde, die tatsächliche Überdeckungswahrscheinlichkeit mittels einer Simulation näherungsweise Bestimmt. Bei den Simulationen erhält man folgende Ergebnisse:
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+ & unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
@@ -356,14 +351,18 @@ Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \Ueber
 
 In den Spalten stehen die verschiedenen zugrunde liegenden Modelle. Dabei steht \textit{unabhängig} für ein  multilineares, homoskedastisches Modell mit unabhängigen Fehlern. \textit{AR bekannt} steht für ein Modell dem ein AR(1)-Prozess zugrunde liegt, bei dem der Korrelationsparameter bekannt ist. Bei dem \textit{AR} Modell ist der Korrelationsparameter unbekannt und muss zusätzlich geschätzt werden.
 
-In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies Konfidenzbänder auf ganz $\mathbb{R}^p$, Konfidenzbänder auf einem Polyeder $A \subset \mathbb{R}^{p}$, Konfidenzbänder auf einem Polyeder $A$, wenn das Modell Polynomgestalt hat. 
+In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies Konfidenzbänder auf ganz $\mathbb{R}^p$, Konfidenzbänder auf einem Polyeder $A \subset \mathbb{R}^{p}$ sowie Konfidenzbänder auf einem Polyeder $A$, wenn das Modell Polynomgestalt hat. 
+
+Das beiliegende R-Paket ist in der beiliegenden README Datei beschrieben.
+
+Genauere Beschreibungen zum Code sind in der Arbeit an der Stelle zu finden, an dem der Code verwendet, beziehungsweise eingeführt wird. Ansonsten ist der Code durch kommentiert.
 
 %In den letzten beiden Zeilen sind die Überdeckungswahrscheinlichkeiten für den Fall, dass man überprüft, ob ein Teil des Regressionsmodells Null ist, angegeben. Dabei steht R wieder für die Methode ein Konfidenzband auf ganz $\mathbb{R}^p$ zu benutzen. Poly steht dafür ein Konfidenzband auf $A$ für den Fall, dass das Modell Polynomgestalt hat, zu benutzen.
 
 % Mindestanforderung GdS
 
-\newpage
-\printglossary[title=Variablenverzeichnis]
+%\newpage
+%\printglossary[title=Variablenverzeichnis]
 
 %\gls{Polynomgrad}, \gls{delta}, \gls{z}
 
@@ -380,15 +379,21 @@ Im ersten Abschnitt dieses Kapitels wird das grundlegende Konzept der Regression
 In den folgenden drei Abschnitten werden konkrete Methoden zum Bestimmen von Konfidenzbändern angegeben. 
 Die einfachste Möglichkeit ist Konfidenzbänder auf $\mathbb{R}^p$ zu konstruieren. Deswegen betrachten wir diese Möglichkeit zuerst.
 
-Danach verallgemeinern wir diese Methode auf Konfidenzbänder auf einem Teilabschnitt \gls{A} = $\{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^p$ für $- \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p$. Dabei bezeichnet \gls{x-prime} die Transponierte von $x$ während die Ableitung von $x$ mit $\frac{d}{dx}x$ bezeichnet wird. 
+Danach verallgemeinern wir diese Methode auf Konfidenzbänder auf einem Polyeder
 
-Dabei ist $x_i = (1, x_{0}) \subset \mathbb{R}^{p+1}$ die $i$-te Zeile von der Designmatrix $X$. Das heißt das Konfidenzband wird für $x_{0} \in A \subset \mathbb{R}^p$ konstruiert.
+\begin{equation*}
+\gls{A} = \{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^p \text{ für } - \infty \leq a_i < b_i \leq \infty,~ i=1, \ldots, p
+\end{equation*}
 
-Zuerst betrachten wir den einfacheren Fall, dass es nur eine unabhängige Variable gibt. Danach betrachten wir den allgemeinen Fall von $p$ unabhängigen Variablen mit $p \in \mathbb{N} $
+Dabei bezeichnet \gls{x-prime} die Transponierte von $x$ während die Ableitung von $x$ mit $\frac{d}{dx}x$ bezeichnet wird. 
+
+Weiterhin ist $x_i = (1, x_{(0)}) \subset \mathbb{R}^{p+1}$ die $i$-te Zeile der Designmatrix $X$. Das heißt, das Konfidenzband wird für $x_{(0)} \in A \subset \mathbb{R}^p$ konstruiert.
+
+Zuerst betrachten wir den einfacheren Fall, dass es nur eine unabhängige Variable gibt. Danach verallgemeinern wir auf den Fall von $p$ unabhängigen Variablen mit $p \in \mathbb{N} $.
 
 Im letzten Abschnitt betrachten wir, wie man Konfidenzbänder auf $A \subset \mathbb{R}^p$ konstruiert, wenn das Modell Polynomgestalt hat.
 
-Das erste Kapitel orientiert sich stark an dem Buch von \cite{Liu64}. Außerdem werden in Abschnitt \ref{Regression} das Buch \cite{Georgii09} und das Skript \cite{Kriv15} verwendet.
+Das erste Kapitel orientiert sich stark an dem Buch \cite{Liu64}. Außerdem werden in Abschnitt \ref{Regression} das Buch \cite{Georgii09} und das Skript \cite{Kriv15} verwendet.
 
 
 \subsection{Regression}
@@ -405,18 +410,18 @@ minimiert wird. Dabei ist $ \| \cdot \|$ eine beliebige, aber feste Abstandsfunk
 Y = f(X) + e
 \end{equation*}
 
-aus. Dabei ist $\gls{e} ~ \in \mathbb{R}^n$ ein nicht beobachtbarer zufälliger Fehler. Wie man an der Gleichung erkennt, liegt die Annahme zugrunde, dass die Messung der $Y$-Werte fehlerbehaftet ist.
+aus. Dabei ist \gls{e}$ ~ \in \mathbb{R}^n$ ein nicht beobachtbarer zufälliger Fehler. Wie man an der Gleichung erkennt, liegt die Annahme zugrunde, dass die Messung der $Y$-Werte fehlerbehaftet ist.
 Dagegen ist die Messung der $f(X)$-Werte fehlerfrei.
 
 In dieser Ausarbeitung wird immer ein festes Design verwendet. Beim festen Design sind die Einträge in der Matrix $X$ fest gewählte Zahlen.
 
 Da dann $Y$ mittels $f$ von $X$ abhängt, nennt man $Y$ die abhängige Variable und $X$ die unabhängige Variable. 
 
-Andere übliche Bezeichnungen sind Zielvariable für $Y$ und Kovariable oder Einflussgröße für $X$
+Andere übliche Bezeichnungen sind Zielvariable für $Y$ und Kovariable oder Einflussgröße für $X$.
 
-Weiterhin wird in dieser Ausarbeitung immer ein multiples, lineares Regression benutzt. Das heißt, es liegt die Annahme zugrunde, dass $f(X) = X \cdot $\gls{beta} ist. Dabei sind die $\beta = (\beta_{0}, \ldots, \beta_{p})$ unbekannte Konstanten. 
+Weiterhin wird in dieser Ausarbeitung immer ein multiples, lineares Regressionsmodell benutzt. Das heißt, es liegt die Annahme zugrunde, dass $f(X) = X \cdot $\gls{beta} ist. Dabei bezeichnet $\beta = (\beta_{0}, \ldots, \beta_{p})$ unbekannte Konstanten. 
 
-Ein besonderes Modell, dass im Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und dem letzten Kapitel über Datenbeschreibung und Resultate wichtig wird, ist das Polynom-Modell. Bei diesem Modell ist die $l$-te Zeile von $X$ gegeben durch $\tilde{x_l} = (1, x_{l}^1, x_{l}^2, \ldots, x_{l}^p)$.
+Ein besonderes Modell, das im Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und Kapitel \ref{Datenbeschreibung und Resultate} wichtig wird, ist das Polynom-Modell. Bei diesem Modell ist die $l$-te Zeile von $X$ gegeben durch $\tilde{x_l} = (1, x_{l}^1, x_{l}^2, \ldots, x_{l}^p)$.
 
 Damit wird das Regressionsmodell zu
 
@@ -424,9 +429,9 @@ Damit wird das Regressionsmodell zu
 Y = X \beta + e \label{Grundmodell_Regression}
 \end{equation}
 
-Zusätzlich ist in dieser Ausarbeitung für dieses Kapitel und die Kapitel über den Vergleich und das Prüfen von Regressionsmodellen das Modell homoskedastisch. Das heißt $e$ folgt einer $n$-dimensionalen Normalverteilung mit Erwartungswert Null und unbekannter Varianz $\sigma^2 \cdot I_n$. Dabei ist $\gls{I}_n$ die $n$-dimensionale Einheitsmatrix. 
+Zusätzlich ist in dieser Ausarbeitung für dieses Kapitel und die Kapitel \ref{Vergleich von zwei Regressionsmodellen} und \ref{Teil eines Regressionsmodells überprüfen} das Modell homoskedastisch. Das heißt, $e$ folgt einer $n$-dimensionalen Normalverteilung mit Erwartungswert Null und unbekannter Varianz $\sigma^2 \cdot I_n$. Dabei ist $\gls{I}_n$ die $n$-dimensionale Einheitsmatrix. 
 
-In dieser Ausarbeitung werden \gls{Matrizen} immer mit großen lateinischen Buchstaben bezeichnen, wenn ihre Werte bekannt sind und mit großen griechischen Buchstaben, wenn ihre Werte unbekannt sind. Diese Notation für bekannte und unbekannte Werte gilt auch für Skalare. 
+In dieser Ausarbeitung werden \gls{Matrizen} immer mit großen lateinischen Buchstaben bezeichnen, wenn ihre Einträge bekannt sind und mit großen griechischen Buchstaben, wenn ihre Einträge unbekannt sind. Diese Notation für bekannte und unbekannte Werte gilt auch für Skalare. 
 
 Außerdem bezeichnet \gls{Erwartungswert} den Erwartungswert von W.
 
@@ -434,11 +439,11 @@ In Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} wird gekl
 
 Die Parameter $\beta$ und $\sigma^2$ charakterisieren das Modell und werden aus den beobachteten Daten geschätzt. Ihre Schätzer werden mit $\hat{\beta}$ und $\widehat{\sigma^2}$ bezeichnet.
 
-Der folgende Satz gibt ein Möglichkeit Schätzer $\hat{\beta}$ und $\hat{e}$ beziehungsweise $\widehat{\sigma^2}$ konkret zu berechnen.
+Der folgende Satz gibt eine Möglichkeit die Schätzer $\hat{\beta}$ und $\hat{e}$ beziehungsweise $\widehat{\sigma^2}$ konkret zu berechnen.
 
 \begin{Satz}
 \label{erster Satz}
-In einem homoskadistischem, multiple linearen Regressionsmodell sind der ordinary least squares Schätzer (OLS) und der maximum likelihood Schätzer (MLE) für $\hat{\beta}$, $\hat{e}$ und $\widehat{\sigma^2}$ identisch und wie im Folgenden gegeben:
+In einem homoskadistischen, multiplen linearen Regressionsmodell sind der \textit{ordinary least squares Schätzer} (OLS) und der \textit{maximum likelihood Schätzer} (MLE) für $\hat{\beta}$, $\hat{e}$ und $\widehat{\sigma^2}$ identisch und wie im Folgenden gegeben:
 
 \begin{equation} \label{beta}
 \hat{\beta} = (X'X)^{-1} X' Y
@@ -459,7 +464,7 @@ mit $H=X(X'X)^{-1}X'$
 \end{Satz}
 
 \begin{proof}
-Das least squares criterion besagt, dass 
+Das \textit{least squares criterion} besagt, dass 
 
 \begin{equation*}
 L(\beta)= \Vert Y - X \beta \Vert^2 = (Y - X \beta)' (Y - X \beta) 
@@ -505,15 +510,15 @@ Y =  X  \betaone + e
 
 ausgegangen.
 
-Bei diesem Beispiel sind die $Y$-Werte zufällige Zahlen, die am Anfang der Datei \textit{beispiele.R} erzeugt werden. Die Motivation für diese Daten ist einen Wachstumsprozess zu beschreiben.
+Bei diesem Beispiel sind die $Y$-Werte zufällige Zahlen, die am Anfang der Datei \textit{beispiele.R} erzeugt werden. Die Motivation für diese Daten ist, einen Wachstumsprozess zu beschreiben.
 
 Um die Daten zu erzeugen, wird zuerst die seed auf \seedexample  ~gesetzt. Danach wird  auf dem Intervall [0,1] ein äuqidistantes Gitter $G$ mit \nobs ~Punkten erzeugt. Aus diesen wird die Designmatrix auf Grundlage eines polynomiellen Regressionsmodells vom Grad Drei erzeugt. Das heißt, die $l$-te Zeile von $X$ ist gegeben durch $\tilde{x_l} = (1, x_l, x_l^2, x_l^3)$ für $\tilde{x_l} \in G, l \in \{1, \ldots, \nobs\}$.
 
 Als nächstes wird $\beta = \betatrue$ und $\sigma = \sigmatrue$ gewählt. 
 
-Dann wird $e \sim \mathscr{N}_{n}(0,\sigma * I_n)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
+Dann wird $e \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
 
-In folgender Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
+In der Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
 
 \begin{figure}[H] 
   \centering
@@ -522,9 +527,9 @@ In folgender Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichn
   \label{Beispieldaten}
 \end{figure}
 
-In den folgenden Kapiteln wird mit einem normierten $Y$ gearbeitet, indem durch $\max(Y)$ geteilt wird. Dadurch erhält man Werte zwischen Null und Eins, wodurch sich die Berechnungen vereinfachen.
+In den folgenden Kapiteln wird mit einem normierten $Y$ gearbeitet, indem $Y$ durch $\max(Y)$ geteilt wird. Dadurch erhält man Werte zwischen Null und Eins, wodurch sich die Berechnungen vereinfachen.
 
-Man kann dies machen, da von 
+Man kann die Daten normieren, da von 
 
 \begin{equation*}
 Y=X\beta+e
@@ -536,13 +541,13 @@ ausgehend, man zu
 \tilde{Y} := \max(Y)^{-1} Y = X \max(Y)^{-1} \beta + \max(Y)^{-1} e =: X \tilde{\beta} + \tilde{e}
 \end{equation*}
 
-gelangt und dieses Modell immer noch multiple linear und homoskedastisch ist. 
+gelangt und dieses Modell immer noch multipel linear und homoskedastisch ist. 
 
 Man kann ohne Einschränkung der Allgemeinheit davon ausgehen, dass die Elemente von $X$ Werte in $[0,1]$ annehmen. Sind die Werte nicht in $[0,1]$ kann man mit $\max(X)$ normieren.
 
 Insgesamt erhält man aus $\tilde{\beta}$ wieder $\beta$ indem man mit $\max(Y)$ multipliziert.  
 
-Benutzt man die Formeln \eqref{beta} und \eqref{sigma} von oben erhält man  $\hat{\beta}$=\betaoneest und $\widehat{\sigma^2}$=\sigmaoneest. In folgender Graphik \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
+Benutzt man die Formeln \eqref{beta} und \eqref{sigma} von oben erhält man  $\hat{\beta}$ = \betaoneest ~und $\widehat{\sigma^2}$ = \sigmaoneest. In der Graphik \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
 
 \begin{figure}[H] 
   \centering
@@ -561,7 +566,7 @@ Transferiert man die Schätzwerte mittels Multiplikation mit $\max(Y) = $ \maxY 
 In diesem Abschnitt werden Konfidenzbänder definiert und der Unterschied zwischen punktweisen und gleichmäßigen Konfidenzbändern wird erklärt. Die folgende Definition orientiert sich an \cite[229]{Georgii09}.
 
 \begin{Definition}
-Sei $( \chi, \mathscr{F} , \mathbb{P}_\vartheta : \vartheta \in \Theta) $ ein stochastisches Modell, $\Sigma$ eine beliebige Menge, $\tau : \Theta \rightarrow \Sigma $ eine zu ermittelnde Kenngröße für den Parameter, und $0 < \alpha < 1$. Dabei bezeichnet \gls{P(...)} ein Wahrscheinlichkeitsmaß.
+Sei $( \chi, \mathscr{F} , \mathbb{P}_\vartheta : \vartheta \in \Theta) $ ein stochastisches Modell, $\Sigma$ eine beliebige Menge, $\tau : \Theta \rightarrow \Sigma $ eine zu ermittelnde Kenngröße für den Parameter $\vartheta$, und $0 < \alpha < 1$. Dabei bezeichnet \gls{P(...)} ein Wahrscheinlichkeitsmaß.
 
 Eine Abbildung $C : \chi \rightarrow \mathscr{P}(\Sigma)$, die jedem möglichen Beobachtungsergebnis $x \in \chi$ eine Menge $C(x) \subset \Sigma$ zuordnet, heißt ein Konfidenz- oder Vertrauensbereich für $\tau$ zum Irrtumsniveau \gls{Wkeit} (beziehungsweise Sicherheitsniveau 1 - $\alpha$), wenn
 
@@ -571,12 +576,16 @@ Eine Abbildung $C : \chi \rightarrow \mathscr{P}(\Sigma)$, die jedem möglichen 
 
 \end{Definition}
 
-In dieser Ausarbeitung wird immer davon ausgegangen, dass $C(x)$ von der Form $C(x) = \{ y \in \mathbb{R}^n :  x'\hat{\beta} - c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \leq y \leq x'\hat{\beta} + c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \}$ ist. Dabei ist \gls{kritischer-Wert} der sogenannte kritische Wert.
- 
-Für den Rest der Ausarbeitung wird dies durch
+In dieser Ausarbeitung wird immer davon ausgegangen, dass $C(x)$ von der Form 
 
 \begin{equation*}
-\mathbb{P}(x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x}) = 1 - \alpha
+C(x) = \Big \{ y \in \mathbb{R}^n :  x'\hat{\beta} - c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \leq y \leq x'\hat{\beta} + c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \Big \}
+\end{equation*}
+
+ist. Dabei ist \gls{kritischer-Wert} der sogenannte kritische Wert. Für den Rest der Ausarbeitung wird dies durch
+
+\begin{equation*}
+\mathbb{P} \left( x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x} \right) = 1 - \alpha
 \end{equation*} 
 
 abgekürzt. Eine andere mögliche Schreibweise ist 
@@ -639,29 +648,30 @@ x' \beta \in x'\hat{\beta} \pm c ~ \hat{\sigma}\sqrt{x'(X'X)^{-1}x}
 bestimmt. Dabei wird der kritische Parameter $c$ so gewählt, dass 
 
 \begin{equation*}
-\mathbb{P}(x' \beta \in x'\hat{\beta} \pm c \hat{\sigma}\sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A)=1-\alpha
+\mathbb{P} \left( x' \beta \in x'\hat{\beta} \pm c \hat{\sigma}\sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) = 1-\alpha
 \end{equation*}
 
-gilt. Dabei ist $A$ ein Bereich, dem aus bestimmten Gründen besonders interessiert gilt. Mehr zur Wahl von $A$ steht im nächsten Abschnitt. In diesem Abschnitt ist $A = \mathbb{R}^p$.
+gilt. Dabei ist $A$ ein Bereich, dem aus bestimmten Gründen besonderes Interesse gilt. Mehr zur Wahl von $A$ steht im nächsten Abschnitt. In diesem Abschnitt ist $A = \mathbb{R}^p$.
 
 Wegen des folgenden Resultates aus \cite[66]{Liu64} benutzten wir diese Form von Konfidenzbändern.
 
 \begin{Satz} \label{KB_Eigenschaft}
 Für beliebiges $\beta \in \mathbb{R}^{p+1}$ und $\sigma > 0$ gilt 
 \begin{equation*}
-\mathbb{P}( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in \mathbb{R}^p) = 1 - \alpha
+\mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in \mathbb{R}^p \right) = 1 - \alpha
 \end{equation*}
+Dabei ist \gls{f} das $\alpha$-Quantil der F-Verteilung mit Freiheitsgraden $p+1$ und $n-p-1$.
 \end{Satz} 
 
-Dabei ist \gls{f} das $\alpha$-Quantil der F-Verteilung mit Parametern $p+1$ und $n-p-1$. Dieser Satz eröffnet uns eine einfache Möglichkeit, Konfidenzbänder auf $\mathbb{R}^p$ zu bestimmen. Da das Konfidenzband in Satz \ref{KB_Eigenschaft} von hyperbolischer Form ist, betrachteten wir in den folgenden Abschnitten immer hyperbolische Konfidenzbänder.
+Dieser Satz eröffnet uns eine einfache Möglichkeit, Konfidenzbänder auf $\mathbb{R}^p$ zu bestimmen. Da das Konfidenzband in Satz \ref{KB_Eigenschaft} von hyperbolischer Form ist, betrachteten wir in den folgenden Abschnitten immer hyperbolische Konfidenzbänder.
 
 Um den Satz \ref{KB_Eigenschaft} beweisen zu können, brauchen wir die folgenden Resultate:
 
 \begin{Lemma} \label{Basiseigenschaft}
 Es ist
 \begin{eqnarray*}
-&&\mathbb{P}( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1} x} ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( \sup_{ x_{0} \in A} \bigg \vert \frac{x'(\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \bigg \vert \leq c) \\
+&&\mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1} x} ~ \text{ für alle } x_{(0)} \in A \right) \\
+&=& \mathbb{P} \left( \sup_{ x_{0} \in A} \bigg \vert \frac{x'(\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \bigg \vert \leq c \right) \\
 &=& \mathbb{P}( S \leq c)
 \end{eqnarray*}
 mit 
@@ -674,30 +684,30 @@ mit
 
 \begin{proof}
 \begin{eqnarray*}
-&& \mathbb{P}( x'\beta \in x' \hat{\beta} \pm c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( x' \hat{\beta} - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x'\beta \leq x' \hat{\beta} + c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x' (\beta - \hat{\beta}) \leq  c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( - c  \leq \frac{x' (\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x' (X'X)^{-1}x}}  \leq  c ~ \text{ für alle } x_{(0)} \in A ) \\
-&=& \mathbb{P}( \sup_{x_{0} \in A}  \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  \leq c)
+&& \mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) \\
+&=& \mathbb{P} \left( x' \hat{\beta} - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x'\beta \leq x' \hat{\beta} + c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) \\
+&=& \mathbb{P} \left( - c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \leq x' (\beta - \hat{\beta}) \leq  c \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) \\
+&=& \mathbb{P} \left( - c  \leq \frac{x' (\beta - \hat{\beta})}{\hat{\sigma} \sqrt{x' (X'X)^{-1}x}}  \leq  c ~ \text{ für alle } x_{(0)} \in A \right) \\
+&=& \mathbb{P} \left( \sup_{x_{0} \in A}  \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}  \leq c \right)
 \end{eqnarray*}
 \end{proof}
 
 Es geht in den folgenden Abschnitten immer darum, die Verteilung von $S$ zu bestimmen. Um diese Verteilung auf ganz $\mathbb{R}^p$ zu bestimmen, wird das folgende Ergebnis benutzt, welches sich an \cite[6]{Liu64} orientiert. 
 
 \begin{Satz} \label{Basiseigenschaften}
-Wenn das Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt mit Satz \ref{erster Satz} 
+Wenn Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt mit Satz \ref{erster Satz} 
 
 \begin{enumerate}
 \item $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$. Dabei ist $\mathscr{N}_{p+1}(\beta,\sigma^2(X'X)^{-1})$ die ($p$+1)-dimensionale Normalverteilung mit Erwartungswert $\beta$ und Kovarianzmatrix $\sigma^2 (X'X)^{-1}$.
 \item $\hat{e} \sim \mathscr{N}_{n}(0,\sigma^2(I-H)) $ mit  \gls{H} $=X(X'X)^{-1}X' $
-\item $\hat{\sigma}^2 \sim \frac{\sigma^2}{n-p-1}\chi_{n-p-1}^2 = \frac{\sigma^2}{v}\chi^2_{n-p-1}$. Dabei ist $n-p-1 :=$ \gls{v}, was auch in Zukunft so beibehalten wird. Weiterhin ist \gls{chi-square} die Chi-Quadrat-Verteilung mit $v$ Freiheitsgraden.
+\item $\hat{\sigma}^2 \sim \frac{\sigma^2}{n-p-1}\chi_{n-p-1}^2 = \frac{\sigma^2}{v}\chi^2_{v}$. Dabei ist $n-p-1 := \gls{v}$, was auch im Verlauf dieser Ausarbeitung so beibehalten wird. Weiterhin ist \gls{chi-square} die Chi-Quadrat-Verteilung mit $v$ Freiheitsgraden.
 \item $\hat{\beta}$ und $\widehat{\sigma^2}$ sind unabhängig.
 \end{enumerate}
 \end{Satz}
 
 \begin{proof}
-1. 
-Benutzt man Modell \eqref{Grundmodell_Regression} und die Voraussetzung $ e \sim \mathscr{N}_{n}(0,\sigma^2)$ so ist $Y=X \beta + e \sim \mathscr{N}_{n}(X\beta,\sigma^2 I)$. Da aus \eqref{beta} folgt, dass $\hat{\beta} = (X'X)^{-1} X' Y$ gilt, ist $\hat{\beta}$ eine Linearkombination von $Y$. Daraus folgt, dass auch $\hat{\beta}$ normalverteilt ist. Es reicht den Erwartungswert und die Kovarianz zu bestimmen. 
+\begin{enumerate}
+\item Benutzt man Modell \eqref{Grundmodell_Regression} und die Voraussetzung $ e \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$, so folgt $Y=X \beta + e \sim \mathscr{N}_{n}(X\beta,\sigma^2 I_n)$. Da aus \eqref{beta} folgt, dass $\hat{\beta} = (X'X)^{-1} X' Y$ gilt, ist $\hat{\beta}$ eine Linearkombination von $Y$. Daraus folgt, dass auch $\hat{\beta}$ normalverteilt ist. Es genügt also den Erwartungswert und die Kovarianz zu bestimmen. 
 
 \begin{align*}
 E(\hat{\beta}) = E((X'X)^{-1}X'Y) = (X'X)^{-1} X' E(Y) = (X'X)^{-1} X'X \beta = \beta
@@ -711,8 +721,7 @@ und
 \end{eqnarray*}
 
 
-2.
-Da nach \eqref{e} gilt, dass $\hat{e}=(I-H)Y$, ist $\hat{e}$ auch eine Linearkombination von Elementen aus $Y$. Da $Y$ normalverteilt ist, ist es also auch $\hat{e}$. Berechnet man wieder Erwartungswert und Kovarianz, erhält man:
+\item Da nach \eqref{e} gilt, dass $\hat{e}=(I-H)Y$, ist $\hat{e}$ auch eine Linearkombination von Elementen aus $Y$. Da $Y$ normalverteilt ist, ist es also auch $\hat{e}$. Berechnet man wieder Erwartungswert und Kovarianz, erhält man:
 
 \begin{eqnarray*}
 E(\hat{e}) &=& E((I-H)Y) = (I-H)E(Y) = (I-H)X\beta \\ 
@@ -736,8 +745,8 @@ Die Matrix $I-H$ ist symmetrisch, da $H=X'(X'X)^{-1}X$ symmetrisch ist. Weiterhi
 &=& (I-H)
 \end{eqnarray*}
 
-3. 
-Sei $Q=I-H$ mit $H = X (X'X)^{-1} X'$, dann ist $Q$ symmetrisch und idempotent. Daraus folgt
+
+\item Sei $Q=I-H$ mit $H = X (X'X)^{-1} X'$, dann ist $Q$ symmetrisch und idempotent. Daraus folgt
 
 \begin{eqnarray*}
 \text{Rang}(Q) &=& \text{Spur}(Q) = \text{Spur}(I) - \text{Spur}(H) \\
@@ -749,7 +758,12 @@ Dabei benutzt man $\text{Spur}(AB) = \text{Spur}(BA)$ .
 
 Also kann man $Q$ ausdrücken als $ Q = T' L T$. Dabei ist $T$ eine orthogonale Matrix und $L$ eine passende Diagonalmatrix mit den ersten $n-(p+1)$ Diagonalelementen Eins und den verbleibenden Diagonalelementen gleich Null.
 
-Es ist $e=Y-X\beta \sim \mathscr{N}_{n}(0,\sigma^2I)$. Sei $z=Te$ mit $z\sim \mathscr{N}_{n}(0,\sigma^2I)$. Solch ein $T$ existiert, da $T$ orthogonal ist. 
+Es ist $e=Y-X\beta \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$. Sei $z=Te$. Dann ist $z\sim \mathscr{N}_{n}(0,\sigma^2 I_n)$, da aus der Orthogonalität von $T$ folgt, dass 
+
+\begin{equation*}
+\text{Var}(z) = \text{Var}(Te) = T \text{Var}(e) T' = T T' \text{Var}(\sigma^2 I_n) = I_n \sigma^2
+\end{equation*}
+. 
 
 Weiterhin ist 
 
@@ -765,18 +779,23 @@ da $(I-H)X=0$, wie oben bereits berechnet. Es folgt
 \end{eqnarray*}
 
 Setzt man dies nun in Gleichung \eqref{sigma}, das heißt $ \hat{\sigma}^2 = \Vert \hat{e} \Vert^{2} / (n-p-1) $, ein, erhält man 
-\[
-\hat{\sigma}^2 = \Vert \hat{e} \Vert^{2} / (n-p-1) \sim \frac{\sigma^2}{n-p-1} \chi_{n-p-1}^2
-\]
 
-4. Da $\hat{\beta}$ und $\hat{e}$ normalverteilt sind, reicht es für die Behauptung der Unabhängigkeit zu zeigen, dass die Kovarianz zwischen den Beiden Null ist.
+\begin{equation*}
+\hat{\sigma}^2 = \Vert \hat{e} \Vert^{2} / (n-p-1) \sim \frac{\sigma^2}{n-p-1} \chi_{n-p-1}^2
+\end{equation*}
+
+
+\item Da $\hat{\beta}$ und $\hat{e}$ normalverteilt sind, reicht es für die Behauptung der Unabhängigkeit zu zeigen, dass die Kovarianz zwischen den Beiden Null ist.
 
 \begin{eqnarray*}
 \text{Cov}(\hat{\beta},\hat{e}) &=& \text{Cov}((X'X)^{-1} X' Y, (I-H)Y) \\
 &=& (X'X)^{-1} X' \text{Cov}(Y,Y) (I-H) \\
-&=& \sigma^2 (X'X)^{-1} X' (I-H) = 0
+&=& \sigma^2 (X'X)^{-1} X' (I-H) \\
+&=& \sigma^2 (X'X)^{-1} ((I-H)'X'')' \\
+&=& \sigma^2 (X'X)^{-1} ((I-H) X)' = \sigma^2 (X'X)^{-1} 0 = 0
 \end{eqnarray*}
 
+\end{enumerate}
 \end{proof}
 
 Da wir nun von allen Bausteinen von $S$ die Verteilung kennen, können wir den Satz \ref{KB_Eigenschaft} beweisen. Satz und Beweis orientiert sich an \cite[66]{Liu64}.
@@ -785,34 +804,34 @@ Da wir nun von allen Bausteinen von $S$ die Verteilung kennen, können wir den S
 Zu zeigen war, dass für beliebiges $\beta \in \mathbb{R}^{p+1}$ und $\sigma > 0$  im homoskedastischen Fall
 
 \begin{equation*}
-\mathbb{P}( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x}) ~ \text{ für alle } x_{(0)} \in \mathbb{R}^{p}) = 1 - \alpha
+\mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x' (X'X)^{-1}x}) ~ \text{ für alle } x_{(0)} \in \mathbb{R}^{p} \right) = 1 - \alpha
 \end{equation*}
 
 gilt. 
 
-Sei \gls{P} die eindeutige Wurzel aus $(X'X)^{-1}$ und somit $(X'X)^{-1} = P^2$. Weiterhin definiere \gls{N}=$P^{-1}(\hat{\beta}-\beta)/\sigma$. Dann hat $N$ eine multivariate Normalverteilung $\mathscr{N}_{p+1}(0,I)$ . 
+Sei \gls{P} die eindeutige Wurzel aus $(X'X)^{-1}$ und somit $(X'X)^{-1} = P^2$. Definiere außerdem, dass \gls{N} := $P^{-1}(\hat{\beta}-\beta)/\sigma$. Dann folgt $N$ einer ($p$+1)-dimensionalen Normalverteilung. Man hat also $N \sim \mathscr{N}_{p+1}(0,I_n)$ . 
 
 Damit gilt
 \begin{eqnarray*}
-&&\mathbb{P}(x'\beta \in \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in \mathbb{R}^{p}) \\ 
-&=& \mathbb{P} \big ( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|x'(\hat{\beta}-\beta)|}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \big ) \\
-&=& \mathbb{P} \big ( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|(Px)'N|}{(\hat{\sigma}/\sigma)\sqrt{(Px)'(Px)}} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \big ) \\
-&=& \mathbb{P} \big ( \frac{\parallel N \parallel}{(\hat{\sigma}/\sigma)} \bigg ( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|(Px)'N|}{||Px|| ||N||} \bigg ) \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \big ) \\
-&=& \mathbb{P} \big (\frac{\parallel N \parallel}{(\hat{\sigma}/\sigma)} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \big ) \\
-&=& \mathbb{P} \big (\frac{(\hat{\beta}-\beta)'(X'X)(\hat{\beta}-\beta)}{(p+1)\hat{\sigma}^2} \leq f^{\alpha}_{p+1,n-p-1} \big ) \\
+&&\mathbb{P} \left( x'\beta \in \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \hat{\sigma} \sqrt{x'(X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in \mathbb{R}^{p} \right) \\ 
+&=& \mathbb{P} \left( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|x'(\hat{\beta}-\beta)|}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \right) \\
+&=& \mathbb{P} \left( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|(Px)'N|}{(\hat{\sigma}/\sigma)\sqrt{(Px)'(Px)}} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \right) \\
+&=& \mathbb{P} \left( \frac{\parallel N \parallel}{(\hat{\sigma}/\sigma)} \left( \sup_{x_{(0)} \in \mathbb{R}^{p}} \frac{|(Px)'N|}{||Px|| ||N||} \right) \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \right) \\
+&=& \mathbb{P} \left(\frac{\parallel N \parallel}{(\hat{\sigma}/\sigma)} \leq \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} \right) \\
+&=& \mathbb{P} \left(\frac{(\hat{\beta}-\beta)'(X'X)(\hat{\beta}-\beta)}{(p+1)\hat{\sigma}^2} \leq f^{\alpha}_{p+1,n-p-1} \right) \\
 &=& 1 - \alpha
 \end{eqnarray*}
 
-Dabei wird im vorletzten Schritt  die Cauchy-Schwarz-Ungleichung $ \vert (Px)'N \vert \leq \Vert Px \Vert \Vert N \Vert $ verwendet. Gleichheit gilt, falls $P x = \lambda N$ für ein $N$ . 
+Dabei wird im vorletzten Schritt  die Cauchy-Schwarz-Ungleichung $ \vert (Px)'N \vert \leq \Vert Px \Vert \Vert N \Vert $ verwendet. Gleichheit gilt, falls $P x = \lambda N$ für ein $N$. 
 
 Im letzten Schritt wird aus Satz \ref{Basiseigenschaften} benutzt, dass sowohl $(\hat{\beta}-\beta)'(X'X)(\hat{\beta}-\beta)$ als auch $(p+1)\hat{\sigma}^2$ einer $\chi^2$-Verteilung folgen. Außerdem sind beide unabhängig und somit ist ihr Quotient F-verteilt.
 
 \end{proof}
 
 \begin{Beispiel}
-In der folgenden Abbildung \ref{KB-ganz-R-BSP} sind die Daten aus dem letzten Beispiel wieder mit einer polynomiellen Regression vom Grad Drei eingezeichnet.
+In der Abbildung \ref{KB-ganz-R-BSP} sind die Daten aus dem letzten Beispiel wieder mit einer polynomiellen Regression vom Grad Drei eingezeichnet.
 
-Diesmal wird dazu noch ein Konfidenzband auf ganz $\mathbb{R}^{p}$ eingezeichnet. Die Berechnung ist in dem Verzeichnis \textit{/man/Beispiel-R.R} zu finden. Als kritischen Parameter für das Konfidenzband hat sich \cR ~ergeben.
+Diesmal wird dazu noch ein Konfidenzband auf ganz $\mathbb{R}^{p}$ eingezeichnet. Die Berechnung ist in dem Verzeichnis \textit{/man/Beispiel-R.R} zu finden. Der kritische Parameter für dieses Konfidenzband ist \cR.
 
 \begin{figure}[H] 
   \centering
@@ -826,39 +845,37 @@ Diesmal wird dazu noch ein Konfidenzband auf ganz $\mathbb{R}^{p}$ eingezeichnet
 \begin{Simulation}
 Außerdem wurde eine Simulation durchgeführt, um die Überdeckungswahrscheinlichkeit der Methode zu überprüfen.
 
-Dazu wurden Daten auf zwei verschiedene Arten erzeugt. Zum einen wurde als Grundmodell ein multiples lineares, homoskedastisches Regressionsmodell zugrunde gelegt. Zum anderen wurde ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde gelegt. 
+Dazu wurden Daten auf zwei verschiedene Arten erzeugt. Zum Einen wurden die Daten auf Grundlage eines  multiplen, linearen, homoskedastisches Regressionsmodell erzeugt. Zum anderen wurde ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde gelegt. 
 
-Der Grad des wahren Modelles ist \simgrad ~und es wird auch eine Regression mit \simgrad ~durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt.
+Der Grad des wahren Modelles ist \simgrad ~und es wird auch eine Regression mit Grad \simgrad ~durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt.
 
-Bei der Simulation wurden zuerst \ntest ~mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband liegt. 
+Bei der Simulation wurden zuerst \ntest ~Mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS-Schätzer beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband lag. 
 
-Auf Grund von Laufzeitproblemen werden die Daten von den Funktionen \textit{make-test-data-R} beziehungsweise \textit{make-test-data-AR} erzeugt und gespeichert. Auch die jeweils berechneten Regressionsmodelle, Designmatrizten und weiter Werte werden abgespeichert. Diese Daten sind in \textit{/data} zu finden.
+Auf Grund von Laufzeitproblemen werden die Daten von den Funktionen \textit{make-test-data-R} beziehungsweise \textit{make-test-data-AR} erzeugt und gespeichert. Auch die jeweils berechneten Regressionsmodelle, Designmatritzen und weitere Werte werden abgespeichert. Diese Daten sind in \textit{/data} zu finden.
 
 Bei der Berechnung der Überdeckungswahrscheinlichkeit müssen dann nur noch die Konfidenzbänder, die von der Anzahl an Simulationen abhängen, berechnet werden. Für eine Erklärung warum Simulationen benötigt werden, siehe die Kapitel \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
 
-Die Laufzeit für die Berechnung der Überdeckungswahrscheinlichkeiten von Konfidenzbänder bei denen Simulationen durchgeführt werden müssen beträgt ungefähr 15 Minuten bei den empfohlenen 5.000 Wiederholungen.
+Die Laufzeit für die Berechnung der Überdeckungswahrscheinlichkeiten von Konfidenzbänden bei denen Simulationen durchgeführt werden müssen beträgt ungefähr 15 Minuten bei den empfohlenen 5000 Wiederholungen.
 
-Wie genau bei einem AR(1) Modell OLS-Schätzer bestimmt werden können wird in dem Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} erläutert.
+Wie genau bei einem AR(1) Modell OLS-Schätzer bestimmt werden können wird in Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} erläutert.
 
 Die Ergebnisse sind in der folgenden Tabelle zusammengestellt:
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+ & unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
 \end{tabular} 
 \end{center}
 
-Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an, die zweite bei einem AR(1)-Grundmodell mit bekanntem Korrelationsparameter. Bei der dritten Spalte ist dieser Parameter unbekannt und muss zusätzlich geschätzt werden. 
+Die erste Spalte gibt die Überdeckungswahrscheinlichkeit bei dem homoskedastischen Modell an und die zweite bei einem AR(1)-Grundmodell mit bekanntem Korrelationsparameter. Bei der dritten Spalte ist dieser Parameter unbekannt und muss zusätzlich geschätzt werden. 
 
-Man sieht, dass bei dieser Methode die Überdeckungswahrscheinlichkeit über der geforderten Wahrscheinlichkeit von 0.95 liegt. Dies liegt daran, dass das Konfidenzniveau auf ganz $\mathbb{R}^{4}$ eingehalten wird und nicht nur auf dem Intervall [0,1]. Für nähere Informationen dazu siehe Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
+Man sieht, dass bei dieser Methode die Überdeckungswahrscheinlichkeit über der geforderten Wahrscheinlichkeit von 0.95 liegt. Der Grund dafür ist, dass das Konfidenzniveau auf ganz $\mathbb{R}^{4}$ eingehalten wird und nicht nur auf dem Intervall [0,1]. Für nähere Informationen dazu siehe Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
 
-Diese Tabelle wird um weiter Zeilen mit den anderen Methoden Konfidenzbänder zu erzeugen erweitert, nachdem die neuen Methoden eingeführt sind. Dabei wird die bereits eingeführte Methode Konfidenzbänder auf ganz $\mathbb{R}^{p}$ zu erzeugen, mit R bezeichnet.
-
-
+Diese Tabelle wird um weitere Zeilen mit den anderen Methoden Konfidenzbänder zu erzeugen erweitert, nachdem die neuen Methoden eingeführt worden sind.
 
 \end{Simulation}
 
@@ -868,33 +885,33 @@ Diese Tabelle wird um weiter Zeilen mit den anderen Methoden Konfidenzbänder zu
 \label{Konfidenzbänder auf einem Intervall für ein einfaches lineares Regressionsmodell}
 Dieser Abschnitt orientiert sich an \cite[17-23]{Liu64} und \cite{Liu08} und \cite{Wynn71}.
 
-Für den Fall, dass wir nur einen unabhängige Variable $x_1$ haben vereinfacht sich das Konfidenzband \ref{KB_allgemein} zu
+Für den Fall, dass wir nur eine unabhängige Variable $x_1$ haben, vereinfacht sich das Konfidenzband aus Gleichung \eqref{KB_allgemein} zu
 
 \begin{equation}\label{simple_KB}
-\mathbb{P}(\beta_0 + \beta_1 x_1 \in \hat{\beta_0} + \hat{\beta_1} x_1 \pm c \hat{\sigma} \sqrt{\nu(1,x_1)}  \text{ für alle } x_1 \in (a,b) )
+\mathbb{P} \left( \beta_0 + \beta_1 x_1 \in \hat{\beta_0} + \hat{\beta_1} x_1 \pm c \hat{\sigma} \sqrt{\nu(1,x_1)}  \text{ für alle } x_1 \in (a,b) \right)
 \end{equation}
 
 Dabei und für diesen Abschnitt gelten die folgenden Definitionen
 
 \begin{eqnarray*}
-\beta &=& (\beta_0, \beta_1)' \\
-\hat{\beta} &=& (\hat{\beta_0}, \hat{\beta_1})' \sim \mathscr{N}_2(\beta, \sigma^2 (X'X)^{-1}) \\
-P^2 &=& (X'X)^{-1} \\
-N &=& P^{-1} (\hat{\beta} - \beta)/\sigma \sim \mathscr{N}_{2}(0,I_2) \\
-T &=& N / (\hat{\sigma} / \sigma) = P^{-1} (\hat{\beta}-\beta) / \hat{\sigma} \\
-v &=& n-2 \\
-x_1 &=& x \\
-\nu(c,d) &=& (c,d) (X'X)^{-1} (c,d)' \\
-A &=&(a,b)
+\beta &:=& (\beta_0, \beta_1)' \\
+\hat{\beta} &:=& (\hat{\beta_0}, \hat{\beta_1})' \sim \mathscr{N}_2(\beta, \sigma^2 (X'X)^{-1}) \\
+P^2 &:=& (X'X)^{-1} \\
+N &:=& P^{-1} (\hat{\beta} - \beta)/\sigma \sim \mathscr{N}_{2}(0,I_2) \\
+T &:=& N / (\hat{\sigma} / \sigma) = P^{-1} (\hat{\beta}-\beta) / \hat{\sigma} \\
+v &:=& n-2 \\
+x_1 &:=& x \\
+\nu(c,d) &:=& (c,d) (X'X)^{-1} (c,d)' \\
+A &:=& (a,b)
 \end{eqnarray*}
 
-Aus \cite[19-20]{Liu64} hat man folgende Ergebnisse
+In \cite[19-20]{Liu64} wird folgendes Ergebnis gezeigt
 
 \begin{eqnarray*}
-&& \mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)}  \text{ für alle } x \in (a,b))  \\
-&=& \mathbb{P} (\sup_{x \in (a,b)} \vert (1,x) ( \hat{\beta} - \beta ) / \hat{\sigma} \vert / \sqrt{\nu(1,x)} < c) \\
-&=& \mathbb{P} (\sup_{x \in (a,b)} \vert (P \cdot (1,x)')' \cdot T \vert / \Vert P \cdot (1,x)' \Vert < c) \\
-&=& \mathbb{P} (T \in R_{h,2})
+&& \mathbb{P} \left( \beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)}  \text{ für alle } x \in (a,b) \right)  \\
+&=& \mathbb{P} \left( \sup_{x \in (a,b)} \vert (1,x) ( \hat{\beta} - \beta ) / \hat{\sigma} \vert / \sqrt{\nu(1,x)} < c \right) \\
+&=& \mathbb{P} \left( \sup_{x \in (a,b)} \vert (P \cdot (1,x)')' \cdot T \vert / \Vert P \cdot (1,x)' \Vert < c \right) \\
+&=& \mathbb{P} \left( T \in R_{h,2} \right)
 \end{eqnarray*}
 
 dabei ist
@@ -903,7 +920,7 @@ dabei ist
 R_{h,2}(x) = \{ T : \vert (P \cdot (1,x)' )' \cdot T \vert / \Vert P \cdot (1,x)' \Vert < c \}
 \end{equation*}
 
-ein Region von der Form $(T : \vert v'T \vert / \Vert v \Vert < r) \subset \mathbb{R}^2$. Deswegen kann man den Winkel $\phi$ zwischen den Vektoren $P \cdot (1,a)'$ und $P \cdot (1,b)'$ mittels
+eine Region von der Form $(T : \vert v'T \vert / \Vert v \Vert < r) \subset \mathbb{R}^2$. Deswegen kann man den Winkel $\phi$ zwischen den Vektoren $P \cdot (1,a)'$ und $P \cdot (1,b)'$ mittels
 
 \begin{eqnarray*}
 \cos \phi &=& (P \cdot (1,a)')' (P \cdot (1,b)') / \Vert P \cdot (1,a)' \Vert \Vert P \cdot (1,b)' \Vert \\
@@ -924,7 +941,7 @@ berechnen. Jetzt folgt mit \cite{Wynn71}, dass gilt
 
 
 \begin{eqnarray*}
-\mathbb{P}(\beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)} \text{ für alle } x \in (a,b) ) \\
+\mathbb{P} \left( \beta_0 + \beta_1 x \in \hat{\beta_0} + \hat{\beta_1} x \pm c \hat{\sigma} \sqrt{\nu(1,x)} \text{ für alle } x \in (a,b) \right) \\
 = 1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\theta + \phi/2)} \biggr)^{-v/2} \text{d} \theta
 \end{eqnarray*}
 
@@ -934,7 +951,7 @@ Man muss also
 1 - \frac{\phi}{\pi} \biggl( 1 + \frac{c^2}{v} \biggr)^{ - v/2} - \frac{2}{\pi} \int^{(\pi - \phi)/2}_{0} \biggl( 1 + \frac{c^2}{v \sin^2(\theta + \phi/2)} \biggr)^{-v/2} \text{d} \theta = 1 - \alpha
 \end{equation*}
 
-nach $c$ lösen und kann dann das Konfidenzband \eqref{simple_KB} bestimmen. Diese Berechnung wird hier nicht durchgeführt.
+nach $c$ lösen und kann dann das Konfidenzband \eqref{simple_KB} bestimmen.
 
 
 
@@ -950,11 +967,11 @@ Nachfolgend wird das uns interessierende Gebiet mit $A$ bezeichnet. Dabei ist
 A = \{(x_1, \ldots, x_p)' : a_i \leq x_i \leq b_i, i = 1, \ldots, p \} \subset \mathbb{R}^p \text{ für } - \infty \leq a_i < b_i \leq \infty, i=1, \ldots, p
 \end{equation*}
 
-Außerdem definieren wir $x_{0} = (x_1, \ldots, x_p)'$.
+Außerdem definieren wir $x_{(0)} := (x_1, \ldots, x_p)'$.
 
 Eine Möglichkeit, ein Konfidenzband auf $A$ zu bestimmen, ist, ein Konfidenzband auf ganz $\mathbb{R}^p$ zu konstruieren und dann den Teil auf $\mathbb{R}^{p} \setminus A$ zu vernachlässigen.
 
-Da dann die Bedingung $\mathbb{P}(x'\beta \in x' \hat{\beta} \pm d ~ \text{ für alle } x_{(0)} \in A) = 1-\alpha$ für mehr $x_{(0)}$-Werte als nötig erfüllt sein muss, ist das Konfidenzband dann weiter, als es müsste. Dabei ist $d$ eine beliebig, aber fest gewählte Konstante.
+Da dann die Bedingung $\mathbb{P}(x'\beta \in x' \hat{\beta} \pm d ~ \text{ für alle } x_{(0)} \in A) = 1-\alpha$ für mehr $x_{(0)}$-Werte als nötig erfüllt sein muss, ist das Konfidenzband dann weiter, als es sein müsste. Dabei ist $d$ eine beliebig, aber fest gewählte Konstante.
 
 Besser ist die folgende Möglichkeit, die sich an \cite[70]{Liu64} orientiert. Das Ziel ist wieder ein hyperbolisches Konfidenzband der Form 
 
@@ -962,37 +979,37 @@ Besser ist die folgende Möglichkeit, die sich an \cite[70]{Liu64} orientiert. D
 x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1}x} \label{hyperbolisches_KB}
 \end{equation}
 
-zu erzeugen, um es mit dem Band aus dem Absatz \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} vergleichen zu können. Das Problem ist, ein geeignetes $c$ zu finden, sodass 
+zu erzeugen, um es mit dem Band aus Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} vergleichen zu können. Das Problem ist, ein geeignetes $c$ zu finden, sodass 
 
 \begin{equation*}
-\mathbb{P}( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A) = 1-\alpha
+\mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) = 1-\alpha
 \end{equation*}
  
 gilt.
 
-Es ist aus Satz \ref{Basiseigenschaft} aus dem vorherigen Abschnitt bekannt, dass 
+Aus Satz \ref{Basiseigenschaft} aus Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} ist bekannt, dass 
 
 \begin{equation*}
-\mathbb{P}( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A ) = \mathbb{P}(S<c)
+\mathbb{P} \left( x'\beta \in x' \hat{\beta} \pm c ~ \hat{\sigma} \sqrt{x' (X'X)^{-1}x} ~ \text{ für alle } x_{(0)} \in A \right) = \mathbb{P}(S<c)
 \end{equation*}
 
 Dabei ist $S$ gegeben durch 
 
 \begin{equation*}
-S = \sup_{x_{0} \in A} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}
+S = \sup_{x_{(0)} \in A} \frac{\vert x'(\beta - \hat{\beta}) \vert}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}}
 \end{equation*}
 
-Da die Verteilung von $S$ nicht von $\beta$ und $\sigma^2$ abhängt, ist es in dieser Hinsicht ein Pivotelement. Dabei ist $\beta$ wieder der Koeffizientenvektor und $\sigma^2$ die Varianz der Fehler. 
+Da die Verteilung von $S$ nicht von $\beta$ und $\sigma^2$ abhängt, ist es in dieser Hinsicht ein Pivot\-element. Dabei ist $\beta$ wieder der Koeffizientenvektor und $\sigma^2$ die Varianz der Fehler. 
 
-Dies folgt aus Satz \ref{Basiseigenschaften}. Dort wurde gezeigt, dass $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta, \sigma^2 (X'X)^{-1})$ und $\hat{\sigma} \sim \sigma^2/(n-p-1) \cdot \chi^2_{n-p-1}$. Fügt man nun $1=\sigma / \sigma$ ein, folgt die Behauptung.
+Um zu sehen, dass die Verteilung von $S$ nicht von $\beta$ und $\sigma^2$ abhängt, betrachte Satz \ref{Basiseigenschaften}. Dort wurde gezeigt, dass $\hat{\beta} \sim \mathscr{N}_{p+1}(\beta, \sigma^2 (X'X)^{-1})$ und $\hat{\sigma} \sim \sigma^2/(n-p-1) \cdot \chi^2_{n-p-1}$. Fügt man nun $1=\sigma / \sigma$ ein, folgt die Behauptung.
 
 Allerdings hängt die Verteilung von $S$ immer noch in komplizierter Art und Weise von der Designmatrix $X$ und den Grenzen $a_i$ und $b_i$ von $A$ für $i=1, \ldots, p$ ab.
 
 Seien $P$ und $N$ definiert wie im Beweis zu Satz \ref{KB_Eigenschaft}. Das heißt, 
 
 \begin{eqnarray*}
-P^2 &=& (X'X)^{-1} \\
-N &=& \frac{P^{-1}(\hat{\beta}-\beta)}{\sigma}
+P^2 &:=& (X'X)^{-1} \\
+N &:=& \frac{P^{-1}(\hat{\beta}-\beta)}{\sigma}
 \end{eqnarray*}
 
 Dann hat 
@@ -1018,11 +1035,11 @@ C(P,A) &=& \{ \lambda P x : \lambda \geq 0, x \in A \} \\
 
 wobei $P=(p_0, \ldots, p_p)$. 
 
-Allerdings ist es für ein allgemeines $p \geq 1$ sehr schwierig, eine genaue Formel für die Verteilung von $S$ explizit zu bestimmen, um die kritische Konstante $c$ zu bestimmen \cite[S.70, Z.18]{Liu64}. Deswegen wird eine Simulation benutzt.
+Allerdings ist es für ein allgemeines $p \geq 1$ sehr schwierig, eine Formel für die Verteilung von $S$ explizit zu berechnen, um die kritische Konstante $c$ zu bestimmen \cite[S.70, Z.18]{Liu64}. Deswegen wird eine Simulation benutzt.
 
 Man beachte, dass $C(P,A)$ der Kegel ist, der von den Vektoren $p_0+c_1 p_1 + \ldots + c_p p_p $ aufgespannt wird, wobei $c_i$ entweder $a_i$ oder $b_i$ für $i=1,\ldots,p$ ist. 
 
-Sei \gls{Pi} die Projektion von $t \in \mathbb{R}^{p+1}$ auf den Kegel $C(P,A)$, d.h. $\pi(t,P,A)$ löst $ \min_{v \in C(P,A)} \Vert v-t \Vert$. Jetzt folgt mit \cite{Naiman87} Theorem 2.1, dass $S$ die Gleichung
+Sei \gls{Pi} die Projektion von $t \in \mathbb{R}^{p+1}$ auf den Kegel $C(P,A)$, d.h. $\pi(t,P,A)$ löst $ \min_{v \in C(P,A)} \Vert v-t \Vert$. Jetzt folgt mit \cite[Theorem 2.1]{Naiman87} , dass $S$ die Gleichung
 
 \begin{equation*}
 S=\max(\Vert \pi(t,P,A) \Vert, \Vert \pi(-t,P,A) \Vert)
@@ -1033,12 +1050,12 @@ löst.
 Man kann also die kritische Konstante $c$ mit folgender Simulation finden:
 
 \begin{enumerate}
-\item Simuliere $N \sim \mathscr{N}_{p+1}(0,I)$ und $\hat{\sigma}/\sigma\sim\sqrt{\chi_v^2/v}$ mit $v=n-p-1$ und $p$ der Anzahl an unabhängigen Parametern.
+\item Simuliere $N \sim \mathscr{N}_{p+1}(0,I_{n})$ und $\hat{\sigma}/\sigma\sim\sqrt{\chi_v^2/v}$ mit $v=n-p-1$ und $p$ der Anzahl an unabhängigen Parametern.
 \item Berechne $\pi(t,P,A)$ und $\pi(-t,P,A)$ .
 \item Berechne $S=\max(\Vert \pi(t,P,A) \Vert, \Vert \pi(-t,P,A) \Vert)$ .
 \end{enumerate}
 
-Wiederholt man diese Schritte $R$ mal, so erhält man $S_1, \ldots, S_R$. Dann ist $c$ das $1-\alpha$ Quantil von $S_1, \ldots, S_R$.
+Wiederholt man diese Schritte $k$ mal, so erhält man $S_1, \ldots, S_k$. Dann ist $c$ das $1-\alpha$ Quantil von $S_1, \ldots, S_k$.
 
 Um $\pi(t,P,A)$ und $\pi(-t,P,A)$ zu bestimmen, wird folgendes Verfahren verwendet, das aus \cite[Appendix B]{Liu64} stammt:
 
@@ -1053,14 +1070,12 @@ Dazu betrachten wir
 
 Man sieht, dass $t't$ unabhängig von $v$ ist. Deshalb muss man es bei der Minimierung von $\Vert v-t \Vert^2$ nicht berücksichtigen.
  
-Sei $e_j \in \mathbb{R}^{p+1}$ der $j$-te Einheitsvektor. 
-
-Aus der Definition von $C(P,A_{r})$ ist zu sehen, dass $v \in C(P,A_{r})$ impliziert, dass $v=\lambda P x$ oder gleichwertig $P^{-1}v=\lambda x = (\lambda, \lambda x_1, \ldots , \lambda x_p)'$ für ein $x \in A_{r}$ und $\lambda \geq 0$ gelten muss. Deshalb ist $e_1'P^{-1}v = \lambda \geq 0$ und $a_j \leq e_{j+1}'P^{-1}v/e_1'P^{-1}v = x_j \leq b_j$ für $j = 1, \ldots p$ oder gleichwertig
+Sei $e_j \in \mathbb{R}^{p+1}$ der $j$-te Einheitsvektor. Aus der Definition von $C(P,A_{r})$ ist zu sehen, dass $v \in C(P,A_{r})$ impliziert, dass $v=\lambda P x$ oder gleichwertig $P^{-1}v=\lambda x = (\lambda, \lambda x_1, \ldots , \lambda x_p)'$ für ein $x \in A_{r}$ und $\lambda \geq 0$ gelten muss. Deshalb ist $e_1'P^{-1}v = \lambda \geq 0$ und $a_j \leq e_{j+1}'P^{-1}v/e_1'P^{-1}v = x_j \leq b_j$ für $j = 1, \ldots p$ oder gleichwertig
 
 \begin{eqnarray*}
 - e_1' P^{-1} v &\leq & 0 \\
-(e_{j+1}' - b_j e_1') P^{-1} v &\leq & 0 \textnormal{ für } j = 1, \ldots, p \\
-(a_{j} e_1' - e_{j+1}')P^{-1} v &\leq & 0 \textnormal{ für } j = 1, \ldots, p
+(e_{j+1}' - b_j e_1') P^{-1} v &\leq & 0 ~~\text{ ,für } j = 1, \ldots, p \\
+(a_{j} e_1' - e_{j+1}')P^{-1} v &\leq & 0 ~~\text{ ,für } j = 1, \ldots, p
 \end{eqnarray*}
 
 Diese Beschränkungen kann man zusammenfassen zu 
@@ -1078,28 +1093,28 @@ A =
 				\ldots						 \\ 
 				(e_{p+1}' - b_p e_1') P^{-1}	\\  
 				(a_p e_1' - e_{p+1}')P^{-1}  \\
-				-e_1'P^{1} 
+				-e_1'P^{-1} 
 \end{bmatrix}
 \]
 
-ist. Für Minimierungsprobleme dieser Art gibt es ein R-Paket namens \textit{Quadprog} , das zur Lösung dieser Minimierungsaufgabe benutzt wird.
+ist. Für Minimierungsprobleme dieser Art gibt es ein R-Paket namens \textit{quadprog} , das zur Lösung dieser Minimierungsaufgabe benutzt wird.
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} fortgeführt, indem zu der Regression mit Grad Drei und dem Konfidenzband auf ganz $\mathbb{R}^{3}$ noch ein Konfidenzband auf $A$ eingezeichnet wird. Dabei benutzt man $A = \{x_{0} \in \mathbb{R}^3 : x_i \in [0,1] \text{ für alle } i=1, 2, 3 \} $. 
+Jetzt wird das Beispiel aus Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} fortgeführt, indem zu der Regression mit Grad Drei und dem Konfidenzband auf ganz $\mathbb{R}^{3}$ noch ein Konfidenzband auf $A$ eingezeichnet wird. Dabei benutzt man $A = \{x_{0} \in \mathbb{R}^3 : x_i \in [0,1] \text{ für alle } i=1, 2, 3 \} $. 
 
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-minmax}
-  \caption{Weiterführung des Beispiels durch Konfidenzband auf [0,1]}
+  \caption{Beispieldaten aus Kapitel \ref{Regression und Konfidenzbaender} mit einem Konfidenzband nach Kapitel \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und einem nach Kapitel \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}}
   \label{KB-minmax-BSP}
 \end{figure}
 
-Der kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^3$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde war \cR . Für das Konfidenzband auf $A$ ergibt sich \cA . Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
+Der kritische Wert für das Konfidenzband auf ganz $\mathbb{R}^3$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde, ist \cR . Für das Konfidenzband auf $A$ ergibt sich \cA ~als kritischer Wert für das Konfidenzband. Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
 
-Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf ganz $\mathbb{R}^3$. 
+Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf $\mathbb{R}^3$. 
 
-Da bei der Berechnung des kritischen Wertes für das Konfidenzband auf $A$ ein Simulation verwendet wird und Reproduktivität gewährleisten sein soll, wird an dieser Stelle die Seed \seedsimulation ~gesetzt. 
+Da bei der Berechnung des kritischen Wertes für das Konfidenzband auf $A$ eine Simulation verwendet wird und Reproduktivität gewährleisten sein soll, wird an dieser Stelle die Seed auf \seedsimulation ~gesetzt. 
 
 \end{Beispiel}
 
@@ -1108,12 +1123,12 @@ Jetzt wird die Simulationstabelle aus dem Abschnitt \ref{Konfidenzbaender auf R 
 
 In diesem Fall ist $A = \{x \in \mathbb{R}^4 : x_i \in [0,1] \text{ für alle } i=1, 2, 3, 4 \}$. Dies liegt daran, dass wir die Matrix $X$ so wählen, dass die unabhängigen Variablen im Intervall $[0,1]$ liegen.
 
-Die neuen Überdeckungswahrscheinlichkeiten für Konfidenzbänder auf Intervallen wird mit Minmax bezeichnet. Auch diese Überdeckungswahrscheinlichkeiten liegen über den geforderten 0.95.
+Die neuen Überdeckungswahrscheinlichkeiten für Konfidenzbänder auf Intervallen werden mit Minmax bezeichnet. Auch diese Überdeckungswahrscheinlichkeiten liegen über den geforderten 0.95.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+ & unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
@@ -1125,7 +1140,7 @@ Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \Ue
 \end{Simulation}
 
 
-
+\newpage
 \subsection{Konfidenzbänder auf auf einem Intervall für ein Regressionsmodell mit Polynomgestalt}
 \label{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}
 In diesem Abschnitt betrachten wir wieder das Regressionsmodell 
@@ -1134,15 +1149,13 @@ In diesem Abschnitt betrachten wir wieder das Regressionsmodell
 Y=X\beta+e
 \end{equation*}
 
-mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_{n}(0,I_n \sigma^2)$ ein $1 \times n$ Zufallsfehlervektor.
+mit $Y$ einem $1 \times n$ Datenvektor, $\beta$ ein $1 \times (p+1)$ Koeffizientenvektor und $e \sim \mathscr{N}_{n}(0,\sigma^2 I_n )$ ein $1 \times n$ Zufallsfehlervektor.
 
-In den ersten Abschnitten lag die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. In dem letzten Abschnitt sind wir zusätzlich implizit davon ausgegangen, dass die erste Spalte von $X$ nur mit Einsen besetzt ist.
+In den ersten Abschnitten lag die Annahme zugrunde, dass $X$ irgendeine feste, aber beliebige $n \times (p+1)$ Matrix ist. Im letzten Abschnitt sind wir zusätzlich implizit davon ausgegangen, dass die erste Spalte von $X$ nur mit Einsen besetzt ist.
 
 In diesem Abschnitt betrachten wir den Fall, dass die Spalten von $X$ einen funktionalen Zusammenhang erfüllen. Konkret gehen wir davon aus, dass die $i$-te Zeile von $X$ von der Form $\tilde{x}_i = (1, x, x^{2}, \ldots, x^{p}) \in \mathbb{R}^{p+1}, i = 1, \ldots, n$ ist. 
 
-Unsere Designmatrix ist also zeilenweise von Polynomgestalt. 
-
-Dies ist genau der Fall, den wir in dem Beispiel und den Simulationen, das am Ende der Abschnitte steht, betrachtet haben. 
+Unsere Designmatrix ist also zeilenweise von Polynomgestalt. Dies ist genau der Fall, den wir im Beispiel und den Simulationen, die am Ende der Abschnitte stehen, betrachtet haben. 
 
 Das Ziel ist wieder Konfidenzbänder der Form 
 
@@ -1150,17 +1163,17 @@ Das Ziel ist wieder Konfidenzbänder der Form
 \tilde{x}' \beta \in \tilde{x}' \hat{\beta} \pm c \hat{\sigma} \sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}} ~ \text{ für alle } x \in A=(a,b)
 \end{equation}
 
-zu bestimmen. Dann können wir sie direkt mit den Konfidenzbändern aus den Abschnitten \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} vergleichen, indem wir die kritischen Konstanten $c$ vergleichen. 
+zu bestimmen. Dann können wir sie direkt mit den Konfidenzbändern aus den Abschnitten \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} vergleichen. Dazu reicht es nur die  die kritischen Konstanten $c$ miteinander zu vergleichen. 
 
 Dabei ist die kritische Konstante $c$ wieder so zu bestimmen, dass
 
 \begin{equation*}
-\mathbb{P}(\tilde{x}' \beta \in \tilde{x}' \hat{\beta} \pm c \hat{\sigma} \sqrt{\tilde{x}'(X'X)^{-1} \tilde{x}} ~ \text{ für alle } x \in A=(a,b) ) = 1 - \alpha
+\mathbb{P} \left( \tilde{x}' \beta \in \tilde{x}' \hat{\beta} \pm c \hat{\sigma} \sqrt{\tilde{x}'(X'X)^{-1} \tilde{x}} ~ \text{ für alle } x \in A=(a,b) \right) = 1 - \alpha
 \end{equation*}
 
 gilt. 
 
-Es können allerdings nicht direkt die Ergebnisse aus dem letzten Abschnitt benutzen werden. Dies liegt daran, dass es  folgende ungünstige Eigenschaften, die \cite[180]{Liu64} entnommen sind, gibt: 
+Es können allerdings nicht direkt die Ergebnisse aus dem letzten Abschnitt benutzen werden. Der Grund dafür sind die folgenden zwei Eigenschaften, die \cite[180]{Liu64} entnommen sind.
 
 \begin{enumerate}
 \item Angenommen es seien zwei seien zwei polynomiale Modelle $\tilde{x}' \beta_1$ und $\tilde{x}' \beta_2$ gegeben und das erste ist näher an dem wahren Modell als das zweite. Näher meint in diesem Fall, dass
@@ -1174,10 +1187,10 @@ Zu erwarten ist, dass das erste Modell sinnvoll ist, wenn auch das zweite sinnvo
 
 Dies ist allerdings für die bisher betrachteten Konfidenzbänder nicht der Fall, da die bisher betrachteten Verfahren die spezielle polynomiale Struktur nicht berücksichtigen. 
 
-\item Die kritische Konstante $c$ kann kleiner als im letzten Abschnitt gewählt werden. Dies liegt daran, dass das Konfidenzband nur auf einer Teilmenge 
+\item Die kritische Konstante $c$ kann kleiner als im letzten Abschnitt gewählt werden. Der Grund dafür ist, dass das Konfidenzband nur auf einer Teilmenge 
 
 \begin{equation*}
-\{ \tilde{x} \text{ mit } \tilde{x}=(1,x,\ldots,x^p) \text{ für ein } x \in \mathbb{R}\} \subset \mathbb{R}^{p+1}
+\{ \tilde{x} : \tilde{x}=(1,x,\ldots,x^p) \text{ für ein } x \in \mathbb{R}\} \subset \mathbb{R}^{p+1}
 \end{equation*}
 
 die Wahrscheinlichkeit $1-\alpha$ haben muss.
@@ -1185,7 +1198,7 @@ die Wahrscheinlichkeit $1-\alpha$ haben muss.
 
 Als Lösung wird in diesem Abschnitt eine Methode, die auf Simulation basiert, vorgestellt. Das Vorgehen ist also ähnlich zu dem Vorgehen in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell}. Diese Methode orientiert sich an \cite[183,184]{Liu64}.
 
-Im Satz \ref{Basiseigenschaft}, hatten wir das Konfidenzniveau von dem Modell $Y=X\beta+e$, mit $Y,X,\beta,e$ wie üblich, als $\mathbb{P}(S \leq c)$ bestimmt. Dabei ist
+Im Satz \ref{Basiseigenschaft} haben wir das Konfidenzniveau vom Modell $Y=X\beta+e$, mit $Y,X,\beta,e$ wie üblich, als $\mathbb{P}(S \leq c)$ bestimmt. Dabei ist
 
 \begin{eqnarray*}
 S &=& \sup_{x_{0} \in A} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma} \vert}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}} \\
@@ -1194,97 +1207,114 @@ S &=& \sup_{x_{0} \in A} \frac{\vert \tilde{x}'(\hat{\beta}-\beta) /\hat{\sigma}
 &=& K_{2h}(T,(X'X)^{-1},(a,b))
 \end{eqnarray*}
 
-Man beachte, dass in diesem Fall $A=[a,b]$ mit $a,b \in \mathbb{R}$ gilt. Dies liegt daran, dass \gls{X-Tilde}$ = (1, x, x^2, \ldots, x^p)$ ist.
+Man beachte, dass in diesem Fall $A=[a,b]$ mit $a,b \in \mathbb{R}$ gilt. Der Grund dafür ist, dass \gls{X-Tilde}$ = (1, x, x^2, \ldots, x^p)$ ist.
 
-In den obigen Umformungen wurden die Definitionen $ N=(\hat{\beta}-\beta)/\sigma \sim \mathscr{N}_{p+1
-} (0,(X'X)^{-1}) $ , \gls{T}=$N/(\hat{\sigma}/\sigma)\sim\tau_{p+1,v}(0,(X'X)^{-1}) $ und für \gls{K}
+In den obigen Umformungen wurden die Definitionen $ N := (\hat{\beta}-\beta)/\sigma \sim \mathscr{N}_{p+1
+} (0,(X'X)^{-1}) $ , \gls{T} := $N/(\hat{\sigma}/\sigma)\sim\tau_{p+1,v}(0,(X'X)^{-1}) $ und für \gls{K}
 
 \begin{equation*}
-K_{2h}(T,(X'X)^{-1},(a,b) = \sup_{x_{0} \in A} \frac{|\tilde{x}'T|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
+K_{2h}(T;(X'X)^{-1};(a,b)) := \sup_{x_{0} \in A} \frac{|\tilde{x}'T|}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
 benutzt.
 
-Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $S = K_{2h}(T,(X'X)^{-1},(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T,(X'X)^{-1},(a,b))$ nur schwer explizit zu bestimmen.
+Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $S = K_{2h}(T;(X'X)^{-1};(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T;(X'X)^{-1};(a,b))$ nur schwer explizit zu bestimmen.
 
 Um $c$ trotzdem zu ermitteln, kann man $r$ unabhängige Realisationen von $S$ berechnen und von diesen $S_1, \ldots, S_r$ das $1-\alpha$ Quantil benutzen.
 
-Um $S$ für vorgegebenes $N$ und $\hat{\sigma}/\sigma$ zu bestimmen, muss man $K_{2h}(T,(X'X)^{-1},(a,b))$ mit $T=N/(\hat{\sigma}/\sigma)$ berechnen. 
+Um $S$ für vorgegebene $N$ und $\hat{\sigma}/\sigma$ zu bestimmen, muss man $K_{2h}(T;(X'X)^{-1};(a,b))$ mit $T=N/(\hat{\sigma}/\sigma)$ berechnen. 
 
-Um  $K_{2h}(T,(X'X)^{-1},(a,b))$ zu berechnen, kann man folgendes Verfahren aus \cite[Appendix E]{Liu64}  benutzen.
+Um  $K_{2h}(T;(X'X)^{-1};(a,b))$ zu berechnen, kann man folgendes Verfahren aus \cite[Appendix E]{Liu64}  benutzen.
 
-Betrachtet man die Definition von $K_{2h}(T,(X'X)^{-1},(a,b))$, ist klar, dass wir ein Supremum suchen. Das Supremum  kann entweder an $a$ oder an $b$ oder den stationären Punkten der Funktion
+Betrachten wir die Definition von $K_{2h}(T;(X'X)^{-1};(a,b))$, ist klar, dass wir ein Supremum suchen. Gesucht ist das Supremum der Funktion 
 
 \begin{equation*}
 g_h(x) = \frac{\tilde{x}'t}{\sqrt{\tilde{x}'(X'X)^{-1}\tilde{x}}}
 \end{equation*}
 
-angenommen werden, da $g_h$ eine glatte Funktion auf $A$ ist.
+Dazu gibt es zwei Möglichkeiten. Zum einen kann man das Supremum mittels einer Gittersuche näherungsweise bestimmen. Das heißt man gibt sich ein Gitter vor und berechnet dann auf allen Gitterpunkten den Funktionswert. Als Supremum der Funktion wählt man dann den größten Wert aus.
 
-Leitet man $g_h$ ab, erhält man
+Diese Möglichkeit hat den Nachteil, dass eventuell nicht das Maximum, sondern ein zu kleiner Wert benutzt wird. Dafür hat es den Vorteil, dass diese Methode leicht zu implementieren ist und eine gute Laufzeit aufweist. 
+
+Zum anderen gibt es die Möglichkeit das Supremum durch ableiten der Funktion zu bestimmen. Von der Ableitung muss man dann die Nullstellen bestimmen.
+
+Das Bestimmen der Nullstellen einer Funktion hat den Nachteil, dass es nicht einfach zu implementieren ist. Außerdem kann die Laufzeit, gerade bei rechenintensiven Simulationen zur Bestimmung der Überdeckungswahrscheinlichkeit, sehr lang werden. Dafür müsste allerdings immer ein bessere Wert für das Maximum der Funktion berechnet werden.
+
+In \cite{Liu64} wird der zweite Weg vorgeschlagen, der im Folgenden beschrieben wird. Bei den Berechnungen in den späteren Kapiteln dieser Bachelorarbeit wird allerdings ausschließlich der zweite Weg gewählt.
+
+Zuerst beachte, dass das Supremum entweder an $a$ oder an $b$ oder den stationären Punkten der Funktion $g_h$ angenommen werden kann, da $g_h$ eine glatte Funktion auf $A$ ist. Leitet man $g_h$ nach $x$ ab, erhält man
 
 \begin{equation*}
-\frac{d g_h(x)}{dx} = \bigg ( \big ( \frac{d\tilde{x}'}{dx} \big) ~ t ~ \big ( \tilde{x}'(X'X)^{-1}\tilde{x} \big ) - \big ( \tilde{x}'t \big ) \big ( \frac{d\tilde{x}'}{dx} \big ) (X'X)^{-1} \tilde{x} \bigg ) \bigg ( \tilde{x}'(X'X)^{-1}\tilde{x} \bigg )^{-3/2}
+\frac{d g_h}{dx} \left( x \right) = 
+\left( \left( \frac{d\tilde{x}'}{dx} \right) ~ t ~ \left( \tilde{x}'(X'X)^{-1}\tilde{x} \right) - \left( \tilde{x}'t \right) \left( \frac{d\tilde{x}'}{dx} \right) (X'X)^{-1} \tilde{x} \right)
+\left( \tilde{x}'(X'X)^{-1}\tilde{x} \right)^{-3/2}
 \end{equation*}
 
-Also sind die stationären Punkte von $g_h(x)$ gegeben durch die reellen Wurzeln des $(3p-2)$-gradigen Polynoms
+Also sind die stationären Punkte von $g_h(x)$ durch die reellen Wurzeln des $(3p-2)$-gradigen Polynoms
 
 \begin{equation*}
-h(x) = \big(\frac{d\tilde{x}'}{dx}\big) t \big( \tilde{x}'(X'X)^{-1}\tilde{x} \big) - (\tilde{x}'t) \big(\frac{d\tilde{x}'}{dx}\big) (X'X)^{-1} \tilde{x})
+h \left( x \right) = 
+\left( \frac{d\tilde{x}'}{dx} \right) ~t~ 
+\left( \tilde{x}'(X'X)^{-1}\tilde{x} \right) - 
+\left( \tilde{x}'t \right) 
+\left( \frac{d\tilde{x}'}{dx} \right) 
+(X'X)^{-1} \tilde{x}
 \end{equation*}
 
-Um diese Wurzeln zu bestimmen, wurde auf das Intervall $[0,1]$ ein Grid aus \ngridpoly Punkten gelegt. Dann wurde der Wert von \textit{g.prime} auf den Punkten dieses Grids bestimmt und gespeichert. 
+gegeben.
 
-Dabei entspricht \textit{g.prime} der Funktion $h$, die für die Zwecke der Berechnung die Rolle von $\frac{d g_h(x)}{dx}$ übernimmt.
+Um diese Wurzeln zu bestimmen, wird auf das Intervall $[0,1]$ ein Gitter aus \ngridpoly ~Punkten gelegt. Dann wird der Wert von \textit{g.prime} auf den Punkten dieses Gitters bestimmt und gespeichert. 
 
-Anschließend werden aufeinanderfolgende Funktionswerte von $h$ miteinander Multipliziert. Tritt ein Vorzeichenwechsel auf, so ist in dem Intervall zwischen den Funktionswerten mindestens eine Nullstelle. Diese Nullstelle wurde dann mit der R-internen Funktion \textit{uniroot} bestimmt.
+Dabei entspricht \textit{g.prime} der Funktion $h$, die für die Zwecke der Berechnung die Rolle von $\frac{d g_h}{dx}(x)$ übernimmt.
 
-Dieses Vorgehen orientiert sich an dem Vorgehen des R-Paketes \textit{rootsolve} und ist notwendig, da die Funktion \textit{uniroot} nur ein Wurzel findet und nicht alle Wurzeln in dem gegebenen Intervall.
+Anschließend werden aufeinanderfolgende Funktionswerte von $h$ miteinander multipliziert. Tritt ein Vorzeichenwechsel auf, so ist in dem Intervall zwischen den Funktionswerten mindestens eine Nullstelle. Diese Nullstelle werden dann mit der R-internen Funktion \textit{uniroot} bestimmt.
+
+Dieses Vorgehen orientiert sich an dem Vorgehen des R-Paketes \textit{rootsolve} und ist notwendig, da die Funktion \textit{uniroot} nur eine Wurzel und nicht alle Wurzeln in dem gegebenen Intervall findet.
 
 Zusammenfassend geht man bei der Bestimmung von $c$ also wie folgt vor:
 
 \begin{enumerate}
 \item Simuliere $N \sim \mathscr{N}_{p+1}(0,(X'X)^{-1})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v /v}$ mit $v=n-p-1$ und $p$ der Anzahl an unabhängigen Parametern.
-\item Berechne $T=N/\hat{\sigma}/\sigma$.
-\item Bestimme $K_{2h}(T,(X'X)^{-1},(a,b))$. Dazu bestimmt man die Maxima von $g_h$. Um dies zu erreichen bestimmt man die kritischen Stellen der Ableitung von $g_h$. Dazu reicht es die Nullstellen von $h$ zu bestimmen. Hierzu
+\item Berechne $T=N/ (\hat{\sigma}/\sigma)$.
+\item Bestimme $K_{2h}(T;(X'X)^{-1};(a,b))$. Dazu bestimmt man die Maxima von $g_h$. Um dies zu erreichen bestimmt man die kritischen Stellen der Ableitung von $g_h$. Dazu reicht es die Nullstellen von $h$ zu bestimmen. Hierzu
 \begin{enumerate}
 \item Berechne die Funktionswerte von $h$ auf dem Gitter von $a$ bis $b$ mit Feinheit \ngridpoly .
 \item Multipliziere je zwei aufeinander folgende Funtionswerte.
 \item Liegt ein Vorzeichenwechsel vor befindet sich in dem Intervall eine Nullstelle.
 \item Benutze die R-Funktion \textit{uniroot} um die Nullstelle in diesem Intervall zu bestimmen
 \end{enumerate}
-\item Hat man die Nullstellen von $h$, bezeichnet mit $r_1, \ldots, r_n$, gefunden, berechnet man den Funktionswert an diesen Stellen.
+\item Hat man die Nullstellen $r_1, \ldots, r_n$ von $h$ gefunden, berechnet man die Funktionswerte der Funktion $g_h$ an diesen Stellen.
 \item Damit ist $S = \max\{ g(a), g(b), g(r_1), \ldots g(r_n) \}$
 \end{enumerate}
 
-Als nächstes wiederholt man diese Schritte $q$ mal, um $K= \{S_1, \ldots, S_q\}$ zu erhalten. Dann ist $c$ das $1-\alpha$-Quantil von $K$.
+Als nächstes wiederholt man diese Schritte $q$ mal, um $K= \{S_1, \ldots, S_q\}$ zu erhalten. Dann ist $c$ das 1$-\alpha-$Quantil von $K$.
 
 
 
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem dritten Abschnitt fortgeführt, indem zu der Regression mit Grad Drei, dem Konfidenzband auf ganz $\mathbb{R}$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Graphik \ref{KB-poly-BSP} einzeichnet wird.
+Jetzt wird das Beispiel aus dem Abschnitt \ref{Regression und Konfidenzbaender} fortgeführt, indem zu der Regression mit Grad Drei, dem Konfidenzband auf ganz $\mathbb{R}^2$ und dem auf [0,1] noch ein Konfidenzband auf [0,1] für Polynome in die Abbildung \ref{KB-poly-BSP} einzeichnet wird.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-poly}
-  \caption{Weiterführung des Beispiels durch Konfidenzband auf [0,1] für Polynome}
+  \caption{Daten aus Kapitel \ref{Regression und Konfidenzbaender} mit den drei Konfidenzbandarten}
   \label{KB-poly-BSP}
 \end{figure}
 
-Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}^{3}$ und für das Konfidenzband auf [0,1] wurde in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR ~und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
+Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}^{3}$ und für das Konfidenzband auf [0,1] wurden in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR ~und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
 
-Als seed wurde weiterhin \seedsimulation ~benutzt.
+Als Seed wurde weiterhin \seedsimulation ~benutzt.
 
 \end{Beispiel}
 
 \begin{Simulation}
-Die Simulationstabelle aus den letzten beiden Abschnitt wird durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf einem Intervall $A$, in diesem Fall ist wieder $A = \{ (x_1, \ldots, x_p)' : 0 \leq x_i \leq 1, i=1, \ldots, p \}$ aufgrund der Struktur des Modells, beendet. Außerdem wird davon ausgegangen, dass die Designmatrix Polynomgestalt hat.
+Die Simulationstabelle aus den letzten beiden Abschnitt wird durch Überdeckungswahrscheinlichkeiten für die Konfidenzbänder auf einem Intervall $A$ beendet. In diesem Fall ist wieder $A = \{ (x_1, \ldots, x_p)' : 0 \leq x_i \leq 1, i=1, \ldots, p \}$ aufgrund der Struktur des Modells. Außerdem wird davon ausgegangen, dass die Designmatrix Polynomgestalt hat.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+& unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
@@ -2127,6 +2157,7 @@ Man sieht, dass das Konfidenzband weit von den Daten entfernt ist. Vermutlich li
 
 \newpage
 \section{Datenbeschreibung und Resultate}
+\label{Datenbeschreibung und Resultate}
 In diesem Kapitel werden zuerst die Daten beschrieben, die als Motivation für die bisher erklärten Methoden dienten. Danach werden die Methoden auf die Daten angewendet. Zuerst werden die Verschiedenen Methoden Konfidenzbänder zu bestimmen verglichen. Danach werden Polynommodelle von verschiedenem Grad miteinander verglichen. Im letzten Abschnitt werden 10 Kilopascal (kPa) und 30 kPa Daten verglichen. Die Daten entstammen der Arbeit von \cite{Rehfeldt10}.
 
 Die zur Berechnung der Parameter, namentlich $\beta, \sigma$ und der kritischen Werte $c_{\mathbb{R}}, c_{A}, c_{AP}$, und zum erzeugen der Graphiken verwendeten R Skripte können unter 
