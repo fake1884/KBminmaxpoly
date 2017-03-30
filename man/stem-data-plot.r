@@ -5,7 +5,8 @@ time.10.raw=c(0:(nobs.10-1))
 time.10=time.10.raw/max(time.10.raw)
 
 pdf("man/0-Latex/graphics/Stammzellen-10kPa/10kPa-data.pdf", width = 10, height = 8)
-plot(time.10, Y.10, type="l", main="10 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
+par(mar=c(5.1,5.1,4.1,2.1))
+plot(time.10, Y.10, type="l", xlab="relative Zeit", ylab="relatives Wachstum",
      cex=2, lwd=3, cex.axis=2, cex.lab=2)
 dev.off()
 
@@ -14,7 +15,8 @@ time.30.raw=c(0:(nobs.30-1))
 time.30=time.30.raw/max(time.30.raw)
 
 pdf("man/0-Latex/graphics/Stammzellen-30kPa/30kPa-data.pdf",  width = 10, height = 8)
-plot(time.30, Y.30, type="l", main="30 kPa", xlab="relative Zeit", ylab="relatives Wachstum",
+par(mar=c(5.1,5.1,4.1,2.1))
+plot(time.30, Y.30, type="l", xlab="relative Zeit", ylab="relatives Wachstum",
      cex=2, lwd=3, cex.axis=2, cex.lab=2)
 dev.off()
 

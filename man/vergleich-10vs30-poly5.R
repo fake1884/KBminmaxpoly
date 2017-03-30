@@ -45,6 +45,7 @@ inv.X.30=solve(X.mat.30)
 #################################
 # plottet die beiden Modelle mit gesch?tzten Parametern in einer Graphik
 pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf", width = 10, height = 8)
+par(mar=c(5.1,5.1,4.1,2.1))
 plot(time,Y.10,type="l",xlab="Zeit", ylab="Stammzellen", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 lines(time,Y.30, lwd=3)
 curve(beta.10[1]+beta.10[2]*x+beta.10[3]*x^2+beta.10[4]*x^3+
@@ -76,7 +77,7 @@ beta.30=beta.diff[[2]]
 
 # feste Werte
 alpha=0.05
-niter=250
+niter=1000
 grad=5
 
 # kritischen Wert bestimmen
@@ -91,8 +92,9 @@ plot.bsp.10vs30=plot.KB.vergl(Y.10, Y.30, grad, delta.mat[[1]], beta.10, beta.30
 ############################################
 # Graphik erzeugen
 pdf("man/0-Latex/graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf", width = 10, height = 8)
+par(mar=c(5.1,5.1,4.1,2.1))
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.10vs30[[2]]),max(plot.bsp.10vs30[[3]])),
-     xlab="relative Zeit", ylab="relatives gr??e des Unterschieds", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+     xlab="relative Zeit", ylab="relatives Größe des Unterschieds", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 lines(c(1,0),c(0,0), lwd=3)
 curve(beta.10[1]-beta.30[1] + (beta.10[2]-beta.30[2])*x+
         (beta.10[3]-beta.30[3])*x^2+(beta.10[4]-beta.30[4])*x^3+

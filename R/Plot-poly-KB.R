@@ -47,7 +47,7 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
 
   # allgemeine Werte
   alpha=0.05
-  niter=250
+  niter=1000
 
   # Designmatritzen anpassen
   Delta.mat.4.5=Delta(inv.X.4, inv.X.5)
@@ -91,6 +91,7 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
   # Graphiken erzeugen
   gp=paste(graphicspath,"-4-5.pdf",sep="")
   pdf(file=gp, width = 10, height = 8)
+  par(mar=c(5.1,5.1,4.1,2.1))
   # Grad 4 vs Grad 5
   plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.5[[2]])-0.01,max(plot.bsp.vergl.4.5[[3]])+0.01),
        xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
@@ -105,6 +106,7 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
   gp=paste(graphicspath,"-4-6.pdf",sep="")
   pdf(file=gp, width = 10, height = 8)
   # Grad 4 vs Grad 6
+  par(mar=c(5.1,5.1,4.1,2.1))
   plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.4.6[[2]])-0.01,max(plot.bsp.vergl.4.6[[3]])+0.01),
        xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
   lines(c(1,0),c(0,0), lwd=3)
@@ -119,6 +121,7 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
   gp=paste(graphicspath,"-5-6.pdf",sep="")
   pdf(file=gp, width = 10, height = 8)
   # Grad 5 vs Grad 6
+  par(mar=c(5.1,5.1,4.1,2.1))
   plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl.5.6[[2]])-0.01,max(plot.bsp.vergl.5.6[[3]])+0.01),
        xlab="relative Zeit", ylab="relativer Unterschied", cex=2, lwd=3, cex.axis=2, cex.lab=2)
   lines(c(1,0),c(0,0), lwd=3)

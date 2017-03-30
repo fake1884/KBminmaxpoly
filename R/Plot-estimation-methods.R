@@ -29,7 +29,7 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
 
   # initialize fixed values
   alpha=0.05
-  niter=250
+  niter=1000
 
   # kritische Werte bestimmen
   # alpha, data, grad, inv.X
@@ -53,6 +53,7 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
   # plot der Daten
   pdf(graphicspath, width = 10, height = 8)
   time=1:144/144
+  par(mar=c(5.1,5.1,4.1,2.1))
   plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])), xlab="relative Zeit",
      ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
   lines(time,data.set, lwd=3)

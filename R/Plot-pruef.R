@@ -6,7 +6,7 @@ Plot.pruef = function(data, grad, k, graphicspath){
   if(data=="Y.10"){data.set=Y.10}else if(data=="Y.30"){data.set=Y.30}
 
   alpha=0.05
-  niter=250
+  niter=1000
   nobs=length(data.set)
   ngridpoly=nobs
   ngrid=nobs
@@ -57,12 +57,21 @@ Plot.pruef = function(data, grad, k, graphicspath){
   plot.KB.R=plot.KB.pruef( nobs , grad, X.mat.inv , beta, sigma, factor = par.bsp.R[[1]], k, ngrid )
 
   # Graphik erzeugen
-  if(data=="Y.10"){main.text="10 kPa"}else if(data=="Y.30"){main.text="30 kPa"}
+  if (plot.KB.R[[2]][nobs] > 0 && plot.KB.R[[3]][nobs] > 0)
+  {legendplace="topleft"}else
+      if (plot.KB.R[[2]][nobs] < 0 && plot.KB.R[[3]][nobs] < 0)
+      {legendplace="bottomleft"}else if(data == "Y.30" && k == 2)
+          {legendplace="topleft"}else
+          {legendplace="bottomleft"}
 
   pdf(graphicspath, width=10,height=8)
-  plot(x, x.2 %*% beta.2, type="l", main=main.text, xlab="relative Zeit", ylab="relatives Wachstum",
-       cex=2, lwd=3, cex.axis=2, cex.lab=2, lty="dashed")
+  par(mar=c(5.1,5.1,4.1,2.1))
+  plot(x, x.2 %*% beta.2, type="l", xlab="relative Zeit", ylab="relatives Wachstum",
+       cex=2, lwd=3, cex.axis=2, cex.lab=2, lty="dashed", ylim=c(min(plot.KB.R[[2]]),max(plot.KB.R[[3]])))
+  lines(c(1,0),c(0,0), lwd=3, lty="dotted")
   lines(x, plot.KB.R[[2]], lty="solid", lwd=3)
   lines(x, plot.KB.R[[3]], lty="solid", lwd=3)
+  legend(x=legendplace, legend=c("x.2 %*% beta.2", "Konfidenzband", "Nullfunktion"),
+         col=c("black", "black", "black"),cex=2, lwd=3, lty=c("solid", "dashed", "dotted"))
   dev.off()
 }

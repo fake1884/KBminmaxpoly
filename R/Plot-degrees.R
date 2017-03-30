@@ -20,6 +20,7 @@ Plot.degrees = function(data.set, degree, graphicspath){
   # Graphik erzeugen
   pdf(graphicspath, width = 10, height = 8)
   time=1:144/144
+  par(mar=c(5.1,5.1,4.1,2.1))
   plot(time, data.set, type="l", xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3,
        cex.axis=2, cex.lab=2)
   curve(Y.gls.4$coefficients[1]+Y.gls.4$coefficients[2]*x+Y.gls.4$coefficients[3]*x^2+

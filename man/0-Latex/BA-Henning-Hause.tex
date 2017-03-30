@@ -31,7 +31,7 @@
 \usepackage[babel,german=guillemets]{csquotes}
 \addbibresource{literature.bib} 
 
-% Graphiken
+% Abbildungen
 %\usepackage{graphics}
 \usepackage{graphicx}
 \graphicspath{{graphics/Beispiel/}{graphics/Stammzellen-10kPa/}{graphics/Stammzellen-30kPa/}{graphics/Stammzellen-Vergleich/}}
@@ -518,7 +518,7 @@ Als nächstes wird $\beta = \betatrue$ und $\sigma = \sigmatrue$ gewählt.
 
 Dann wird $e \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$ generiert und  $Y$ nach dem Modell \eqref{Grundmodell_Regression} berechnet.
 
-In der Graphik \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
+In der Abbildung \ref{Beispieldaten} sind die Datentupel $(Y,G)$ eingezeichnet:
 
 \begin{figure}[H] 
   \centering
@@ -547,7 +547,7 @@ Man kann ohne Einschränkung der Allgemeinheit davon ausgehen, dass die Elemente
 
 Insgesamt erhält man aus $\tilde{\beta}$ wieder $\beta$ indem man mit $\max(Y)$ multipliziert.  
 
-Benutzt man die Formeln \eqref{beta} und \eqref{sigma} von oben erhält man  $\hat{\beta}$ = \betaoneest ~und $\widehat{\sigma^2}$ = \sigmaoneest. In der Graphik \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
+Benutzt man die Formeln \eqref{beta} und \eqref{sigma} von oben erhält man  $\hat{\beta}$ = \betaoneest ~und $\widehat{\sigma^2}$ = \sigmaoneest. In der Abbildung \ref{Beispieldaten_Regressionsgerade} sind die Daten mit der Regressionsgerade eingezeichnet.
 
 \begin{figure}[H] 
   \centering
@@ -622,7 +622,7 @@ In dieser Ausarbeitung werden nur gleichmäßige Konfidenzbänder betrachten.
 
 %\begin{Beispiel}
 %
-%In der folgenden Graphik wird das Beispiel aus dem vorherigen Absatz um punktweise wie auch simultane Konfidenzbänder erweitert. Das punktweise Konfidenzband wurde mit \cite[15]{Liu64} bestimmt. Für das gleichmäßige Konfidenzband wurde die Methode aus dem nächsten Abschnitt verwendet.
+%In der folgenden Abbildungen wird das Beispiel aus dem vorherigen Absatz um punktweise wie auch simultane Konfidenzbänder erweitert. Das punktweise Konfidenzband wurde mit \cite[15]{Liu64} bestimmt. Für das gleichmäßige Konfidenzband wurde die Methode aus dem nächsten Abschnitt verwendet.
 %
 %\begin{figure}[H] 
 %  \centering
@@ -710,7 +710,7 @@ Wenn Modell \eqref{Grundmodell_Regression} homoskedastisch ist, gilt mit Satz \r
 \item Benutzt man Modell \eqref{Grundmodell_Regression} und die Voraussetzung $ e \sim \mathscr{N}_{n}(0,\sigma^2 I_n)$, so folgt $Y=X \beta + e \sim \mathscr{N}_{n}(X\beta,\sigma^2 I_n)$. Da aus \eqref{beta} folgt, dass $\hat{\beta} = (X'X)^{-1} X' Y$ gilt, ist $\hat{\beta}$ eine Linearkombination von $Y$. Daraus folgt, dass auch $\hat{\beta}$ normalverteilt ist. Es genügt also den Erwartungswert und die Kovarianz zu bestimmen. 
 
 \begin{align*}
-E(\hat{\beta}) = E((X'X)^{-1}X'Y) = (X'X)^{-1} X' E(Y) = (X'X)^{-1} X'X \beta = \beta
+\mathbb{E}(\hat{\beta}) = \mathbb{E}((X'X)^{-1}X'Y) = (X'X)^{-1} X' \mathbb{E}(Y) = (X'X)^{-1} X'X \beta = \beta
 \end{align*}
 
 und
@@ -724,7 +724,7 @@ und
 \item Da nach \eqref{e} gilt, dass $\hat{e}=(I-H)Y$, ist $\hat{e}$ auch eine Linearkombination von Elementen aus $Y$. Da $Y$ normalverteilt ist, ist es also auch $\hat{e}$. Berechnet man wieder Erwartungswert und Kovarianz, erhält man:
 
 \begin{eqnarray*}
-E(\hat{e}) &=& E((I-H)Y) = (I-H)E(Y) = (I-H)X\beta \\ 
+\mathbb{E}(\hat{e}) &=& \mathbb{E}((I-H)Y) = (I-H)\mathbb{E}(Y) = (I-H)X\beta \\ 
 &=& (I-X(X'X)^{-1}X')X = X-X(X'X)^{-1}X'X = X-X = 0
 \end{eqnarray*}
 
@@ -1217,7 +1217,7 @@ K_{2h}(T;(X'X)^{-1};(a,b)) := \sup_{x_{0} \in A} \frac{|\tilde{x}'T|}{\sqrt{\til
 \end{equation*}
 
 benutzt.
-
+$f$
 Es ist also klar, dass $c$ das $1-\alpha$ Quantil von $S = K_{2h}(T;(X'X)^{-1};(a,b))$ ist. Allerdings ist die Verteilung von $K_{2h}(T;(X'X)^{-1};(a,b))$ nur schwer explizit zu bestimmen.
 
 Um $c$ trotzdem zu ermitteln, kann man $r$ unabhängige Realisationen von $S$ berechnen und von diesen $S_1, \ldots, S_r$ das $1-\alpha$ Quantil benutzen.
@@ -1340,22 +1340,22 @@ Es seien also, ähnlich wie in \cite[113]{Liu64} und \cite[178]{Liu64}, zwei Reg
 
 \begin{equation}
 \label{Grundmodell_Hypothesentest}
-Y_{i} = X_{i} \beta_{i} + e_{i}
+Y_{i} = X_{i} \beta_{i} + e_{i} \text{ mit } i = 1,2  
 \end{equation}
 
-mit $i = 1,2$ gegeben. 
+gegeben.
 
-Dabei ist $Y_{i} = (Y_{i,1}, \ldots, Y_{i,n_i})$ ein für $i=1,2$ ein Vektor aus zufälligen Beobachtungen der die abhängigen Daten darstellt.
+Dabei seien $Y_{i} = (Y_{i,1}, \ldots, Y_{i,n_i})$ für $i=1,2$ zwei Vektoren mit zufälligen Beobachtungen, die die abhängigen Daten darstellt.
 
-Weiterhin sei $X_i$ für $i=1,2$ eine $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei ist die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots, \min(n_1, n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen für $j=1, \ldots, \min(n_1, n_2)$ dasselbe, feste Design haben.
+Weiterhin seien $X_i$ für $i=1,2$ zwei $n_i \times (p+1)$ Designmatrix mit vollem Zeilenrang und festem Design. Dabei sei die $j$-te Zeile von $X_1$ mit der $j$-ten Zeile von $X_2$ für $j=1,\ldots, \min(n_1, n_2)$ identisch. Diese Bedingung bedeutet, dass beide Designmatrizen für $j=1, \ldots, \min(n_1, n_2)$ dasselbe, feste Design haben.
 
-Außerdem sind $\beta_i$ zwei $(p+1) \times 1$ Koeffizientenvektoren, die den funktionalen Zusammenhang zwischen $Y_i$ und $X_i$ darstellen.
+Außerdem seien $\beta_i$ zwei $(p+1) \times 1$ Koeffizientenvektoren, die den funktionalen Zusammenhang zwischen $Y_i$ und $X_i$ darstellen.
 
-In diesem Kapitel ist $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Diese Annahme ist wichtig, da sich die Modelle somit nur in $\beta_i$ unterscheiden.
+In diesem Kapitel sei $e_i \sim \mathscr{N}_{n_i}(0,\sigma^2 I_{n_i})$. Diese Annahme ist wichtig, da sich die Modelle somit nur in $\beta_i$ unterscheiden.
 
 Die zugrunde liegenden Modelle sind also gleich, wenn $\beta_{1}=\beta_{2}$ 
 
-Da die Werte von $\beta_{i}$ unbekannt sind und nur geschätzt werden können, testet man, ob 
+Da die Werte von $\beta_{i}$ unbekannt sind und nur geschätzt werden können, testet man
 
 \begin{equation}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2} \label{Hypothese}
@@ -1363,23 +1363,23 @@ H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2} 
 
 Dabei bezeichnet $H_{0}$ die \gls{Nullhypothese} und $H_{1}$ die Alternativhypothese.
 
-Dazu ist es entweder möglich einen Test zu konstruieren oder Konfidenzbänder zu benutzen. Im nächsten Abschnitt wird einen Test konstruieren und im übernächsten Abschnitt Konfidenzbänder benutzt.
+Dazu ist es entweder möglich einen Test zu konstruieren oder Konfidenzbänder zu benutzen. In Abschnitt \ref{Vergleich F-Test} wird ein Test konstruiert und im Abschnitt \ref{Konfidenzbaender vergleich} werden Konfidenzbänder benutzt.
 
 Es ist mit der in diesem Kapitel eingeführten Methode auch möglich zwei Modelle mit verschiedenen abhängigen Daten zu vergleichen. 
 
-Ein Beispiel für solch ein vorgehen ist der Vergleich des Blutdrucks von Männern und Frauen. Konkret kann man mit dieser Methode die Frage beantworten, ob sowohl für Männer, als auch für Frauen, der Zusammenhang zwischen zum Beispiel Alter und Blutdruck gleich ist.
+Ein Beispiel für solch ein Vorgehen ist der Vergleich des Blutdrucks von Männern und Frauen. Konkret kann man mit dieser Methode beispielsweise die Frage beantworten, ob sowohl für Männer als auch für Frauen der Zusammenhang zwischen Alter und Blutdruck gleich ist.
 
 \begin{Beispiel}
 Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem eine zweite Designmatrix $X_2$ einführt wird. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad Vier dar. 
 
-Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits im Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Vier zugrunde zu legen. 
+Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits in Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Vier zugrunde zu legen. 
 
-In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
+In der Abbildung \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-beide-in-einem-plot}
-  \caption{Regression von Grad Drei und Grad Vier im Vergleich}
+  \caption{polynomielle Regression von Grad Drei und Grad Vier im Vergleich}
   \label{Vergleich-Bsp}
 \end{figure}
 
@@ -1396,19 +1396,19 @@ In der folgenden Graphik \ref{Vergleich-Bsp} sind die beiden Modelle mit den Dat
 
 
 
-\subsection{F-Test}
+\subsection{F-Test zum Vergleich von zwei Regressionsmodellen}
 \label{Vergleich F-Test}
 Dieser Abschnitt beruht auf \cite[9-15]{Liu64} ,\cite[114-115]{Liu64} und \cite{Draper98}.
 
-Zuerst betrachten wir den Test, zu prüfen, ob der Regressionskoeffizient $\beta$ eine lineare Einschränkung $Z \beta = d$ erfüllt. Dabei ist $Z$ eine gegebene $r \times (p+1)$ Matrix mit vollem Zeilenrank $r$ mit $1 \leq r \leq p+1$ und $d$ ist ein vorgegebener Vektor in $\mathbb{R}^r$. Wir wollen testen, ob
+Zuerst betrachten wir den Test, der prüft, ob der Regressionskoeffizient $\beta$ eine lineare Einschränkung $Z \beta = d$ erfüllt. Dabei ist $Z$ eine gegebene $r \times (p+1)$ Matrix mit vollem Zeilenrang $r$ mit $1 \leq r \leq p+1$ und $d$ ist ein vorgegebener Vektor in $\mathbb{R}^r$. Wir wollen  also testen, ob
 
 \begin{equation}
 H_{0} : Z \beta = d  \textbf{ vs. }  H_{a} : Z \beta \neq d \label{Einschränkung_Hypothese}
 \end{equation}
 
-Von Interesse ist, ob der Parameter in einem gegebenen Regressionsmodell eine lineare Einschränkung erfüllt.
+Von Interesse ist also, ob der Parameter in einem gegebenen Regressionsmodell eine lineare Einschränkung erfüllt.
 
-Dazu wird zuerst der OLS-Schätzer $\hat{\beta}_Z$ unter der Bedingung, dass $Z \beta = d$ benötigt. Das heißt, $\hat{\beta}_Z$ minimiert
+Dazu wird zuerst der OLS-Schätzer $\hat{\beta}_Z$ unter der Bedingung, dass $Z \beta = d$ gilt, benötigt. Das heißt, $\hat{\beta}_Z$ minimiert
 
 \begin{align*}
 L(\beta) = (Y-X\beta)'(Y-X\beta) = \Vert Y - X \beta \Vert^2
@@ -1416,7 +1416,7 @@ L(\beta) = (Y-X\beta)'(Y-X\beta) = \Vert Y - X \beta \Vert^2
 
 über alle $\beta \in \mathbb{R}^{p+1}$, die die Bedingung $Z \beta = d$ erfüllen. Man kann $\hat{\beta}_Z$ mittels Lagrange-Multiplikatoren finden. 
 
-Betrachtet wird dazu dazu nachfolgender Satz.
+Betrachtet wird dazu der nachfolgende Satz.
 
 \begin{Satz}
 Unter den oben genannten Bedingungen ist der OLS-Schätzer $\hat{\beta}_Z$ gegeben durch 
@@ -1429,20 +1429,21 @@ mit $f=(Z(X'X)^{-1}Z')^{-1}(d-Z\hat{\beta})$
 \end{Satz}
 
 \begin{proof}
-\cite[13]{Liu64}
+Siehe \cite[13]{Liu64}
 \end{proof}
 
-Bedeutung hat im Weiteren der folgende Satz:
+Im Folgenden werden zwei Sätze aus \cite{Liu64} angegeben, die wir zur Konstruktion des Test im weiteren Verlauf dieses Abschnittes benötigen.
 
 \begin{Satz}
 Unter den oben genannten Bedingungen gilt
 \begin{enumerate}
 \item $\Vert X \hat{\beta} - X\hat{\beta}_Z \Vert^2  \sim \sigma^2 \chi_r^2(\delta)$ mit nicht zentralem Parameter 
 
-$\delta = \Vert X \beta - X E(\hat{\beta}_Z) \Vert^2 / \sigma^2 = (\beta - E(\hat{\beta}_Z))' X'X (\beta - E(\hat{\beta}_Z)) / \sigma^2$
+$\delta = \Vert X \beta - X \mathbb{E}(\hat{\beta}_Z) \Vert^2 / \sigma^2 = (\beta - \mathbb{E}(\hat{\beta}_Z))' X'X (\beta - \mathbb{E}(\hat{\beta}_Z)) / \sigma^2$
 \item $\Vert Y - X \hat{\beta}_Z \Vert^2  \sim \sigma^2 \chi_{n-(p+1)+r}^2(\delta)$ mit $\delta$ wie in 1.
 \item $\Vert X \hat{\beta} - X\hat{\beta}_Z \Vert^2$ und $\Vert Y - X \hat{\beta}_Z \Vert^2$ sind unabhängig.
-\item \begin{equation*}
+\item Außerdem ist
+\begin{equation*}
 \frac{\Vert X \hat{\beta}_Z - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} \sim f_{p+1,n-p-1}
 \end{equation*}
 \end{enumerate}
@@ -1458,6 +1459,8 @@ Damit kann ein Test zum Niveau $1-\alpha$ konstruiert werden:
 \textnormal{Es ist }  H_0 \textnormal{ genau dann abzulehnen, wenn } \frac{\Vert X \hat{\beta}_Z - X\hat{\beta} \Vert^2 / r}{\Vert Y - X \hat{\beta} \Vert^2 / (n-p-1)} > f_{p+1,n-p-1}^{\alpha} \label{Einschränkung_Test}
 \end{equation}
 
+Dabei ist $f_{p+1,n-p-1}^{\alpha}$ das $\alpha-$Quantil der F-Verteilung mit den Freiheitsgraden $p+1$ und $n-p-1$.
+
 Gleich wird noch folgender Satz aus \cite[13]{Liu64} benötigt:
 
 \begin{Satz}
@@ -1472,9 +1475,9 @@ Es gilt
 \cite[13]{Liu64}
 \end{proof}
 
-Jetzt wird dieses Resultat auf den Vergleich von Regressionsmodellen anwendet. Dabei wird sich an \cite[114]{Liu64} orientiert. 
+Jetzt wird dieses Resultat auf den Vergleich von Regressionsmodellen angewendet. Dabei wird sich an \cite[114]{Liu64} orientiert. 
 
-Betrachten wir wieder das Modell \ref{Grundmodell_Hypothesentest} aus der Einleitung. Außerdem wird wieder das Testproblem \eqref{Hypothese} betrachtet:
+Betrachten wir wieder Modell \eqref{Grundmodell_Hypothesentest} vom Anfang dieses Kapitels. Außerdem wird wieder das Testproblem \eqref{Hypothese} betrachtet:
 
 \begin{equation*}
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2}
@@ -1484,8 +1487,8 @@ Um einen solchen Test durchzuführen, benötigt man eine Dummyvariable $z$:
 
 \begin{equation*}
 z=\begin{cases}
-1 & \text{falls Y aus dem Modell 1 ist.}\\
-0 & \text{falls Y aus dem Modell 2 ist.} 
+1 & \text{falls Y aus Modell 1 ist.}\\
+0 & \text{falls Y aus Modell 2 ist.} 
 \end{cases}
 \end{equation*}
 
@@ -1527,7 +1530,7 @@ Jetzt kann \eqref{Einschränkung_Test} benutzt werden und man erhält als Testst
 \frac{(\hat{\beta_1}-\hat{\beta_2})'D (\hat{\beta_1}-\hat{\beta_2})/(p+1)}{\widehat{\sigma^2}} > f^{\alpha}_{p+1,n-p-1}\label{Teststat_final}
 \end{equation}
 
-Dabei ist $\widehat{\sigma^2}$ die mittlere Varianz des Modells \eqref{Grundmodell_umformuliert}, $\hat{\beta_i} = (X_i'X_i)^{-1}X_iY$ und \gls{D}=$(X_1'X_1)^{-1}+(X_2'X_2)^{-1}$. 
+Dabei ist $\widehat{\sigma^2}$ die mittlere Varianz des Modells \eqref{Grundmodell_umformuliert}, $\hat{\beta_i} = (X_i'X_i)^{-1}X_iY$ und außerdem bezeichnet \gls{D}=$(X_1'X_1)^{-1}+(X_2'X_2)^{-1}$. 
 
 Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_Test} hergeleitet werden kann, ist folgende Rechnung nach \cite[115]{Liu64} zu betrachten. Dabei erfolgt in der Betrachtung allerdings ausschließlich die Berechnung für den Nenner.
 
@@ -1546,7 +1549,7 @@ Um zu sehen, dass \eqref{Teststat_final} tatsächlich aus \eqref{Einschränkung_
 %(A\hat{c}-b)'(A(X'X)^{-1}A')^{-1}(A\hat{c}-b)/r = (\hat{\beta}_1 - \hat{\beta}_2)' D (\hat{\beta}_1-\hat{\beta}_2)/(p+1)
 %\]
 
-Für den Nenner betrachtet man
+Den Nenner der linken Seite von \eqref{Teststat_final} kann man schreiben als
 
 \begin{align*}
 \widehat{\sigma^2}  &= \frac{\Vert Y-X \hat{c} \Vert}{n_1 + n_2 - 2(p+1)} \\
@@ -1555,7 +1558,7 @@ Für den Nenner betrachtet man
 				&= \frac{n_1-p-1}{n_1+n_2-2(p+1)} \widehat{\sigma_{1}^2}+ \frac{n_2-p-1}{n_1+n_2-2(p+1)} \widehat{\sigma_{2}^2}
 \end{align*}
 
-Es wird nun das Beispiel aus der Einleitung zu diesem Kapitel fortgeführt
+Es wird nun das Beispiel aus der Einleitung zu diesem Kapitel fortgeführt.
 
 \begin{Beispiel}
 Berechnet man die Teststatistik \eqref{Teststat_final} erhält man als Teststatistik den Wert \TestWert ~und als kritischen Wert \kritWert . Also \EntscheidungHypothesen ~man die Hypothese. Die Modelle sind also \Modellesind .
@@ -1566,7 +1569,7 @@ Allerdings macht solch ein Test keinerlei Aussage über die Größe des Untersch
 
 \subsection{Vergleich von Regressionsmodellen mit Konfidenzbändern}
 \label{Konfidenzbaender vergleich}
-Dieser Abschnitt basiert auf \cite[119-121]{Liu64}
+Dieser Abschnitt basiert auf \cite[119-121]{Liu64}.
 Die grundlegende Idee ist, die Modelle voneinander abzuziehen und dann zu sehen, ob die Nullfunktion in einem Konfidenzband um die Differenz der beiden Modelle liegt.
 
 Es wird dies nach \cite[122]{Liu64} formalisiert: 
@@ -1579,7 +1582,7 @@ x'\beta_2-x'\beta_1 \in x' \hat{\beta}_1 - x' \hat{\beta}_2 \pm c ~ \hat{\sigma}
 
 wobei $c$ eine kritische Konstante ist, sodass das Konfidenzniveau des Konfidenzbandes $1-\alpha$ beträgt. Dabei ist $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$
 
-Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ wie im ersten Kapitel und definiere $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$, welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Lemma \ref{Basiseigenschaft} , dass das simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
+Sei $P$ die eindeutig bestimmte Wurzel aus $D = (X_1'X_1)^{-1} + (X_2'X_2)^{-1}$ und definiere weiterhin $T=P^{-1}(\hat{\beta}_2 - \beta_2 - \hat{\beta}_1 + \beta_1)/\hat{\sigma}$, welches wieder die $\tau_{p+1,v}$ Verteilung besitzt. Es folgt wie in Lemma \ref{Basiseigenschaft} , dass das simultane Konfidenzband \eqref{Vergleich-KB} gegeben ist durch $\mathbb{P}(S<c)$ mit
 
 \begin{eqnarray*}
 S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\hat{\sigma}\sqrt{x' D x}}\\
@@ -1589,15 +1592,15 @@ S &=& \sup_{x \in A} \frac{x' (\hat{\beta}_2-\beta_2-\hat{\beta}_1+\beta_1)}{\ha
 
 Also kann die kritische Konstante $c$ genauso wie in Kapitel \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} beziehungsweise wie in Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} gefunden werden.
 
-Zum Schluss dieses Abschnittes zeigen wir noch ein Resultat, dass zeigt, dass es keinen Unterschied macht, ob ein Test durchgeführt oder ein Konfidenzband auf ganz $\mathbb{R}^{p}$ benutzt wird. 
+Jetzt zeigen wir noch ein Resultat, das zeigt, dass es keinen Unterschied macht, ob ein Test durchgeführt oder ein Konfidenzband auf ganz $\mathbb{R}^{p}$ benutzt wird. 
 
-Dabei handelt es sich um den Test 
+Betrachten wir den Test 
 
 \begin{equation*}
 H_0 : \beta = \beta_0 \textbf{ vs. } H_1 : \beta \neq \beta_0
 \end{equation*}
 
-Das heißt es wird getestet, ob das Regressionsmodell $x' \beta$ dem wahren Modell $x' \beta_0$ entspricht. Dieser Test entspricht einem F-Test mit $Z=I_{p+1}$ und $\beta_0 = d$. Die Teststatistik ist nach \cite[17]{Liu64}
+Das heißt, es wird getestet, ob das Regressionsmodell $x' \beta$ dem wahren Modell $x' \beta_0$ entspricht. Dieser Test entspricht einem F-Test mit $Z=I_{p+1}$ und $\beta_0 = d$. Die Teststatistik ist nach \cite[17]{Liu64}
 
 \begin{equation}\label{Test-Satz}
 \textnormal{Es ist } H_0 \textnormal{ genau dann zu verwerfen, wenn } 
@@ -1607,11 +1610,11 @@ Das heißt es wird getestet, ob das Regressionsmodell $x' \beta$ dem wahren Mode
 Satz und Beweis orientieren sich an \cite[67]{Liu64}.
 
 \begin{Satz}
-Der Test \eqref{Test-Satz} und Konfidenzbandmethode \eqref{KB_Eigenschaft}, das ist das Konfidenzband auf ganz $\mathbb{R}^{p}$, akzeptieren und widerlegen $H_0$ immer dann, wenn auch die andere Methode akzeptiert beziehungsweise widerlegt.
+Der Test \eqref{Test-Satz} und Konfidenzbandmethode \ref{KB_Eigenschaft} akzeptieren und widerlegen $H_0$ immer dann, wenn auch die andere Methode akzeptiert beziehungsweise widerlegt.
 \end{Satz}
 
 \begin{proof}
-Benutzt man die Definition von $N$ wie bisher, außer das man $\beta$ mit $\beta_0$ ersetzt, erhält man
+Benutzt man die Definition von $N$ wie bisher, außer dass man $\beta$ mit $\beta_0$ ersetzt, erhält man
 
 \begin{eqnarray*}
 \sqrt{(p+1) f^{\alpha}_{p+1,n-p-1}} &<& \sup_{x_{(0)} \in \mathbb{R}^p} \frac{|x'(\hat{\beta}-\beta_0) |}{\hat{\sigma} \sqrt{x'(X'X)^{-1}x}} \\
@@ -1622,17 +1625,19 @@ Benutzt man die Definition von $N$ wie bisher, außer das man $\beta$ mit $\beta
 &=& \sqrt{\frac{(\hat{\beta}-\beta_0)' (X'X)^{-1} (\hat{\beta}-\beta_0)}{\widehat{\sigma^2}}}
 \end{eqnarray*}
 
-Dies entspricht der Teststatistik \eqref{Test-Satz}, also sind die beiden Test äquivalent.
+Dies entspricht der Teststatistik \eqref{Test-Satz}, also sind die beiden Tests äquivalent.
 \end{proof}
 
-Dies bedeutet, dass es von einem Interferenzstandpunkt her immer besser ist, ein Konfidenzband auf einem Intervall zum Vergleich von zwei Modellen zu verwenden.
+Man beachte, dass in diesem Satz das Konfidenzband auf ganz $\mathbb{R}^{p}$ benutzt wurde. 
 
-Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall eine bessere Inferenz zulassen als Konfidenzbänder auf ganz $\mathbb{R}^{p}$. Also ist es auch in dieser Hinsicht von Vorteil, Konfidenzbänder auf Intervallen zu verwenden.
+Das bedeutet, dass man mehr Informationen über ein gegebenes Entscheidungsproblem erhält, wenn man ein Konfidenzband berechnet, als wenn man einen Test durchführt. Dies liegt daran, dass das Konfidenzband auch eine Aussage über die Größe des Unterschiedes zwischen den Modellen macht.
+
+Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf einem Intervall und erst recht Konfidenzbänder für Polynome auf einem Intervall schmaler als Konfidenzbänder auf ganz $\mathbb{R}^{p}$ sind. Also ist es auch in dieser Hinsicht von Vorteil, Konfidenzbänder auf Intervallen zu verwenden.
 
 %Was passiert, wenn eines der Modelle weniger Dimensionen (im Sinne der Designmatrix) als das andere hat ?
 
 \begin{Beispiel}
-Es wird jetzt das Beispiel aus den vorherigen Abschnitten fortgeführt, indem die Differenz der Regressionsmodelle geplottet wird und ein Konfidenzbänder auf $A$ für Polynome einfügt wird:
+Es wird jetzt das Beispiel aus dem Abschnitt \ref{Vergleich F-Test} fortgeführt, indem die Differenz der Regressionsmodelle geplottet wird und ein Konfidenzbänder auf $A$ für Polynome einfügt wird. Siehe dazu Abbildung \ref{KB-poly-hetero-BSP}.
 
 \begin{figure}[H] 
   \centering
@@ -1657,33 +1662,33 @@ Man sieht, dass die konstante Nullfunktion ganz im Konfidenzband enthalten ist. 
 
 
 \newpage
-\section{Teil eines Regressionsmodells überprüfen}
+\section{Einen Teil eines Regressionsmodells überprüfen}
 \label{Teil eines Regressionsmodells überprüfen}
-In diesem Abschnitt geht es um den Spezialfall zu prüfen, ob ein Teil des Regressionsmodells signifikant von Null verschieden ist oder nicht.  Das heißt, wir gehen von dem Modell
+In diesem Abschnitt geht es um den Spezialfall, zu prüfen, ob ein Teil des Regressionsmodells signifikant von Null verschieden ist oder nicht.  Das heißt, wir gehen von dem Modell
 
 \begin{equation} \label{RegprüfModell}
 Y=X \beta + e
 \end{equation}
 
-und wollen prüfen, ob einige der Koeffizienten $\beta_i$ gleich Null sind oder nicht. Ist $\beta_i$ gleich Null haben die zugehörigen unabhängigen Variablen $x_i$ keinen Einfluss auf die abhängige Variable $Y$.  
+aus und wollen prüfen, ob einige der Koeffizienten $\beta_i$ gleich Null sind oder nicht. Ist $\beta_i$ gleich Null haben die zugehörigen unabhängigen Variablen $x_i$ keinen Einfluss auf die abhängige Variable $Y$.  
 
 Zu diesem Zweck unterteilen wir den Vektor $\beta=(\beta_1,\beta_2)$ mit $\beta_1=(\beta_0, \ldots, \beta_{p-k})$ und $\beta_2=(\beta_{p-1+1}, \ldots, \beta_{p})$ für $1 \leq k \leq p$ eine gegebene natürliche Zahl. 
 
-Auf die gleiche Art und Weise kann man die Spalten $x$ von $X$ in $x_1=(1,x_1, \ldots, x_{p-k})$ und $x_2=(1,x_{p-k+1}, \ldots, x_{p})$ unterteilen.
+Auf die gleiche Art und Weise kann man die Spalten $x$ von $X$ in $x_1=(1,x_1, \ldots, x_{p-k})$ und $x_2=(1,x_{p-k+1}, \ldots, x_{p})$ unterteilen. Dabei wird das selbe $k$ für $\beta$ und für $X$ verwendet.
 
-Ist $\beta_2=0$ so haben die unabhängigen Variablen $x_{p-k+1}, \ldots, x_p$ keinen Einfluss auf $Y$ und man kann das Modell \ref{RegprüfModell} auf 
+Ist $\beta_2=0$ so haben die unabhängigen Variablen $x_{p-k+1}, \ldots, x_p$ keinen Einfluss auf $Y$ und man kann Modell \eqref{RegprüfModell} zu 
 
 \begin{equation}
 Y=X_1 \beta_1 + e
 \end{equation}
 
-vereinfachen. Dabei ist $X_1$ die Matrix die von den ersten $p-k+1$ Spalten von $X$ geformt wird.
+vereinfachen. Dabei ist $X_1$ die Matrix, die von den ersten $p-k+1$ Spalten von $X$ geformt wird.
 
-\subsection{F-Fest}
+\subsection{F-Test zum Überprüfen eines Teils eines Regressionsmodells}
 \label{F-Test-Teil}
-In diesem Abschnitt wird der F-Test als Methode, um zu prüfen, ob $\beta_2=0$ ist, vorgestellt. Dieser Abschnitt orientiert sich an \cite[100-102]{Liu64}.
+In diesem Abschnitt wird der F-Test als Methode, um zu überprüfen, ob $\beta_2=0$ ist, vorgestellt. Dieser Abschnitt orientiert sich an \cite[100-102]{Liu64}.
 
-Ein Ansatz zu prüfen, ob $\beta_2=0$ ist, ist der Test 
+Ein Ansatz, um zu überprüfen, ob $\beta_2=0$ ist, ist der Test 
 
 \begin{equation} \label{Test_prüfen}
 H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
@@ -1692,37 +1697,39 @@ H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
 der auch in \cite{Draper98} vorgeschlagen wird. Analog zu Abschnitt \ref{Vergleich F-Test} erhält man die Teststatistik
 
 \begin{equation*}
-\frac{(\tilde{I}\hat{\beta})'(\tilde{I}(X'X)^{-1}\tilde{I}')^{-1}(\tilde{I}\hat{\beta})/k}{\text{mean square residual von Modell \ref{RegprüfModell}}} > f^{\alpha}_{k,v}
+\frac{(\tilde{I}\hat{\beta})'(\tilde{I}(X'X)^{-1}\tilde{I}')^{-1}(\tilde{I}\hat{\beta})/k}{\text{mean square residual von Modell \eqref{RegprüfModell}}} > f^{\alpha}_{k,v}
 \end{equation*}
 
 mit $v=n-p-1$, $\tilde{I}$ der $k \times (p+1)$ Matrix die durch $\tilde{I}=(0,I_k)$ gegeben ist und $f^{\alpha}_{k,v}$ dem $\alpha$ Quantil der $f$ Verteilung mit $k$ und $v$ Freiheitsgraden.
 
-Dabei ist der MS residual von Modell \eqref{RegprüfModell} gegeben durch
+Dabei ist das mean squared residual von Modell \eqref{RegprüfModell} gegeben durch
 
 \begin{equation*}
 \text{MS} = \Vert Y - X\hat{\beta} \Vert^2 / (n-p-1) = \hat{\sigma}
 \end{equation*}
 
-Lehnt man bei diesem Test die Nullhypothese ab, heißt dies, dass es nicht genug statistisch gesicherte Hinweise gibt, um anzunehmen, dass $\beta_{2} = 0$ ist. Dies heißt allerdings nicht, dass wir davon ausgehen können, dass $\beta_2 \neq 0$ ist. 
+Lehnt man bei diesem Test die Nullhypothese ab, heißt dies, dass es nicht genug statistisch gesicherte Hinweise gibt, um anzunehmen, dass $\beta_{2} = 0$ ist. Das heißt allerdings nicht, dass wir davon ausgehen können, dass $\beta_2 \neq 0$ ist. 
 
-Benutzt man stattdessen ein Konfidenzband hat man ein Maß für den Unterschied der Modelle und kann eher entscheiden, ob $\beta_2 \neq 0$. Der nächste Satz gibt genau solch ein Theorem an
+Benutzt man stattdessen ein Konfidenzband hat man ein Maß für den Unterschied der Modelle und kann eher entscheiden, ob $\beta_2 \neq 0$. Der nächste Satz macht genau solch eine Aussage.
 
 \begin{Satz}
 Es gilt
 \begin{equation} \label{KB_R_prüfen}
-\mathbb{P}(x_2'\beta_2 \in x_2'\hat{\beta_2} \pm \sqrt{k f^{\alpha}_{k,n-p-1}} \hat{\sigma} \sqrt{x_2' V x_2}) = 1 - \alpha
+\mathbb{P} \left( x_2'\beta_2 \in x_2'\hat{\beta_2} \pm \sqrt{k f^{\alpha}_{k,n-p-1}} \hat{\sigma} \sqrt{x_2' V x_2} \right) = 1 - \alpha
 \end{equation}
 \end{Satz}
 
-Dabei ist $V=\tilde{I}(X'X)^{-1}\tilde{I}'$, $\hat{\beta_2} = \tilde{I} \hat{\beta}$ mit $\tilde{I}$ wie oben. Dieser Satz kann ähnlich wie Satz \eqref{KB_Eigenschaft} bewiesen werden. Außerdem gilt folgender Satz
+Dabei ist $V=\tilde{I}(X'X)^{-1}\tilde{I}'$, $\hat{\beta_2} = \tilde{I} \hat{\beta}$ mit $\tilde{I}$ wie oben. 
+
+Dieser Satz kann ähnlich wie Satz \ref{KB_Eigenschaft} bewiesen werden. Außerdem gilt folgender Satz.
 
 \begin{Satz}
 Test \eqref{Test_prüfen} und das Konfidenzband \eqref{KB_R_prüfen} verwerfen und akzeptieren $H_0$ zur selben Zeit.
 \end{Satz}
 
-Das Konfidenzband \eqref{KB_R_prüfen} gibt einem also immer mehr Information. Allerdings ist das Konfidenzband auf ganz $R^k$ definiert. Eine noch besser Aussage über $H_0$ kann man also treffen, wenn man stattdessen ein Konfidenzband auf $A$ betrachtet. 
+Das Konfidenzband \eqref{KB_R_prüfen} gibt einem also immer mehr Informationen. Allerdings ist das Konfidenzband auf ganz $R^k$ definiert. Eine noch besser Aussage über $H_0$ kann man also treffen, wenn man stattdessen ein Konfidenzband auf $A$ betrachtet. 
 
-\subsection{Teil eines Regressionsmodells auf einem Intervall überprüfen}
+\subsection{Einen Teil eines Regressionsmodells auf einem Intervall überprüfen}
 \label{Teil eines Regressionsmodells auf einem Intervall überpruefen}
 Dieser Abschnitt orientiert sich an \cite[102-105]{Liu64}.
 
@@ -1732,7 +1739,7 @@ Wir beschränken uns auf die rechteckige Region
 A_2 = \{ x_2 \in \mathbb{R}^k =(x_{2,p-k+1}, \ldots x_{2,p}) : x_{2,1} \in [a_i,b_i], i=p-k+1, \ldots, p \}
 \end{equation*}
 
-dabei sind $- \infty \leq a_i \leq b_i \leq \infty, i = p-k+1, \ldots, p$ gegebene Konstanten. Ein hyperbolisches Konfidenzband auf $A_2$ ist gegeben durch
+Dabei sind $- \infty \leq a_i \leq b_i \leq \infty, i = p-k+1, \ldots, p$ gegebene Konstanten. Ein hyperbolisches Konfidenzband auf $A_2$ ist gegeben durch
 
 \begin{equation}\label{KB_pruefen}
 x_2'\beta_2 \in x_2'\hat{\beta_2} \pm c \hat{\sigma}\sqrt{x_2'Vx_2} \text{ für alle } x_2 \in A_2
@@ -1748,9 +1755,9 @@ S &=& \sup_{x_2 \in A_2} \frac{\vert x_2' (\hat{\beta_2} - \beta_2) \vert }{\hat
 &=& \sup_{v \in C(W,A_2)} \frac{\vert v'T_2 \vert }{\Vert v \Vert}
 \end{eqnarray*}
 
-wobei $C(W,A_2)=\{ \lambda W x_2 = \lambda(x_{p-k+1} w_1 + \ldots + x_p w_k) : \lambda > 0 \text{ and } x_2 \in A_2 \}$ mit $W=(w_1, \ldots, w_k)$. 
+Dabei gilt $C(W,A_2)=\{ \lambda W x_2 = \lambda(x_{p-k+1} w_1 + \ldots + x_p w_k) : \lambda > 0 \text{ and } x_2 \in A_2 \}$ mit $W=(w_1, \ldots, w_k)$. 
 
-Die Verteilung von $S$ hängt nicht von $\beta$ und $\sigma$ ab. Allerdings hängt sie in komplizierter Weise von der Region $A_2$ und $W$ durch $C(W,A_2$ ab.
+Die Verteilung von $S$ hängt nicht von $\beta$ und $\sigma$ ab. Allerdings hängt sie in komplizierter Weise von der Region $A_2$ und $W$ durch $C(W,A_2)$ ab.
 
 Für die beiden Spezialfälle $k=1$ und $0 \in C(W,A_2)$ ergeben sich Vereinfachungen. Im allgemeinen Fall kann man $c$ ähnlich wie in Abschnitt \ref{Konfidenzbaender auf einem Intervall fuer ein multiples lineares Regressionsmodell} finden. Dazu berechnet man $R$ mal $S_i$ auf die folgende Art:
 
@@ -1764,7 +1771,7 @@ Dann ist die kritische Konstante $c$ das $1-\alpha$ Quantil von $S_1, \ldots, S_
 
 Die Berechnung von $\Vert \pi^{*}(T_2,W,A_2) \Vert$ findet man in \cite[Appendix B]{Liu64}.
 
-Diese Methode wurde nicht weiter verfolgt, da das Ziel dieser Arbeit ist Konfidenzbänder zu vergleichen. Außerdem werden im letzten Kapitel Datenbeschreibung und Resultate vor allem Polynommodelle betrachtet. Wie man in diesem Fall Konfidenzbänder konstruiert ist Thema des nächsten Abschnitts.
+Diese Methode wurde nicht weiter verfolgt, da das Ziel dieser Arbeit ist, Konfidenzbänder zu vergleichen. Außerdem werden im Kapitel \ref{Datenbeschreibung und Resultate} vor allem Polynommodelle betrachtet. Wie man in diesem Fall Konfidenzbänder konstruiert ist Thema des nächsten Abschnitts.
 
 \begin{Simulation}
 Es werden für das Konfidenzband auf ganz $\mathbb{R}^{p}$ wieder eine Simulation für die Überdeckungswahrscheinlichkeit für Daten aus einer gewöhnlichen multilinearen Regression und einer Regression mit AR(1)-Kovarianzmatrix durchgeführt:
@@ -1773,7 +1780,7 @@ Es werden für das Konfidenzband auf ganz $\mathbb{R}^{p}$ wieder eine Simulatio
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+ & unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
@@ -1790,17 +1797,17 @@ Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \Ueber
 
 
 
-\subsection{Teil eines Regressionsmodells überprüfen, wenn das Modell Polynomgestalt hat}
+\subsection{Einen Teil eines Regressionsmodells überprüfen, wenn das Modell Polynomgestalt hat}
 \label{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}
 Dieser Abschnitt orientiert sich an \cite[190-192]{Liu64} und \cite{Draper98}.
 
-Für den Fall, dass man Modelle mit Polynomgestalt betrachtet erhält man als $f$-Test
+Für den Fall, dass man Modelle mit Polynomgestalt betrachtet erhält man als F-Test
 
 \begin{equation}\label{KB hypo prüfen}
-\text{reject } H_0 \leftrightarrow \frac{\hat{\beta_2}' V^{-1} \hat{\beta_2}/k}{\widehat{\sigma^2} > f^{\alpha}_{k,v}}
+\text{lehne } H_0 \text{ ab } \Leftrightarrow \frac{\hat{\beta_2}' V^{-1} \hat{\beta_2}/k}{\widehat{\sigma^2} }> f^{\alpha}_{k,v}
 \end{equation}
 
-mit $\hat{\beta_2}$ ist der Schätzer für $\beta_2=(b_{p-k+1}, \ldots b_{p})'$ welcher die letzten $k$ Komponenten ist und Verteilung $\mathscr{N}(\beta_2,\sigma^2,V)$. Außerdem ist $V$ die $k \times k$ Matrix, die von den letzten $k$ Zeilen und den letzten $k$ Spalten von $(X'X)^{-1}$, erzeugt wird. Da $V$ nicht singulär ist, sei $W$ die eindeutig bestimmte Wurzel von $V$, dass heißt $V=W^2$. 
+Dabei ist $\hat{\beta_2}$ der Schätzer für $\beta_2=(b_{p-k+1}, \ldots b_{p})'$ welcher die letzten $k$ Komponenten von $\beta$ ist. Dieser Schätzer hat Verteilung $\mathscr{N}(\beta_2,\sigma^2,V)$. Außerdem ist $V$ die $k \times k$ Matrix, die von den letzten $k$ Zeilen und den letzten $k$ Spalten von $(X'X)^{-1}$ erzeugt wird. Da $V$ nicht singulär ist, sei $W$ die eindeutig bestimmte Wurzel von $V$, das heißt $V=W^2$. 
 
 Analog zum letzten Abschnitt kann wieder gezeigt werden, dass dieser Test dem Konfidenzband 
 
@@ -1808,11 +1815,11 @@ Analog zum letzten Abschnitt kann wieder gezeigt werden, dass dieser Test dem Ko
 x_2' \beta_2 \in x_2' \hat{\beta_2} \pm \sqrt{k f^{\alpha}_{k,v}} \hat{\sigma} \sqrt{x_2' V x_2} \text{ für alle } x_2 \in \mathbb{R}^k
 \end{equation}
 
-entspricht. Das heißt liegt die Nullfunktion nicht vollständig in dem Konfidenzband \eqref{KB poly prüfen}, kann man die Nullhypothese aus Test \eqref{KB hypo prüfen} ablehnen.
+entspricht. Das heißt, liegt die Nullfunktion nicht vollständig im Konfidenzband \eqref{KB poly prüfen}, kann man die Nullhypothese aus Test \eqref{KB hypo prüfen} ablehnen.
 
-Analog zu Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} kann man wieder ein Konfidenzband auf einem Intervall $A$ konstruieren, dass die polynomstruktur berücksichtigt.
+Analog zu Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} kann man wieder ein Konfidenzband auf einem Intervall $A$ konstruieren, das die Polynomstruktur berücksichtigt.
 
-Dazu betrachtet man, dass das Konfidenzniveau von \eqref{KB poly prüfen} für $c$ anstatt $\sqrt{k f^{\alpha}_{k,v}}$ durch $\mathbb{P}(S\leq c)$ gegeben ist. Dabei ist
+Dazu betrachtet man, dass das Konfidenzniveau von \eqref{KB poly prüfen} für $c$ anstatt $\sqrt{k f^{\alpha}_{k,v}}$ durch den Ausdruck $\mathbb{P}(S\leq c)$ gegeben ist. Dabei ist
 
 \begin{eqnarray*}
 S &=& \sup_{x \in A} \frac{\vert \tilde{x_2}' (\hat{\beta_2}-\beta_2)}{\hat{\sigma} \sqrt{\tilde{x_2'}V\tilde{x_2}}} \\
@@ -1829,7 +1836,7 @@ Auch für die Methode aus diesem Abschnitt wurden Simulationen durchgeführt:
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
-$\times$ & unabhängig & AR bekannt & AR \\ 
+& unabhängig & AR bekannt & AR \\ 
 \hline 
 Konfidenzband auf ganz $\mathbb{R}^{p}$		 & \UeberRR		  & \UeberARbekanntR & \UeberARR \\ 
 \hline 
@@ -1866,32 +1873,39 @@ ausgegangen, wobei $e \sim \mathscr{N}_{n}(0, \sigma^2 I_n)$ war.  Es wurden fü
 
 In diesem Kapitel wird der Fall betrachtet, dass die Fehler untereinander korreliert sind. 
 
-Zuerst werden autoregressive Modelle und im besonderen Zeitreihen, die einem AR(1) Prozess folgen, eingeführt. Dieser erste Abschnitt orientiert sich an \cite{Hansen15} und \cite{Brockwell91}.
+Zuerst werden wir autoregressive Modelle und im besonderen Zeitreihen, die einem AR(1) Prozess folgen, eingeführt. Dieser erste Abschnitt orientiert sich an \cite{Hansen15} und \cite{Brockwell91}.
 
-Danach betrachten wir die Berechnung von Schätzern für die Parameter von Zeitreihen. Dazu sollen Funktionen aus dem R Paket \textit{nlme}, dies steht für nonlinear mixed-effects models, verwendet werden. Dazu betrachten wir die konkrete Funktionsweise dieser Funktionen anhand des Buches \cite{Pinheiro00},
+Danach betrachten wir die Berechnung von Schätzern für die Parameter von Zeitreihen. Dazu sollen Funktionen aus dem R Paket \textit{nlme}, dies steht für \textit{nonlinear mixed-effects models}, verwendet werden. Dazu wird die Quelle \cite{Pinheiro00} verwendet.
 
-Im letzten Abschnitt dieses Kapitels betrachten wir, wie wir für abhängige Daten Konfidenzbänder konstruieren können. Das heißt, wir betrachten wie die beiden vorhergehenden Abschnitte die Überlegungen aus den Abschnitten \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat} ändern.
+In Abschnitt \ref{Konfidenzbaender für AR(1)} dieses Kapitels werden Methoden angegeben, wie wir für abhängige Daten Konfidenzbänder konstruieren können. Das heißt, wir betrachten wie die beiden vorhergehenden Abschnitte die Überlegungen aus den Abschnitten \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat} ändern.
 
 
 \subsection{Autoregressive Modelle und AR(1)}
 \label{Regression für AR(1)}
-In diesem Abschnitt wird das Modell \eqref{Grundmodell_AR} auf den Fall von abhängigen Daten verallgemeinert. Daten sind abhängig, wenn $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$.
+In diesem Abschnitt wird Modell \eqref{Grundmodell_AR} auf den Fall von abhängigen Daten verallgemeinert. Daten sind abhängig, wenn $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$.
 
 Beginnen wir mit ein paar Definitionen. Die erste orientiert sich an \cite[1]{Brockwell91}.
 
 \begin{Definition}
-Zeitreihe
+\textbf{Zeitreihe}
 
-Eine Zeitreihe ist eine Menge von Messungen $z_t$, an einem bestimmten Zeitpunkten $t$. 
+Eine Zeitreihe $X$ ist eine Menge von Messungen $x_t$ an bestimmten Zeitpunkten $t$. 
 
 Bei einer diskreten Zeitreihe ist $ t=1, \ldots, T $ mit $T \in \mathbb{N}$ fest. 
-
 \end{Definition}
 
-Eine besondere Zeitreihe ist ein so genannter autoregressive-moving average (ARMA) Prozess. Die folgende Definition orientiert sich an \cite[78]{Brockwell91}.
+Weiterhin brauchen wir die folgende Definition, die \cite{Hansen15} entnommen ist.
 
 \begin{Definition}
-ARMA(p,q) Prozess
+\textbf{stationäre Zeitreihe}
+
+Eine Zeitreihe $X = (X_t)$ nennt man stationär, wenn $\mathbb{E}(X_t) = \mu$ unabhängig von $t$ ist und Cov($X_t,X_{t-k})$) = $\gamma (k)$ unabhängig von $t$ für alle $k$ ist.
+\end{Definition}
+
+Eine besondere Zeitreihe ist ein so genannter \textit{autoregressive-moving average} (ARMA) Prozess. Die folgende Definition orientiert sich an \cite[78]{Brockwell91}.
+
+\begin{Definition}
+\textbf{ARMA(p,q) Prozess}
 
 Den Prozess $(X_t)$ nennt man einen ARMA(p,q) Prozess, wenn $(X_t)$ stationär ist und für jedes $t$ gilt
 
@@ -1904,7 +1918,6 @@ mit $(Z_t) \sim \text{WN}(0, \sigma^2)$.  Dabei sagt man, dass der Prozess $(Z_t
 \begin{equation*}
 \gamma(h) = \begin{cases} \sigma^2 &, \text{ falls } h=0 \\ 0 &, \text{ falls } h \neq 0 \end{cases}
 \end{equation*}
-
 \end{Definition}
 
 Die Gleichung \eqref{ARMA} kann man kompakter als
@@ -1913,7 +1926,7 @@ Die Gleichung \eqref{ARMA} kann man kompakter als
 \phi(B) X_t = \theta(B) Z_t, t \in 0, \pm 1, \pm 2, \ldots
 \end{equation*}
 
-schreiben. Dabei sind $\zeta$ und $\theta$ die Polynome
+schreiben. Dabei sind $\phi$ und $\theta$ die Polynome
 
 \begin{equation*}
 \phi(z) = 1 - \phi_1 z - \ldots - \phi_p z^p
@@ -1928,13 +1941,13 @@ und
 und $B$ ist der Rückwärtsshift-Operator definiert durch
 
 \begin{equation*}
-B^j X_t = X_{t-j}, j = 0, \pm 1, \pm 2, \ldots
+B^j X_t = X_{t-j},~~ j = 0, \pm 1, \pm 2, \ldots
 \end{equation*}
 
 Es gibt verschiedene Arten von ARMA Prozessen. Uns werden im folgenden nur so genannte autoregressive Prozesse erster Ordnung (AR(1)), ein Spezialfall von allgemeinen ARMA Prozessen, interessieren.
 
 \begin{Definition}
-AR(p)
+\textbf{AR(p)}
 
 Ist in der obigen Definition $\theta(x) \equiv 1$, so ist 
 
@@ -1942,7 +1955,7 @@ Ist in der obigen Definition $\theta(x) \equiv 1$, so ist
 \phi(B) X_t = Z_t
 \end{equation*}
 
-und man nennt den Prozess einen autoregressiven Prozess von Ordnung $p$( oder AR(p))
+und man nennt den Prozess einen autoregressiven Prozess von Ordnung $p$ (oder AR(p)).
 \end{Definition}
 
 Ein Spezialfall von AR(p) Prozessen ist der AR(1) Prozess, bei dem gilt
@@ -1951,15 +1964,15 @@ Ein Spezialfall von AR(p) Prozessen ist der AR(1) Prozess, bei dem gilt
 y_t = \phi y_{t-1} + e_t
 \end{align}
 
-Dabei ist \gls{phi} ein unbekannter Parameter und $\mathbb{E}(e_t)=0$, $\mathbb{E}(e_t^2)=\sigma^2 < \infty$. Für den Fall das $\phi \in (-1,1)$ ist, nennt man die Zeitreihe streng stationär und ergodisch. 
+Dabei ist \gls{phi} ein unbekannter Parameter und $\mathbb{E}(e_t)=0$, $\mathbb{E}(e_t^2)=\sigma^2 < \infty$. Für den Fall, dass $\phi \in (-1,1)$ ist, nennt man die Zeitreihe streng stationär und ergodisch. 
 
-Da die Messungen nacheinander getätigt werden, steht zu vermuten, dass $y_t$ und $y_{t+1}$ auf irgendeine Art und Weise nahe beieinander sind. Ist dies der Fall, sind $y_t$ und $y_{t+1}$ nicht unabhängig. Unabhängigkeit war allerdings eine der zentrale Annahmen im ersten Kapitel. Deshalb muss man Schätzer für die Parameter des Modells auf eine andere Art bestimmen.
+Da die Messungen nacheinander getätigt werden, steht zu vermuten, dass $y_t$ und $y_{t+1}$ auf irgendeine Art und Weise nahe beieinander sind. Ist dies der Fall, sind $y_t$ und $y_{t+1}$ nicht unabhängig. Unabhängigkeit war allerdings eine der zentrale Annahmen im ersten Kapitel. Deshalb muss man die Schätzer für die Parameter des Modells auf eine andere Art bestimmen.
 
 Bei AR(1)-Prozessen hängt der Wert zur Zeit $t$ offenbar vom Wert der Zeitreihe zur Zeit $t-1$ ab. Somit ist hier $\text{Cov}(y_i,y_j) \neq 0$ für $i \neq j$ und die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} können nicht angewendet werden. 
 
 Man kann $\text{Cov}(y_i,y_j)$ durch den funktionalen Zusammenhang $\mathbb{E}(Y_i) = \phi^{i-j} \mathbb{E}(Y_{j})$ für $i>j$ finden. Für $j<i$ ist $\mathbb{E}(Y_j) = \phi^{i-j} \mathbb{E}(Y_i)$. 
 
-Beispielsweise erhält man für $i=1$ den Zusammenhang $y_1 = \phi^j y_j$ und somit:
+Beispielsweise erhält man für $i=1$ den Zusammenhang $y_1 = \phi^j y_j$ und somit
 
 \begin{eqnarray*}
 \text{Cov}(y_1, y_j) &=& \mathbb{E}((\mathbb{E}(y_1)-y_i)(\mathbb{E}(y_j)-y_j)) \\
@@ -1969,7 +1982,7 @@ Beispielsweise erhält man für $i=1$ den Zusammenhang $y_1 = \phi^j y_j$ und so
 &=& \phi^j \sigma^2
 \end{eqnarray*}
 
-Damit hat die Korrelationsmatrix \gls{Xi} von $e$ in diesem Fall die Form:
+Damit hat die Korrelationsmatrix \gls{Xi} von $e$ in diesem Fall die Form
 
 \begin{equation}\label{Upsilon}
 \Upsilon = 
@@ -2000,7 +2013,7 @@ mit $e \sim \mathscr{N}_{n}(0,\Upsilon)$.
 
 In diesem Abschnitt wird vorgestellt, wie die Schätzer für $\beta$, $\sigma$ und $\phi$ konkret berechnet werden können. Dieser Abschnitt orientiert sich an \cite[203-205]{Pinheiro00}.
 
-Um einen ML-Schätzer für das Modell \eqref{AR Modell} zu erhalten, kann man folgenden Trick anwenden: Man multipliziert beide Seiten der Gleichung mit $\Upsilon^{-1/2}$. Dann wird aus dem Modell \eqref{AR Modell} wieder das Modell \eqref{Grundmodell_AR}, wenn auch mit anderen Werten. Konkret erhält man
+Um einen ML-Schätzer für Modell \eqref{AR Modell} zu erhalten, kann man folgenden Trick anwenden: Man multipliziert beide Seiten der Gleichung mit $\Upsilon^{-1/2}$. Dann wird aus Modell \eqref{AR Modell} wieder Modell \eqref{Grundmodell_AR}, wenn auch mit anderen Werten. Konkret erhält man
 
 \begin{align} \label{AR rück}
 (\Upsilon^{-1/2})Y = Y^{*} = X^{*} \beta + e^{*} = (\Upsilon^{-1/2})X + (\Upsilon^{-1/2})e
@@ -2008,7 +2021,7 @@ Um einen ML-Schätzer für das Modell \eqref{AR Modell} zu erhalten, kann man fo
 
 mit $e^{*} = (\Upsilon^{-1/2})e \sim \Upsilon^{-1/2} \cdot \mathscr{N}_{n}(0,\Upsilon) = \mathscr{N}_{n}(0,\Upsilon^{-1}\Upsilon) = \mathscr{N}_{n}(0,I)$. Die Schwierigkeit besteht also darin, die Konstante $\phi$ zu bestimmen. 
 
-Die Konstante $\phi$ wird mittels profiled ML-Schätzung bestimmt. Dazu fixiert man zuerst $\phi$ und berechne die ML-Schätzer für $\hat{\beta}$ und $\widehat{\sigma^2}$ mittels:
+Die Konstante $\phi$ wird mittels \textit{profiled-maximum-liklihood}-Schätzung bestimmt. Dazu fixiert man zuerst $\phi$ und berechnet die ML-Schätzer für $\hat{\beta}$ und $\widehat{\sigma^2}$ mittels:
 
 \begin{eqnarray}
 \label{profile beta}
@@ -2024,14 +2037,14 @@ l(\phi|Y) = \text{const} - (n-p-1) \log \Vert Y^* - X^* \hat{\beta}(\phi) \Vert 
 
 Man findet dann $\hat{\phi}$ indem man das Argmax von \eqref{ML-phi} für $\phi$ bestimmt. Dies geschieht in dem Paket \textit{nlme} numerisch mittels orthogonal-triangulären Zerlegungen. Sieh hierzu \cite[68-75]{Pinheiro00}.
 
-Um den Wert von $\hat{\phi}$ für vorgegebene Daten zu bestimmen, wurde die Funktion \textit{gls} aus dem Paket \textit{nlme} benutzt. Bei der Benutzung von \textit{gls} um einen Schätzer für $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
+Um den Wert von $\hat{\phi}$ für vorgegebene Daten zu bestimmen, wurde die Funktion \textit{gls} aus dem Paket \textit{nlme} benutzt. Bei der Benutzung von \textit{gls}, um einen Schätzer für $\phi$ zu bestimmen, muss der Wert \textit{correlation=corAR1()} an \textit{gls} übergeben werden.
 
 Um dann bei gegebenem $\phi$ beziehungsweise $\hat{\phi}$ einen Schätzer für $\beta$ und $\sigma$ zu bestimmen, wird folgender Algorithmus verwendet:
 
 \begin{enumerate}
 \item Benutze gls um $\phi$ zu bestimmen.
 \item Bestimme $\Upsilon$ und mittels der R-Funktion \textit{solve} $\Upsilon^{-1}$ 
-\item Führe eine Eigenwertzerlegung von $\Upsilon^{-1}$ durch um die Matrix zu diagonalisieren und nehme dann von der Hauptdiagonalenmatrix elementenweise die Wurzel, um $\Upsilon^{-1/2}$ zu bestimmen.
+\item Führe eine Eigenwertzerlegung von $\Upsilon^{-1}$ durch, um die Matrix $\Upsilon^{-1}$ zu diagonalisieren und nehme dann von der Hauptdiagonalenmatrix elementenweise die Wurzel, um $\Upsilon^{-1/2}$ zu bestimmen.
 \item Transformiere $Y$ nach $Y^{*}$ und $X$ nach $X^{*}$ mittels Linksmultiplikation mit $\Upsilon^{-1/2}$
 \item Benutze eine normale OLS um $D=(X^{'*}X^{*})^{-1}$, $\beta$ und $\sigma^2$ zu berechnen.
 \end{enumerate}
@@ -2048,7 +2061,7 @@ für die transformierten Daten
 \Upsilon^{-1/2} Y = \Upsilon^{-1/2} X \beta + \Upsilon^{-1/2} e
 \end{equation*}
 
-erhält man :
+erhält man
 
 \begin{eqnarray*}
 \hat{\beta} &=& ((\Upsilon^{-1/2} X)^{t} \Upsilon^{-1/2} X)^{-1} (\Upsilon^{-1/2} X)^{t} \Upsilon^{-1/2} Y \\
@@ -2056,14 +2069,14 @@ erhält man :
 &=& (X^{t} \Upsilon^{-1} X)^{-1} X^{t} \Upsilon^{-1} Y
 \end{eqnarray*}
  
-Was genau der generalised least squares (GLS) Schätzer ist.
+Was genau der \textit{generalised least squares} (GLS) Schätzer ist.
 
-Dies ist genau das Vorgehen der Funktion \textit{gls} aus dem \textit{nlme} Paket. Deswegen wird in Zukunft immer direkt der \textit{gls} Schätzer benutzt.
+Dies entspricht dem Vorgehen der Funktion \textit{gls} aus dem \textit{nlme} Paket. Deswegen wird in Zukunft immer direkt der \textit{gls} Schätzer benutzt.
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem Abschnitt \ref{Regression} fortgeführt, indem eine Regression mit AR(1) für das Polynommodell mit Grad Drei durch geführt wird. 
+Jetzt wird das Beispiel aus Abschnitt \ref{Regression} fortgeführt, indem eine Regression mit AR(1) für das Polynommodell mit Grad Drei durchgeführt wird. 
 
-Die Daten werden wie im ersten Abschnitt dieser Arbeit erzeugt. Das heißt es werden $\beta, \sigma$ und $X$ initialisiert. Dann wird $e$ simuliert. In diesem Beispiel gehe wir allerdings davon aus, dass $e \sim \mathscr{N}_n(0, \sigma^2 \Upsilon$. Dabei ist die Korrelatiosmatrix $\Upsilon$ von der Form 
+Die Daten werden wie im ersten Abschnitt dieser Arbeit erzeugt. Das heißt, es werden $\beta, \sigma$ und $X$ initialisiert. Dann wird $e$ simuliert. In diesem Beispiel gehe wir allerdings davon aus, dass $e \sim \mathscr{N}_n(0, \sigma^2 \Upsilon)$. Dabei ist die Korrelatiosmatrix $\Upsilon$ von der Form 
 
 \[
 \Upsilon = 
@@ -2079,13 +2092,13 @@ Die Daten werden wie im ersten Abschnitt dieser Arbeit erzeugt. Das heißt es we
 \right]
 \]
 
-mit $\phi = \phitrue$ ein fester Wert.
+mit dem fest gewähltem Wert $\phi = \phitrue$.
 
-Man erhält als Schätzer für den AR(1) Parameter $\hat{\phi}$ = \phiestone , während der wahre Wert \phitrue ist.
+Man erhält als Schätzer für den AR(1) Parameter $\hat{\phi}$ = \phiestone , während der wahre Wert \phitrue ~ist.
 
-Als Schätzung für die Parameter erhält man \betaARone und \sigmaARone , während die wahren Werte \betatrue und \sigmatrue sind. 
+Als Schätzung für die Parameter erhält man \betaARone ~und \sigmaARone , während die wahren Werte \betatrue ~und \sigmatrue ~sind. 
 
-Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Graphik erhält man
+Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Abbildung erhält man
 
 \begin{figure}[H] 
   \centering
@@ -2105,24 +2118,24 @@ Man sieht, dass auch in diesem Fall ein deutlicher Unterschied zwischen den beid
 \label{Konfidenzbaender für AR(1)}
 Im letzten Abschnitt wurde gezeigt, dass man einen Schätzer für $\beta$ und $\sigma^2$ bei korrelierten Daten erhalten kann, indem man beide Seiten mit der Kovarianzmatrix $\Upsilon$ multipliziert. 
 
-Wie schon gezeigt, ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_{n}(0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, es können die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} angewandt werden und ein Konfidenzband $K^{*}$ bestimmt werden, sodass
+Wie schon gezeigt, ist $e^{*} = (\Upsilon^{-1/2})e \sim \mathscr{N}_{n}(0,I)$. Die Fehler dieses abgeänderten Modells sind also wieder unabhängig verteilt. Das heißt, es können die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbaender} angewendet und ein Konfidenzband $K^{*}$ bestimmt werden, sodass
 
 \begin{align*}
 \mathbb{P}(x^{*'} \beta \in K^{*}) = 1 - \alpha
 \end{align*}
 
-Da allerdings nicht $x^{*'} \beta$ interessiert, sondern $x' \beta$, müssen noch beide Seiten der logischen Gleichheit in $\mathbb{P}()$ mit $\Upsilon^{1/2}$ multipliziert werden. Auf diese Art erhält man dann ein Konfidenzband für das ursprüngliches Modell \eqref{AR Modell}.
+Da uns allerdings nicht $x^{*'} \beta$ interessiert, sondern $x' \beta$, muss Bedingung an die Menge in $\mathbb{P}()$ mit $\Upsilon^{1/2}$ multipliziert werden. Auf diese Art erhält man dann ein Konfidenzband für das ursprüngliches Modell \eqref{AR Modell}.
 
 Nun betrachten wir, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} beeinflusst. Es ändert sich nur die Simulation von $N$.
 
-Konkret wird die folgende Simulation verwendet, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
+Im Speziellen wird die folgende Simulation verwendet, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
 
 \begin{enumerate}
 \item Simuliere $N \sim \mathscr{N}_{n}(0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
-\item Berechnung von $K_{2h}(T,(X^{*'}X^{*})^{-1},(a,b))$.
+\item Berechnung von $K_{2h}(T;(X^{*'}X^{*})^{-1};(a,b))$.
 \end{enumerate}
 
-Die Berechnung von $K_{2h}(T,\cdot,(a,b))$ läuft analog zum Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}, da sich die Funktion $K_{2h}(T,\cdot,(a,b))$ nicht ändert.
+Die Berechnung von $K_{2h}(T,\cdot,(a,b))$ läuft analog zu Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}, da sich die Funktion $K_{2h}(T;\cdot;(a,b))$ nicht ändert.
 
 \begin{Beispiel}
 Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}^{p}$, dem auf $A$ und dem auf $A$ für Polynome noch ein Konfidenzband auf $A$ für Polynome unter Berücksichtigung der AR(1)-Struktur bestimmt wird.
@@ -2134,11 +2147,11 @@ Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regres
   \label{Bsp-KB-poly-AR}
 \end{figure}
 
-Man erhält als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^{p}$ \cR , für das Konfidenzband auf $A$ \cA, für das Konfidenzband auf $A$ für Polynome \cAP und für das Konfidenzband auf $A$ für Polynome das die AR(1)-Struktur berücksichtigt \cAPAR . 
+Man erhält als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^{p}$ \cR , für das Konfidenzband auf $A$ \cA, für das Konfidenzband auf $A$ für Polynome \cAP ~und für das Konfidenzband auf $A$ für Polynome das die AR(1)-Struktur berücksichtigt \cAPAR . 
 
-Da es sich um eine Simulation handelt und Reproduktivität gewährleistet werden soll, wird die seed \seedsimulation benutzt. 
+Da es sich um eine Simulation handelt und Reproduktivität gewährleistet werden soll, wird die Seed \seedsimulation ~benutzt. 
 
-Vergleicht man wieder die Regression mit Grad Eins und mit Grad drei erhält man die folgende Graphik:
+Vergleicht man wieder die Regression mit Grad Eins und mit Grad Drei erhält man die Abbildung \ref{Bsp-KB-poly-hetero-AR}.
 
 \begin{figure}[H] 
   \centering
@@ -2147,7 +2160,7 @@ Vergleicht man wieder die Regression mit Grad Eins und mit Grad drei erhält man
   \label{Bsp-KB-poly-hetero-AR}
 \end{figure}
 
-Man sieht, dass das Konfidenzband weit von den Daten entfernt ist. Vermutlich liegt dies daran, dass $X'X$ in diesem Fall Eigenwerte nahe Null hat. Dadurch führt die Berechnung von $(X'X)^{-1}$ zu seltsamen Ergebnissen.
+%Man sieht, dass das Konfidenzband weit von den Daten entfernt ist. Vermutlich liegt dies daran, dass $X'X$ in diesem Fall Eigenwerte nahe Null hat. Dadurch führt die Berechnung von $(X'X)^{-1}$ zu seltsamen Ergebnissen.
 
 \end{Beispiel}
 
@@ -2158,17 +2171,17 @@ Man sieht, dass das Konfidenzband weit von den Daten entfernt ist. Vermutlich li
 \newpage
 \section{Datenbeschreibung und Resultate}
 \label{Datenbeschreibung und Resultate}
-In diesem Kapitel werden zuerst die Daten beschrieben, die als Motivation für die bisher erklärten Methoden dienten. Danach werden die Methoden auf die Daten angewendet. Zuerst werden die Verschiedenen Methoden Konfidenzbänder zu bestimmen verglichen. Danach werden Polynommodelle von verschiedenem Grad miteinander verglichen. Im letzten Abschnitt werden 10 Kilopascal (kPa) und 30 kPa Daten verglichen. Die Daten entstammen der Arbeit von \cite{Rehfeldt10}.
+In diesem Kapitel werden zuerst die Daten beschrieben, die als Motivation für die bisher erklärten Methoden dienen. Danach werden die Methoden auf die Daten angewendet. Zuerst werden die verschiedenen Methoden Konfidenzbänder zu bestimmen verglichen. Danach werden Polynommodelle von verschiedenem Grad miteinander verglichen. Die Daten entstammen der Arbeit von \cite{Rehfeldt10}.
 
-Die zur Berechnung der Parameter, namentlich $\beta, \sigma$ und der kritischen Werte $c_{\mathbb{R}}, c_{A}, c_{AP}$, und zum erzeugen der Graphiken verwendeten R Skripte können unter 
+Die zur Berechnung der Parameter $\beta$ und  $\sigma$ sowie der kritischen Werte $c_{\mathbb{R}}, c_{A}, c_{AP}$, und zum erzeugen der Abbildungen verwendeten R Skripte können unter 
 
 \begin{center}
 \textit{https://github.com/fake1884/KBminmaxpoly} 
 \end{center}
 
-eingesehen werden. Eine Übersicht über die verwendeten Skripte befindet sich in der \textit{README.md} Datei in oben genanntem Verzeichnis.
+eingesehen werden. Eine Übersicht über die verwendeten Skripte befindet sich in der dem R Paket beiliegenden \textit{README.md} Datei in oben genanntem Verzeichnis.
 
-Dabei bezeichnet $c$ immer einen kritischen Wert für die Konstruktion von Konfidenzbändern und der Index bestimmt, um welchen kritischen Wert es sich handelt. Dabei steht $\mathbb{R}$ für ein Konfidenzband auf ganz $\mathbb{R}^{p}$, $A$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ und $AP$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ für ein polynomielles Regressionsmodell.
+Dabei bezeichnet $c$ immer einen kritischen Wert für die Konstruktion von Konfidenzbändern und der Index bestimmt, um welchen kritischen Wert es sich handelt. Dabei steht $\mathbb{R}$ für ein Konfidenzband auf ganz $\mathbb{R}^{p}$, $A$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ und $AP$ steht für ein Konfidenzband auf einer Region $A \subset \mathbb{R}^{p}$ mit einem polynomiellen Regressionsmodell.
 
 Es stellt sich in diesem Kapitel häufig die Frage, ob die Nullfunktion in einem bestimmten Konfidenzband enthalten ist. Diese Frage wurde immer durch hinschauen entschieden, da die Unterschiede recht groß sind. Sollte eine genauere Auswertung nötig sein, kann die Funktion \textit{Test.function} verwendet werden, die bei den Simulationen geprüft hat, wie oft das wahre Modell im Konfidenzband liegt.
 
@@ -2177,15 +2190,15 @@ Die Motivation dieser Arbeit ist, wie eine Stammzelle entscheidet, zu welcher Ar
 
 Es geht darum, das beste Polynom-Modell für die Daten zu wählen. Ein Polynom-Modell ist durch den Grad des Polynoms eindeutig definiert. Das Problem ist also den besten Polynomgrad zu finden.
 
-Um dieses Problem zu lösen, betrachtet man, ob sich die Polynome statistisch signifikant unterscheiden. Dazu schaut man die Differenz der Polynome an und berechnet für diese gleichmäßige Konfidenzbänder. Ist die Nullfuktion vollständig in diesem Konfidenzband enthalten, ist es nicht möglich, eine Aussage über den Unterschied der Modelle zu machen. Liegt die Nullfunktion allerdings nicht vollständig im Konfidenzband, ist der Unterschied signifikant.
+Um dieses Problem zu lösen, betrachtet man, ob sich die Polynome statistisch signifikant unterscheiden. Dazu schaut man die Differenz der Polynome an und berechnet für diese gleichmäßige Konfidenzbänder. Ist die Nullfuktion vollständig in diesem Konfidenzband enthalten, ist es nicht möglich eine Aussage über den Unterschied der Modelle zu machen. Liegt die Nullfunktion allerdings nicht vollständig im Konfidenzband so, ist der Unterschied signifikant.
 
 Die konkrete Fragestellung meiner Bachelorarbeit ist, ob die Polynome, die man durch die Daten legt, sich signifikant unterscheiden.
 
-Es gibt zwei verschieden Datensätze. Einmal von Stammzellen die auf ein Oberfläche mit einer Härte von 10 kPa und einmal auf eine Oberfläche von 30 kPa gesetzt wurden. 
+Es gibt zwei verschieden Datensätze. Zum einen gibt es einen Datensatz mit Stammzellen, die auf eine Oberfläche mit einer Härte von 10 kPa gesetzt wurden. Zum anderen gibt es einen Datensatz aus Stammzellen, die auf eine Oberfläche von 30 kPa gesetzt wurden. 
 
-Es handelt sich um Daten von 53 Stammzellen bei den 30 kPa Daten und um 51 Stammzellen bei den 10 kPa Daten. An jeder Stammzelle wurde 145 die Größe gemessen. Da die Fläche der Stammzellen für jeden einzelne Stammzelle stark schwankt, wird der Mittelwert der Flächen gebildet.
+Es handelt sich um Daten von 53 Stammzellen bei den 30 kPa Daten und um 51 Stammzellen bei den 10 kPa Daten. An jeder Stammzelle wurde 145 Mal die Größe gemessen. Da die Fläche der Stammzellen für jede einzelne Stammzelle stark schwankt, wird der Mittelwert der Flächen gebildet.
 
-Plottet man nun das Mittel der relative Wachstüme $Y$ gegen die relative Zeit von Null bis Eins mit Schrittweite 145, also der Anzahl an Beobachtungen, entstehen folgende Graphiken \eqref{10kPa-data} und \eqref{30kPa-data} . 
+Plottet man nun das Mittel der relative Wachstüme $Y$ gegen die relative Zeit von Null bis Eins mit Schrittweite 1/Anzahl an Beobachtungen, entstehen die Abbildungen \ref{10kPa-data} und \ref{30kPa-data}. 
 
 \begin{figure}[H] 
   \centering
@@ -2201,12 +2214,13 @@ Plottet man nun das Mittel der relative Wachstüme $Y$ gegen die relative Zeit v
   \label{30kPa-data}
 \end{figure}
 
-Man sieht, dass die Stammzellen in beiden Fällen im Zeitverlauf wachsen. Dabei scheinen die 10kPa Stammzellen im Zeitintervall [0.1,0.4] schneller zu wachsen, als die 30kPa Stammzellen. Dafür flacht sich das Wachstum im späteren Zeitverlauf bei den 10kPa Stammzellen im Vergleich zu den 30kPa Stammzellen wieder etwas ab.
+Man sieht, dass die Stammzellen in beiden Fällen im Zeitverlauf wachsen. Dabei scheinen die 10 kPa Stammzellen im Zeitintervall [0.1,0.4] schneller zu wachsen, als die 30 kPa Stammzellen. Dafür flacht sich das Wachstum im späteren Zeitverlauf bei den 10 kPa Stammzellen im Vergleich zu den 30 kPa Stammzellen wieder etwas ab.
 
 
 
 \subsection{Vergleich verschiedener Konfidenzbänder}
-In diesem Abschnitt werden die drei Typen von Konfidenzbänder sowohl für 30kPa als auch für 10kPa Daten miteinander verglichen. 
+\label{Vergleich verschiedener Konfidenzbänder}
+In diesem Abschnitt werden die drei Typen von Konfidenzbändern sowohl für 30 kPa als auch für 10 kPa Daten miteinander verglichen. 
 
 Wir gehen an dieser Stelle davon aus, dass es zwischen den Daten eine Autokorrelationsbeziehung der Art AR(1) gibt. Das bedeutet, zwischen der mittleren Fläche der Stammzellen zum Zeitpunkt $i$ und $i-1$ gibt es folgende Beziehung
 
@@ -2214,17 +2228,15 @@ Wir gehen an dieser Stelle davon aus, dass es zwischen den Daten eine Autokorrel
 y_i = \phi y_{i-1} + e_i
 \end{equation*}
 
-mit $e_i$ u.i.v., $\mathbb{E}(e_i)=0$ und $\mathbb{E}(e_i) = \sigma_e^2 < \infty$
+mit $e_i$ u.i.v., $\mathbb{E}(e_i)=0$ und $\mathbb{E}(e_i) = \sigma_e^2 < \infty$.
 
-Also muss man die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} anwenden.
-
-Das Regressionsmodell ist ein Polynom vom Grad Fünf. Das heißt, $X$ ist die $53 \times 5$ Matrix mit der $l$-ten Zeile von der Form 
+Also muss man die Ergebnisse aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} anwenden. Das Regressionsmodell ist ein Polynom vom Grad Fünf. Das heißt, $X$ ist die $53 \times 5$ Matrix mit der $l$-ten Zeile von der Form 
 
 \begin{equation*}
 \tilde{x}_l = (1, x, x^2, x^3, x^4, x^5 ) \text{ mit } x \in \{0, 1/145, 2/145, \ldots, 144/145, 1 \}
 \end{equation*}
 
-Klarerweise ist dann $\beta = (1, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5)$ der gesuchte Koeffizientenvektor und $\hat{\beta} = (1, \hat{\beta_1}, \hat{\beta_2}, \hat{\beta_3}, \hat{\beta_4}, \hat{\beta_5})$ ein Schätzer für den Koeffizientenvektor. Analoges gilt für $\sigma$ und $\widehat{\sigma^2}$
+Klarerweise ist dann $\beta = (1, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5)$ der gesuchte Koeffizientenvektor und sein Schätzer ist $\hat{\beta} = (1, \hat{\beta_1}, \hat{\beta_2}, \hat{\beta_3}, \hat{\beta_4}, \hat{\beta_5})$. Analoges gilt für $\sigma$ und $\widehat{\sigma^2}$.
 
 Insgesamt gehen wir also von dem folgenden Regressionsmodell aus, wobei die oben eingeführten Bezeichnungen benutzt werden:
 
@@ -2232,7 +2244,7 @@ Insgesamt gehen wir also von dem folgenden Regressionsmodell aus, wobei die oben
 Y = X \beta + e
 \end{equation*}
 
-mit $e \sim \mathscr{N}_{53}(0, \sigma^2, \Upsilon$. Dabei ist $\Upsilon$ die von dem zugrunde liegendem AR(1)-Prozess erzeugte Korrelationsmatrix \eqref{Upsilon}
+mit $e \sim \mathscr{N}_{53}(0, \sigma^2 \Upsilon)$. Dabei ist $\Upsilon$ die von dem zugrunde liegendem AR(1)-Prozess erzeugte Korrelationsmatrix \eqref{Upsilon}
 
 \begin{equation*}
 \Upsilon = 
@@ -2256,16 +2268,16 @@ Bei den beiden Simulationen für $c_{A}$ und $c_{AP}$ werden jeweils 250 Iterati
 
 Bei den Simulationen auf $A$ für das Modell mit Polynomgestalt wird ein Gridsearch für das Maximum mit Feinheit 145, also der Anzahl an Messungen durchgeführt.
 
-Führt man diese Regression durch, erhält man die Schätzer 
+Führt man diese Regression durch, erhält man die Schätzer für die 30 kPa Daten 
 
 \begin{eqnarray*}
 \hat{\beta} &=& (0.7287814 ;  0.7345406 ; -2.1593520 ;  5.2097479 ; -5.9029071 ;  2.3863759) \\
 \widehat{\sigma^2} &=& 0.009266163 \\
-\hat{phi} &=& 0.9039573 
+\hat{\phi} &=& 0.9039573 
 \end{eqnarray*}
-Als kritische Parameter erhält man $c_{\mathbb{R}} = 3.604075, c_{A} = 3.505922, c_{AP} = 2.902647 $. 
+Als kritische Parameter erhält man $c_{\mathbb{R}} = 3.604075, c_{A} = 3.505922$ und $ c_{AP} = 2.902647 $. 
 
-Setzt man dasselbe Modell wie oben für die 30kPa Daten für die 10kPa Daten, nur mit an, erhält man die Werte 
+Setzt man dasselbe Modell wie oben für die 30 kPa Daten für die 10 kPa Daten, nur mit an, erhält man die Werte 
 
 \begin{eqnarray*}
 \hat{\beta} &=& (0.7372386;   0.4218583 ;  1.8729639 ; -7.6991653 ;  9.7892837 ; -4.1541509) \\
@@ -2277,31 +2289,33 @@ Als kritische Parameter erhält man $c_{\mathbb{R}} = 3.604075, c_{A} = 3.550114
 
 Anhand der kritischen Werte sieht man bereits, dass die Interferenz bei dem Konfidenzband auf $A$ für das Polynommodell eindeutig besser ist. Das heißt, der Wert ist kleiner und somit das Konfidenzband schmaler.
 
-Zeichnet man die Regressionsmodelle und die Konfidenzbänder jeweils in eine Graphik erhält man die beiden folgenden Graphiken \eqref{10kPa-method} und \eqref{30kPa-method}.
+Zeichnet man die Regressionsmodelle und die Konfidenzbänder jeweils in eine Abbildung erhält man die beiden Abbildungen \ref{10kPa-method} und \ref{30kPa-method}.
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-method.pdf}
+     \includegraphics[width=0.65\textwidth]{10kPa-method.pdf}
   \caption{Vergleich von Konfidenzbändern 10 kPa}
   \label{10kPa-method}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-method.pdf}
+     \includegraphics[width=0.65\textwidth]{30kPa-method.pdf}
   \caption{Vergleich von Konfidenzbändern 30 kPa}
   \label{30kPa-method}
 \end{figure} 
 
-Man sieht, dass  das Konfidenzband auf $A = [0,1] \subset \mathbb{R}^{p}$, das die Polynomstruktur berücksichtigt, erkennbar schmaler ist. Zwischen den anderen beiden Konfidenzbänder ist faktisch kein Unterschied erkennbar.
+Man sieht, dass  das Konfidenzband auf $A = [0,1] \subset \mathbb{R}^{p}$, das die Polynomstruktur berücksichtigt, erkennbar schmaler ist. Zwischen den anderen beiden Konfidenzbänder ist kein Unterschied erkennbar.
 
 
 
 
-\subsection{Vergleich von Polynomen mit verschiedenem Grad}
-Ziel dieses Abschnittes ist es, zu testen, ob Polynomregressionen von verschiedenem Grad für die beiden Stammzelldatensätze sich statistisch signifikant unterscheiden.
+\subsection{Vergleich von polynomen Regressionsmodellen mit  Grad Vier, Fünf und Sechs}
+Ziel dieses Abschnittes ist es zu testen, ob Polynomregressionen von verschiedenem Grad für die beiden Stammzelldatensätze sich statistisch signifikant unterscheiden.
 
-Dazu wird zuerst die Regression durchgeführt, bevor die Testhypothese formalisiert wird. Als Regressionsmodell wird das aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} Regressionsmodell 
+Das heißt, wir führen Regressionen mit einer Designmatrix $X$ von der Form $\tilde{x}_l = (1, x, x^2, x^3, x^4)$ und Grad Fünf und Sechs durch.
+
+Dazu wird zuerst die Regression durchgeführt, bevor die Testhypothese formalisiert wird. Als Regressionsmodell wird das Regressionsmodell aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} 
 
 \begin{equation*}
 Y = X \beta + e
@@ -2309,7 +2323,7 @@ Y = X \beta + e
 
 mit $e \sim \mathscr{N}_n(0, \sigma^2 \Upsilon)$ verwendet. Dabei ist $\Upsilon$ die bekannte von einem AR(1) Prozess erzeugte Korrelationsmatrix, die nur von dem unbekannten Parameter $\phi$ abhängt.
 
-Führen wir für die Regressionen durch erhalten wir für die 10kPa Daten die Werte:
+Führen wir für die Regressionen durch erhalten wir für die 10 kPa Daten die folgenden Werte. Dabei steht der Index für den Grad des zugehörigen Polynommodells
 
 \begin{eqnarray*}
 \hat{\beta_{4}} &=& (0.7314 ; 0.8401 ; -1.5883 ; 1.8877 ; -0.9029) \\
@@ -2325,7 +2339,7 @@ Führen wir für die Regressionen durch erhalten wir für die 10kPa Daten die We
 \hat{\phi_{6}} &=& 0.8065796
 \end{eqnarray*}
 
-und für die 30kPa Daten die Werte:
+und für die 30 kPa Daten die Werte:
 
 \begin{eqnarray*}
 \hat{\beta_{4}} &=&  0.7311  0.5245 -0.3546  0.0390  0.0546  \\
@@ -2341,24 +2355,24 @@ und für die 30kPa Daten die Werte:
 \hat{\phi_{6}} &=&  0.9701881
 \end{eqnarray*}
 
-Plottet man die drei Regressionsmodelle in je eine Graphik für die beiden Datensätze entstehen die beiden Graphiken \eqref{10kPa-Polynomregressionen} und \eqref{30kPa-Polynomregressionen}:
+Plottet man die drei Regressionsmodelle in je eine Abbildung für die beiden Datensätze entstehen die beiden Abbildungen \ref{10kPa-Polynomregressionen} und \ref{30kPa-Polynomregressionen}:
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly.pdf}
-  \caption{10kPa Verschiedene Polynomgrade}
+     \includegraphics[width=0.65\textwidth]{10kPa-poly.pdf}
+  \caption{10 kPa Verschiedene Polynomgrade}
   \label{10kPa-Polynomregressionen}
 \end{figure}
 
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-poly.pdf}
-  \caption{30kPa Verschiedene Polynomgrade}
+     \includegraphics[width=0.65\textwidth]{30kPa-poly.pdf}
+  \caption{30 kPa Verschiedene Polynomgrade}
   \label{30kPa-Polynomregressionen}
 \end{figure}
 
-Man sieht, dass sich die Regressionsmodelle für die 10kPa Daten relativ stark unterscheiden, während die Regressionsmodelle bei den 30kPa Daten fast gleich sind.
+Man sieht, dass sich die Regressionsmodelle für die 10 kPa Daten relativ stark unterscheiden, während die Regressionsmodelle bei den 30 kPa Daten fast gleich sind.
 
 Als nächstes testen wir, ob sich die Polynomregressionen von Grad Vier und Grad Fünf unter statistischer Unsicherheit gleich sind. Das heißt, wir testen die Hypothese
 
@@ -2366,66 +2380,66 @@ Als nächstes testen wir, ob sich die Polynomregressionen von Grad Vier und Grad
 H_0 : \beta_{4} = \beta_{5} \textbf{ vs. } \beta_4 \neq \beta_{5}
 \end{equation*}
 
-Dazu benutzen wir die Konfidenzbandmethode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen} beziehungsweise ihre Abwandlung in Abschnitt \ref{Konfidenzbaender für AR(1)}.
+Dazu benutzen wir die Konfidenzbandmethode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen} beziehungsweise ihre Abwandlung aus Abschnitt \ref{Konfidenzbaender für AR(1)}.
 
-Zeichnen wir die Differenz der von $\hat{\beta_4}$ und $\hat{\beta_5}$ mit dem zugehörigen Konfidenzband in je eine Graphik für die beiden Datensätze erhalten wir die beiden folgenden Graphiken \eqref{10kPa-Regmod-4-5} und \eqref{30kPa-Regmod-4-5}.
+Zeichnen wir die Differenz von $\hat{\beta_4}$ und $\hat{\beta_5}$ mit dem zugehörigen Konfidenzband in je eine Abbildung für die beiden Datensätze erhalten wir die beiden Abbildungen \ref{10kPa-Regmod-4-5} und \ref{30kPa-Regmod-4-5}.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-5.pdf}
-  \caption{10kPa Vergleich von Regressionsmodellen 4-5}
+  \caption{10 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Grad Fünf}
   \label{10kPa-Regmod-4-5}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-5.pdf}
-  \caption{30kPa Vergleich von Regressionsmodellen 4-5}
+  \caption{30 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Fünf}
   \label{30kPa-Regmod-4-5}
 \end{figure}
 
-Wie man sieht, ist in im Fall der 10kPa Daten die Nullfunktion eindeutig vollständig im Konfidenzband enthalten und wir können die Nullhypothese nicht ablehnen.
+Wie man sieht, ist in im Fall der 10 kPa Daten die Nullfunktion eindeutig vollständig im Konfidenzband enthalten und wir können die Nullhypothese nicht ablehnen.
 
-Bei den 30kPa Daten ist die Nullhypothese auch knapp ganz im Konfidenzband enthalten und wir können die Nullhypothese wieder nicht ablehnen.
+Bei den 30 kPa Daten ist die Nullhypothese auch knapp ganz im Konfidenzband enthalten und wir können die Nullhypothese wieder nicht ablehnen.
 
-In den folgenden Vier Graphiken testen wir die analogen Hypothesen
+In den folgenden Vier Abbildungen testen wir die analogen Hypothesen
 
 \begin{eqnarray*}
 & H_0 : \beta_4 = \beta_6 & \textbf{ vs. } H_1 : \beta_4 \neq \beta_6 \\
 & H_0 : \beta_5 = \beta_6 & \textbf{ vs. } H_1 \beta_5 \neq \beta_6
 \end{eqnarray*} 
 
-für die 10kPa beziehungsweise 30kPa Daten. Für die erste Hypothese erhält man die Graphiken \eqref{10kPa-Regmod-4-6} und \eqref{30kPa-Regmod-4-6}
+für die 10 kPa beziehungsweise 30 kPa Daten. Für die Hypothese Grad Vier versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-4-6} und \ref{30kPa-Regmod-4-6}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-6.pdf}
-  \caption{10kPa Vergleich von Regressionsmodellen 4-6}
+  \caption{10 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
   \label{10kPa-Regmod-4-6}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-6.pdf}
-  \caption{30kPa Vergleich von Regressionsmodellen 4-6}
+  \caption{30 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
   \label{30kPa-Regmod-4-6}
 \end{figure}
 
-Man sieht, dass sich der Trend aus den beiden vorherigen Graphiken wiederholt. Bei den 10kPa Daten gibt es keinen Zweifel, dass die Nullhypothese nicht abgelehnt werden kann. Bei den 30kPa Daten kann die Nullhypothese auch eindeutig nicht abgelehnt werden.
+Man sieht, dass sich der Trend aus den beiden vorherigen Abbildungen wiederholt. Bei den 10 kPa Daten gibt es keinen Zweifel, dass die Nullhypothese nicht abgelehnt werden kann. Bei den 30 kPa Daten kann die Nullhypothese auch eindeutig nicht abgelehnt werden.
 
-Für die zweite Hypothese erhält man die beiden Graphiken \eqref{10kPa-Regmod-5-6} und \eqref{30kPa-Regmod-5-6}
+Für die Hypothese Grad Fünf versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-5-6} und \ref{30kPa-Regmod-5-6}.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-5-6.pdf}
-  \caption{10kPa Vergleich von Regressionsmodellen 5-6}
+  \caption{10 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
   \label{10kPa-Regmod-5-6}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-5-6.pdf}
-  \caption{30kPa Vergleich von Regressionsmodellen 5-6}
+  \caption{30 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
   \label{30kPa-Regmod-5-6}
 \end{figure}
 
@@ -2436,64 +2450,66 @@ Man sieht, dass wieder in beiden Fällen die Nullhypothese nicht abgelehnt werde
 Ziel dieses Abschnittes ist es die folgende Hypothese zu testen:
 
 \begin{equation*}
-H_0 : \beta_{10kPa} = \beta_{30kPa} \textbf{ vs. } H_1 : \beta_{10kPa} \neq \beta_{30kPa}
+H_0 : \beta_{10 kPa} = \beta_{30 kPa} \textbf{ vs. } H_1 : \beta_{10 kPa} \neq \beta_{30 kPa}
 \end{equation*}
 
-Dabei ist $\beta_{10kPa}$ der Koeffizientenvektor einer Polynomregression vom Grad Fünf und $\beta_{30kPa}$ der Koffizientenvektor einer Polynomregression vom gleichen Grad. 
+Dabei ist $\beta_{10 kPa}$ der Koeffizientenvektor einer Polynomregression vom Grad Fünf und $\beta_{30 kPa}$ der Koffizientenvektor einer Polynomregression vom gleichen Grad. 
 
-Weiterhin gehen wir davon aus, dass dem Regressionsmodell vom Grad Fünf ein AR(1) Prozess zugrunde liegt. Außerdem verwenden wir die Methode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen}, dass heißt wir gehen davon aus, dass beide Prozesse das gleiche $\phi$ und $\sigma$ besitzen.
+Weiterhin gehen wir davon aus, dass dem Regressionsmodell vom Grad Fünf ein AR(1) Prozess zugrunde liegt. Außerdem verwenden wir die Methode aus Kapitel \ref{Vergleich von zwei Regressionsmodellen}, das heißt wir gehen davon aus, dass beide Prozesse das gleiche $\phi$ und $\sigma$ besitzen.
 
-Ersteinmal plotten wir die beiden Datensätze mit den Regressionspolynomen in die selbe Graphik, um einen Überblick über ihre Ähnlichkeit zu bekommen. Dabei entsteht die folgende Graphik \eqref{Vergleich-10-30}.
+Zuerst plotten wir die beiden Datensätze mit den Regressionspolynomen in dieselbe Abbildung, um einen Überblick über ihre Ähnlichkeit zu bekommen. Dabei entsteht die Abbildung \ref{Vergleich-10-30}.
 
 
 \begin{figure}[H] 
   \centering
-     \includegraphics[width=0.5\textwidth]{Vergleich-10vs30-poly5}
+     \includegraphics[width=0.65\textwidth]{Vergleich-10vs30-poly5}
   \caption{Vergleich von Regressionsmodellen}
   \label{Vergleich-10-30}
 \end{figure}
 
-Als Parameter bei der Regression erhält man für die 10kPa Daten:
+Als Parameter bei der Regression erhält man für die 10 kPa Daten:
 
 \begin{eqnarray*}
 \hat{\beta} &=& (0.7343828 ;  0.3972789 ; 2.0659657 ; -8.1435038 ; 10.2153513 ; -4.3014467)  \\
-\hat{\sigma} &=& 0.007545373 \\
+\widehat{\sigma^2} &=& 0.007545373 \\
 \hat{\phi} &=& 0.8225374
 \end{eqnarray*}
 
-und für die 30kPa Daten:
+und für die 30 kPa Daten:
 
 \begin{eqnarray*}
 \hat{\beta} &=& (0.7235374 ; 0.7708670 ; -2.3022522 ; 5.4896056 ; -6.1555617 ; 2.4709908) \\
-\hat{\sigma} &=& 0.009266164 \\
+\widehat{\sigma^2} &=& 0.009266164 \\
 \hat{\phi} &=& 0.9039573
 \end{eqnarray*}
 
-Als nächstes wird die Differenz mit Konfidenzband in einer Graphik geplottet. Dabei wird zur Erzeugung des kritischen Parameters die Methode für Konfidenzbänder auf einem Intervall, falls das Modell Polynomgestalt hat angewendet.
+Dies sind genau die selben Regressionsdaten aus Kapitel \ref{Vergleich verschiedener Konfidenzbänder}, allerdings diesmal mit einer anderen Fragestellung im Hintergrund.
+
+Als nächstes wird die Differenz der Regressionsmodelle mit einem Konfidenzband in eine Abbildung geplottet. Dabei wird zur Erzeugung des kritischen Parameters die Methode für Konfidenzbänder auf einem Intervall, falls das Modell Polynomgestalt hat, angewendet.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Vergleich-10vs30kPa-poly5-KB}
-  \caption{Vergleich von Regressionsmodellen}
+  \caption{Vergleich von 10 kPa und 30 kPa Daten}
   \label{fig:10}
 \end{figure}
 
 Man sieht, dass die Nullfunktion nicht komplett im Konfidenzband enthalten ist. Man kann die Nullhypothese also verwerfen. Es gibt einen statistisch signifikanten Unterschied zwischen den beiden Regressionsmodellen.
 
 
-\subsection{Teil eines Regressionsmodells überprüfen}
+\subsection{Einen Teil eines Regressionsmodells überprüfen}
 Ziel dieses Abschnittes ist es, zu prüfen, ob bei den Stammzelldaten die ersten Koeffizienten des Koeffizientenvektors signifikant von Null verschieden sind.
 
-Dazu führen wir für sowohl für die 10kPa als auch für die 30kPa Stammzelldaten je zwei Polynomregressionen durch. Wir legen dabei wieder eine Zeitreihe von der AR(1) Art zugrunde.
+Dazu führen wir für sowohl für die 10 kPa als auch für die 30 kPa Stammzelldaten je zwei Polynomregressionen durch. Wir legen dabei wieder eine Zeitreihe von der AR(1) Art zugrunde.
 
-Dabei erhalten wir für die 10kPa Daten die Werte:
+Dabei erhalten wir für die 10 kPa Daten die Werte:
 
 \begin{eqnarray*}
 \hat{\beta_{5}} &=&  (0.7373 ; 0.4219 ; 1.8730 ; -7.6992 ; 9.7893 ; -4.1542)  \\
-\hat{\sigma_{5}} &=& 0.007545373 \\
+\hat{\sigma_{5}^2} &=& 0.007545373 \\
 \hat{\phi_{5}} &=& 0.8225374 \\
 \hat{\beta_{6}} &=& (0.7352 ; 0.6265 ; -0.6151 ; 3.0831 ; -11.1962 ; 14.6223 ; -6.2906)  \\
-\hat{\sigma_{6}} &=& 0.007205863 \\
+\hat{\sigma_{6}^2} &=& 0.007205863 \\
 \hat{\phi_{6}} &=& 0.8065796
 \end{eqnarray*}
 
@@ -2501,20 +2517,20 @@ und für die 30 kPa Daten die Werte:
 
 \begin{eqnarray*}
 \hat{\beta_{5}} &=& (0.7288 ; 0.7345 ; -2.1594 ; 5.2097 ; -5.9029 ; 2.3864)  \\
-\hat{\sigma_{5}} &=& 0.009266163 \\
+\hat{\sigma_{5}^2} &=& 0.009266163 \\
 \hat{\phi_{5}} &=& 0.9039573 \\
 \hat{\beta_{6}} &=& (0.7273 ; 0.9495 ; -4.7664 ; 16.2343 ; -26.7566 ; 20.5211 ; -5.9124)  \\
-\hat{\sigma_{6}} &=& 0.01673707 \\
+\hat{\sigma_{6}^2} &=& 0.01673707 \\
 \hat{\phi_{6}} &=& 0.9701881
 \end{eqnarray*}
 
-Um die Hypothese angeben zu können definiere 
+Um die Hypothese angeben zu können, definieren wir 
 
 \begin{equation*}
-\beta_{i} = (\beta_{i,1}, \beta_{i,2}, \ldots, \beta_{i,i}) \text{ für i=5,6 }
+\beta_{i} := (\beta_{i,1}, \beta_{i,2}, \ldots, \beta_{i,i}) \text{ für i=5,6 }
 \end{equation*}
 
-Dann wollen wir die folgenden Test durchführen:
+Damit können wir die folgenden Test durchführen.
 
 \begin{eqnarray*}
 &H_0 : \beta_{5,5} = 0 &\textbf{ vs. } H_1 : \beta_{5,5} \neq 0 \\
@@ -2522,65 +2538,65 @@ Dann wollen wir die folgenden Test durchführen:
 &H_0 : (\beta_{6,5}, \beta_{6,6}) = (0,0) &\textbf{ vs. } H_1 : (\beta_{6,5}, \beta_{6,6}) \neq (0,0)
 \end{eqnarray*}
 
-Dazu verwendet man die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}. Wir verwerfen also die Nullhypothese, wenn die Konfidenzbänder $x_2' * 0$ nicht vollkommen enthalten. 
+Dazu verwendet man die Methode aus Abschnitt \ref{Teil eines Regressionsmodells überpruefen, wenn das Modell Polynomgestalt hat}. Wir verwerfen also die Nullhypothese, wenn die Konfidenzbänder $x_2' \cdot 0$ nicht vollkommen enthalten. 
 
-Dabei ist in unserem Fall $x_2' \in \{0, 1/145, 2/145, \ldots, 144/145, 1$ 
+Dabei ist in unserem Fall $x_2' \in \{0, 1/145, 2/145, \ldots, 144/145, 1 \}.$ 
 
-In den folgenden Graphiken \eqref{10kPa Grad 5} und \eqref{30kPa Grad 5} ist $x_2' \beta_{5,5}$ mit zugehörigem Konfidenzband eingezeichnet:
+In den Abbildungen \ref{10kPa Grad 5} und \ref{30kPa Grad 5} ist $x_2' \beta_{5,5}$ mit zugehörigem Konfidenzband eingezeichnet.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-Grad-5-KB}
-  \caption{10kPa Grad 5}
+  \caption{10 kPa, Grad 5}
   \label{10kPa Grad 5}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-Grad-5-KB}
-  \caption{30kPa Grad 5}
+  \caption{30 kPa, Grad 5}
   \label{30kPa Grad 5}
 \end{figure}
 
-Man sieht deutlich, dass in beiden Fällen die Nullfunktion nicht vollständig im Konfidenzband enthalten ist. Wir können die Nullhypothese $H_0$ also nicht verwerfen und haben keinen Anhaltspunkt, davon auszugehen, dass $\beta_{5,5}$ in einem der beiden Fälle Null ist.
+Man sieht deutlich, dass in beiden Fällen die Nullfunktion nicht vollständig im Konfidenzband enthalten ist. Wir können die Nullhypothese $H_0$ also verwerfen und haben einen Anhaltspunkt, davon auszugehen, dass $\beta_{5,5}$ in einem der beiden Fälle Null ist.
 
-Die nächsten beiden Graphiken \eqref{10kPa Grad 6.1} und \eqref{30kPa Grad 6.1} geben  die Überprüfung von $\beta_{6,6}$ für die beiden Sätze an Stammzelldaten wieder.
+Die nächsten Abbildungen \ref{10kPa Grad 6.1} und \ref{30kPa Grad 6.1} geben  die Überprüfung von $\beta_{6,6}$ für die beiden Sätze an Stammzelldaten wieder.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-Grad-6-1-KB}
-  \caption{10kPa Grad 6.1}
+  \caption{10kPa, Grad 6, Test auf Grad Sechs}
   \label{10kPa Grad 6.1}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-1-KB}
-  \caption{30kPa Grad 6.1}
+  \caption{30kPa Grad 6, Test auf Grad Sechs}
   \label{30kPa Grad 6.1}
 \end{figure}
 
-Man sieht, dass für die 10kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
+Man sieht, dass für die 10 kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
 
 Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
 
-Betrachten wir zum Schluss den Test, ob $(\beta_{6,5}, \beta_{6,6}) = (0,0)$. Man 
+Betrachten wir zum Schluss den Test, ob $(\beta_{6,5}, \beta_{6,6}) = (0,0)$.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{10kPa-Grad-6-2-KB}
-  \caption{10kPa Grad 6.2}
+  \caption{10 kPa, Grad 6, Test auf Grad Fünf}
   \label{10kPa Grad 6.2}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{30kPa-Grad-6-2-KB}
-  \caption{30kPa Grad 6.2}
+  \caption{30 kPa, Grad 6, , Test auf Grad Fünf}
   \label{30kPa Grad 6.2}
 \end{figure}
 
-Auch hier sieht man, dass für die 10kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
+Auch hier sieht man, dass für die 10 kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist. Deshalb kann auch in diesem Fall $H_0$ nicht verworfen werden.
 
 Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
 
