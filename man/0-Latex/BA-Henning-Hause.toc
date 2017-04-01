@@ -50,4 +50,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.5}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{56}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{62}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{63}

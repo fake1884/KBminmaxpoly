@@ -73,7 +73,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abkürzungen für das Beispiel
-% für die Simulation
+% für das Modell
 \newcommand{\seedexample}{100}
 \newcommand{\nobs}{50}
 \newcommand{\betatrue}{(10,5,-4,7)}
@@ -155,29 +155,30 @@
 %\newcommand{\betatrafoest}{...}
 %\newcommand{\sigmatrafoest}{...}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameter für die Simulation
+% für das Modell
 \newcommand{\ntest}{100}
 \newcommand{\simgrad}{5}
 
 % Die normalen
 % ueberdeckung, R als Grundmodell
-\newcommand{\UeberRR}{1.00}
-\newcommand{\UeberRMinmax}{.99}
+\newcommand{\UeberRR}{0.953}
+\newcommand{\UeberRMinmax}{.956}
 \newcommand{\UeberRMinmaxPoly}{0.83}
-\newcommand{\UeberRMinmaxPolyfast}{0.93}
+\newcommand{\UeberRMinmaxPolyfast}{0.951}
 
 % ueberdeckung, AR bekannt als Grundmodell
 \newcommand{\UeberARbekanntR}{0.94}
 \newcommand{\UeberARbekanntMinmax}{0.93}
 \newcommand{\UeberARbekanntMinmaxPoly}{0.67}
-\newcommand{\UeberARbekanntMinmaxPolyfast}{0.86}
+\newcommand{\UeberARbekanntMinmaxPolyfast}{0.90}
 
 % ueberdeckung, AR als Grundmodell
 \newcommand{\UeberARR}{1.00}
 \newcommand{\UeberARMinmax}{1.00}
 \newcommand{\UeberARMinmaxPoly}{0.03}
-\newcommand{\UeberARMinmaxPolyfast}{0.99}
+\newcommand{\UeberARMinmaxPolyfast}{1.00}
 
 % Die Prüfdingen
 % ueberdeckung, R als Grundmodelll pruefen
@@ -353,7 +354,13 @@ In den Spalten stehen die verschiedenen zugrunde liegenden Modelle. Dabei steht 
 
 In den Zeilen stehen die verschiedenen Methoden. Von oben nach unten sind dies Konfidenzbänder auf ganz $\mathbb{R}^p$, Konfidenzbänder auf einem Polyeder $A \subset \mathbb{R}^{p}$ sowie Konfidenzbänder auf einem Polyeder $A$, wenn das Modell Polynomgestalt hat. 
 
-Das beiliegende R-Paket ist in der beiliegenden README Datei beschrieben.
+Die in dieser Ausarbeitung verwendeten R und C++ Codes sind in dem Paket KBminmaxpoly auf der Seite 
+
+\begin{center}
+\textit{https://github.com/fake1884/KBminmaxpoly} 
+\end{center}
+
+gefunden werden. Außerdem liegt das R-Paket auch bei. Eine Beschreibung ist in der beiliegenden README Datei zu finden.
 
 Genauere Beschreibungen zum Code sind in der Arbeit an der Stelle zu finden, an dem der Code verwendet, beziehungsweise eingeführt wird. Ansonsten ist der Code durch kommentiert.
 
@@ -2599,6 +2606,31 @@ Betrachten wir zum Schluss den Test, ob $(\beta_{6,5}, \beta_{6,6}) = (0,0)$.
 Auch hier sieht man, dass für die 10 kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist. Deshalb kann auch in diesem Fall $H_0$ nicht verworfen werden.
 
 Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
+
+
+
+\newpage
+\section*{Fazit}
+In dieser Bachelorarbeit haben wir Methoden behandelt, um Regressionsmodelle zu vergleichen. Dazu wurde eine Verbesserung des normalerweise verwendeten F-Tests mittles auf Konfidenzbändern basierender Methoden nach \cite{Liu64} betrachtet.
+
+Dabei wurden die Methoden in \cite{Liu64} auf den Fall von abhängigen Daten mit einer Abhängigkeitsstruktur der Art AR(1) verallgemeinert.
+
+Insbesondere für Regressionsmodelle mit Polynomgestalt auf einem Polyeder waren die durchgeführten Tests aussagekräftig, die diese speziellen Anforderungen an den Test berücksichtigt haben. Dies sieht man daran, dass sich kleinere kritische Konstanten für die Konfidenzbänder ergeben haben. 
+
+Allerdings ist die Rechenzeit gerade für diese Methode sehr lang, da eine Monte-Carlo Simulation durchgeführt werden muss. Diese lange Rechenzeit hat sich auch negativ auf die Ergebnisse der simulationsweisen Bestimmung der Überdeckungswahrscheinlichkeiten ausgewirkt.
+
+Die Methode Konfidenzbänder auf ganz $\mathbb{R}^p$ zu bestimmen war schneller und lieferte zum Teil bessere Überdeckungswahrscheinlichkeiten.
+
+Die in dieser Ausarbeitung verwendeten R und C++ Codes sind in dem Paket KBminmaxpoly auf der Seite 
+
+\begin{center}
+\textit{https://github.com/fake1884/KBminmaxpoly} 
+\end{center}
+
+gefunden werden.
+
+
+
 
 
 \nocite{Hsu41}
