@@ -84,8 +84,8 @@
 
 %%%
 % Kapitel 1 Regression und KB
-% Regression Grad Eins
-\newcommand{\gradone}{1}
+% Regression Grad Drei
+\newcommand{\gradone}{3}
 \newcommand{\betaoneest}{( 0.54780579 ; 0.19037112 ; 0.03639814 ; 0.18395970 )}
 \newcommand{\sigmaoneest}{0.04515636}
 \newcommand{\maxY}{ 18.62582 }
@@ -94,11 +94,11 @@
 
 % für die Konfidenzbänder
 \newcommand{\alphaKB}{0.05}
-\newcommand{\cR}{2.526154}
+\newcommand{\cR}{3.20876}
 \newcommand{\seedsimulation}{4}
 \newcommand{\niter}{50}
-\newcommand{\cA}{2.074654}
-\newcommand{\cAP}{2.706617}
+\newcommand{\cA}{3.143099}
+\newcommand{\cAP}{2.79563}
 % Feinheit des Grids, dass in minmaxpoly erzeugt wird, um die
 % Nullstellen zu bestimmen
 \newcommand{\ngridpoly}{100}
@@ -107,8 +107,8 @@
 % Kapitel 2 Vergleich
 % für die Regression mit Grad drei
 \newcommand{\gradtwo}{3}
-\newcommand{\betatwoest}{( 0.5692138 ; 0.1771521 ; 0.1145878 ; 0.135128 )}
-\newcommand{\sigmatwoest}{0.0328232}
+\newcommand{\betatwoest}{( 0.5297226 ; 0.5882577 ; -1.7965271 ; 3.0540371 ; -1.4350387)}
+\newcommand{\sigmatwoest}{0.04499058}
 
 % Parameter für den vergleich
 \newcommand{\TestWert}{14.0476}% Wert der Teststatistik
@@ -116,18 +116,18 @@
 \newcommand{\EntscheidungHypothesen}{verwirft man}
 \newcommand{\Modellesind}{verschieden}
 
-\newcommand{\cVergl}{3.546543}
+\newcommand{\cVergl}{2.920874}
 
 %%%
 % Kapitel 4 abhängige Daten
-% für die Regression mit Grad Eins mit AR
-\newcommand{\betaARone}{ (0.5142065 ; 0.4247473) }
-\newcommand{\sigmaARone}{0.2106673}
+% für die Regression mit Grad Drei mit AR
+\newcommand{\betaARone}{ (0.54357174 ; 0.21282372 ; -0.03915277 ; 0.24840114) }
+\newcommand{\sigmaARone}{0.04455856}
 \newcommand{\phiestone}{-0.938988}
-\newcommand{\cAPAR}{1.957394}
+\newcommand{\cAPAR}{2.817034}
 
-\newcommand{\betaARtwo}{( 0.56655373 ; 0.19525746 ; 0.02253329 ; 0.22338713 )}
-\newcommand{\sigmaARtwo}{0.2229381}
+\newcommand{\betaARtwo}{(0.5282983 ; 0.5347608 ; -1.5079080 ; 2.5435075 ; -1.1485678)}
+\newcommand{\sigmaARtwo}{0.04416834}
 \newcommand{\phiesttwo}{-0.9715946}
 
 \newcommand{\cVerglAR}{ 2.019523  }
@@ -857,6 +857,8 @@ Dazu wurden Daten auf zwei verschiedene Arten erzeugt. Zum Einen wurden die Date
 Der Grad des wahren Modelles ist \simgrad ~und es wird auch eine Regression mit Grad \simgrad ~durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt.
 
 Bei der Simulation wurden zuerst \ntest ~Mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS-Schätzer beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband lag. 
+
+Für das multiple lineare Regressionsmodell kamen keine guten Werte bei den Überdeckungswahrscheinlichkeiten heraus. Deswegen wurde ein vereinfachtes Modell verwendet. Dabei wurde der Grad des Modells verringert, der Fehler auf 0.5 fixiert und die Anzahl an Beobachtungen erhöht. Außerdem wurde die Überdeckungswahrscheinlichkeit auf drei Stellen nach dem Komma genau bestimmt. Für nähre Informationen zu diesem Modell siehe das R Skript \textit{make-test-data-R.R}. Für das AR-Modell siehe das Skript \textit{make-test-data-AR.R}.
 
 Auf Grund von Laufzeitproblemen werden die Daten von den Funktionen \textit{make-test-data-R} beziehungsweise \textit{make-test-data-AR} erzeugt und gespeichert. Auch die jeweils berechneten Regressionsmodelle, Designmatritzen und weitere Werte werden abgespeichert. Diese Daten sind in \textit{/data} zu finden.
 
@@ -2145,7 +2147,7 @@ Im Speziellen wird die folgende Simulation verwendet, um konkret den Wert der kr
 Die Berechnung von $K_{2h}(T,\cdot,(a,b))$ läuft analog zu Kapitel \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}, da sich die Funktion $K_{2h}(T;\cdot;(a,b))$ nicht ändert.
 
 \begin{Beispiel}
-Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regression mit Grad Eins, dem Konfidenzband auf ganz $\mathbb{R}^{p}$, dem auf $A$ und dem auf $A$ für Polynome noch ein Konfidenzband auf $A$ für Polynome unter Berücksichtigung der AR(1)-Struktur bestimmt wird.
+Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regression mit Grad Drei, dem Konfidenzband auf ganz $\mathbb{R}^{p}$, dem auf $A$ und dem auf $A$ für Polynome noch ein Konfidenzband auf $A$ für Polynome unter Berücksichtigung der AR(1)-Struktur bestimmt wird.
 
 \begin{figure}[H] 
   \centering
@@ -2158,12 +2160,12 @@ Man erhält als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^{p}$
 
 Da es sich um eine Simulation handelt und Reproduktivität gewährleistet werden soll, wird die Seed \seedsimulation ~benutzt. 
 
-Vergleicht man wieder die Regression mit Grad Eins und mit Grad Drei erhält man die Abbildung \ref{Bsp-KB-poly-hetero-AR}.
+Vergleicht man die Regression mit Grad Drei und mit Grad Vier erhält man die Abbildung \ref{Bsp-KB-poly-hetero-AR}.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-poly-hetero-AR}
-  \caption{Vergleich Regression Grad Eins und Grad drei unter Berücksichtigung der Polynomstruktur und AR(1)-Struktur}
+  \caption{Vergleich Regression Grad Drei und Grad Vier unter Berücksichtigung der Polynomstruktur und AR(1)-Struktur}
   \label{Bsp-KB-poly-hetero-AR}
 \end{figure}
 
@@ -2320,7 +2322,7 @@ Man sieht, dass  das Konfidenzband auf $A = [0,1] \subset \mathbb{R}^{p}$, das d
 \subsection{Vergleich von polynomen Regressionsmodellen mit  Grad Vier, Fünf und Sechs}
 Ziel dieses Abschnittes ist es zu testen, ob Polynomregressionen von verschiedenem Grad für die beiden Stammzelldatensätze sich statistisch signifikant unterscheiden.
 
-Das heißt, wir führen Regressionen mit einer Designmatrix $X$ von der Form $\tilde{x}_l = (1, x, x^2, x^3, x^4)$ und Grad Fünf und Sechs durch.
+Das heißt, wir führen Regressionen mit einer Designmatrix $X$ bei der die $l$-te Zeile von $X$ durch $\tilde{x}_l = (1, x, x^2, x^3, x^4)$ gegeben ist durch. Danach führen wir analoge Regressionen für Grad Fünf und Sechs durch.
 
 Dazu wird zuerst die Regression durchgeführt, bevor die Testhypothese formalisiert wird. Als Regressionsmodell wird das Regressionsmodell aus Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} 
 

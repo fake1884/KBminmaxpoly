@@ -131,7 +131,7 @@ plot.KB.poly.3=plot.KB(length(y), grad = 4, X.mat.inv.3, beta.3, sigma.3, par.bs
 pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-AR.pdf",
     width=10,height=8)
 
-plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.poly.hetero[[2]]),max(plot.KB.poly.hetero[[3]])),
+plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.poly.3[[2]]),max(plot.KB.poly.3[[3]])),
      xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 points(x,y, cex=2, lwd=3)
 
@@ -188,7 +188,7 @@ dev.off()
 
 ########################################################################################
 # nur zum auslesen von Werten
-par=c( par.bsp.poly.hetero[[1]])
+par=c( par.bsp.poly.3[[1]])
 par.vergl=c( par.bsp.vergl.hetero[[1]])
 
 # Werte für das Beispiel
