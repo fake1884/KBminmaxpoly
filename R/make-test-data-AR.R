@@ -3,7 +3,7 @@
 Make.data.AR = function(){
 
   # Anzahl an Testdurchl?ufen
-  ntest=100
+  ntest=1000
 
   # Reproduzierbarkeit gew?hrleisten
   set.seed(100)
@@ -21,6 +21,9 @@ Make.data.AR = function(){
   for(j in 1:nobs){
     for(i in 1:(grad+1)){X[j,i]=x[j]^(i-1)}
   }
+  X.mat=t(X) %*% X
+  X.mat.inv=solve(X.mat)
+
   Upsilon = Upsilon_fun(phi.true, nobs)[[1]]
   Upsilon= Upsilon * sigma.true
 
@@ -40,8 +43,7 @@ Make.data.AR = function(){
   time.5=time^5
   alpha=0.05
   ngrid=nobs
-  X.mat=t(X) %*% X
-  X.mat.inv=solve(X.mat)
+
 
   ######################################################
   # matrix für das Testset

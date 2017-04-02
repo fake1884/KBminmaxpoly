@@ -139,9 +139,9 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
                               support_data_AR$X.mat.inv, support_data_AR$a, support_data_AR$b)
 
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_R$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
                             data_modelAR_estAR_bekannt_beta[,i], data_modelAR_estAR_bekannt_sigma[i],
-                            par.bsp.AR[[1]], support_data_AR$ngrid)
+                            par.bsp.R[[1]], support_data_AR$ngrid)
 
           # liegt das wahre modell in dem Konfidenzband?
           if(Test.function(support_data_AR$nobs, plot.KB.R[[2]], plot.KB.R[[3]], model.type)==F){

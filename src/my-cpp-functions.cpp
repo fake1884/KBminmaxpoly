@@ -11,7 +11,7 @@ using namespace arma;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Support-Funktionen
 
-// Diese Funktion ist sehr schnell, aber bringt zum Teil seltsame Ergebnisse
+// Diese Funktion ist sehr schnell, aber bringt zum Teil seltsame Ergebnisse -> wird nicht mehr benutzt
 // Multivariate Normalverteilung in Rcpparmadillo
 // [[Rcpp::export]]
 arma::mat mvrnormArma(int n, arma::vec mu, arma::mat sigma) {
@@ -75,7 +75,7 @@ arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat N, arma::mat 
   // arma::mat mu = rep_fun(0, grad+1);
   // arma::mat N = mvrnormArma(1, mu, Xinv);
 
-  arma::mat T = N / sigmahat;
+  arma::mat T = abs(N / sigmahat);
 
   // Berechnung von T * tilde{x} / sqrt(t(tilde{x}) * Xinttraf * tilde{x})
   arma::mat erg = T * z;
