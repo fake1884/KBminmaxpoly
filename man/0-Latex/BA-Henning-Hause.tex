@@ -77,26 +77,25 @@
 \newcommand{\seedexample}{100}
 \newcommand{\nobs}{50}
 \newcommand{\betatrue}{(10,5,-4,7)}
-\newcommand{\phitrue}{0.75}
+\newcommand{\phitrue}{0.001}
 \newcommand{\sigmatrue}{1}
 \newcommand{\gradtrue}{3}
-\newcommand{\maxy}{18.10407}
+\newcommand{\maxy}{18.61206}
 
 %%%
 % Kapitel 1 Regression und KB
 % Regression Grad Drei
 \newcommand{\gradone}{3}
-\newcommand{\betaoneest}{( 0.54780579 ; 0.19037112 ; 0.03639814 ; 0.18395970 )}
-\newcommand{\sigmaoneest}{0.04515636}
+\newcommand{\betaoneest}{(0.54357174 ; 0.21282372 ; -0.03915277 ; 0.24840114)}
+\newcommand{\sigmaoneest}{0.04455856}
 \newcommand{\maxY}{ 18.62582 }
-\newcommand{\betaesttrafo}{ ( 10.2033308 ; 3.5458178 ; 0.6779452 ; 3.4263999 ) }
-\newcommand{\sigmaesttrafo}{0.8410741}
+\newcommand{\betaesttrafo}{ (10.1169882 ; 3.9610873 ; -0.7287135 ; 4.6232562) }
+\newcommand{\sigmaesttrafo}{0.8293265}
 
 % für die Konfidenzbänder
 \newcommand{\alphaKB}{0.05}
 \newcommand{\cR}{3.20876}
-\newcommand{\seedsimulation}{4}
-\newcommand{\niter}{50}
+\newcommand{\niter}{5000}
 \newcommand{\cA}{3.143099}
 \newcommand{\cAP}{2.79563}
 % Feinheit des Grids, dass in minmaxpoly erzeugt wird, um die
@@ -106,31 +105,33 @@
 %%%
 % Kapitel 2 Vergleich
 % für die Regression mit Grad drei
-\newcommand{\gradtwo}{3}
-\newcommand{\betatwoest}{( 0.5297226 ; 0.5882577 ; -1.7965271 ; 3.0540371 ; -1.4350387)}
+\newcommand{\gradtwo}{4}
+\newcommand{\betatwoest}{(0.5297226 ; 0.5882577 ; -1.7965271 ; 3.0540371 ; -1.4350387)}
 \newcommand{\sigmatwoest}{0.04499058}
 
 % Parameter für den vergleich
-\newcommand{\TestWert}{14.0476}% Wert der Teststatistik
-\newcommand{\kritWert}{2.574035}%Quntil beim Test
+\newcommand{\TestWert}{655277.9}% Wert der Teststatistik
+\newcommand{\kritWert}{2.422085}%Quntil beim Test
 \newcommand{\EntscheidungHypothesen}{verwirft man}
 \newcommand{\Modellesind}{verschieden}
 
-\newcommand{\cVergl}{2.920874}
+\newcommand{\cVergl}{2.87904}
 
 %%%
 % Kapitel 4 abhängige Daten
 % für die Regression mit Grad Drei mit AR
 \newcommand{\betaARone}{ (0.54357174 ; 0.21282372 ; -0.03915277 ; 0.24840114) }
 \newcommand{\sigmaARone}{0.04455856}
-\newcommand{\phiestone}{-0.938988}
+\newcommand{\phiestone}{-0.2918199}
+\newcommand{\betaAResttrafo}{ (10.1169882 ; 3.9610873 ; -0.7287135 ; 4.6232562) }
+\newcommand{\sigmaAResttrafo}{0.8293265}
 \newcommand{\cAPAR}{2.817034}
 
 \newcommand{\betaARtwo}{(0.5282983 ; 0.5347608 ; -1.5079080 ; 2.5435075 ; -1.1485678)}
 \newcommand{\sigmaARtwo}{0.04416834}
-\newcommand{\phiesttwo}{-0.9715946}
+\newcommand{\phiesttwo}{-0.2745721 }
 
-\newcommand{\cVerglAR}{ 2.019523  }
+\newcommand{\cVerglAR}{ 2.920874 }
 
 
 % Matrixmultiplikationen im Beispiel darstellen
@@ -1122,9 +1123,6 @@ Jetzt wird das Beispiel aus Abschnitt \ref{Konfidenzbaender auf R fuer ein multi
 Der kritische Wert für das Konfidenzband auf ganz $\mathbb{R}^3$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde, ist \cR . Für das Konfidenzband auf $A$ ergibt sich \cA ~als kritischer Wert für das Konfidenzband. Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
 
 Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf $\mathbb{R}^3$. 
-
-Da bei der Berechnung des kritischen Wertes für das Konfidenzband auf $A$ eine Simulation verwendet wird und Reproduktivität gewährleisten sein soll, wird an dieser Stelle die Seed auf \seedsimulation ~gesetzt. 
-
 \end{Beispiel}
 
 \begin{Simulation}
@@ -1312,9 +1310,6 @@ Jetzt wird das Beispiel aus dem Abschnitt \ref{Regression und Konfidenzbaender} 
 \end{figure}
 
 Die kritischen Werte für das Konfidenzband auf ganz $\mathbb{R}^{3}$ und für das Konfidenzband auf [0,1] wurden in den vorherigen Abschnitten bereits berechnet. Es ergaben sich die Werte \cR ~und \cA . Berechnet man den kritischen Wert für das Konfidenzband auf [0,1], welches die Polynomgestalt berücksichtigt, erhält man den Wert \cAP . Dieser Wert ist noch kleiner als der Wert von \cA , was auch zu erwarten war.
-
-Als Seed wurde weiterhin \seedsimulation ~benutzt.
-
 \end{Beispiel}
 
 \begin{Simulation}
@@ -2157,8 +2152,6 @@ Jetzt wird das Beispiel aus dem ersten Kapitel fortgeführt, indem zu der Regres
 \end{figure}
 
 Man erhält als kritischen Wert für das Konfidenzband auf ganz $\mathbb{R}^{p}$ \cR , für das Konfidenzband auf $A$ \cA, für das Konfidenzband auf $A$ für Polynome \cAP ~und für das Konfidenzband auf $A$ für Polynome das die AR(1)-Struktur berücksichtigt \cAPAR . 
-
-Da es sich um eine Simulation handelt und Reproduktivität gewährleistet werden soll, wird die Seed \seedsimulation ~benutzt. 
 
 Vergleicht man die Regression mit Grad Drei und mit Grad Vier erhält man die Abbildung \ref{Bsp-KB-poly-hetero-AR}.
 

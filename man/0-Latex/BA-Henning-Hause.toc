@@ -38,16 +38,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{45}
+\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{45}
+\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{47}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von polynomen Regressionsmodellen mit Grad Vier, F\IeC {\"u}nf und Sechs}{49}
+\contentsline {subsection}{\numberline {5.3}Vergleich von polynomen Regressionsmodellen mit Grad Vier, F\IeC {\"u}nf und Sechs}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{54}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{53}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{56}
+\contentsline {subsection}{\numberline {5.5}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{55}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{63}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{62}
