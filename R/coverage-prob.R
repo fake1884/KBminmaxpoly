@@ -274,14 +274,14 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.poly.fast(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                                 niter,support_data_AR$X.mat.inv, support_data_AR$a,
+                                 niter,support_data_AR$X.trafo.inv, support_data_AR$a,
                                  support_data_AR$b, ngridpoly)
         ################################################################ü
         for(i in 1:support_data_AR$ntest)
         {
 
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.trafo.inv,
                             data_modelAR_estAR_beta[,i], data_modelAR_estAR_sigma[i], par.bsp.R[[1]],
                             support_data_AR$ngrid)
 
