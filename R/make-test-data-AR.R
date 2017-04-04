@@ -9,12 +9,17 @@ Make.data.AR = function(){
   set.seed(100)
 
   # feste Werte initialisieren
-  grad=5
-  nobs=50
-  beta.true=c(10,5,-4,7,3,-4)
-  sigma.true=1 #0.007545373
+  #grad=5
+  grad = 3
+  #nobs=50
+  nobs = 200
+  beta.true = c(10,5,-4,7)
+  #beta.true=c(10,5,-4,7,3,-4)
+  sigma.true=0.5 #0.007545373
   phi.true=0.001 #0.8225374  # bestimmt die korrelation
   x.raw=c(0:(nobs-1))
+  # x = x.raw/max(x.raw)
+  # Skaliert man die Daten auf diese Art, hat X.mat.inv kleinere Einträge
   x=x.raw/max(x.raw)
 
   X=matrix(data=NA,nrow=nobs,ncol=(grad+1))
@@ -77,7 +82,8 @@ Make.data.AR = function(){
   {
     # Parameter schätzen
     data_AR_test[,i]=y
-    fit.1=gls(y ~ time+time.2+time.3+time.4+time.5,correlation=corAR1())
+    # y ~ time+time.2+time.3+time.4+time.5
+    fit.1=gls(y ~ time+time.2+time.3,correlation=corAR1())
     data_modelAR_estAR_beta[,i]=fit.1$coeff
     data_modelAR_estAR_sigma[i]=summary(fit.1)$sigma
   }

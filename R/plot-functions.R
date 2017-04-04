@@ -17,6 +17,9 @@ plot.KB <- function(nobs, grad, inv.X, beta, sigma, factor, ngrid){
   points = seq(from=0,to=1,by=step)
   lower <- rep(NA, nobs)
   upper <- rep(NA, nobs)
+
+
+
   for(i in 1:ngrid)
   {
     x=matrix(data=NA, ncol=1, nrow=(grad+1))

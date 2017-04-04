@@ -71,10 +71,11 @@ dev.off()
 alpha=0.05
 
 # kritischen Wert berechnen
-par.bsp.R=KB.R(alpha, y, grad.1, inv.X.1)
+nobs=length(y)
+par.bsp.R=KB.R(alpha, nobs, grad.1, inv.X.1)
 
 # Konfidenzband bestimmen
-plot.KB.R=plot.KB(length(y), grad.1, inv.X.1, beta.1, sigma.1, par.bsp.R[[1]], ngrid = length(y))
+plot.KB.R=plot.KB(nobs, grad.1, inv.X.1, beta.1, sigma.1, par.bsp.R[[1]], ngrid = length(y))
 
 # punktweises Konfidenzband kritischer Wert
 par.bsp.punkt=qt(1-alpha/2, length(y)-grad.1-1)
@@ -108,10 +109,10 @@ dev.off()
 alpha=0.05
 
 # kritischen Wert berechnen
-par.bsp.R=KB.R(alpha, y, grad.1, inv.X.1)
+par.bsp.R=KB.R(alpha, nobs, grad.1, inv.X.1)
 
 # Konfidenzband bestimmen
-plot.KB.R=plot.KB(length(y), grad.1, inv.X.1, beta.1, sigma.1, par.bsp.R[[1]], ngrid = length(y))
+plot.KB.R=plot.KB(nobs, grad.1, inv.X.1, beta.1, sigma.1, par.bsp.R[[1]], ngrid = length(y))
 
 
 # Ergebnisse zeichnen
@@ -141,10 +142,10 @@ set.seed(4)
 niter=5000
 
 # kritischen Wert bestimmen
-par.bsp.minmax=KB.minmax(alpha, y, grad.1, niter, inv.X.1, a=0, b=1)
+par.bsp.minmax=KB.minmax(alpha, nobs, grad.1, niter, inv.X.1, a=0, b=1)
 
 # Konfidenzband berechnen
-plot.KB.minmax=plot.KB(length(y), grad.1, inv.X.1, beta.1, sigma.1, par.bsp.minmax[[1]], ngrid = length(y))
+plot.KB.minmax=plot.KB(nobs, grad.1, inv.X.1, beta.1, sigma.1, par.bsp.minmax[[1]], ngrid = length(y))
 
 # Ergebnisse zeichnen
 pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-minmax.pdf",
@@ -171,10 +172,10 @@ dev.off()
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-par.bsp.poly=KB.poly.fast(alpha, length(y), grad.1, niter, inv.X.1, a=0, b=1, ngridpoly = 100)
+par.bsp.poly=KB.poly.fast(alpha, nobs, grad.1, niter, inv.X.1, a=0, b=1, ngridpoly = 100)
 
 # Konfidenzband berechnen
-plot.KB.poly=plot.KB(length(y), grad.1, inv.X.1, beta.1, sigma.1, par.bsp.poly[[1]], ngrid = length(y))
+plot.KB.poly=plot.KB(nobs, grad.1, inv.X.1, beta.1, sigma.1, par.bsp.poly[[1]], ngrid = length(y))
 
 # Ergebnisse zeichnen
 pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly.pdf",
@@ -203,7 +204,7 @@ dev.off()
 
 # Regression vom Grad 3
 grad.3=4
-fit.3=OLS(grad.3, y, length(y))
+fit.3=OLS(grad.3, y, nobs)
 inv.X.3=fit.3[[1]]
 beta.3=fit.3[[2]]
 sigma.3=fit.3[[3]]
@@ -251,7 +252,7 @@ delta.mat=Delta(inv.X.1, inv.X.3)
 
 # kritischen Wert bestimmen
 # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-par.bsp.vergl=KB.poly.fast(alpha, length(y), max(grad.1, grad.3), niter, delta.mat[[1]], a=0, b=1,
+par.bsp.vergl=KB.poly.fast(alpha, nobs, max(grad.1, grad.3), niter, delta.mat[[1]], a=0, b=1,
                            ngridpoly = 50)
 
 # Konfidenzband berechnen

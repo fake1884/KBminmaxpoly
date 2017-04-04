@@ -5,12 +5,9 @@
 # noch das Konfidenznivea alpha und den Grad des Polynoms grad übergeben. Da zur Bestimmung der Werte
 # lower und upper inv.X, beta und sigma gebraucht werden, übergebe ich diese auch.
 # Rückgabewert sind points,lower,upper,factor. Dabei ist factor der kritische Wert
-KB.R <- function(alpha, data, grad, inv.X){
-
-  # bestimmt die Werte f?r die Berechnung von factor
+KB.R <- function(alpha, nobs, grad, inv.X){
 
   # kritischen Wert bestimmen
-  nobs=length(data)
   q <-qf(1-alpha,grad+1, nobs-grad-1)
   factor <- sqrt((grad+1)*q)
 
@@ -52,12 +49,11 @@ KB.R.pruef <- function(alpha, nobs, grad, k){
 # Die R?ckgabewerte sind points,lower,upper,factor wie in der letzten Funktion
 
 # Konfidenzband auf (min(x.1), max(x.1)) bestimmen
-KB.minmax <- function(alpha, y, grad, niter, inv.X, a, b){
+KB.minmax <- function(alpha, nobs, grad, niter, inv.X, a, b){
 
   # Simulation um den kritischen Wert c zu bestimmen
   # niter sollte mindestens 50.000 sein
   # feste Werte erzeugen
-  nobs <- length(y)
   v <- nobs-grad-1
   D <- diag(grad+1)
 
