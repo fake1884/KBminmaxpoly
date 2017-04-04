@@ -75,10 +75,10 @@ arma::mat S_fun_cpp(double x, int grad, double sigmahat, arma::mat N, arma::mat 
   // arma::mat mu = rep_fun(0, grad+1);
   // arma::mat N = mvrnormArma(1, mu, Xinv);
 
-  arma::mat T = abs(N / sigmahat);
+  arma::mat T = N / sigmahat;
 
   // Berechnung von T * tilde{x} / sqrt(t(tilde{x}) * Xinttraf * tilde{x})
-  arma::mat erg = T * z;
+  arma::mat erg = abs( z.t() * T.t());
   arma::mat erg2 = arma::sqrt( z.t() * Xinv * z );
   arma::mat ergfin = erg/erg2;
 

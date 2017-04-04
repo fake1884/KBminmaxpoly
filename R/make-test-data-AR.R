@@ -73,6 +73,7 @@ Make.data.AR = function(){
     data_modelAR_estAR_bekannt_beta[,i]=fit.1[[2]]
     data_modelAR_estAR_bekannt_sigma[i]=fit.1[[3]]
   }
+  X.trafo.inv = fit.1[[5]]
 
   #############################################################
   # schätzer für das Testset AR
@@ -91,9 +92,9 @@ Make.data.AR = function(){
   ################################################################
   # Daten speichern
   support_data_AR <- list(ntest, grad, nobs, beta.true, x, X, sigma.true, phi.true,
-                          alpha, ngrid, X.mat, X.mat.inv, a, b)
+                          alpha, ngrid, X.mat, X.mat.inv, a, b, X.trafo.inv)
   names(support_data_AR) <- paste(c("ntest", "grad", "nobs", "beta.true", "x", "X", "sigma.true", "phi.true",
-                          "alpha", "ngrid", "X.mat", "X.mat.inv", "a", "b"), sep = "")
+                          "alpha", "ngrid", "X.mat", "X.mat.inv", "a", "b", "X.trafo.inv"), sep = "")
   devtools::use_data(data_AR_test, overwrite = T)
   devtools::use_data(data_AR_true, overwrite = T)
   devtools::use_data(data_modelAR_estAR_beta, overwrite = T)
