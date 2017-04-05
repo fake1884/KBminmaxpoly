@@ -106,7 +106,6 @@ Upsilon_fun <- function(phi, dimension){
 }
 
 
-
 ###################################################
 # berechnet die V Matrix aus den Überprüfungsberechnungen
 
@@ -114,3 +113,28 @@ V = function(I.tilde, inv.X){
 
   return(I.tilde %*% inv.X %*% t(I.tilde))
   }
+
+
+########################################################
+# berechnet zu einer Matrix R die Matirx R^{-1/2}
+# R^{-1} = inv.R
+# R^{-1/2} = sqrt.inv.R
+# dazu mache ich eine eigenwertzerlegung von inv.R=ev %*% ew %*% ev.1.
+# Dann ist sqrt.inv.R = ev %*% sqrt(ew) %*% ev.1
+
+sqrt_inv_mat <- function(R){
+
+  eig <- eigen(R)
+  ew <- diag(length(eig$values))
+  for(i in 1:length(eig$values)){ew[i,i]=eig$val[i]}
+  ew.sq <- sqrt(ew)
+  ev <- eig$vec
+  #ev %*% ew.sq %*% ev.1 # sollte gleich inv.X sein
+  ev.1 <- solve(ev)
+  R.trafo <- ev %*% ew.sq %*% ev.1
+  # R invertieren
+  inv.trafo.R=solve(R.trafo)
+
+  erg=list(inv.trafo.R)
+  erg
+}

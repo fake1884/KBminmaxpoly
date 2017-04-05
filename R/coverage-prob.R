@@ -111,13 +111,14 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.R(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                         support_data_AR$X.trafo.inv)
+                       data_modelAR_estAR_bekannt_X_mat_trafo)
 
         ######################################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.trafo.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad,
+                            data_modelAR_estAR_bekannt_X_mat_trafo,
                             data_modelAR_estAR_bekannt_beta[,i], data_modelAR_estAR_bekannt_sigma[i],
                             par.bsp.R[[1]], support_data_AR$ngrid)
 
@@ -133,13 +134,14 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.AR=KB.minmax(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad , niter,
-                              support_data_AR$X.trafo.inv, support_data_AR$a, support_data_AR$b)
+                             data_modelAR_estAR_bekannt_X_mat_trafo, support_data_AR$a, support_data_AR$b)
 
         ###############################################################ü
         for(i in 1:support_data_R$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.trafo.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad,
+                            data_modelAR_estAR_bekannt_X_mat_trafo,
                             data_modelAR_estAR_bekannt_beta[,i], data_modelAR_estAR_bekannt_sigma[i],
                             par.bsp.AR[[1]], support_data_AR$ngrid)
 
@@ -155,14 +157,15 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.poly(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                            niter,support_data_AR$X.mat.inv, support_data_AR$a,
+                            niter, data_modelAR_estAR_bekannt_X_mat_trafo, support_data_AR$a,
                             support_data_AR$b)
 
         ##########################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad,
+                            data_modelAR_estAR_bekannt_X_mat_trafo,
                             data_modelAR_estAR_bekannt_beta[,i], data_modelAR_estAR_bekannt_sigma[i],
                             par.bsp.R[[1]], support_data_AR$ngrid)
 
@@ -178,14 +181,15 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.poly.fast(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                                 niter,support_data_AR$X.trafo.inv, support_data_AR$a,
+                                 niter, data_modelAR_estAR_bekannt_X_mat_trafo, support_data_AR$a,
                                  support_data_AR$b, ngridpoly)
 
         ##########################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.trafo.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad,
+                            data_modelAR_estAR_bekannt_X_mat_trafo,
                             data_modelAR_estAR_bekannt_beta[,i], data_modelAR_estAR_bekannt_sigma[i],
                             par.bsp.R[[1]], support_data_AR$ngrid)
 
@@ -205,13 +209,13 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.R(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                         support_data_AR$X.mat.inv)
+                       data_modelAR_estAR_X_trafo_inv[[1]])
 
         ######################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, data_modelAR_estAR_X_trafo_inv[[i]],
                             data_modelAR_estAR_beta[,i], data_modelAR_estAR_sigma[i], par.bsp.R[[1]],
                             support_data_AR$ngrid) # alle sigmas in data_modelAR_estAR_sigma sind gleich :o
                                                    # deswegen wird nur ein sigma gespeichert oder auch nicht?!
@@ -228,13 +232,13 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.minmax(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad , niter,
-                              support_data_AR$X.mat.inv, support_data_AR$a, support_data_AR$b)
+                            data_modelAR_estAR_X_trafo_inv[[1]], support_data_AR$a, support_data_AR$b)
 
         ##########################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, data_modelAR_estAR_X_trafo_inv[[i]],
                             data_modelAR_estAR_beta[,i], data_modelAR_estAR_sigma[i], par.bsp.R[[1]],
                             support_data_AR$ngrid)
 
@@ -250,14 +254,14 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.poly(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                            niter, support_data_AR$X.mat.inv, support_data_AR$a,
+                            niter, data_modelAR_estAR_X_trafo_inv[[1]], support_data_AR$a,
                             support_data_AR$b)
 
         ##############################################################
         for(i in 1:support_data_AR$ntest)
         {
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.mat.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, data_modelAR_estAR_X_trafo_inv[[i]],
                             data_modelAR_estAR_beta[,i], data_modelAR_estAR_sigma[i], par.bsp.R[[1]],
                             support_data_AR$ngrid)
 
@@ -274,14 +278,14 @@ Coverage.prob.fun = function(model.type, est.method, niter, ngridpoly){
 
         # kritischen Wert berechnen
         par.bsp.R=KB.poly.fast(support_data_AR$alpha, support_data_AR$nobs, support_data_AR$grad,
-                                 niter,support_data_AR$X.trafo.inv, support_data_AR$a,
+                                 niter, data_modelAR_estAR_X_trafo_inv[[1]], support_data_AR$a,
                                  support_data_AR$b, ngridpoly)
         ################################################################ü
         for(i in 1:support_data_AR$ntest)
         {
 
           # Konfidenzband bestimmen
-          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, support_data_AR$X.trafo.inv,
+          plot.KB.R=plot.KB(support_data_AR$nobs, support_data_AR$grad, data_modelAR_estAR_X_trafo_inv[[i]],
                             data_modelAR_estAR_beta[,i], data_modelAR_estAR_sigma[i], par.bsp.R[[1]],
                             support_data_AR$ngrid)
 

@@ -43,11 +43,11 @@ system.time({cov.poly.fast.AR.bekannt=Coverage.prob.fun("AR-bekannt", "minmax-po
 ##########################################
 # dritter Satz an Coverage.prob.fun functions
 
-# last run cov.R.R= 1000, system.time=
+# last run cov.R.R = 97.8, system.time = 15.634
 cov.R.AR=NA
 system.time({cov.R.AR = Coverage.prob.fun("AR", "R")})
 
-# last run niter=1000, ngridpoly=500, cov.minmax.AR= 1000, system.time=
+# last run niter = 1000, ngridpoly = 500, cov.minmax.AR = 96.6, system.time = 16.347
 cov.minmax.AR=NA
 system.time({cov.minmax.AR = Coverage.prob.fun("AR", "minmax", niter = 100)})
 
@@ -56,9 +56,9 @@ system.time({cov.minmax.AR = Coverage.prob.fun("AR", "minmax", niter = 100)})
 cov.poly.AR=NA
 system.time({cov.poly.AR=Coverage.prob.fun("AR", "minmax-poly", niter = 100)})
 
-# last run niter=1000, ngridpoly=500, cov.poly.fast.AR= 1000, system.time=9881.355
+# last run niter = 1000, ngridpoly = 500, cov.poly.fast.AR= 94.9, system.time = 23.746
 cov.poly.fast.AR=NA
-system.time({cov.poly.fast.AR=Coverage.prob.fun("AR", "minmax-poly-fast", niter = 1000, ngridpoly = 100)})
+system.time({cov.poly.fast.AR=Coverage.prob.fun("AR", "minmax-poly-fast", niter = 1000, ngridpoly = 500)})
 
 
 

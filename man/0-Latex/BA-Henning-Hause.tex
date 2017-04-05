@@ -2056,7 +2056,7 @@ Um dann bei gegebenem $\phi$ beziehungsweise $\hat{\phi}$ einen Schätzer für $
 Führt man diese Schritte durch, das heißt man transformiert die Daten und berechnet dann den OLS Schätzer 
 
 \begin{equation*}
-\hat{\beta} = (X^{t} X)^{-1} X^{t} Y
+\hat{\beta} = (X' X)^{-1} X' Y
 \end{equation*}
 
 für die transformierten Daten 
@@ -2068,9 +2068,9 @@ für die transformierten Daten
 erhält man
 
 \begin{eqnarray*}
-\hat{\beta} &=& ((\Upsilon^{-1/2} X)^{t} \Upsilon^{-1/2} X)^{-1} (\Upsilon^{-1/2} X)^{t} \Upsilon^{-1/2} Y \\
-&=& (X^{t} \Upsilon^{-1/2} \Upsilon^{-1/2})^{-1} X^{t} \Upsilon^{-1/2} \Upsilon^{-1/2} Y \\
-&=& (X^{t} \Upsilon^{-1} X)^{-1} X^{t} \Upsilon^{-1} Y
+\hat{\beta} &=& ((\Upsilon^{-1/2} X)' \Upsilon^{-1/2} X)^{-1} (\Upsilon^{-1/2} X)' \Upsilon^{-1/2} Y \\
+&=& (X' \Upsilon^{-1/2} \Upsilon^{-1/2})^{-1} X' \Upsilon^{-1/2} \Upsilon^{-1/2} Y \\
+&=& (X' \Upsilon^{-1} X)^{-1} X' \Upsilon^{-1} Y
 \end{eqnarray*}
  
 Was genau der \textit{generalised least squares} (GLS) Schätzer ist.
@@ -2102,7 +2102,7 @@ Man erhält als Schätzer für den AR(1) Parameter $\hat{\phi}$ = \phiestone , w
 
 Als Schätzung für die Parameter erhält man \betaARone ~und \sigmaARone , während die wahren Werte \betatrue ~und \sigmatrue ~sind. 
 
-Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Abbildung erhält man
+Zeichnet man dann dieses Regressionspolynom mit den Daten in eine Abbildung erhält man Abbildung \ref{BSP-Reg-AR}.
 
 \begin{figure}[H] 
   \centering
@@ -2135,7 +2135,7 @@ Nun betrachten wir, wie dies die Simulation aus Abschnitt \ref{Konfidenzbaendera
 Im Speziellen wird die folgende Simulation verwendet, um konkret den Wert der kritischen Konstante $c$ bei abhängigen Daten zu bestimmen:
 
 \begin{enumerate}
-\item Simuliere $N \sim \mathscr{N}_{n}(0,(\Upsilon^{-1/2}X'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
+\item Simuliere $N \sim \mathscr{N}_{n}(0,((\Upsilon^{-1/2}X)'\Upsilon^{-1/2}X)^{-1}) = (0,(X^{*'}X^{*})$ und $\hat{\sigma}/\sigma \sim \sqrt{\chi^2_v/v}$ mit $v=n-p-1$.
 \item Berechnung von $K_{2h}(T;(X^{*'}X^{*})^{-1};(a,b))$.
 \end{enumerate}
 

@@ -90,36 +90,14 @@ ar.1 <- function(grad,data, phi){
 
   nobs=length(data)
   # Trafomatrix bestimmen
-  R = diag(length(data))
-
-  for (j in 1:(length(data)-1)){
-    for (i in (1+j):length(data))
-    {
-      R[i,j]=phi^(i-j)
-    }
-  }
-
-  for (j in 1:(length(data)-1)){
-    for (i in (1+j):length(data))
-    {
-      R[j,i]=phi^(i-j)
-    }
-  }
+  # Upsilon und R haben die selbe Struktur
+  R = Upsilon_fun(phi, nobs)[[1]]
 
   # Wurzel R.trafo aus R.inv berechnen
   # dazu mache ich eine eigenwertzerlegung von inv.R=ev %*% ew %*% ev.1.
   # Dann ist R.trafo = ev %*% sqrt(ew) %*% ev.1
-  eig <- eigen(R)
-  ew <- diag(length(eig$values))
-  for(i in 1:length(eig$values)){ew[i,i]=eig$val[i]}
-  ew.sq <- sqrt(ew)
-  ev <- eig$vec
-  #ev %*% ew.sq %*% ev.1 # sollte gleich inv.X sein
-  ev.1 <- solve(ev)
-  R.trafo <- ev %*% ew.sq %*% ev.1
-
   # R invertieren
-  inv.trafo.R=solve(R.trafo)
+  inv.trafo.R = sqrt_inv_mat(R)[[1]]
 
   # Daten transformieren
   data.trafo = inv.trafo.R %*% data
@@ -154,7 +132,7 @@ ar.1 <- function(grad,data, phi){
   # curve(beta[1]+beta[2]*x+beta[3]*x^2+beta[4]*x^3, add=T)
 
 
-  estOut=list(inv.X,beta,sigma,data.trafo,inv.X.trafo,R.trafo,X.trafo)
+  estOut=list(inv.X,beta,sigma,data.trafo,inv.X.trafo,X.trafo)
 
   estOut
 }

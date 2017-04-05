@@ -65,42 +65,67 @@ Make.data.AR = function(){
   # schätzer für das Testset AR-bekannt
   data_modelAR_estAR_bekannt_beta=matrix(rep(rep(NA, ntest), grad+1), nrow=grad+1)
   data_modelAR_estAR_bekannt_sigma=matrix(rep(rep(NA, ntest), 1), nrow=1)
+  data_modelAR_estAR_bekannt_X_mat_trafo=matrix(rep(rep(NA, nobs), nobs), nrow=nobs)
   for(i in 1:ntest)
   {
     # Parameter schätzen
     y = data_AR_test[,i]
-    fit.1 = ar.1(grad, y, phi.true)
-    data_modelAR_estAR_bekannt_beta[,i]=fit.1[[2]]
-    data_modelAR_estAR_bekannt_sigma[i]=fit.1[[3]]
+    fit.1=gls(y ~ time+time.2+time.3, correlation=corAR1())
+    data_modelAR_estAR_bekannt_beta[,i]=fit.1$coeff
+    data_modelAR_estAR_bekannt_sigma[i]=summary(fit.1)$sigma
   }
-  X.trafo.inv = fit.1[[5]]
+  R=Upsilon_fun(phi.true, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  data_modelAR_estAR_bekannt_X_mat_trafo=solve(X.mat.trafo)
+
 
   #############################################################
   # schätzer für das Testset AR
   data_modelAR_estAR_beta=matrix(rep(rep(NA, ntest), grad+1), nrow=grad+1)
   data_modelAR_estAR_sigma=matrix(rep(rep(NA, ntest), 1), nrow=1)
+  data_modelAR_estAR_X_trafo_inv=rep(list(matrix(rep(rep(NA, nobs), nobs), nrow=nobs)), ntest)
   for(i in 1:ntest)
   {
     # Parameter schätzen
-    data_AR_test[,i]=y
-    # y ~ time+time.2+time.3+time.4+time.5
+    y=data_AR_test[,i]
     fit.1=gls(y ~ time+time.2+time.3,correlation=corAR1())
     data_modelAR_estAR_beta[,i]=fit.1$coeff
     data_modelAR_estAR_sigma[i]=summary(fit.1)$sigma
+    # keine Ahnung, warum man das so berechnen muss
+    aux.1 = exp(summary(fit.1)$modelStruct[[1]][1])
+    phi = (aux.1 - 1) / (aux.1 + 1)
+
+    # X.inv.trafo in Abhängigkeit von phi bestimmen
+    R=Upsilon_fun(phi, nobs)[[1]]
+    inv.trafo.R=sqrt_inv_mat(R)[[1]]
+    X.trafo= inv.trafo.R %*% X
+    X.mat.trafo=t(X.trafo) %*% X.trafo
+    data_modelAR_estAR_X_trafo_inv[[i]]=solve(X.mat.trafo)
   }
 
-  ################################################################
-  # Daten speichern
+  # support_data erzeugen
   support_data_AR <- list(ntest, grad, nobs, beta.true, x, X, sigma.true, phi.true,
-                          alpha, ngrid, X.mat, X.mat.inv, a, b, X.trafo.inv)
+                          alpha, ngrid, X.mat, X.mat.inv, a, b)
   names(support_data_AR) <- paste(c("ntest", "grad", "nobs", "beta.true", "x", "X", "sigma.true", "phi.true",
-                          "alpha", "ngrid", "X.mat", "X.mat.inv", "a", "b", "X.trafo.inv"), sep = "")
+                          "alpha", "ngrid", "X.mat", "X.mat.inv", "a", "b"), sep = "")
+
+   ################################################################
+  # Daten speichern
+  # Werte für beides
   devtools::use_data(data_AR_test, overwrite = T)
   devtools::use_data(data_AR_true, overwrite = T)
-  devtools::use_data(data_modelAR_estAR_beta, overwrite = T)
-  devtools::use_data(data_modelAR_estAR_sigma, overwrite = T)
+  devtools::use_data(support_data_AR, overwrite = T)
+
+  # Werte für AR bekannt
   devtools::use_data(data_modelAR_estAR_bekannt_beta, overwrite = T)
   devtools::use_data(data_modelAR_estAR_bekannt_sigma, overwrite = T)
-  devtools::use_data(support_data_AR, overwrite = T)
+  devtools::use_data(data_modelAR_estAR_bekannt_X_mat_trafo, overwrite = T)
+
+  # Werte für AR
+  devtools::use_data(data_modelAR_estAR_beta, overwrite = T)
+  devtools::use_data(data_modelAR_estAR_sigma, overwrite = T)
+  devtools::use_data(data_modelAR_estAR_X_trafo_inv, overwrite = T)
 }
 

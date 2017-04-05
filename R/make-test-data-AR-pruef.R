@@ -67,7 +67,7 @@ Make.data.AR.pruef = function(){
   for(i in 1:ntest)
   {
     # Parameter schätzen
-    y = data_AR_test[,i]
+    y = data_AR_pruef_test[,i]
     fit.1 = ar.1(grad, y, phi.true)
     data_modelAR_pruef_estAR_bekannt_beta[,i]=fit.1[[2]]
     data_modelAR_pruef_estAR_bekannt_sigma[i]=fit.1[[3]]
@@ -80,8 +80,8 @@ Make.data.AR.pruef = function(){
   for(i in 1:ntest)
   {
     # Parameter schätzen
-    data_AR_test[,i]=y
-    fit.1=gls(y ~ time+time.2+time.3+time.4+time.5,correlation=corAR1())
+    y = data_AR_pruef_test[,i]
+    fit.1 = gls(y ~ time+time.2+time.3+time.4+time.5, correlation=corAR1())
     data_modelAR_pruef_estAR_beta[,i]=fit.1$coeff
     data_modelAR_pruef_estAR_sigma[i]=summary(fit.1)$sigma
   }
