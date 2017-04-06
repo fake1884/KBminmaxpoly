@@ -14,40 +14,59 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
   Y.gls.4 <- gls(data.set ~ time+I(time^2)+I(time^3)+I(time^4), correlation=corAR1())
   beta.4=Y.gls.4$coefficients
   sigma.4=Y.gls.4$sigma
+  aux.4 = exp(summary(Y.gls.4)$modelStruct[[1]][1])
+  phi.4 = (aux.4 - 1) / (aux.4 + 1)
 
   Y.gls.5 <- gls(data.set ~ time+I(time^2)+I(time^3)+I(time^4)+I(time^5), correlation=corAR1())
   beta.5=Y.gls.5$coefficients
   sigma.5=Y.gls.5$sigma
+  aux.5 = exp(summary(Y.gls.5)$modelStruct[[1]][1])
+  phi.5 = (aux.5 - 1) / (aux.5 + 1)
 
   Y.gls.6 <- gls(data.set ~ time+I(time^2)+I(time^3)+I(time^4)+I(time^5)+I(time^6), correlation=corAR1())
   beta.6=Y.gls.6$coefficients
   sigma.6=Y.gls.6$sigma
+  aux.6 = exp(summary(Y.gls.6)$modelStruct[[1]][1])
+  phi.6 = (aux.6 - 1) / (aux.6 + 1)
 
   # Modelle, inv.X.4, inv.X.5, inv.X.6, bestimmen
   X=matrix(data=NA,nrow=nobs,ncol=(degree[1]+1))
   for(j in 1:nobs){
     for(i in 1:(degree[1]+1)){X[j,i]=time[j]^(i-1)}
   }
-  X.mat=t(X) %*% X
-  inv.X.4=solve(X.mat)
+  R=Upsilon_fun(phi.4, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  inv.X.4=solve(X.mat.trafo)
+
 
   X=matrix(data=NA,nrow=nobs,ncol=(degree[2]+1))
   for(j in 1:nobs){
     for(i in 1:(degree[2]+1)){X[j,i]=time[j]^(i-1)}
   }
-  X.mat=t(X) %*% X
-  inv.X.5=solve(X.mat)
+  R=Upsilon_fun(phi.5, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  inv.X.5=solve(X.mat.trafo)
+
 
   X=matrix(data=NA,nrow=nobs,ncol=(degree[3]+1))
   for(j in 1:nobs){
     for(i in 1:(degree[3]+1)){X[j,i]=time[j]^(i-1)}
   }
-  X.mat=t(X) %*% X
-  inv.X.6=solve(X.mat)
+  R=Upsilon_fun(phi.6, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  inv.X.6=solve(X.mat.trafo)
+
 
   # allgemeine Werte
   alpha=0.05
   niter=1000
+  ngridpoly=500
 
   # Designmatritzen anpassen
   Delta.mat.4.5=Delta(inv.X.4, inv.X.5)
@@ -69,11 +88,11 @@ Plot.poly.KB = function(data.set, degree, graphicspath){
   # kritischen Werte bestimmen
   # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
   par.bsp.vergl.4.5=KB.poly.fast(alpha, length(data.set), degree[2], niter, Delta.mat.4.5[[1]], a=0, b=1,
-                                 ngridpoly = length(data.set))
+                                 ngridpoly)
   par.bsp.vergl.4.6=KB.poly.fast(alpha, length(data.set), degree[3], niter, Delta.mat.4.6[[1]], a=0, b=1,
-                                 ngridpoly = length(data.set))
+                                 ngridpoly)
   par.bsp.vergl.5.6=KB.poly.fast(alpha, length(data.set), degree[3], niter, Delta.mat.5.6[[1]], a=0, b=1,
-                                 ngridpoly = length(data.set))
+                                 ngridpoly)
 
 
   # Konfidenzb?nder berechnen

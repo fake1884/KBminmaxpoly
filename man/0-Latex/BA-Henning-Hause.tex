@@ -159,27 +159,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameter für die Simulation
 % für das Modell
-\newcommand{\ntest}{100}
-\newcommand{\simgrad}{5}
+\newcommand{\ntest}{200}
+%\newcommand{\simgrad}{5}
 
 % Die normalen
 % ueberdeckung, R als Grundmodell
 \newcommand{\UeberRR}{0.953}
-\newcommand{\UeberRMinmax}{.956}
-\newcommand{\UeberRMinmaxPoly}{0.83}
+\newcommand{\UeberRMinmax}{.961}
+\newcommand{\UeberRMinmaxPoly}{-}
 \newcommand{\UeberRMinmaxPolyfast}{0.951}
 
 % ueberdeckung, AR bekannt als Grundmodell
 \newcommand{\UeberARbekanntR}{0.977}
-\newcommand{\UeberARbekanntMinmax}{1.000}
-\newcommand{\UeberARbekanntMinmaxPoly}{0.67}
-\newcommand{\UeberARbekanntMinmaxPolyfast}{1.000}
+\newcommand{\UeberARbekanntMinmax}{0.969}
+\newcommand{\UeberARbekanntMinmaxPoly}{-}
+\newcommand{\UeberARbekanntMinmaxPolyfast}{0.955}
 
 % ueberdeckung, AR als Grundmodell
-\newcommand{\UeberARR}{1.000}
-\newcommand{\UeberARMinmax}{1.000}
-\newcommand{\UeberARMinmaxPoly}{0.03}
-\newcommand{\UeberARMinmaxPolyfast}{1.000}
+\newcommand{\UeberARR}{0.978}
+\newcommand{\UeberARMinmax}{0.969}
+\newcommand{\UeberARMinmaxPoly}{-}
+\newcommand{\UeberARMinmaxPolyfast}{0.939}
 
 % Die Prüfdingen
 % ueberdeckung, R als Grundmodelll pruefen
@@ -187,8 +187,8 @@
 \newcommand{\UeberRMinmaxPolyfastpruefen}{0.97}
 
 % ueberdeckung, AR bekannt als Grundmodell prufen
-\newcommand{\UeberARbekanntRpruefen}{1.00}
-\newcommand{\UeberARbekanntMinmaxPolyfastpruefen}{1.00}
+\newcommand{\UeberARbekanntRpruefen}{-}
+\newcommand{\UeberARbekanntMinmaxPolyfastpruefen}{-}
 
 % ueberdeckung, AR als Grundmodell pruefen
 \newcommand{\UeberARRpruefen}{1.00}
@@ -855,17 +855,17 @@ Außerdem wurde eine Simulation durchgeführt, um die Überdeckungswahrscheinlic
 
 Dazu wurden Daten auf zwei verschiedene Arten erzeugt. Zum Einen wurden die Daten auf Grundlage eines  multiplen, linearen, homoskedastisches Regressionsmodell erzeugt. Zum anderen wurde ein multiples lineares Regressionsmodell mit einem AR(1)-Prozess zugrunde gelegt. 
 
-Der Grad des wahren Modelles ist \simgrad ~und es wird auch eine Regression mit Grad \simgrad ~durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt.
+Der Grad des wahren Modelles ist Eins für das homoskedastische Modell und es wird für dieses Modell auch eine Regression mit Grad Eins durchgeführt. Für das heteroskedastische Modell wird eine Modell von Grad Drei verwendet und auch eine entsprechende Regression durchgeführt. Dabei sind sowohl das wahre, als auch das geschätzte Modell von Polynomgestalt. Für nähre Informationen zu den Modellen siehe das R Skript \textit{make-test-data-R.R} beziehungsweise \textit{make-test-data-AR.R}.
 
 Bei der Simulation wurden zuerst \ntest ~Mal Daten mit den oben genannten Grundmodellen erzeugt. Danach wurden Konfidenzbänder um ein OLS-Schätzer beziehungsweise mit einem AR(1) transformierten OLS-Schätzer berechnet. Dann wurde gezählt, wie oft das wahre Modell in dem Konfidenzband lag. 
 
-Für das multiple lineare Regressionsmodell kamen keine guten Werte bei den Überdeckungswahrscheinlichkeiten heraus. Deswegen wurde ein vereinfachtes Modell verwendet. Dabei wurde der Grad des Modells verringert, der Fehler auf 0.5 fixiert und die Anzahl an Beobachtungen erhöht. Außerdem wurde die Überdeckungswahrscheinlichkeit auf drei Stellen nach dem Komma genau bestimmt. Für nähre Informationen zu diesem Modell siehe das R Skript \textit{make-test-data-R.R}. Für das AR-Modell siehe das Skript \textit{make-test-data-AR.R}.
+%Für das multiple lineare Regressionsmodell kamen keine guten Werte bei den Überdeckungswahrscheinlichkeiten heraus. Deswegen wurde ein vereinfachtes Modell verwendet. Dabei wurde der Grad des Modells verringert, der Fehler auf 0.5 fixiert und die Anzahl an Beobachtungen erhöht. Außerdem wurde die Überdeckungswahrscheinlichkeit auf drei Stellen nach dem Komma genau bestimmt. 
 
 Auf Grund von Laufzeitproblemen werden die Daten von den Funktionen \textit{make-test-data-R} beziehungsweise \textit{make-test-data-AR} erzeugt und gespeichert. Auch die jeweils berechneten Regressionsmodelle, Designmatritzen und weitere Werte werden abgespeichert. Diese Daten sind in \textit{/data} zu finden.
 
 Bei der Berechnung der Überdeckungswahrscheinlichkeit müssen dann nur noch die Konfidenzbänder, die von der Anzahl an Simulationen abhängen, berechnet werden. Für eine Erklärung warum Simulationen benötigt werden, siehe die Kapitel \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} und \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt}.
 
-Die Laufzeit für die Berechnung der Überdeckungswahrscheinlichkeiten von Konfidenzbänden bei denen Simulationen durchgeführt werden müssen beträgt ungefähr 15 Minuten bei den empfohlenen 5000 Wiederholungen.
+%Die Laufzeit für die Berechnung der Überdeckungswahrscheinlichkeiten von Konfidenzbänden bei denen Simulationen durchgeführt werden müssen beträgt ungefähr 15 Minuten bei den empfohlenen 5000 Wiederholungen.
 
 Wie genau bei einem AR(1) Modell OLS-Schätzer bestimmt werden können wird in Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} erläutert.
 
@@ -1848,9 +1848,9 @@ Konfidenzband auf einem Polyeder	 & \UeberRMinmax  & \UeberARbekanntMinmax & \Ue
 \hline 
 Konfidenzband auf einem Polyeder für Polynome  & \UeberRMinmaxPolyfast & \UeberARbekanntMinmaxPolyfast & \UeberARMinmaxPolyfast \\ 
 \hline 
-Teil des Modells auf $\mathbb{R}^{p}$ überprüfen 	& \UeberRRpruefen & - & \UeberARRpruefen \\ 
+Teil des Modells auf $\mathbb{R}^{p}$ überprüfen 	& \UeberRRpruefen & \UeberARbekanntRpruefen & \UeberARRpruefen \\ 
 \hline 
-Teil des Modells auf A für Polynome überprüfen	& \UeberRMinmaxPolyfastpruefen & - & \UeberARMinmaxPolyfastpruefen \\ 
+Teil des Modells auf A für Polynome überprüfen	& \UeberRMinmaxPolyfastpruefen & \UeberARbekanntMinmaxPolyfastpruefen & \UeberARMinmaxPolyfastpruefen \\ 
 \hline 
 \end{tabular} 
 \end{center}

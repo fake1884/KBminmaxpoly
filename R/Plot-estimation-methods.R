@@ -16,7 +16,8 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
   Y.gls <- gls(data.set ~ time+time.2+time.3+time.4+time.5, correlation=corAR1())
   beta=Y.gls$coefficients
   sigma=Y.gls$sigma
-
+  aux.1 = exp(summary(Y.gls)$modelStruct[[1]][1])
+  phi = (aux.1 - 1) / (aux.1 + 1)
 
 
   # do the model generation
@@ -24,21 +25,26 @@ Plot.estimation.methods = function(data.set, degree, graphicspath){
   for(j in 1:nobs){
     for(i in 1:(degree+1)){X[j,i]=time[j]^(i-1)}
   }
-  X.mat=t(X) %*% X
-  inv.X=solve(X.mat)
+
+  R=Upsilon_fun(phi, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  inv.X=solve(X.mat.trafo)
 
   # initialize fixed values
   alpha=0.05
   niter=1000
+  ngridpoly=500
 
   # kritische Werte bestimmen
   # alpha, data, grad, inv.X
-  par.KB.R <- KB.R(alpha, data.set, degree, inv.X)
+  par.KB.R <- KB.R(alpha, nobs, degree, inv.X)
   # alpha, y, grad, niter, inv.X, a, b
-  par.KB.minmax <- KB.minmax(alpha, data.set, degree, niter, inv.X, a=0, b=1)
+  par.KB.minmax <- KB.minmax(alpha, nobs, degree, niter, inv.X, a=0, b=1)
   # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-  par.KB.poly <- KB.poly.fast(alpha, length(data.set), degree, niter, inv.X, a=0, b=1,
-                              ngridpoly = length(data.set))
+  par.KB.poly <- KB.poly.fast(alpha, nobs, degree, niter, inv.X, a=0, b=1,
+                              ngridpoly)
 
   # Konfidenzb?nder berechnen
   # nobs, grad, inv.X, beta, sigma, factor, ngrid

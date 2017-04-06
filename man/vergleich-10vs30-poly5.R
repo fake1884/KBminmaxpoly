@@ -14,6 +14,8 @@ time.3=time^3
 time.4=time^4
 time.5=time^5
 Y.gls.10 <- gls(Y.10~time+time.2+time.3+time.4+time.5,correlation=corAR1())
+aux.1 = exp(summary(Y.gls.10)$modelStruct[[1]][1])
+phi.10 = (aux.1 - 1) / (aux.1 + 1)
 
 beta.10=Y.gls.10$coeff
 sigma.10=Y.gls.10$sigma
@@ -23,12 +25,18 @@ X.10=matrix(data=NA,nrow=nobs,ncol=(grad.5+1))
 for(j in 1:nobs){
   for(i in 1:(grad.5+1)){X.10[j,i]=time[j]^(i-1)}
 }
-X.mat.10=t(X.10) %*% X.10
-inv.X.10=solve(X.mat.10)
+# X.inv.trafo in Abhängigkeit von phi bestimmen
+R=Upsilon_fun(phi.10, nobs)[[1]]
+inv.trafo.R=sqrt_inv_mat(R)[[1]]
+X.trafo= inv.trafo.R %*% X.10
+X.mat.trafo=t(X.trafo) %*% X.trafo
+inv.X.10=solve(X.mat.trafo)
 
 
 # 30 kPa
 Y.gls.30 <- gls(Y.30~time+time.2+time.3+time.4+time.5,correlation=corAR1())
+aux.1 = exp(summary(Y.gls.30)$modelStruct[[1]][1])
+phi.30 = (aux.1 - 1) / (aux.1 + 1)
 
 beta.30=Y.gls.30$coeff
 sigma.30=Y.gls.30$sigma
@@ -38,8 +46,13 @@ X.30=matrix(data=NA,nrow=nobs,ncol=(grad.5+1))
 for(j in 1:nobs){
   for(i in 1:(grad.5+1)){X.30[j,i]=time[j]^(i-1)}
 }
-X.mat.30=t(X.30) %*% X.30
-inv.X.30=solve(X.mat.30)
+# X.inv.trafo in Abhängigkeit von phi bestimmen
+R=Upsilon_fun(phi.30, nobs)[[1]]
+inv.trafo.R=sqrt_inv_mat(R)[[1]]
+X.trafo= inv.trafo.R %*% X.30
+X.mat.trafo=t(X.trafo) %*% X.trafo
+inv.X.30=solve(X.mat.trafo)
+
 
 
 #################################

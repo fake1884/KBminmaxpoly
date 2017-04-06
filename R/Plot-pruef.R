@@ -26,14 +26,30 @@ Plot.pruef = function(data, grad, k, graphicspath){
   for(j in 1:nobs){
     for(i in 1:(grad+1)){X[j,i]=x[j]^(i-1)}
   }
-  X.mat=t(X) %*% X
-  X.mat.inv=solve(X.mat)
 
-  I.tilde=I_tilde(k, grad)[[1]]
-  V=I.tilde %*% X.mat.inv %*% t(I.tilde)
 
   Y.gls.5 <- gls(data.set ~ time+time.2+time.3+time.4+time.5, correlation=corAR1())
+  aux.1 = exp(summary(Y.gls.5)$modelStruct[[1]][1])
+  phi.5 = (aux.1 - 1) / (aux.1 + 1)
+
+  # X.inv.trafo in Abhängigkeit von phi bestimmen
+  R=Upsilon_fun(phi.5, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  X.mat.inv.5=solve(X.mat.trafo)
+
+
   Y.gls.6 <- gls(data.set ~ time+time.2+time.3+time.4+time.5+time.6, correlation=corAR1())
+  aux.1 = exp(summary(Y.gls.6)$modelStruct[[1]][1])
+  phi.6 = (aux.1 - 1) / (aux.1 + 1)
+
+  # X.inv.trafo in Abhängigkeit von phi bestimmen
+  R=Upsilon_fun(phi.6, nobs)[[1]]
+  inv.trafo.R=sqrt_inv_mat(R)[[1]]
+  X.trafo= inv.trafo.R %*% X
+  X.mat.trafo=t(X.trafo) %*% X.trafo
+  X.mat.inv.6=solve(X.mat.trafo)
 
   if(grad==5){beta=Y.gls.5$coeff
   }else if(grad==6){beta=Y.gls.6$coeff
@@ -42,6 +58,13 @@ Plot.pruef = function(data, grad, k, graphicspath){
   if(grad==5){sigma=Y.gls.5$sigma
   }else if(grad==6){sigma=Y.gls.6$sigma
   }else{return("error")}
+
+  if(grad==5){X.mat.inv=X.mat.inv.5
+  }else if(grad==6){X.mat.inv=X.mat.inv.6
+  }else{return("error")}
+
+  I.tilde=I_tilde(k, grad)[[1]]
+  V=I.tilde %*% X.mat.inv %*% t(I.tilde)
 
   beta.2=I.tilde %*% beta
 
@@ -61,6 +84,7 @@ Plot.pruef = function(data, grad, k, graphicspath){
   {legendplace="topleft"}else
       if (plot.KB.R[[2]][nobs] < 0 && plot.KB.R[[3]][nobs] < 0)
       {legendplace="bottomleft"}else if(data == "Y.30" && k == 2)
+          {legendplace="topleft"}else if(data == "Y.30" && grad == 5)
           {legendplace="topleft"}else
           {legendplace="bottomleft"}
 
