@@ -1,17 +1,21 @@
 Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
 
+  nerfolg = 1000
+
   if(model.type=="R-pruef"){
 
     if(est.method=="R"){
       #####################################################
       # Konfidenzband auf ganz R
-      nerfolg = 100
+
+      # kritischen Wert berechnen
+      # alpha, nobs, k
+      par.bsp.R=KB.R.pruef(support_data_R_pruef$alpha, support_data_R_pruef$nobs,
+                             support_data_R_pruef$grad, support_data_R_pruef$k)
+
       for(i in 1:support_data_R_pruef$ntest)
       {
-        # kritischen Wert berechnen
-        # alpha, nobs, k
-        par.bsp.R=KB.R.pruef(support_data_R_pruef$alpha, length(data_R_pruef_test[,i]),
-                             support_data_R_pruef$grad, support_data_R_pruef$k)
+
 
         # Konfidenzband bestimmen
         # grad, inv.X, beta, sigma, factor, k, ngrid
@@ -53,16 +57,16 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
       #schätz mit minmax-poly-fast
 
       ########################################################
-      nerfolg = 100
-      for(i in 1:support_data_R_pruef$ntest)
-      {
+
       # kritischen Wert berechnen
       # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-      par.bsp.R=KB.poly.fast(support_data_R_pruef$alpha, length(data_R_pruef_test[,i]),
+      par.bsp.R=KB.poly.fast(support_data_R_pruef$alpha, support_data_R_pruef$nobs,
                              support_data_R_pruef$k-1,
                              niter, support_data_R_pruef$V,
                              support_data_R_pruef$a, support_data_R_pruef$b, ngridpoly)
 
+      for(i in 1:support_data_R_pruef$ntest)
+      {
       # Konfidenzband bestimmen
       plot.KB.R=plot.KB.pruef( nobs = support_data_R_pruef$nobs,
                                grad = support_data_R_pruef$grad,
@@ -89,13 +93,15 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
       #Schätz mit R
 
       #######################################
-      nerfolg=100
+
+      # kritischen Wert berechnen
+      # alpha, nobs, k
+      par.bsp.R=KB.R.pruef(support_data_AR_pruef$alpha, support_data_AR_pruef$nobs,
+                             support_data_AR_pruef$grad, support_data_AR_pruef$k)
+
       for(i in 1:support_data_AR_pruef$ntest)
       {
-        # kritischen Wert berechnen
-        # alpha, nobs, k
-        par.bsp.R=KB.R.pruef(support_data_AR_pruef$alpha, length(data_AR_pruef_test[,i]),
-                             support_data_AR_pruef$grad, support_data_AR_pruef$k)
+
 
         # Konfidenzband bestimmen
         # nobs, grad, inv.X, beta, sigma, factor, k, ngrid
@@ -135,17 +141,16 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
     else if(est.method=="minmax-poly-fast"){
       #schätz mit minmax-poly-fast
 
-      ####################################################
-      nerfolg = 100
-      for(i in 1:support_data_AR_pruef$ntest)
-      {
-        # kritischen Wert berechnen
-        # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-        par.bsp.R=KB.poly.fast(support_data_AR_pruef$alpha, length(data_AR_pruef_test[,i]),
+      # kritischen Wert berechnen
+      # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
+      par.bsp.R=KB.poly.fast(support_data_AR_pruef$alpha, support_data_AR_pruef$nobs,
                                support_data_AR_pruef$k-1,
                                niter, support_data_AR_pruef$V,
                                support_data_AR_pruef$a, support_data_AR_pruef$b, ngridpoly)
 
+      ####################################################
+      for(i in 1:support_data_AR_pruef$ntest)
+      {
         # Konfidenzband bestimmen
         plot.KB.R=plot.KB.pruef( nobs = support_data_AR_pruef$nobs,
                                  grad = support_data_AR_pruef$grad,
@@ -169,15 +174,14 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
     if(est.method=="R"){
       #Schätz mit R
 
-      #################################################
-      nerfolg=100
-      for(i in 1:support_data_AR_pruef$ntest)
-      {
         # kritischen Wert berechnen
         # alpha, nobs, k
-        par.bsp.R=KB.R.pruef(support_data_AR_pruef$alpha, length(data_AR_pruef_test[,i]),
+        par.bsp.R=KB.R.pruef(support_data_AR_pruef$alpha, support_data_AR_pruef$nobs,
                              support_data_AR_pruef$grad, support_data_AR_pruef$k)
 
+      #################################################
+      for(i in 1:support_data_AR_pruef$ntest)
+      {
         # Konfidenzband bestimmen
         # nobs, grad, inv.X, beta, sigma, factor, k, ngrid
         plot.KB.R=plot.KB.pruef( nobs = support_data_AR_pruef$nobs,
@@ -215,17 +219,16 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
     else if(est.method=="minmax-poly-fast"){
       #schätz mit minmax-poly-fast
 
-      ###########################################################
-      nerfolg = 100
-      for(i in 1:support_data_AR_pruef$ntest)
-      {
         # kritischen Wert berechnen
         # alpha, nobs, grad, niter, inv.X, a, b, ngridpoly
-        par.bsp.R=KB.poly.fast(support_data_AR_pruef$alpha, length(data_AR_pruef_test[,i]),
+        par.bsp.R=KB.poly.fast(support_data_AR_pruef$alpha, support_data_AR_pruef$nobs,
                                support_data_AR_pruef$k-1,
                                niter, support_data_AR_pruef$V,
                                support_data_AR_pruef$a, support_data_AR_pruef$b, ngridpoly)
 
+      ###########################################################
+      for(i in 1:support_data_AR_pruef$ntest)
+      {
         # Konfidenzband bestimmen
         plot.KB.R=plot.KB.pruef( nobs = support_data_AR_pruef$nobs,
                                  grad = support_data_AR_pruef$grad,

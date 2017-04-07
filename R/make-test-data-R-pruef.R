@@ -36,7 +36,7 @@ Make.data.R.pruef = function(){
   V=I.tilde %*% X.mat.inv %*% t(I.tilde)
   beta.2=I.tilde %*% beta
 
-  data_R_pruef_true=x^(grad-k) %*% beta.2
+  data_R_pruef_true=x^(grad+1-k) %*% beta.2
 
   #########################################################################
   # Zufallsdaten erzeugen

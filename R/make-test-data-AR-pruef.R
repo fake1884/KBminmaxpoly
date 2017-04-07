@@ -3,15 +3,15 @@
 Make.data.AR.pruef = function(){
 
   # Anzahl an Testdurchl?ufen
-  ntest=100
+  ntest=1000
 
   # Reproduzierbarkeit gew?hrleisten
   set.seed(100)
 
   # feste Werte initialisieren
-  grad=5
+  grad=3
   nobs=50
-  beta.true=c(10,5,-4,7,3,-4)
+  beta.true=c(10,5,-4,7)#,3,-4
   sigma.true=0.007545373
   phi.true=0.8225374  # bestimmt die korrelation
   x.raw=c(0:(nobs-1))
@@ -47,7 +47,7 @@ Make.data.AR.pruef = function(){
   V=I.tilde %*% X.mat.inv %*% t(I.tilde)
   beta.2=I.tilde %*% beta.true
 
-  data_AR_pruef_true = x^(grad-k) %*% beta.2
+  data_AR_pruef_true = x^(grad+1-k) %*% beta.2
 
   ######################################################
   # matrix für das Testset
@@ -55,9 +55,9 @@ Make.data.AR.pruef = function(){
   for(i in 1:ntest)
   {
     # wahre Werte erzeugen
-    e=mvtnorm::rmvnorm(1,mean=rep(0,length(x.raw)),Upsilon)
+    e=mvtnorm::rmvnorm(1,mean=rep(0,nobs),Upsilon)
 
-    data_AR_pruef_test[,i]=X %*% beta.true+ t(e)
+    data_AR_pruef_test[,i]=X %*% beta.true + t(e)
   }
 
   #############################################################
@@ -81,7 +81,7 @@ Make.data.AR.pruef = function(){
   {
     # Parameter schätzen
     y = data_AR_pruef_test[,i]
-    fit.1 = gls(y ~ time+time.2+time.3+time.4+time.5, correlation=corAR1())
+    fit.1 = gls(y ~ time+time.2+time.3, correlation=corAR1())
     data_modelAR_pruef_estAR_beta[,i]=fit.1$coeff
     data_modelAR_pruef_estAR_sigma[i]=summary(fit.1)$sigma
   }

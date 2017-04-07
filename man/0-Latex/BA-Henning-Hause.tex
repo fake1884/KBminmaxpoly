@@ -183,16 +183,16 @@
 
 % Die Prüfdingen
 % ueberdeckung, R als Grundmodelll pruefen
-\newcommand{\UeberRRpruefen}{0.99}
-\newcommand{\UeberRMinmaxPolyfastpruefen}{0.97}
+\newcommand{\UeberRRpruefen}{0.958}
+\newcommand{\UeberRMinmaxPolyfastpruefen}{0.958}
 
 % ueberdeckung, AR bekannt als Grundmodell prufen
 \newcommand{\UeberARbekanntRpruefen}{-}
 \newcommand{\UeberARbekanntMinmaxPolyfastpruefen}{-}
 
 % ueberdeckung, AR als Grundmodell pruefen
-\newcommand{\UeberARRpruefen}{1.00}
-\newcommand{\UeberARMinmaxPolyfastpruefen}{1.00}
+\newcommand{\UeberARRpruefen}{0.958}
+\newcommand{\UeberARMinmaxPolyfastpruefen}{0.958}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % glossary
@@ -327,7 +327,7 @@ Das Kapitel \ref{Regression und Konfidenzbaender} stellt die Konzepte der Regres
 
 Das Kapitel \ref{Vergleich von zwei Regressionsmodellen} führt aus, wie man Regressionsmodelle mittels des F-Tests vergleicht. Danach werden, mit Hilfe der Methoden aus dem ersten Kapitel, bessere Möglichkeiten zum Vergleich von Regressionsmodellen angegeben.
 
-Das Kapitel \ref{Teil eines Regressionsmodells überprüfen} erläutert, wie man überprüfen kann, ob ein Teil des Regressionsmodells keinen Einfluss auf die Daten hat. Dazu wird zuerst die Methode des F-Tests angegeben. Dann wird mit Hilfe der Methoden aus Kapitel \ref{Regression und Konfidenzbaender} bessere Möglichkeiten beschrieben, einen Teil des Konfidenzbandes zu überprüfen.
+Das Kapitel \ref{Teil eines Regressionsmodells überprüfen} erläutert, wie man überprüfen kann, ob ein Teil des Regressionsmodells keinen Einfluss auf die Daten hat. Dazu wird zuerst die Methode des F-Tests angegeben. Dann wird mit Hilfe der Methoden aus Kapitel \ref{Regression und Konfidenzbaender} eine bessere Möglichkeiten beschrieben, einen Teil des Konfidenzbandes zu überprüfen.
 
 Das Kapitel \ref{Regression und Konfidenzbänder für abhaengige Daten} beschäftigt sich mit der Fragestellung, wie Schätzer für die Koeffizientenvektoren und für die Varianz der Fehler und Konfidenzbänder bei abhängigen Daten berechnet werden können. Konkret wird der Fall betrachtet, dass dem Regressionsmodell ein AR(1)-Prozess zugrunde liegt.
 
@@ -1731,7 +1731,7 @@ Dieser Satz kann ähnlich wie Satz \ref{KB_Eigenschaft} bewiesen werden. Außerd
 Test \eqref{Test_prüfen} und das Konfidenzband \eqref{KB_R_prüfen} verwerfen und akzeptieren $H_0$ zur selben Zeit.
 \end{Satz}
 
-Das Konfidenzband \eqref{KB_R_prüfen} gibt einem also immer mehr Informationen. Allerdings ist das Konfidenzband auf ganz $R^k$ definiert. Eine noch besser Aussage über $H_0$ kann man also treffen, wenn man stattdessen ein Konfidenzband auf $A$ betrachtet. 
+Das Konfidenzband \eqref{KB_R_prüfen} gibt einem also immer mehr Informationen. Allerdings ist das Konfidenzband auf ganz $\mathbb{R}^k$ definiert. Eine noch besser Aussage über $H_0$ kann man also treffen, wenn man stattdessen ein Konfidenzband auf $A$ betrachtet. 
 
 \subsection{Einen Teil eines Regressionsmodells auf einem Intervall überprüfen}
 \label{Teil eines Regressionsmodells auf einem Intervall überpruefen}

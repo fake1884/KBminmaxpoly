@@ -9,7 +9,7 @@ Coverage.prob.pruef.fun("R-pruef", "minmax", niter = 100)
 
 Coverage.prob.pruef.fun("R-pruef", "minmax-poly", niter = 100)
 
-Coverage.prob.pruef.fun("R-pruef", "minmax-poly-fast", niter = 100, ngridpoly = 100)
+Coverage.prob.pruef.fun("R-pruef", "minmax-poly-fast", niter = 5000, ngridpoly = 500)
 
 
 ##########################################
