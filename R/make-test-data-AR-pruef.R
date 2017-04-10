@@ -47,7 +47,10 @@ Make.data.AR.pruef = function(){
   V=I.tilde %*% X.mat.inv %*% t(I.tilde)
   beta.2=I.tilde %*% beta.true
 
-  data_AR_pruef_true = x^(grad+1-k) %*% beta.2
+  X.2 = X[,(grad+2-k):(grad+1)]
+
+  data_R_pruef_true = X.2 %*% beta.2
+
 
   ######################################################
   # matrix für das Testset
@@ -77,6 +80,7 @@ Make.data.AR.pruef = function(){
   # schätzer für das Testset AR
   data_modelAR_pruef_estAR_beta=matrix(rep(rep(NA, ntest), grad+1), nrow=grad+1)
   data_modelAR_pruef_estAR_sigma=matrix(rep(rep(NA, ntest), 1), nrow=1)
+  data_modelAR_estAR_X_trafo_inv=rep(list(matrix(rep(rep(NA, nobs), nobs), nrow=nobs)), ntest)
   for(i in 1:ntest)
   {
     # Parameter schätzen
@@ -84,6 +88,16 @@ Make.data.AR.pruef = function(){
     fit.1 = gls(y ~ time+time.2+time.3, correlation=corAR1())
     data_modelAR_pruef_estAR_beta[,i]=fit.1$coeff
     data_modelAR_pruef_estAR_sigma[i]=summary(fit.1)$sigma
+    # keine Ahnung, warum man das so berechnen muss
+    aux.1 = exp(summary(fit.1)$modelStruct[[1]][1])
+    phi = (aux.1 - 1) / (aux.1 + 1)
+
+    # X.inv.trafo in Abhängigkeit von phi bestimmen
+    R=Upsilon_fun(phi, nobs)[[1]]
+    inv.trafo.R=sqrt_inv_mat(R)[[1]]
+    X.trafo= inv.trafo.R %*% X
+    X.mat.trafo=t(X.trafo) %*% X.trafo
+    data_modelAR_estAR_X_trafo_inv[[i]]=solve(X.mat.trafo)
   }
 
   ################################################################
@@ -92,11 +106,18 @@ Make.data.AR.pruef = function(){
                           alpha, ngrid, X.mat, X.mat.inv, a, b, k, V)
   names(support_data_AR_pruef) <- paste(c("ntest", "grad", "nobs", "beta.true", "x", "X", "sigma.true", "phi.true",
                                     "alpha", "ngrid", "X.mat", "X.mat.inv", "a", "b", "k", "V"), sep = "")
+  devtools::use_data(support_data_AR_pruef, overwrite = T)
+
+  # Allgemeine Werte
   devtools::use_data(data_AR_pruef_test, overwrite = T)
   devtools::use_data(data_AR_pruef_true, overwrite = T)
-  devtools::use_data(data_modelAR_pruef_estAR_beta, overwrite = T)
-  devtools::use_data(data_modelAR_pruef_estAR_sigma, overwrite = T)
+
+  # AR bekannt
   devtools::use_data(data_modelAR_pruef_estAR_bekannt_beta, overwrite = T)
   devtools::use_data(data_modelAR_pruef_estAR_bekannt_sigma, overwrite = T)
-  devtools::use_data(support_data_AR_pruef, overwrite = T)
+
+  # AR
+  devtools::use_data(data_modelAR_pruef_estAR_beta, overwrite = T)
+  devtools::use_data(data_modelAR_pruef_estAR_sigma, overwrite = T)
+  devtools::use_data(data_modelAR_estAR_X_trafo_inv, overwrite = T)
 }

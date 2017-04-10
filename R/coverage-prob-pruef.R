@@ -186,7 +186,7 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
         # nobs, grad, inv.X, beta, sigma, factor, k, ngrid
         plot.KB.R=plot.KB.pruef( nobs = support_data_AR_pruef$nobs,
                                  grad = support_data_AR_pruef$grad,
-                                 inv.X = support_data_AR_pruef$X.mat.inv,
+                                 inv.X = data_modelAR_estAR_X_trafo_inv[[i]],
                                  beta = data_modelAR_pruef_estAR_beta[,i],
                                  sigma = data_modelAR_pruef_estAR_sigma[i],
                                  factor = par.bsp.R[[1]], k = support_data_AR_pruef$k,
@@ -232,7 +232,7 @@ Coverage.prob.pruef.fun <- function(model.type, est.method, niter, ngridpoly){
         # Konfidenzband bestimmen
         plot.KB.R=plot.KB.pruef( nobs = support_data_AR_pruef$nobs,
                                  grad = support_data_AR_pruef$grad,
-                                 inv.X = support_data_AR_pruef$X.mat.inv,
+                                 inv.X = data_modelAR_estAR_X_trafo_inv[[i]],
                                  beta = data_modelAR_pruef_estAR_beta[,i],
                                  sigma = data_modelAR_pruef_estAR_sigma[i],
                                  factor = par.bsp.R[[1]], k = support_data_AR_pruef$k,

@@ -18,14 +18,22 @@ plot.KB <- function(nobs, grad, inv.X, beta, sigma, factor, ngrid){
   lower <- rep(NA, nobs)
   upper <- rep(NA, nobs)
 
+  x.raw=c(0:(nobs-1))
+  x=x.raw/max(x.raw)
+  X=matrix(data=NA,nrow=nobs,ncol=(grad+1))
+  for(j in 1:nobs){
+    for(i in 1:(grad+1)){X[j,i]=x[j]^(i-1)}
+    }
+  X.2 = X[,(grad+2-k):(grad+1)]
 
+  X.beta = X.2 %*% beta.2
 
   for(i in 1:ngrid)
   {
     x=matrix(data=NA, ncol=1, nrow=(grad+1))
     for(j in 1:(grad+1)){x[j,]=points[i]^(j-1)}
-    lower[i] = (t(x) %*% beta - factor * sigma * sqrt(t(x) %*% inv.X %*% x))
-    upper[i] = (t(x) %*% beta + factor * sigma * sqrt(t(x) %*% inv.X %*% x))
+    lower[i] = (X.beta[i] - factor * sigma * sqrt(t(x) %*% inv.X %*% x))
+    upper[i] = (X.beta[i] + factor * sigma * sqrt(t(x) %*% inv.X %*% x))
   }
   erg=list(points,lower,upper)
   erg
@@ -115,7 +123,7 @@ plot.KB.pruef <- function(nobs, grad, inv.X, beta, sigma, factor, k, ngrid){
   for(i in 1:ngrid)
   {
     x=matrix(data=NA, ncol=1, nrow=k)
-    for(j in 1:k){x[j,]=points[i]^(grad+1-k)}
+    for(j in 1:k){x[j,]=points[i]^(grad-k+1+(j-1))}
 
     lower[i] <- (t(x) %*% beta.2 - factor * sigma * sqrt(t(x) %*% V %*% x))
     upper[i] <- (t(x) %*% beta.2 + factor * sigma * sqrt(t(x) %*% V %*% x))
