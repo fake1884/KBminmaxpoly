@@ -77,7 +77,7 @@ Plot.pruef = function(data, grad, k, graphicspath){
   par.bsp.R=KB.poly.fast(alpha = 0.05, nobs, k-1, niter, V, a, b, ngridpoly)
 
   # Konfidenzband bestimmen
-  plot.KB.R=plot.KB.pruef( nobs , grad, X.mat.inv , beta, sigma, factor = par.bsp.R[[1]], k, ngrid )
+  plot.KB.R=plot.KB.pruef(nobs , grad, X.mat.inv , beta, sigma, factor = par.bsp.R[[1]], k, ngrid )
 
   # Graphik erzeugen
   if (plot.KB.R[[2]][nobs] > 0 && plot.KB.R[[3]][nobs] > 0)

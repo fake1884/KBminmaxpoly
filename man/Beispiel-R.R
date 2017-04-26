@@ -203,15 +203,17 @@ dev.off()
 # Unterschied zwischen zwei Modellen
 
 # Regression vom Grad 3
-beta.2=c(10,5,-4,7)
-sigma=1
+#beta=c(10,5,-4,7)
+beta.2=c(10,1,-1,9)
+sigma=0.5
 
 e.2=rmvnorm(1,mean=rep(0,length(x.raw)), sigma=sigma*I.mat)
 
-y.new=X %*% beta.2 + t(e.2)
+y.new.raw = X %*% beta.2 + t(e.2)
+y.new = y.new.raw/max(y.new.raw)
 
-grad.3=2
-fit.3=OLS(grad.3, y, nobs)
+grad.3=3
+fit.3=OLS(grad.3, y.new, nobs)
 inv.X.3=fit.3[[1]]
 beta.3=fit.3[[2]]
 sigma.3=fit.3[[3]]
@@ -221,11 +223,12 @@ pdf("man/0-Latex/graphics/Beispiel/Bsp-beide-in-einem-plot.pdf",
     width=10,height=8)
 
 plot(x,y, xlab="relative Zeit", ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+points(x,y.new, cex = 2, lwd = 3, pch=2)
 curve(fit.1[[2]][1]+fit.1[[2]][2]*x+fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, cex=2, lwd=3)
-curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3+fit.3[[2]][5]*x^4,
+curve(fit.3[[2]][1]+fit.3[[2]][2]*x+fit.3[[2]][3]*x^2+fit.3[[2]][4]*x^3,
       add=T, lty="dashed", cex=2, lwd=3)
 
-legend(x="topleft", legend=c("Grad 3", "Grad 4"),
+legend(x="topleft", legend=c("Data Set 1", "Data Set 2"),
        col=c("black", "black"),cex=2, lwd=3, lty=c("solid", "dashed"))
 
 dev.off()
@@ -267,20 +270,42 @@ plot.bsp.vergl=plot.KB.vergl(y, y.new, grad.3, delta.mat[[1]], beta.1, beta.3, s
                              par.bsp.vergl[[1]], ngrid = length(y))
 
 # Ergebnisse zeichnen
-pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero.pdf",
-    width=10,height=8)
+pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero.pdf", width=10,height=8)
 
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.bsp.vergl[[2]]),max(plot.bsp.vergl[[3]])), xlab="relative Zeit",
      ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
 lines(c(1,0),c(0,0), cex=2, lwd=3)
 curve(fit.1[[2]][1]-fit.3[[2]][1]+(fit.1[[2]][2]-fit.3[[2]][2])*x+(fit.1[[2]][3]-fit.3[[2]][3])*x^2+
-        (fit.1[[2]][4]-fit.3[[2]][4])*x^3-fit.3[[2]][5]*x^4
-      , add=T, cex=2, lwd=3)
+        (fit.1[[2]][4]-fit.3[[2]][4])*x^3, add=T, cex=2, lwd=3)
 lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[2]], lty=1, cex=2, lwd=3)
 lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[3]], lty=1, cex=2, lwd=3)
 
 dev.off()
 
+##################################################
+# Beispiel zu nested Models für k =2 Datensatz 1
+
+k = 2
+I.tilde=I_tilde(k, grad.1)[[1]]
+V=I.tilde %*% inv.X.1 %*% t(I.tilde)
+beta.2=I.tilde %*% beta.1
+
+par.bsp.R.nested = KB.poly.fast(alpha, nobs, k-1, niter, V, a = 0, b = 1, ngridpoly = 50)[[1]]
+
+plot.KB.R.nested = plot.KB.pruef(nobs, grad.1, inv.X.1, beta.1, sigma.1, factor = par.bsp.R.nested, k,
+                                 ngrid = nobs)
+
+
+pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero.pdf", width=10,height=8)
+
+plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R.nested[[2]]),max(plot.KB.R.nested[[3]])), xlab="relative Zeit",
+     ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
+lines(c(1,0),c(0,0), cex=2, lwd=3)
+curve(fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T)
+lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[2]], lty=1, cex=2, lwd=3)
+lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[3]], lty=1, cex=2, lwd=3)
+
+dev.off()
 
 ########################################################################################
 # nur zum auslesen von Werten

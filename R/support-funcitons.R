@@ -126,13 +126,13 @@ sqrt_inv_mat <- function(R){
 
   eig <- eigen(R)
   ew <- diag(length(eig$values))
-  for(i in 1:length(eig$values)){ew[i,i]=eig$val[i]}
-  ew.sq <- 1/sqrt(ew) # R wird gleichzeit invertiert und die Wurzel von R genommen
+  # R wird gleichzeit invertiert und die Wurzel von R genommen
+  for(i in 1:length(eig$values)){ew[i,i]=1/sqrt(eig$val[i])}
   ev <- eig$vec
-  #ev %*% ew.sq %*% ev.1 # sollte gleich inv.X sein
+  #ev %*% ew %*% ev.1 # sollte gleich inv.X^{1/2} sein
   ev.1 <- solve(ev)
-  R.trafo <- ev %*% ew.sq %*% ev.1
+  R.trafo <- ev %*% ew %*% ev.1
 
-  erg=list(inv.trafo.R)
+  erg=list(R.trafo)
   erg
 }
