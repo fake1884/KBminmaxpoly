@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  7 APR 2017 12:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.1.9)  22 APR 2017 12:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1477,41 +1477,7 @@ on input line 2398.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
  [51 <./graphics/Stammzellen-10kPa/10kPa-poly-KB-4-5.pdf> <./graphics/Stammzell
 en-30kPa/30kPa-poly-KB-4-5.pdf>]
-<graphics/Stammzellen-10kPa/10kPa-poly-KB-4-6.pdf, id=310, 722.7pt x 578.16pt>
-File: graphics/Stammzellen-10kPa/10kPa-poly-KB-4-6.pdf Graphic file (type pdf)
-
-<use graphics/Stammzellen-10kPa/10kPa-poly-KB-4-6.pdf>
-Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-poly-KB-4-6.pdf used 
-on input line 2418.
-(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
-<graphics/Stammzellen-30kPa/30kPa-poly-KB-4-6.pdf, id=311, 722.7pt x 578.16pt>
-File: graphics/Stammzellen-30kPa/30kPa-poly-KB-4-6.pdf Graphic file (type pdf)
-
-<use graphics/Stammzellen-30kPa/30kPa-poly-KB-4-6.pdf>
-Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-poly-KB-4-6.pdf used 
-on input line 2425.
-(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [52 <./graphics/Stammzellen-10kPa/10kPa-poly-KB-4-6.pdf> <./graphics/Stammzell
-en-30kPa/30kPa-poly-KB-4-6.pdf>]
-<graphics/Stammzellen-30kPa/30kPa-poly-KB-5-6.pdf, id=328, 722.7pt x 578.16pt>
-File: graphics/Stammzellen-30kPa/30kPa-poly-KB-5-6.pdf Graphic file (type pdf)
-
-<use graphics/Stammzellen-30kPa/30kPa-poly-KB-5-6.pdf>
-Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-poly-KB-5-6.pdf used 
-on input line 2436.
-(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
-<graphics/Stammzellen-10kPa/10kPa-poly-KB-5-6.pdf, id=329, 722.7pt x 578.16pt>
-File: graphics/Stammzellen-10kPa/10kPa-poly-KB-5-6.pdf Graphic file (type pdf)
-
-<use graphics/Stammzellen-10kPa/10kPa-poly-KB-5-6.pdf>
-Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-poly-KB-5-6.pdf used 
-on input line 2443.
-(pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [53 <./graphics/Stammzellen-30kPa/30kPa-poly-KB-5-6.pdf> <./graphics/Stammzell
-en-10kPa/10kPa-poly-KB-5-6.pdf>]
-<graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf, id=346, 722.7pt x 5
+<graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf, id=310, 722.7pt x 5
 78.16pt>
 File: graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf Graphic file (t
 ype pdf)
@@ -1520,8 +1486,8 @@ Package pdftex.def Info: graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.
 pdf used on input line 2467.
 (pdftex.def)             Requested size: 299.46599pt x 239.57022pt.
 
-[54 <./graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf>]
-<graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf, id=355, 722.7
+[52 <./graphics/Stammzellen-Vergleich/Vergleich-10vs30-poly5.pdf>]
+<graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf, id=319, 722.7
 pt x 578.16pt>
 File: graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf Graphic f
 ile (type pdf)
@@ -1530,58 +1496,58 @@ ile (type pdf)
 Package pdftex.def Info: graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-pol
 y5-KB.pdf used on input line 2494.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [55 <./graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf>]
-<graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf, id=365, 722.7pt x 578.16pt>
+ [53 <./graphics/Stammzellen-Vergleich/Vergleich-10vs30kPa-poly5-KB.pdf>]
+<graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf, id=331, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf used on
  input line 2551.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
-<graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf, id=366, 722.7pt x 578.16pt>
+ [54]
+<graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf, id=335, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf used on
  input line 2558.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [56 <./graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf>]
-<graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf, id=375, 722.7pt x 578.16pt>
+
+<graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf, id=336, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf used 
 on input line 2569.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
-<graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf, id=376, 722.7pt x 578.16pt>
+ [55 <./graphics/Stammzellen-10kPa/10kPa-Grad-5-KB.pdf> <./graphics/Stammzellen
+-30kPa/30kPa-Grad-5-KB.pdf>]
+<graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf, id=350, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf used 
 on input line 2576.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [57 <./graphics/Stammzellen-30kPa/30kPa-Grad-5-KB.pdf> <./graphics/Stammzellen
--10kPa/10kPa-Grad-6-1-KB.pdf>]
-<graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf, id=390, 722.7pt x 578.16pt>
+
+<graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf, id=351, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf used 
 on input line 2589.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
-
-<graphics/Stammzellen-30kPa/30kPa-Grad-6-2-KB.pdf, id=391, 722.7pt x 578.16pt>
+ [56 <./graphics/Stammzellen-10kPa/10kPa-Grad-6-1-KB.pdf> <./graphics/Stammzell
+en-30kPa/30kPa-Grad-6-1-KB.pdf>]
+<graphics/Stammzellen-30kPa/30kPa-Grad-6-2-KB.pdf, id=365, 722.7pt x 578.16pt>
 File: graphics/Stammzellen-30kPa/30kPa-Grad-6-2-KB.pdf Graphic file (type pdf)
 
 <use graphics/Stammzellen-30kPa/30kPa-Grad-6-2-KB.pdf>
 Package pdftex.def Info: graphics/Stammzellen-30kPa/30kPa-Grad-6-2-KB.pdf used 
 on input line 2596.
 (pdftex.def)             Requested size: 230.36061pt x 184.28275pt.
- [58 <./graphics/Stammzellen-30kPa/30kPa-Grad-6-1-KB.pdf> <./graphics/Stammzell
-en-10kPa/10kPa-Grad-6-2-KB.pdf>] [59 <./graphics/Stammzellen-30kPa/30kPa-Grad-6
--2-KB.pdf>] [60] [61]
+ [57 <./graphics/Stammzellen-10kPa/10kPa-Grad-6-2-KB.pdf> <./graphics/Stammzell
+en-30kPa/30kPa-Grad-6-2-KB.pdf>] [58] [59]
 Underfull \hbox (badness 10000) in paragraph at lines 2640--2645
 
  []
@@ -1600,16 +1566,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2640--2645
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-[62] (./BA-Henning-Hause.aux)
+[60] (./BA-Henning-Hause.aux)
 Package logreq Info: Writing requests to 'BA-Henning-Hause.run.xml'.
 \openout1 = `BA-Henning-Hause.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 16765 strings out of 493304
- 265744 string characters out of 6139872
- 727352 words of memory out of 5000000
- 19781 multiletter control sequences out of 15000+600000
+ 16741 strings out of 493304
+ 264744 string characters out of 6139872
+ 727345 words of memory out of 5000000
+ 19761 multiletter control sequences out of 15000+600000
  90532 words of font info for 73 fonts, out of 8000000 for 9000
  961 hyphenation exceptions out of 8191
  46i,11n,67p,1701b,1424s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1629,10 +1595,10 @@ mf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri1
 s/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on BA-Henning-Hause.pdf (64 pages, 572651 bytes).
+Output written on BA-Henning-Hause.pdf (62 pages, 546524 bytes).
 PDF statistics:
- 492 PDF objects out of 1000 (max. 8388607)
- 344 compressed objects within 4 object streams
+ 458 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

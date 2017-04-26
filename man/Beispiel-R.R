@@ -200,10 +200,17 @@ dev.off()
 
 
 #############################
-# Unterschied zwischen Regression von Grad 3 und 4
+# Unterschied zwischen zwei Modellen
 
 # Regression vom Grad 3
-grad.3=4
+beta.2=c(10,5,-4,7)
+sigma=1
+
+e.2=rmvnorm(1,mean=rep(0,length(x.raw)), sigma=sigma*I.mat)
+
+y.new=X %*% beta.2 + t(e.2)
+
+grad.3=2
 fit.3=OLS(grad.3, y, nobs)
 inv.X.3=fit.3[[1]]
 beta.3=fit.3[[2]]
@@ -231,7 +238,7 @@ dev.off()
 # Werte erzeugen
 alpha=0.05
 data.1=y
-data.2=y
+data.2=y.new
 
 # Test durchf?hren
 erg=f.test(alpha, grad.1, grad.3, data.1, data.2)
@@ -256,7 +263,7 @@ par.bsp.vergl=KB.poly.fast(alpha, nobs, max(grad.1, grad.3), niter, delta.mat[[1
                            ngridpoly = 50)
 
 # Konfidenzband berechnen
-plot.bsp.vergl=plot.KB.vergl(y, y, grad.3, delta.mat[[1]], beta.1, beta.3, sigma.1, sigma.3,
+plot.bsp.vergl=plot.KB.vergl(y, y.new, grad.3, delta.mat[[1]], beta.1, beta.3, sigma.1, sigma.3,
                              par.bsp.vergl[[1]], ngrid = length(y))
 
 # Ergebnisse zeichnen

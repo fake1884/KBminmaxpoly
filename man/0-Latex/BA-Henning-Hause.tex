@@ -165,7 +165,7 @@
 % Die normalen
 % ueberdeckung, R als Grundmodell
 \newcommand{\UeberRR}{0.953}
-\newcommand{\UeberRMinmax}{.961}
+\newcommand{\UeberRMinmax}{0.961}
 \newcommand{\UeberRMinmaxPoly}{-}
 \newcommand{\UeberRMinmaxPolyfast}{0.951}
 
@@ -311,7 +311,7 @@ Im Modell der gewöhnlichen linearen Regression ist $e_i \sim \mathscr{N}_{n_i}(
 H_{0} : \beta_{1} = \beta_{2}  \textbf{ vs. }  H_{1} : \beta_{1} \neq \beta_{2}
 \end{equation*}
 
-Dabei gleicht man die Dimensionen der $\beta_i$ an, indem man Nullen einfügt.
+%Dabei gleicht man die Dimensionen der $\beta_i$ an, indem man Nullen einfügt.
 
 Dieser Test wird normalerweise mit einem F-Test durchgeführt. In dieser Ausarbeitung werden alternative, auf Konfidenzbändern basierende Methoden nach \cite{Liu64} betrachtet. Insbesondere die folgenden Spezialfälle sind von Interesse:
 
@@ -427,7 +427,7 @@ Da dann $Y$ mittels $f$ von $X$ abhängt, nennt man $Y$ die abhängige Variable 
 
 Andere übliche Bezeichnungen sind Zielvariable für $Y$ und Kovariable oder Einflussgröße für $X$.
 
-Weiterhin wird in dieser Ausarbeitung immer ein multiples, lineares Regressionsmodell benutzt. Das heißt, es liegt die Annahme zugrunde, dass $f(X) = X \cdot $\gls{beta} ist. Dabei bezeichnet $\beta = (\beta_{0}, \ldots, \beta_{p})$ unbekannte Konstanten. 
+Weiterhin wird in dieser Ausarbeitung immer ein multiples, lineares Regressionsmodell benutzt. Das heißt, es liegt die Annahme zugrunde, dass $f(X) = X $\gls{beta} ist. Dabei bezeichnet $\beta = (\beta_{0}, \ldots, \beta_{p})$ unbekannte Konstanten. 
 
 Ein besonderes Modell, das im Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} und Kapitel \ref{Datenbeschreibung und Resultate} wichtig wird, ist das Polynom-Modell. Bei diesem Modell ist die $l$-te Zeile von $X$ gegeben durch $\tilde{x_l} = (1, x_{l}^1, x_{l}^2, \ldots, x_{l}^p)$.
 
@@ -457,7 +457,7 @@ In einem homoskadistischen, multiplen linearen Regressionsmodell sind der \texti
 \hat{\beta} = (X'X)^{-1} X' Y
 \end{equation}
 
-Dabei ist \gls{X-invers} die inverse Matrix zu $X$.
+Dabei ist \gls{X-invers} die inverse Matrix zu $X'X$.
 
 \begin{equation} \label{e}
 \hat{e} = (Y-X \hat{\beta}) = (I-H)Y
@@ -2046,9 +2046,9 @@ Um den Wert von $\hat{\phi}$ für vorgegebene Daten zu bestimmen, wurde die Funk
 Um dann bei gegebenem $\phi$ beziehungsweise $\hat{\phi}$ einen Schätzer für $\beta$ und $\sigma$ zu bestimmen, wird folgender Algorithmus verwendet:
 
 \begin{enumerate}
-\item Benutze gls um $\phi$ zu bestimmen.
-\item Bestimme $\Upsilon$ und mittels der R-Funktion \textit{solve} $\Upsilon^{-1}$ 
-\item Führe eine Eigenwertzerlegung von $\Upsilon^{-1}$ durch, um die Matrix $\Upsilon^{-1}$ zu diagonalisieren und nehme dann von der Hauptdiagonalenmatrix elementenweise die Wurzel, um $\Upsilon^{-1/2}$ zu bestimmen.
+%\item Benutze gls um $\hat{\phi}$ zu bestimmen.
+\item Bestimme $\Upsilon$ und führe eine Eigenwertzerlegung von $\Upsilon := B \Lambda B^{-1}$ durch.
+\item Um die Matrix $\Upsilon^{-1/2}$ zu bestimmen, führt man dann von der Diagonalmatrix $\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_n)$ elementenweise die Transformation $\lambda_i^{-1/2}$ durch und macht den Basiswechsel für das geänderte $\Lambda' = \text{diag}(\lambda_1^{-1/2}, \ldots, \lambda_n^{-1/2})$ rückgängig, um $\Upsilon^{-1/2}$ zu bestimmen.
 \item Transformiere $Y$ nach $Y^{*}$ und $X$ nach $X^{*}$ mittels Linksmultiplikation mit $\Upsilon^{-1/2}$
 \item Benutze eine normale OLS um $D=(X^{'*}X^{*})^{-1}$, $\beta$ und $\sigma^2$ zu berechnen.
 \end{enumerate}
@@ -2188,7 +2188,7 @@ Dabei bezeichnet $c$ immer einen kritischen Wert für die Konstruktion von Konfi
 Es stellt sich in diesem Kapitel häufig die Frage, ob die Nullfunktion in einem bestimmten Konfidenzband enthalten ist. Diese Frage wurde immer durch hinschauen entschieden, da die Unterschiede recht groß sind. Sollte eine genauere Auswertung nötig sein, kann die Funktion \textit{Test.function} verwendet werden, die bei den Simulationen geprüft hat, wie oft das wahre Modell im Konfidenzband liegt.
 
 \subsection{Datenbeschreibung}
-Die Motivation dieser Arbeit ist, wie eine Stammzelle entscheidet, zu welcher Art Gewebe sie wird. Es wird vermutet, dass Stammzellen diese Entscheidung treffen, wenn sie gerade nicht wachsen. Deshalb wurden Stammzellen auf verschiedene Untergründe gesetzt und zu jeweils bestimmten äquidistanten Zeitpunkten unter einem Mikroskop fotografiert. Danach wurde ihre Fläche bestimmt. Mit Hilfe dieser Daten wird eine Regression mit der Zeit als unabhängige Variable durchgeführt. Es wird eine Polynomregression verwendet, da die Ableitungen von Polynomen gut zu berechnen sind und man so die kritischen Punkte des Regressionsgraphen einfach bestimmen kann.
+Die Motivation dieser Arbeit ist herauszufinden, wie eine Stammzelle entscheidet, zu welcher Art Gewebe sie wird. Um diese Frage zu beantworten, wurden Stammzellen auf verschiedene Untergründe gesetzt und zu jeweils bestimmten äquidistanten Zeitpunkten unter einem Mikroskop fotografiert. Danach wurde ihre Fläche bestimmt. Mit Hilfe dieser Daten wird eine Regression mit der Zeit als unabhängige Variable durchgeführt. Es wird eine Polynomregression verwendet, da die Ableitungen von Polynomen gut zu berechnen sind und man so die kritischen Punkte des Regressionsgraphen einfach bestimmen kann.
 
 Es geht darum, das beste Polynom-Modell für die Daten zu wählen. Ein Polynom-Modell ist durch den Grad des Polynoms eindeutig definiert. Das Problem ist also den besten Polynomgrad zu finden.
 
@@ -2376,7 +2376,7 @@ Plottet man die drei Regressionsmodelle in je eine Abbildung für die beiden Dat
 
 Man sieht, dass sich die Regressionsmodelle für die 10 kPa Daten relativ stark unterscheiden, während die Regressionsmodelle bei den 30 kPa Daten fast gleich sind.
 
-Als nächstes testen wir, ob sich die Polynomregressionen von Grad Vier und Grad Fünf unter statistischer Unsicherheit gleich sind. Das heißt, wir testen die Hypothese
+Insgesamt sieht man auch, dass sich die Regressionsmodelle von Grad Fünf und Sechs in beiden Fällen sehr ähnlich sind. Deswegen werden nur die Regressionsmodelle vom Grad Vier und Fünf gegeneinander getestet. Das heißt, wir testen die Hypothese
 
 \begin{equation*}
 H_0 : \beta_{4} = \beta_{5} \textbf{ vs. } \beta_4 \neq \beta_{5}
@@ -2404,48 +2404,48 @@ Wie man sieht, ist in im Fall der 10 kPa Daten die Nullfunktion eindeutig vollst
 
 Bei den 30 kPa Daten ist die Nullhypothese auch knapp ganz im Konfidenzband enthalten und wir können die Nullhypothese wieder nicht ablehnen.
 
-In den folgenden Vier Abbildungen testen wir die analogen Hypothesen
+%In den folgenden Vier Abbildungen testen wir die analogen Hypothesen
 
-\begin{eqnarray*}
-& H_0 : \beta_4 = \beta_6 & \textbf{ vs. } H_1 : \beta_4 \neq \beta_6 \\
-& H_0 : \beta_5 = \beta_6 & \textbf{ vs. } H_1 \beta_5 \neq \beta_6
-\end{eqnarray*} 
+%\begin{eqnarray*}
+%& H_0 : \beta_4 = \beta_6 & \textbf{ vs. } H_1 : \beta_4 \neq \beta_6 \\
+%& H_0 : \beta_5 = \beta_6 & \textbf{ vs. } H_1 \beta_5 \neq \beta_6
+%\end{eqnarray*} 
 
-für die 10 kPa beziehungsweise 30 kPa Daten. Für die Hypothese Grad Vier versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-4-6} und \ref{30kPa-Regmod-4-6}
+%für die 10 kPa beziehungsweise 30 kPa Daten. Für die Hypothese Grad Vier versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-4-6} und \ref{30kPa-Regmod-4-6}
 
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-6.pdf}
-  \caption{10 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
-  \label{10kPa-Regmod-4-6}
-\end{figure}
+%\begin{figure}[H] 
+%  \centering
+%     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-4-6.pdf}
+%  \caption{10 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
+%  \label{10kPa-Regmod-4-6}
+%\end{figure}
 
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-6.pdf}
-  \caption{30 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
-  \label{30kPa-Regmod-4-6}
-\end{figure}
+%\begin{figure}[H] 
+%  \centering
+%     \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-4-6.pdf}
+%  \caption{30 kPa Vergleich von Regressionsmodellen mit Grad Vier versus Sechs}
+%  \label{30kPa-Regmod-4-6}
+%\end{figure}
 
-Man sieht, dass sich der Trend aus den beiden vorherigen Abbildungen wiederholt. Bei den 10 kPa Daten gibt es keinen Zweifel, dass die Nullhypothese nicht abgelehnt werden kann. Bei den 30 kPa Daten kann die Nullhypothese auch eindeutig nicht abgelehnt werden.
+%Man sieht, dass sich der Trend aus den beiden vorherigen Abbildungen wiederholt. Bei den 10 kPa Daten gibt es keinen Zweifel, dass die Nullhypothese nicht abgelehnt werden kann. Bei den 30 kPa Daten kann die Nullhypothese auch eindeutig nicht abgelehnt werden.
 
-Für die Hypothese Grad Fünf versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-5-6} und \ref{30kPa-Regmod-5-6}.
+%Für die Hypothese Grad Fünf versus Grad Sechs erhält man die Abbildungen \ref{10kPa-Regmod-5-6} und \ref{30kPa-Regmod-5-6}.
 
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-5-6.pdf}
-  \caption{10 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
-  \label{10kPa-Regmod-5-6}
-\end{figure}
+%\begin{figure}[H] 
+%  \centering
+%     \includegraphics[width=0.5\textwidth]{30kPa-poly-KB-5-6.pdf}
+%  \caption{10 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
+%  \label{10kPa-Regmod-5-6}
+%\end{figure}
 
-\begin{figure}[H] 
-  \centering
-     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-5-6.pdf}
-  \caption{30 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
-  \label{30kPa-Regmod-5-6}
-\end{figure}
+%\begin{figure}[H] 
+%  \centering
+%     \includegraphics[width=0.5\textwidth]{10kPa-poly-KB-5-6.pdf}
+%  \caption{30 kPa Vergleich von Regressionsmodellen Grad Fünf versus Grad Sechs}
+%  \label{30kPa-Regmod-5-6}
+%\end{figure}
 
-Man sieht, dass wieder in beiden Fällen die Nullhypothese nicht abgelehnt werden kann.
+%Man sieht, dass wieder in beiden Fällen die Nullhypothese nicht abgelehnt werden kann.
 
 
 \subsection{Vergleich von 10 kPa und 30 kPa Daten}
@@ -2560,7 +2560,7 @@ In den Abbildungen \ref{10kPa Grad 5} und \ref{30kPa Grad 5} ist $x_2' \beta_{5,
   \label{30kPa Grad 5}
 \end{figure}
 
-Man sieht deutlich, dass in beiden Fällen die Nullfunktion nicht vollständig im Konfidenzband enthalten ist. Wir können die Nullhypothese $H_0$ also verwerfen und haben einen Anhaltspunkt, davon auszugehen, dass $\beta_{5,5}$ in einem der beiden Fälle Null ist.
+Man sieht deutlich, dass im ersten Fall die Nullfunktion nicht vollständig im Konfidenzband enthalten ist. Wir können die Nullhypothese $H_0$ also verwerfen und haben einen Anhaltspunkt, davon auszugehen, dass $\beta_{5,5}$ im ersten der beiden Fälle Null ist. Beim zweiten Plot ist die Nullfunktion im Konfidenzband enthalten und wir können $H_0$ nicht verwerfen.
 
 Die nächsten Abbildungen \ref{10kPa Grad 6.1} und \ref{30kPa Grad 6.1} geben  die Überprüfung von $\beta_{6,6}$ für die beiden Sätze an Stammzelldaten wieder.
 
@@ -2578,9 +2578,9 @@ Die nächsten Abbildungen \ref{10kPa Grad 6.1} und \ref{30kPa Grad 6.1} geben  d
   \label{30kPa Grad 6.1}
 \end{figure}
 
-Man sieht, dass für die 10 kPa Daten die Nullfunktion wieder nicht ganz in dem Konfidenzband enthalten ist.
+Man sieht, dass für die 10 kPa Daten die Nullfunktion ganz in dem Konfidenzband enthalten ist.
 
-Bei den 30 kPa Daten ist dies jedoch der Fall. Damit kann die Nullhypothese abgelehnt werden und in diesem Fall gilt $\beta_{6,6} \neq 0$.
+Bei den 30 kPa Daten ist dies auch der Fall. Damit kann die Nullhypothese nicht abgelehnt werden.
 
 Betrachten wir zum Schluss den Test, ob $(\beta_{6,5}, \beta_{6,6}) = (0,0)$.
 
