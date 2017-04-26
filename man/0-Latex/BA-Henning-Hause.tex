@@ -1834,6 +1834,28 @@ mit $\tilde{x_2}= x^{p-k+1}(1, x, \ldots, x^{k-1})$.
 
 Also ist die kritische Konstante $c$ genau so wie in Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} berechenbar, außer dass man $p=k-1$ und $(X'X)^{-1}$ mit $V$ ersetzen muss. Die Simulation ändert sich allerdings nicht.
 
+\begin{Beispiel}
+In diesem Beispiel wird getestet, ob bei dem Datensatz aus dem ersten Kapitel die ersten zwei Koeffizienten von $\beta$ signifikant sind. Wir führen also die Hypothese
+
+\begin{align*}
+H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
+\end{align*}
+
+durch. Dabei ist $\beta = (\beta_{1} \beta_{2})$
+
+Mit den Methoden aus diesem Kapitel erhält man den folgenden Plot \ref{Bsp-KB-nested}:
+
+\begin{figure}[H] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{Bsp-KB-nested}
+  \caption{Regression für AR(1)}
+  \label{Bsp-KB-nested}
+\end{figure}
+
+Man sieht also, dass die Nullfunktion vollkommen in dem Konfidenzband liegt. Die Nullhypothese kann also nicht verworfen werden.
+
+\end{Beispiel}
+
 \begin{Simulation}
 Auch für die Methode aus diesem Abschnitt wurden Simulationen durchgeführt:
 

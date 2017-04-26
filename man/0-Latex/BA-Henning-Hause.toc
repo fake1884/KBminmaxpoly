@@ -30,24 +30,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen, wenn das Modell Polynomgestalt hat}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Regression und Konfidenzb\IeC {\"a}nder f\IeC {\"u}r abh\IeC {\"a}ngige Daten}{37}
+\contentsline {section}{\numberline {4}Regression und Konfidenzb\IeC {\"a}nder f\IeC {\"u}r abh\IeC {\"a}ngige Daten}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Autoregressive Modelle und AR(1)}{37}
+\contentsline {subsection}{\numberline {4.1}Autoregressive Modelle und AR(1)}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}AR(1) und das \textit {nlme} Paket}{39}
+\contentsline {subsection}{\numberline {4.2}AR(1) und das \textit {nlme} Paket}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{42}
+\contentsline {subsection}{\numberline {4.3}Konfidenzb\IeC {\"a}nder f\IeC {\"u}r AR(1)}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{44}
+\contentsline {section}{\numberline {5}Datenbeschreibung und Resultate}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{44}
+\contentsline {subsection}{\numberline {5.1}Datenbeschreibung}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{46}
+\contentsline {subsection}{\numberline {5.2}Vergleich verschiedener Konfidenzb\IeC {\"a}nder}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Vergleich von polynomen Regressionsmodellen mit Grad Vier, F\IeC {\"u}nf und Sechs}{48}
+\contentsline {subsection}{\numberline {5.3}Vergleich von polynomen Regressionsmodellen mit Grad Vier, F\IeC {\"u}nf und Sechs}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{52}
+\contentsline {subsection}{\numberline {5.4}Vergleich von 10 kPa und 30 kPa Daten}{53}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{53}
+\contentsline {subsection}{\numberline {5.5}Einen Teil eines Regressionsmodells \IeC {\"u}berpr\IeC {\"u}fen}{54}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{60}
+\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{61}

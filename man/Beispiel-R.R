@@ -296,15 +296,15 @@ plot.KB.R.nested = plot.KB.pruef(nobs, grad.1, inv.X.1, beta.1, sigma.1, factor 
                                  ngrid = nobs)
 
 
-pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-poly-hetero.pdf", width=10,height=8)
-
+pdf("man/0-Latex/graphics/Beispiel/Bsp-KB-nested.pdf", width=10,height=8)
 plot(0,0,xlim=c(0,1),ylim=c(min(plot.KB.R.nested[[2]]),max(plot.KB.R.nested[[3]])), xlab="relative Zeit",
      ylab="relatives Wachstum", cex=2, lwd=3, cex.axis=2, cex.lab=2)
-lines(c(1,0),c(0,0), cex=2, lwd=3)
-curve(fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T)
-lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[2]], lty=1, cex=2, lwd=3)
-lines(plot.bsp.vergl[[1]], plot.bsp.vergl[[3]], lty=1, cex=2, lwd=3)
-
+lines(c(1,0),c(0,0), cex=2, lwd=3, lty="dotted")
+curve(fit.1[[2]][3]*x^2+fit.1[[2]][4]*x^3, add=T, cex=2, lwd=3, lty="dashed")
+lines(plot.KB.R.nested[[1]], plot.KB.R.nested[[2]], lty=1, cex=2, lwd=3)
+lines(plot.KB.R.nested[[1]], plot.KB.R.nested[[3]], lty=1, cex=2, lwd=3)
+legend(x="topleft", legend=c("x.2 %*% beta.2", "Konfidenzband", "Nullfunktion"),
+       col=c("black", "black", "black"),cex=2, lwd=3, lty=c("solid", "dashed", "dotted"))
 dev.off()
 
 ########################################################################################
