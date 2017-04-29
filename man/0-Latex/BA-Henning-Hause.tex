@@ -105,6 +105,7 @@
 %%%
 % Kapitel 2 Vergleich
 % für die Regression mit Grad drei
+\newcommand{\betatwo}{(10,1,-1,9)}
 \newcommand{\gradtwo}{4}
 \newcommand{\betatwoest}{(0.5297226 ; 0.5882577 ; -1.7965271 ; 3.0540371 ; -1.4350387)}
 \newcommand{\sigmatwoest}{0.04499058}
@@ -164,10 +165,10 @@
 
 % Die normalen
 % ueberdeckung, R als Grundmodell
-\newcommand{\UeberRR}{0.953}
-\newcommand{\UeberRMinmax}{0.961}
+\newcommand{\UeberRR}{0.995}
+\newcommand{\UeberRMinmax}{0.992}
 \newcommand{\UeberRMinmaxPoly}{-}
-\newcommand{\UeberRMinmaxPolyfast}{0.951}
+\newcommand{\UeberRMinmaxPolyfast}{0.946}
 
 % ueberdeckung, AR bekannt als Grundmodell
 \newcommand{\UeberARbekanntR}{0.977}
@@ -1121,8 +1122,6 @@ Jetzt wird das Beispiel aus Abschnitt \ref{Konfidenzbaender auf R fuer ein multi
 \end{figure}
 
 Der kritische Wert für das Konfidenzband auf ganz $\mathbb{R}^3$, der bereits in Abschnitt \ref{Konfidenzbaender auf R fuer ein multiples lineares Regressionsmodell} berechnet wurde, ist \cR . Für das Konfidenzband auf $A$ ergibt sich \cA ~als kritischer Wert für das Konfidenzband. Dieser Wert ist kleiner als der bisherige, was auch zu erwarten war.
-
-Dies sieht man auch daran, dass das Konfidenzband auf $A$ schmaler ist, als das Konfidenzband auf $\mathbb{R}^3$. 
 \end{Beispiel}
 
 \begin{Simulation}
@@ -1374,9 +1373,11 @@ Es ist mit der in diesem Kapitel eingeführten Methode auch möglich zwei Modell
 Ein Beispiel für solch ein Vorgehen ist der Vergleich des Blutdrucks von Männern und Frauen. Konkret kann man mit dieser Methode beispielsweise die Frage beantworten, ob sowohl für Männer als auch für Frauen der Zusammenhang zwischen Alter und Blutdruck gleich ist.
 
 \begin{Beispiel}
-Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem eine zweite Designmatrix $X_2$ einführt wird. Die Designmatrix $X_2$ stellt ein polynomiales Modell vom Grad Vier dar. 
+Es wird das Beispiel aus Kapitel \ref{Regression und Konfidenzbaender} fortgeführt, indem ein zweiter Datensatz $Y'$ eingeführt wird.
 
-Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob es für die Daten, die bereits in Kapitel \ref{Regression und Konfidenzbaender} vorgestellt wurden, einen Unterschied macht, ein polynomiales Modell vom Grad Drei oder vom Grad Vier zugrunde zu legen. 
+Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob sich bei den beiden Regressionsmodelle $Y' = X \beta ' + e$ und $Y = X \beta + e$ die beiden Koeffizientenvektoren signifikant unterscheiden.
+
+Der erste Datensatz wurde bereits in Kapitel \ref{Regression und Konfidenzbaender} vorgestellt. Der andere wird mit einem Koeffizientenvektor $\beta' = \betatwo$ erzeugt.
 
 In der Abbildung \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
 
@@ -1576,6 +1577,14 @@ Allerdings macht solch ein Test keinerlei Aussage über die Größe des Untersch
 Dieser Abschnitt basiert auf \cite[119-121]{Liu64}.
 Die grundlegende Idee ist, die Modelle voneinander abzuziehen und dann zu sehen, ob die Nullfunktion in einem Konfidenzband um die Differenz der beiden Modelle liegt.
 
+Man erhält dann die Entscheidungsregel: Verwerfe $H_0$ in für den Test
+
+\begin{align*}
+H_{0} : \beta_1 = \beta_2  \textbf{ vs. }  H_{1} : \beta_1 \neq \beta_2 
+\end{align*}
+
+genau dann, wenn die konstante Nullfunktion für mindestens ein $x_{0}$ ganz außerhalb des Konfidenzbandes um $x_{0}' (\beta_1 - \beta_2)$  liegt.
+
 Es wird dies nach \cite[122]{Liu64} formalisiert: 
 
 Ein zweiseitiges, hyperbolisches, gleichmäßiges Konfidenzband für $x'\beta_2 - x'\beta_1$ über der Region $A$ hat die Form
@@ -1650,7 +1659,7 @@ Es wird jetzt das Beispiel aus dem Abschnitt \ref{Vergleich F-Test} fortgeführt
   \label{KB-poly-hetero-BSP}
 \end{figure}
 
-Man sieht, dass die konstante Nullfunktion ganz im Konfidenzband enthalten ist. Also wird in diesem Fall die Nullhypothese nicht verworfen. Dies kann daran liegen, dass in diesem Test nur auf dem Intervall [0,1] getestet wird. Außerdem respektiert dieser Test die besondere Polynomstruktur des zugrunde liegenden Modells.
+Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten ist. Also kann man auch in diesem Fall die Nullhypothese verwerfen.
 
 \end{Beispiel}
 
@@ -1819,7 +1828,13 @@ Analog zum letzten Abschnitt kann wieder gezeigt werden, dass dieser Test dem Ko
 x_2' \beta_2 \in x_2' \hat{\beta_2} \pm \sqrt{k f^{\alpha}_{k,v}} \hat{\sigma} \sqrt{x_2' V x_2} \text{ für alle } x_2 \in \mathbb{R}^k
 \end{equation}
 
-entspricht. Das heißt, liegt die Nullfunktion nicht vollständig im Konfidenzband \eqref{KB poly prüfen}, kann man die Nullhypothese aus Test \eqref{KB hypo prüfen} ablehnen.
+entspricht. Das heißt, liegt die Nullfunktion nicht vollständig im Konfidenzband \eqref{KB poly prüfen}, kann man die Nullhypothese aus Test \eqref{Test_prüfen} ablehnen.
+
+Der Test \eqref{Test_prüfen} war von folgender Form
+
+\begin{equation*}
+H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
+\end{equation*}
 
 Analog zu Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} kann man wieder ein Konfidenzband auf einem Intervall $A$ konstruieren, das die Polynomstruktur berücksichtigt.
 
@@ -1841,7 +1856,7 @@ In diesem Beispiel wird getestet, ob bei dem Datensatz aus dem ersten Kapitel di
 H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
 \end{align*}
 
-durch. Dabei ist $\beta = (\beta_{1} \beta_{2})$
+durch. Dabei ist $\beta = (\beta_{1}, \beta_{2})$ mit $\beta_2 \subset \mathbb{R}^2$ 
 
 Mit den Methoden aus diesem Kapitel erhält man den folgenden Plot \ref{Bsp-KB-nested}:
 
@@ -1852,7 +1867,7 @@ Mit den Methoden aus diesem Kapitel erhält man den folgenden Plot \ref{Bsp-KB-n
   \label{Bsp-KB-nested}
 \end{figure}
 
-Man sieht also, dass die Nullfunktion vollkommen in dem Konfidenzband liegt. Die Nullhypothese kann also nicht verworfen werden.
+Man sieht, dass die Nullfunktion vollkommen in dem Konfidenzband liegt. Die Nullhypothese kann also nicht verworfen werden.
 
 \end{Beispiel}
 

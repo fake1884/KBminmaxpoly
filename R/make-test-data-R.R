@@ -12,13 +12,13 @@ Make.data.R = function()
     # besser 1000
     #ntest=100
     ntest=1000
-    grad=1
-    #grad=5
+    #grad=1
+    grad=5
     # höherer Stichprobenumfang -> 200
     #nobs=50
     nobs=200
-    beta=c(10,5)
-    #beta=c(10,5,-4,7,3,-4)
+    #beta=c(10,5)
+    beta=c(10,5,-4,7,3,-4)
 
     x.raw=c(0:(nobs-1))
     x=x.raw/max(x.raw)
