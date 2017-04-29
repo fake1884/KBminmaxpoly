@@ -252,7 +252,7 @@ Prof. Dr. Tatyana Krivobokova\\
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Abgabetermin:}\\
-11.07.2017\\
+03.05.2017\\
 
 \end{flushleft}
 \end{minipage}
@@ -1379,7 +1379,7 @@ Das heißt, im Beispiel zu diesem Kapitel wird es darum gehen, ob sich bei den b
 
 Der erste Datensatz wurde bereits in Kapitel \ref{Regression und Konfidenzbaender} vorgestellt. Der andere wird mit einem Koeffizientenvektor $\beta' = \betatwo$ erzeugt.
 
-In der Abbildung \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
+In Abbildung \ref{Vergleich-Bsp} sind die beiden Modelle mit den Daten eingezeichnet.
 
 \begin{figure}[H] 
   \centering
@@ -1650,16 +1650,16 @@ Weiterhin wurde bereits im ersten Kapitel gezeigt, dass Konfidenzbänder auf ein
 %Was passiert, wenn eines der Modelle weniger Dimensionen (im Sinne der Designmatrix) als das andere hat ?
 
 \begin{Beispiel}
-Es wird jetzt das Beispiel aus dem Abschnitt \ref{Vergleich F-Test} fortgeführt, indem die Differenz der Regressionsmodelle geplottet wird und ein Konfidenzbänder auf $A$ für Polynome einfügt wird. Siehe dazu Abbildung \ref{KB-poly-hetero-BSP}.
+Es wird jetzt das Beispiel aus Abschnitt \ref{Vergleich F-Test} fortgeführt, indem die Differenz der Regressionsmodelle geplottet wird und ein Konfidenzband auf $A$ für Polynome einfügt wird. Siehe dazu Abbildung \ref{KB-poly-hetero-BSP}.
 
 \begin{figure}[H] 
   \centering
      \includegraphics[width=0.5\textwidth]{Bsp-KB-poly-hetero}
-  \caption{Differenz des Beispiels mit Konfidenzband auf A für Polynome}
+  \caption{Differenz der Regressionsmodelle aus dem Beispiel mit Konfidenzband auf $A$ für Polynome}
   \label{KB-poly-hetero-BSP}
 \end{figure}
 
-Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten ist. Also kann man auch in diesem Fall die Nullhypothese verwerfen.
+Man sieht, dass die konstante Nullfunktion nicht ganz im Konfidenzband enthalten ist. Also kann man auch in diesem Fall, genau wie im Fall des F-Tests, die Nullhypothese verwerfen.
 
 \end{Beispiel}
 
@@ -1850,7 +1850,7 @@ mit $\tilde{x_2}= x^{p-k+1}(1, x, \ldots, x^{k-1})$.
 Also ist die kritische Konstante $c$ genau so wie in Abschnitt \ref{Konfidenzbaenderauf auf einem Intervall für Regressionsmodell mit Polynomgestalt} berechenbar, außer dass man $p=k-1$ und $(X'X)^{-1}$ mit $V$ ersetzen muss. Die Simulation ändert sich allerdings nicht.
 
 \begin{Beispiel}
-In diesem Beispiel wird getestet, ob bei dem Datensatz aus dem ersten Kapitel die ersten zwei Koeffizienten von $\beta$ signifikant sind. Wir führen also die Hypothese
+In diesem Beispiel wird getestet, ob bei dem Datensatz aus dem ersten Kapitel die beiden führenden Koeffizienten von $\beta$ signifikant sind. Wir führen also die Hypothese
 
 \begin{align*}
 H_{0} : \beta_{2} = 0  \textbf{ vs. }  H_{1} : \beta_{2} \neq 0
@@ -1868,7 +1868,6 @@ Mit den Methoden aus diesem Kapitel erhält man den folgenden Plot \ref{Bsp-KB-n
 \end{figure}
 
 Man sieht, dass die Nullfunktion vollkommen in dem Konfidenzband liegt. Die Nullhypothese kann also nicht verworfen werden.
-
 \end{Beispiel}
 
 \begin{Simulation}
